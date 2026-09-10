@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -15,17 +13,21 @@
   <title>The Process Recovery Center</title>
 
   <style>
-
     :root {
-      --blue: #59c7f2;
+      --blue: #56c8f2;
       --blue-bright: #00aeef;
-      --blue-soft: #9eddf5;
-      --navy: #061722;
-      --navy-2: #0a2231;
-      --navy-3: #102c3d;
+      --blue-soft: #a8e1f7;
+
+      --bg: #02090d;
+      --bg-2: #04111a;
+      --panel: #0b2230;
+      --panel-2: #102d3f;
+
       --white: #ffffff;
-      --muted: #abc0cc;
-      --border: rgba(102, 202, 241, .42);
+      --muted: #9eb3be;
+
+      --border: rgba(76, 191, 236, .42);
+      --border-soft: rgba(112, 197, 232, .24);
     }
 
     * {
@@ -35,12 +37,13 @@
     html {
       margin: 0;
       padding: 0;
-      background: #02090d;
+      background: var(--bg);
       -webkit-text-size-adjust: 100%;
     }
 
     body {
       margin: 0;
+
       min-height: 100vh;
 
       font-family:
@@ -53,25 +56,25 @@
 
       background:
         radial-gradient(
-          circle at 10% 20%,
-          rgba(0, 174, 239, .13),
+          circle at 10% 12%,
+          rgba(0,174,239,.14),
           transparent 32%
         ),
         linear-gradient(
           180deg,
           #06131b 0%,
-          #02090d 70%
+          #02090d 100%
         );
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
       -webkit-tap-highlight-color: transparent;
     }
 
-    button {
-      font-family: inherit;
+    svg {
+      display: block;
     }
 
     .page {
@@ -81,6 +84,8 @@
 
       margin: 0 auto;
 
+      overflow: hidden;
+
       background:
         linear-gradient(
           180deg,
@@ -89,12 +94,9 @@
           #02090d 100%
         );
 
-      overflow: hidden;
-
       box-shadow:
-        0 0 70px rgba(0, 0, 0, .55);
+        0 0 70px rgba(0,0,0,.55);
     }
-
 
 
     /* =====================================================
@@ -108,7 +110,8 @@
       align-items: center;
       justify-content: center;
 
-      color: #b9c8cf;
+      color: #bac9d0;
+      text-align: center;
     }
 
     .spinner {
@@ -119,10 +122,14 @@
 
       border-radius: 50%;
 
-      border: 3px solid rgba(89, 199, 242, .18);
-      border-top-color: var(--blue);
+      border:
+        3px solid rgba(89,199,242,.18);
 
-      animation: spin .8s linear infinite;
+      border-top-color:
+        var(--blue);
+
+      animation:
+        spin .8s linear infinite;
     }
 
     @keyframes spin {
@@ -132,7 +139,6 @@
     }
 
 
-
     /* =====================================================
        HERO
     ===================================================== */
@@ -140,23 +146,26 @@
     .hero {
       position: relative;
 
-      min-height: 430px;
+      min-height: 500px;
 
       padding:
         max(18px, env(safe-area-inset-top))
         20px
-        28px;
+        26px;
 
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
 
+      overflow: hidden;
+
       background-image:
         linear-gradient(
           180deg,
-          rgba(2, 11, 17, .28) 0%,
-          rgba(2, 12, 19, .25) 35%,
-          rgba(2, 12, 19, .72) 72%,
+          rgba(2,10,16,.18) 0%,
+          rgba(2,10,16,.22) 28%,
+          rgba(2,11,17,.48) 55%,
+          rgba(2,12,18,.82) 80%,
           #06131b 100%
         ),
         url("bridge-hero.jpg");
@@ -164,9 +173,7 @@
       background-size: cover;
 
       background-position:
-        center center;
-
-      overflow: hidden;
+        center 45%;
     }
 
     .hero::after {
@@ -179,9 +186,9 @@
 
       background:
         radial-gradient(
-          circle at 82% 24%,
-          rgba(0, 174, 239, .10),
-          transparent 38%
+          circle at 78% 25%,
+          rgba(0,174,239,.10),
+          transparent 40%
         );
     }
 
@@ -194,22 +201,47 @@
           env(safe-area-inset-top)
         );
 
-      left: 20px;
-      right: 20px;
+      left: 19px;
 
-      z-index: 2;
+      z-index: 3;
+    }
+
+    .logo-glass {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        9px
+        12px;
+
+      border:
+        1px solid rgba(255,255,255,.18);
+
+      border-radius: 15px;
+
+      background:
+        rgba(255,255,255,.78);
+
+      backdrop-filter:
+        blur(10px);
+
+      -webkit-backdrop-filter:
+        blur(10px);
+
+      box-shadow:
+        0 9px 28px rgba(0,0,0,.22);
     }
 
     .process-logo {
       display: block;
 
-      width: 220px;
-      max-width: 64%;
+      width: 215px;
+      max-width: 66vw;
+      max-height: 82px;
 
-      filter:
-        drop-shadow(
-          0 5px 14px rgba(0, 0, 0, .45)
-        );
+      object-fit: contain;
     }
 
     .hero-content {
@@ -217,7 +249,7 @@
 
       z-index: 3;
 
-      margin-top: 170px;
+      margin-top: 190px;
     }
 
     .hero-name {
@@ -225,19 +257,19 @@
 
       font-size:
         clamp(
-          34px,
-          8.8vw,
-          46px
+          35px,
+          9vw,
+          47px
         );
 
       line-height: 1.02;
 
-      font-weight: 800;
+      font-weight: 850;
 
       letter-spacing: -.9px;
 
       text-shadow:
-        0 4px 16px rgba(0,0,0,.7);
+        0 4px 18px rgba(0,0,0,.76);
     }
 
     .hero-title {
@@ -249,44 +281,45 @@
 
       margin-top: 10px;
 
-      color: #d9e8ef;
+      color: #e4edf1;
 
       font-size: 16px;
 
       line-height: 1.3;
 
       text-shadow:
-        0 2px 10px rgba(0,0,0,.8);
+        0 2px 12px rgba(0,0,0,.8);
     }
 
     .hero-title::before,
     .hero-title::after {
       content: "";
 
+      width: 27px;
       height: 2px;
 
-      width: 27px;
-
       flex-shrink: 0;
+
+      border-radius: 999px;
 
       background:
         var(--blue-bright);
     }
 
     .credentials {
-      margin-top: 5px;
+      margin-top: 7px;
 
-      color: var(--blue-soft);
+      color:
+        var(--blue-soft);
 
       font-size: 12px;
 
-      font-weight: 700;
+      font-weight: 800;
 
-      letter-spacing: 1.2px;
+      letter-spacing: 1.4px;
 
       text-transform: uppercase;
     }
-
 
 
     /* =====================================================
@@ -299,20 +332,20 @@
       grid-template-columns:
         repeat(
           3,
-          minmax(0, 1fr)
+          minmax(0,1fr)
         );
 
       gap: 9px;
 
-      margin-top: 19px;
+      margin-top: 20px;
     }
 
     .contact-action {
-      min-height: 94px;
+      min-height: 98px;
 
       padding:
         13px
-        8px;
+        7px;
 
       display: flex;
       flex-direction: column;
@@ -323,57 +356,55 @@
       text-align: center;
 
       border:
-        1px
-        solid
-        rgba(107, 200, 239, .45);
+        1px solid rgba(90,194,235,.45);
 
       border-radius: 17px;
 
       background:
         linear-gradient(
           145deg,
-          rgba(16, 44, 61, .93),
-          rgba(5, 21, 31, .95)
+          rgba(17,48,66,.94),
+          rgba(4,18,27,.97)
         );
 
       box-shadow:
         inset 0 1px 0 rgba(255,255,255,.05),
-        0 9px 24px rgba(0,0,0,.18);
+        0 10px 25px rgba(0,0,0,.2);
 
       transition:
         transform .12s ease,
         border-color .12s ease;
     }
 
-    .contact-action:active {
-      transform: scale(.97);
-
-      border-color:
-        var(--blue);
-    }
-
     .contact-action.primary {
       background:
         linear-gradient(
           145deg,
-          #0c9dd7,
-          #086ca5
+          #0ca5df,
+          #0669a0
         );
 
       border-color:
-        #26c5ff;
+        #32caff;
+    }
+
+    .contact-action:active {
+      transform:
+        scale(.97);
     }
 
     .contact-icon {
-      height: 25px;
+      width: 27px;
+      height: 27px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      margin-bottom: 8px;
 
-      margin-bottom: 7px;
+      color: white;
+    }
 
-      font-size: 23px;
+    .contact-icon svg {
+      width: 100%;
+      height: 100%;
     }
 
     .contact-label {
@@ -389,15 +420,14 @@
 
       overflow: hidden;
 
-      color: #c2d4dc;
+      color: #c3d3da;
 
       font-size: 9.5px;
 
-      text-overflow: ellipsis;
-
       white-space: nowrap;
-    }
 
+      text-overflow: ellipsis;
+    }
 
 
     /* =====================================================
@@ -408,9 +438,8 @@
       padding:
         0
         17px
-        36px;
+        25px;
     }
-
 
 
     /* =====================================================
@@ -422,35 +451,31 @@
 
       overflow: hidden;
 
-      min-height: 127px;
+      min-height: 124px;
 
       display: flex;
-
       align-items: center;
 
       gap: 15px;
 
       padding:
-        19px
-        19px;
+        18px;
 
       border:
-        1px
-        solid
-        #0ebdff;
+        1px solid #0ebdff;
 
       border-radius: 19px;
 
       background:
         linear-gradient(
           90deg,
-          rgba(5, 31, 46, .98),
-          rgba(6, 38, 58, .91)
+          #062233,
+          #0a3047
         );
 
       box-shadow:
-        0 10px 28px rgba(0,0,0,.24),
-        inset 0 0 30px rgba(0,174,239,.05);
+        0 12px 28px rgba(0,0,0,.26),
+        inset 0 0 34px rgba(0,174,239,.05);
     }
 
     .admissions::after {
@@ -459,35 +484,37 @@
       position: absolute;
       inset: 0;
 
+      opacity: .22;
+
       background-image:
         linear-gradient(
           90deg,
-          rgba(4, 21, 31, .96),
-          rgba(4, 28, 43, .75)
+          rgba(3,18,27,.95),
+          rgba(4,34,50,.62)
         ),
         url("bridge-hero.jpg");
 
       background-size: cover;
-      background-position: center 58%;
 
-      opacity: .42;
+      background-position:
+        center 48%;
 
       z-index: 0;
     }
 
     .admissions > * {
       position: relative;
-
       z-index: 2;
     }
 
     .admissions-icon {
-      width: 61px;
-      height: 61px;
+      width: 60px;
+      height: 60px;
 
-      min-width: 61px;
+      min-width: 60px;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
@@ -496,14 +523,21 @@
       background:
         linear-gradient(
           145deg,
-          #0ca4de,
-          #075a91
+          #13aae4,
+          #075889
         );
 
-      font-size: 28px;
+      box-shadow:
+        0 7px 20px rgba(0,0,0,.22);
+    }
+
+    .admissions-icon svg {
+      width: 30px;
+      height: 30px;
     }
 
     .admissions-copy {
+      min-width: 0;
       flex: 1;
     }
 
@@ -512,7 +546,7 @@
 
       font-weight: 900;
 
-      letter-spacing: -.3px;
+      letter-spacing: -.4px;
     }
 
     .admissions-title span {
@@ -521,13 +555,13 @@
     }
 
     .admissions-number {
-      margin-top: 7px;
+      margin-top: 5px;
 
       color: white;
 
       font-size: 18px;
 
-      font-weight: 800;
+      font-weight: 850;
     }
 
     .admissions-sub {
@@ -536,9 +570,9 @@
       color:
         var(--blue-soft);
 
-      font-size: 9px;
+      font-size: 8.5px;
 
-      font-weight: 700;
+      font-weight: 800;
 
       letter-spacing: 1.4px;
 
@@ -546,11 +580,10 @@
     }
 
     .admissions-arrow {
-      font-size: 34px;
-
       color: white;
-    }
 
+      font-size: 32px;
+    }
 
 
     /* =====================================================
@@ -563,7 +596,7 @@
       grid-template-columns:
         repeat(
           2,
-          minmax(0, 1fr)
+          minmax(0,1fr)
         );
 
       gap: 9px;
@@ -572,64 +605,71 @@
     }
 
     .primary-link {
-      min-height: 102px;
+      min-height: 106px;
 
       display: flex;
-
       align-items: center;
 
-      gap: 11px;
+      gap: 10px;
 
-      padding: 15px;
+      padding:
+        15px;
 
       border:
-        1px
-        solid
-        rgba(105, 188, 224, .36);
+        1px solid rgba(105,188,224,.36);
 
       border-radius: 16px;
 
       background:
         linear-gradient(
           145deg,
-          #102838,
-          #071722
+          #102a3b,
+          #071620
         );
+
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04);
 
       transition:
         transform .12s ease;
     }
 
     .primary-link:active {
-      transform: scale(.98);
+      transform:
+        scale(.98);
     }
 
     .link-icon {
-      width: 38px;
+      width: 34px;
+      height: 34px;
 
-      min-width: 38px;
+      min-width: 34px;
 
-      text-align: center;
+      color: white;
+    }
 
-      font-size: 28px;
+    .link-icon svg {
+      width: 100%;
+      height: 100%;
     }
 
     .link-copy {
       flex: 1;
-
       min-width: 0;
     }
 
     .link-title {
       font-size: 13px;
 
-      font-weight: 800;
+      font-weight: 850;
+
+      line-height: 1.18;
     }
 
     .link-sub {
-      overflow: hidden;
-
       margin-top: 5px;
+
+      overflow: hidden;
 
       color:
         var(--muted);
@@ -648,16 +688,14 @@
     }
 
 
-
     /* =====================================================
-       SECTION TITLE
+       SECTION HEADER
     ===================================================== */
 
     .section-heading {
       display: flex;
 
       align-items: flex-end;
-
       justify-content: space-between;
 
       gap: 12px;
@@ -670,9 +708,7 @@
       padding-bottom: 8px;
 
       border-bottom:
-        2px
-        solid
-        rgba(0, 174, 239, .72);
+        2px solid rgba(0,174,239,.72);
     }
 
     .section-title {
@@ -681,30 +717,28 @@
 
       font-size: 16px;
 
-      font-weight: 800;
+      font-weight: 850;
 
-      letter-spacing: 2.7px;
+      letter-spacing: 2.6px;
 
       text-transform: uppercase;
     }
 
     .section-small {
-      color:
-        #7ccbe9;
+      color: #7ccbe9;
 
       font-size: 7px;
 
-      font-weight: 700;
+      font-weight: 750;
 
       line-height: 1.4;
 
-      letter-spacing: 1.5px;
+      letter-spacing: 1.45px;
 
       text-align: right;
 
       text-transform: uppercase;
     }
-
 
 
     /* =====================================================
@@ -717,29 +751,24 @@
       grid-template-columns:
         repeat(
           2,
-          minmax(0, 1fr)
+          minmax(0,1fr)
         );
 
       gap: 9px;
     }
 
     .resource-card {
-      position: relative;
-
-      min-height: 164px;
-
-      display: flex;
-
-      flex-direction: column;
+      min-height: 165px;
 
       padding:
         16px
         14px;
 
+      display: flex;
+      flex-direction: column;
+
       border:
-        1px
-        solid
-        rgba(100, 190, 229, .42);
+        1px solid rgba(100,190,229,.42);
 
       border-radius: 16px;
 
@@ -750,28 +779,31 @@
           #071723
         );
 
-      overflow: hidden;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04);
 
       transition:
         transform .12s ease;
     }
 
     .resource-card:active {
-      transform: scale(.98);
+      transform:
+        scale(.98);
     }
 
     .resource-icon {
-      height: 37px;
-
-      display: flex;
-
-      align-items: center;
+      width: 36px;
+      height: 36px;
 
       margin-bottom: 11px;
 
-      color: white;
+      color:
+        #dff5ff;
+    }
 
-      font-size: 30px;
+    .resource-icon svg {
+      width: 100%;
+      height: 100%;
     }
 
     .resource-name {
@@ -781,7 +813,7 @@
 
       font-size: 14px;
 
-      font-weight: 800;
+      font-weight: 850;
 
       line-height: 1.2;
     }
@@ -789,7 +821,7 @@
     .resource-description {
       margin-top: 6px;
 
-      color: #9bb4c0;
+      color: #9fb4bf;
 
       font-size: 9.5px;
 
@@ -797,26 +829,23 @@
     }
 
     .resource-bottom {
+      margin-top: auto;
+      padding-top: 12px;
+
       display: flex;
 
       align-items: flex-end;
-
       justify-content: space-between;
 
       gap: 8px;
-
-      margin-top: auto;
-
-      padding-top: 13px;
     }
 
     .resource-number {
-      color:
-        #dcebf1;
+      color: #dcebf1;
 
       font-size: 12px;
 
-      font-weight: 700;
+      font-weight: 750;
     }
 
     .resource-action-label {
@@ -827,7 +856,7 @@
 
       font-size: 8.5px;
 
-      font-weight: 800;
+      font-weight: 850;
 
       text-transform: uppercase;
     }
@@ -839,33 +868,25 @@
     }
 
 
-
     /* =====================================================
        CRISIS
     ===================================================== */
 
     .crisis {
-      position: relative;
-
-      overflow: hidden;
-
       margin-top: 15px;
 
       min-height: 138px;
 
-      display: flex;
+      padding:
+        18px;
 
+      display: flex;
       align-items: center;
 
       gap: 15px;
 
-      padding:
-        18px;
-
       border:
-        1px
-        solid
-        #0dbdff;
+        1px solid #0dbdff;
 
       border-radius: 18px;
 
@@ -875,11 +896,13 @@
           #062033,
           #07141e
         );
+
+      box-shadow:
+        inset 0 0 30px rgba(0,174,239,.035);
     }
 
     .crisis-number-block {
       display: flex;
-
       align-items: center;
 
       gap: 10px;
@@ -892,7 +915,6 @@
       height: 50px;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -901,11 +923,14 @@
       background:
         linear-gradient(
           145deg,
-          #167aaf,
-          #0b3857
+          #167eaf,
+          #0b3958
         );
+    }
 
-      font-size: 24px;
+    .crisis-icon svg {
+      width: 24px;
+      height: 24px;
     }
 
     .crisis-number {
@@ -951,9 +976,9 @@
 
       font-size: 9px;
 
-      font-weight: 800;
+      font-weight: 850;
 
-      letter-spacing: 1.3px;
+      letter-spacing: 1.25px;
 
       text-transform: uppercase;
     }
@@ -966,9 +991,9 @@
 
       font-size: 9px;
 
-      font-weight: 800;
+      font-weight: 850;
 
-      letter-spacing: 1.7px;
+      letter-spacing: 1.55px;
 
       text-transform: uppercase;
     }
@@ -976,7 +1001,7 @@
     .emergency {
       display: block;
 
-      margin-top: 8px;
+      margin-top: 9px;
 
       color: #758c98;
 
@@ -986,7 +1011,6 @@
     }
 
 
-
     /* =====================================================
        FOOTER
     ===================================================== */
@@ -994,72 +1018,132 @@
     .footer {
       padding:
         34px
-        15px
-        10px;
+        12px
+        18px;
 
       text-align: center;
     }
 
-    .footer-brand-row {
+    .footer-divider {
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
-      gap: 16px;
+      gap: 13px;
     }
 
     .footer-line {
-      width: 72px;
+      width: 76px;
       height: 1px;
 
       background:
         var(--blue-bright);
     }
 
-    .footer-mark {
-      width: 52px;
-      height: 52px;
+    .footer-symbol {
+      width: 45px;
+      height: 45px;
 
-      object-fit: contain;
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(0,174,239,.17),
+          transparent 68%
+        );
     }
 
-    .footer-company {
-      margin-top: 11px;
+    .footer-symbol img {
+      width: 42px;
+      height: 42px;
 
-      color: #a9c8d6;
+      object-fit: contain;
 
-      font-size: 8px;
+      object-position: left center;
 
-      font-weight: 700;
+      /* Crop the logo visually so the blue symbol is dominant */
+      clip-path:
+        inset(
+          0 72% 0 0
+        );
+
+      transform:
+        scale(2.45);
+
+      transform-origin:
+        left center;
+    }
+
+    .footer-process-text {
+      margin-top: 12px;
+
+      color: #b6d4e0;
+
+      font-size: 8.5px;
+
+      font-weight: 800;
 
       letter-spacing: 2px;
 
       text-transform: uppercase;
     }
 
+    .king-wrap {
+      width: 150px;
+
+      margin:
+        18px auto
+        0;
+
+      padding:
+        10px
+        12px;
+
+      border:
+        1px solid rgba(255,255,255,.08);
+
+      border-radius: 12px;
+
+      background:
+        rgba(255,255,255,.92);
+    }
+
     .king-logo {
       display: block;
 
-      width: 100px;
+      width: 100%;
       max-height: 70px;
-
-      margin:
-        17px auto
-        0;
 
       object-fit: contain;
 
-      filter:
-        brightness(0)
-        invert(1);
+      opacity: .96;
 
-      opacity: .72;
+      filter: none;
+    }
+
+    .footer-region {
+      margin-top: 16px;
+
+      color: #a7c9d7;
+
+      font-size: 8.5px;
+
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
     }
 
     .footer-tagline {
-      margin-top: 22px;
+      margin-top: 21px;
 
       color:
         var(--blue-bright);
@@ -1069,19 +1153,20 @@
         "Segoe Script",
         cursive;
 
-      font-size: 31px;
+      font-size: 30px;
 
       line-height: 1;
 
-      transform: rotate(-1deg);
+      transform:
+        rotate(-1deg);
     }
 
     .footer-accent {
-      width: 45px;
+      width: 46px;
       height: 3px;
 
       margin:
-        15px auto
+        14px auto
         0;
 
       border-radius: 999px;
@@ -1091,13 +1176,14 @@
     }
 
 
-
     /* =====================================================
        ERROR
     ===================================================== */
 
     .error-card {
-      margin: 40px 18px;
+      margin:
+        40px
+        18px;
 
       padding: 24px;
 
@@ -1109,15 +1195,9 @@
     }
 
 
-
-    /* =====================================================
-       MOBILE SMALL
-    ===================================================== */
-
     @media (max-width: 360px) {
-
       .hero {
-        min-height: 400px;
+        min-height: 465px;
       }
 
       .hero-name {
@@ -1129,9 +1209,7 @@
       }
 
       .contact-action {
-        padding:
-          11px
-          5px;
+        min-height: 94px;
       }
 
       .contact-label {
@@ -1145,42 +1223,26 @@
       .admissions-title {
         font-size: 21px;
       }
-
     }
-
   </style>
-
 </head>
 
 
 <body>
 
-  <main
-    id="app"
-    class="page"
-  >
+  <main id="app" class="page">
 
     <div class="loading">
-
       <div>
-
         <div class="spinner"></div>
-
         Loading...
-
       </div>
-
     </div>
 
   </main>
 
 
-
 <script>
-
-/* =====================================================
-   CONFIG
-===================================================== */
 
 const API_URL =
   'https://script.google.com/macros/s/AKfycbzefgAa3hJz9h2emDoa_4hhlxl99fIB_k_h5TEq1AIKmBXukcEx9llpglAsLqabXYOJ/exec';
@@ -1201,37 +1263,23 @@ const staffId =
 
 
 
-/* =====================================================
-   API CALLBACK
-===================================================== */
-
 window.processCardData =
   function(data) {
-
     renderPage(data);
-
   };
 
 
 
-/* =====================================================
-   LOAD
-===================================================== */
-
 function loadData() {
 
   const script =
-    document.createElement(
-      'script'
-    );
+    document.createElement('script');
 
 
   script.src =
     API_URL +
     '?staff=' +
-    encodeURIComponent(
-      staffId
-    ) +
+    encodeURIComponent(staffId) +
     '&callback=processCardData' +
     '&t=' +
     Date.now();
@@ -1252,16 +1300,162 @@ loadData();
 
 
 
-/* =====================================================
-   RENDER
-===================================================== */
+function iconPhone() {
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+  `;
+}
+
+
+function iconMail() {
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+      <path d="m3 7 9 6 9-6"></path>
+    </svg>
+  `;
+}
+
+
+function iconContact() {
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+      <circle cx="9" cy="7" r="4"></circle>
+      <path d="M19 8v6"></path>
+      <path d="M22 11h-6"></path>
+    </svg>
+  `;
+}
+
+
+function iconGlobe() {
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="M3 12h18"></path>
+      <path d="M12 3a14 14 0 0 1 0 18"></path>
+      <path d="M12 3a14 14 0 0 0 0 18"></path>
+    </svg>
+  `;
+}
+
+
+function iconPin() {
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path>
+      <circle cx="12" cy="10" r="2.5"></circle>
+    </svg>
+  `;
+}
+
+
+function iconHome() {
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M3 11 12 3l9 8"></path>
+      <path d="M5 10v10h14V10"></path>
+      <path d="M9 20v-6h6v6"></path>
+    </svg>
+  `;
+}
+
+
+function iconDoor() {
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M5 21h14"></path>
+      <path d="M7 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17"></path>
+      <circle cx="14" cy="12" r=".7" fill="currentColor"></circle>
+    </svg>
+  `;
+}
+
+
+function iconPeople() {
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="8" cy="8" r="3"></circle>
+      <circle cx="16" cy="8" r="3"></circle>
+      <path d="M2 20c0-3 2.5-6 6-6s6 3 6 6"></path>
+      <path d="M10 20c0-3 2.5-6 6-6s6 3 6 6"></path>
+    </svg>
+  `;
+}
+
+
 
 function renderPage(data) {
 
   const app =
-    document.getElementById(
-      'app'
-    );
+    document.getElementById('app');
 
 
   const staff =
@@ -1277,11 +1471,8 @@ function renderPage(data) {
 
 
   if (!staff) {
-
     renderError();
-
     return;
-
   }
 
 
@@ -1290,11 +1481,6 @@ function renderPage(data) {
     ' | The Process Recovery Center';
 
 
-
-  /* ===================================================
-     RESOURCES
-  =================================================== */
-
   const crisisResource =
     resources.find(
       resource =>
@@ -1302,7 +1488,8 @@ function renderPage(data) {
           resource.category || ''
         )
           .toLowerCase()
-          .trim() === 'crisis'
+          .trim() ===
+        'crisis'
     );
 
 
@@ -1313,30 +1500,30 @@ function renderPage(data) {
           resource.category || ''
         )
           .toLowerCase()
-          .trim() !== 'crisis'
+          .trim() !==
+        'crisis'
     );
 
 
-
-  /* ===================================================
-     PAGE
-  =================================================== */
-
   let html = `
-
 
     <section class="hero">
 
 
       <div class="hero-top">
 
-        <img
-          class="process-logo"
-          src="${escapeAttribute(settings.process_logo)}"
-          alt="The Process Recovery Center"
-        >
+        <div class="logo-glass">
+
+          <img
+            class="process-logo"
+            src="${escapeAttribute(settings.process_logo)}"
+            alt="The Process Recovery Center"
+          >
+
+        </div>
 
       </div>
+
 
 
       <div class="hero-content">
@@ -1352,13 +1539,9 @@ function renderPage(data) {
         ${
           staff.title
             ? `
-
               <div class="hero-title">
-
                 ${escapeHtml(staff.title)}
-
               </div>
-
             `
             : ''
         }
@@ -1367,16 +1550,13 @@ function renderPage(data) {
         ${
           staff.credentials
             ? `
-
               <div class="credentials">
-
                 ${escapeHtml(staff.credentials)}
-
               </div>
-
             `
             : ''
         }
+
 
 
         <div class="contact-actions">
@@ -1388,7 +1568,7 @@ function renderPage(data) {
           >
 
             <div class="contact-icon">
-              ☎
+              ${iconPhone()}
             </div>
 
             <div class="contact-label">
@@ -1402,13 +1582,14 @@ function renderPage(data) {
           </a>
 
 
+
           <a
             class="contact-action"
             href="mailto:${escapeAttribute(staff.email)}"
           >
 
             <div class="contact-icon">
-              ✉
+              ${iconMail()}
             </div>
 
             <div class="contact-label">
@@ -1422,13 +1603,14 @@ function renderPage(data) {
           </a>
 
 
+
           <a
             class="contact-action"
             href="${API_URL}?staff=${encodeURIComponent(staff.id)}&vcard=1"
           >
 
             <div class="contact-icon">
-              +
+              ${iconContact()}
             </div>
 
             <div class="contact-label">
@@ -1461,7 +1643,7 @@ function renderPage(data) {
       >
 
         <div class="admissions-icon">
-          ☎
+          ${iconPhone()}
         </div>
 
 
@@ -1474,27 +1656,22 @@ function renderPage(data) {
 
           </div>
 
+
           <div class="admissions-number">
-
             ${escapeHtml(settings.admissions_phone)}
-
           </div>
 
+
           <div class="admissions-sub">
-
             Real people. Real help. Any time.
-
           </div>
 
         </div>
 
 
         <div class="admissions-arrow">
-
           ›
-
         </div>
-
 
       </a>
 
@@ -1511,8 +1688,9 @@ function renderPage(data) {
         >
 
           <div class="link-icon">
-            ◎
+            ${iconGlobe()}
           </div>
+
 
           <div class="link-copy">
 
@@ -1526,11 +1704,13 @@ function renderPage(data) {
 
           </div>
 
+
           <div class="link-arrow">
             ›
           </div>
 
         </a>
+
 
 
         <a
@@ -1541,8 +1721,9 @@ function renderPage(data) {
         >
 
           <div class="link-icon">
-            ⌖
+            ${iconPin()}
           </div>
+
 
           <div class="link-copy">
 
@@ -1555,6 +1736,7 @@ function renderPage(data) {
             </div>
 
           </div>
+
 
           <div class="link-arrow">
             ›
@@ -1573,6 +1755,7 @@ function renderPage(data) {
           Recovery Resources
         </div>
 
+
         <div class="section-small">
           Community<br>
           Support<br>
@@ -1589,9 +1772,7 @@ function renderPage(data) {
           visibleResources
             .map(
               resource =>
-                renderResource(
-                  resource
-                )
+                renderResource(resource)
             )
             .join('')
         }
@@ -1607,25 +1788,28 @@ function renderPage(data) {
       <footer class="footer">
 
 
-        <div class="footer-brand-row">
+        <div class="footer-divider">
 
           <div class="footer-line"></div>
 
-          <img
-            class="footer-mark"
-            src="${escapeAttribute(settings.process_logo)}"
-            alt=""
-          >
+
+          <div class="footer-symbol">
+
+            <img
+              src="${escapeAttribute(settings.process_logo)}"
+              alt=""
+            >
+
+          </div>
+
 
           <div class="footer-line"></div>
 
         </div>
 
 
-        <div class="footer-company">
-
+        <div class="footer-process-text">
           The Process Recovery Center
-
         </div>
 
 
@@ -1633,28 +1817,28 @@ function renderPage(data) {
           settings.king_logo
             ? `
 
-              <img
-                class="king-logo"
-                src="${escapeAttribute(settings.king_logo)}"
-                alt="King Healthcare Group"
-              >
+              <div class="king-wrap">
+
+                <img
+                  class="king-logo"
+                  src="${escapeAttribute(settings.king_logo)}"
+                  alt="King Healthcare Group"
+                >
+
+              </div>
 
             `
             : ''
         }
 
 
-        <div class="footer-company">
-
+        <div class="footer-region">
           New England Area and Beyond
-
         </div>
 
 
         <div class="footer-tagline">
-
           Recovery Starts Here.
-
         </div>
 
 
@@ -1676,13 +1860,7 @@ function renderPage(data) {
 
 
 
-/* =====================================================
-   RESOURCE CARD
-===================================================== */
-
-function renderResource(
-  resource
-) {
+function renderResource(resource) {
 
   const name =
     String(
@@ -1695,43 +1873,29 @@ function renderResource(
 
 
   let icon =
-    '◆';
+    iconPeople();
 
 
   if (
-    nameLower.includes(
-      'respite'
-    )
+    nameLower.includes('respite')
   ) {
-
     icon =
-      '⌂';
-
+      iconHome();
   }
 
   else if (
-    nameLower.includes(
-      'door'
-    )
+    nameLower.includes('door')
   ) {
-
     icon =
-      '🚪';
-
+      iconDoor();
   }
 
   else if (
-    nameLower.includes(
-      'alcoholics'
-    ) ||
-    nameLower.includes(
-      'narcotics'
-    )
+    nameLower.includes('alcoholics') ||
+    nameLower.includes('narcotics')
   ) {
-
     icon =
-      '●●●';
-
+      iconPeople();
   }
 
 
@@ -1752,9 +1916,7 @@ function renderResource(
       resource.url || ''
     )
       .toLowerCase()
-      .startsWith(
-        'tel:'
-      );
+      .startsWith('tel:');
 
 
   return `
@@ -1766,23 +1928,17 @@ function renderResource(
     >
 
       <div class="resource-icon">
-
         ${icon}
-
       </div>
 
 
       <div class="resource-name">
-
         ${escapeHtml(name)}
-
       </div>
 
 
       <div class="resource-description">
-
         ${escapeHtml(resource.description || '')}
-
       </div>
 
 
@@ -1794,31 +1950,23 @@ function renderResource(
           ${
             displayNumber
               ? `
-
                 <div class="resource-number">
-
                   ${escapeHtml(displayNumber)}
-
                 </div>
-
               `
               : ''
           }
 
 
           <div class="resource-action-label">
-
             ${escapeHtml(actionLabel)}
-
           </div>
 
         </div>
 
 
         <div class="resource-arrow">
-
           ›
-
         </div>
 
 
@@ -1833,13 +1981,7 @@ function renderResource(
 
 
 
-/* =====================================================
-   CRISIS
-===================================================== */
-
-function renderCrisis(
-  crisis
-) {
+function renderCrisis(crisis) {
 
   const displayNumber =
     crisis &&
@@ -1869,15 +2011,11 @@ function renderCrisis(
       <div class="crisis-number-block">
 
         <div class="crisis-icon">
-
-          ☎
-
+          ${iconPhone()}
         </div>
 
         <div class="crisis-number">
-
           ${escapeHtml(displayNumber)}
-
         </div>
 
       </div>
@@ -1888,10 +2026,9 @@ function renderCrisis(
 
       <div class="crisis-copy">
 
+
         <div class="crisis-title">
-
           Mental Health Crisis Lifeline
-
         </div>
 
 
@@ -1919,10 +2056,9 @@ function renderCrisis(
 
 
         <div class="crisis-support">
-
           Support is available 24/7.
-
         </div>
+
 
       </div>
 
@@ -1934,9 +2070,7 @@ function renderCrisis(
       class="emergency"
       href="tel:911"
     >
-
       Immediate emergency? Call 911
-
     </a>
 
   `;
@@ -1945,63 +2079,30 @@ function renderCrisis(
 
 
 
-/* =====================================================
-   HELPERS
-===================================================== */
-
-function escapeHtml(
-  value
-) {
+function escapeHtml(value) {
 
   return String(
     value || ''
   )
-    .replace(
-      /&/g,
-      '&amp;'
-    )
-    .replace(
-      /</g,
-      '&lt;'
-    )
-    .replace(
-      />/g,
-      '&gt;'
-    )
-    .replace(
-      /"/g,
-      '&quot;'
-    )
-    .replace(
-      /'/g,
-      '&#39;'
-    );
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
 
 }
 
 
-function escapeAttribute(
-  value
-) {
-
-  return escapeHtml(
-    value
-  );
-
+function escapeAttribute(value) {
+  return escapeHtml(value);
 }
 
 
-
-/* =====================================================
-   ERROR
-===================================================== */
 
 function renderError() {
 
   const app =
-    document.getElementById(
-      'app'
-    );
+    document.getElementById('app');
 
 
   app.innerHTML = `
@@ -2025,7 +2126,5 @@ function renderError() {
 
 </script>
 
-
 </body>
-
 </html>
