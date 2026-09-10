@@ -56,14 +56,12 @@
     html,
     body {
       width: 100%;
-
-      height: auto !important;
-      min-height: 0 !important;
+      height: 100%;
 
       margin: 0;
       padding: 0;
 
-      overflow-x: hidden;
+      overflow: hidden;
 
       background: var(--black);
 
@@ -71,14 +69,7 @@
     }
 
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-
     body {
-      display: block;
-
       font-family:
         "Manrope",
         Arial,
@@ -103,7 +94,6 @@
 
     a {
       color: inherit;
-
       text-decoration: none;
 
       -webkit-tap-highlight-color: transparent;
@@ -123,9 +113,8 @@
     }
 
 
-
     /* =====================================================
-       PAGE
+       SCROLL CONTAINER
     ===================================================== */
 
 
@@ -135,13 +124,18 @@
       width: 100%;
       max-width: 520px;
 
-      height: auto !important;
-      min-height: 0 !important;
+      height: 100dvh;
 
       margin: 0 auto;
-      padding: 0;
 
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      -webkit-overflow-scrolling: touch;
+
+      overscroll-behavior-y: none;
+
+      scrollbar-width: none;
 
       background:
         radial-gradient(
@@ -161,6 +155,11 @@
     }
 
 
+    .page::-webkit-scrollbar {
+      display: none;
+    }
+
+
     .page::before,
     .page::after {
       display: none !important;
@@ -175,7 +174,7 @@
 
 
     .loading {
-      min-height: 100dvh;
+      min-height: 100%;
 
       display: flex;
       align-items: center;
@@ -788,9 +787,6 @@
       z-index: 2;
 
       width: 100%;
-
-      height: auto !important;
-      min-height: 0 !important;
 
       margin: 0;
 
@@ -1540,25 +1536,17 @@
 
 
     .footer {
-      position: relative;
-
       width: 100%;
 
-      height: auto !important;
-      min-height: 0 !important;
-
-      margin: 0 !important;
+      margin: 0;
 
       padding:
         24px
         12px
         max(
-          12px,
+          16px,
           env(safe-area-inset-bottom)
-        )
-        !important;
-
-      overflow: hidden;
+        );
 
       text-align: center;
 
@@ -1568,18 +1556,6 @@
           rgba(0,184,244,.07),
           transparent 55%
         );
-    }
-
-
-    .footer::before,
-    .footer::after {
-      display: none !important;
-      content: none !important;
-    }
-
-
-    .footer > *:last-child {
-      margin-bottom: 0 !important;
     }
 
 
@@ -1884,26 +1860,6 @@
 
 
 
-    /* =====================================================
-       IOS SAFARI HEIGHT CLEANUP
-    ===================================================== */
-
-
-    @supports (-webkit-touch-callout: none) {
-
-      html,
-      body,
-      .page,
-      .content,
-      .footer {
-        height: auto !important;
-        min-height: 0 !important;
-      }
-
-    }
-
-
-
     @media (prefers-reduced-motion: reduce) {
 
       *,
@@ -1946,8 +1902,7 @@
 
     <div>
 
-      <div class="spinner">
-      </div>
+      <div class="spinner"></div>
 
       Loading...
 
@@ -2020,15 +1975,9 @@ loadData();
 
 
 
-/* =====================================================
-   ICONS
-===================================================== */
-
-
 function iconPhone() {
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2038,14 +1987,8 @@ function iconPhone() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-
-      <path
-        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"
-      >
-      </path>
-
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"></path>
     </svg>
-
   `;
 
 }
@@ -2054,7 +1997,6 @@ function iconPhone() {
 function iconMail() {
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2064,20 +2006,9 @@ function iconMail() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-
-      <rect
-        x="3"
-        y="5"
-        width="18"
-        height="14"
-        rx="2"
-      >
-      </rect>
-
+      <rect x="3" y="5" width="18" height="14" rx="2"></rect>
       <path d="m3 7 9 6 9-6"></path>
-
     </svg>
-
   `;
 
 }
@@ -2086,7 +2017,6 @@ function iconMail() {
 function iconContact() {
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2096,24 +2026,11 @@ function iconContact() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-
-      <path
-        d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
-      >
-      </path>
-
-      <circle
-        cx="9"
-        cy="7"
-        r="4"
-      >
-      </circle>
-
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+      <circle cx="9" cy="7" r="4"></circle>
       <path d="M19 8v6"></path>
       <path d="M22 11h-6"></path>
-
     </svg>
-
   `;
 
 }
@@ -2122,7 +2039,6 @@ function iconContact() {
 function iconGlobe() {
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2132,28 +2048,11 @@ function iconGlobe() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-
-      <circle
-        cx="12"
-        cy="12"
-        r="9"
-      >
-      </circle>
-
+      <circle cx="12" cy="12" r="9"></circle>
       <path d="M3 12h18"></path>
-
-      <path
-        d="M12 3a14 14 0 0 1 0 18"
-      >
-      </path>
-
-      <path
-        d="M12 3a14 14 0 0 0 0 18"
-      >
-      </path>
-
+      <path d="M12 3a14 14 0 0 1 0 18"></path>
+      <path d="M12 3a14 14 0 0 0 0 18"></path>
     </svg>
-
   `;
 
 }
@@ -2162,7 +2061,6 @@ function iconGlobe() {
 function iconPin() {
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2172,21 +2070,9 @@ function iconPin() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-
-      <path
-        d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"
-      >
-      </path>
-
-      <circle
-        cx="12"
-        cy="10"
-        r="2.5"
-      >
-      </circle>
-
+      <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path>
+      <circle cx="12" cy="10" r="2.5"></circle>
     </svg>
-
   `;
 
 }
@@ -2195,7 +2081,6 @@ function iconPin() {
 function iconHome() {
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2205,24 +2090,10 @@ function iconHome() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-
-      <path
-        d="M3 11 12 3l9 8"
-      >
-      </path>
-
-      <path
-        d="M5 10v10h14V10"
-      >
-      </path>
-
-      <path
-        d="M9 20v-6h6v6"
-      >
-      </path>
-
+      <path d="M3 11 12 3l9 8"></path>
+      <path d="M5 10v10h14V10"></path>
+      <path d="M9 20v-6h6v6"></path>
     </svg>
-
   `;
 
 }
@@ -2231,7 +2102,6 @@ function iconHome() {
 function iconDoor() {
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2241,25 +2111,10 @@ function iconDoor() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-
       <path d="M5 21h14"></path>
-
-      <path
-        d="M7 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17"
-      >
-      </path>
-
-      <circle
-        cx="14"
-        cy="12"
-        r=".8"
-        fill="currentColor"
-        stroke="none"
-      >
-      </circle>
-
+      <path d="M7 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17"></path>
+      <circle cx="14" cy="12" r=".8" fill="currentColor" stroke="none"></circle>
     </svg>
-
   `;
 
 }
@@ -2268,7 +2123,6 @@ function iconDoor() {
 function iconPeople() {
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2278,42 +2132,15 @@ function iconPeople() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-
-      <circle
-        cx="8"
-        cy="8"
-        r="3"
-      >
-      </circle>
-
-      <circle
-        cx="16"
-        cy="8"
-        r="3"
-      >
-      </circle>
-
-      <path
-        d="M2 20c0-3 2.5-6 6-6s6 3 6 6"
-      >
-      </path>
-
-      <path
-        d="M10 20c0-3 2.5-6 6-6s6 3 6 6"
-      >
-      </path>
-
+      <circle cx="8" cy="8" r="3"></circle>
+      <circle cx="16" cy="8" r="3"></circle>
+      <path d="M2 20c0-3 2.5-6 6-6s6 3 6 6"></path>
+      <path d="M10 20c0-3 2.5-6 6-6s6 3 6 6"></path>
     </svg>
-
   `;
 
 }
 
-
-
-/* =====================================================
-   RENDER PAGE
-===================================================== */
 
 
 function renderPage(data) {
@@ -2348,23 +2175,20 @@ function renderPage(data) {
     ' | The Process Recovery Center';
 
 
-
   const nameLength =
     String(
       staff.name || ''
     ).length;
 
 
-  let nameClass =
-    '';
+  let nameClass = '';
 
 
   if (
     nameLength > 24
   ) {
 
-    nameClass =
-      'xlong';
+    nameClass = 'xlong';
 
   }
 
@@ -2372,11 +2196,9 @@ function renderPage(data) {
     nameLength > 18
   ) {
 
-    nameClass =
-      'long';
+    nameClass = 'long';
 
   }
-
 
 
   const crisisResource =
@@ -2403,7 +2225,6 @@ function renderPage(data) {
     );
 
 
-
   app.innerHTML = `
 
 
@@ -2411,7 +2232,6 @@ function renderPage(data) {
 
 
       <div class="hero-brand">
-
 
         <img
           class="hero-process-mark"
@@ -2422,30 +2242,19 @@ function renderPage(data) {
 
         <div class="hero-brand-copy">
 
-
           <div class="hero-brand-the">
-
             The
-
           </div>
-
 
           <div class="hero-brand-process">
-
             Process
-
           </div>
-
 
           <div class="hero-brand-sub">
-
             Recovery Center
-
           </div>
 
-
         </div>
-
 
       </div>
 
@@ -2454,13 +2263,9 @@ function renderPage(data) {
       <div class="hero-content">
 
 
-        <h1
-          class="hero-name ${nameClass}"
-        >
+        <h1 class="hero-name ${nameClass}">
 
-          ${escapeHtml(
-            staff.name
-          )}
+          ${escapeHtml(staff.name)}
 
         </h1>
 
@@ -2468,15 +2273,9 @@ function renderPage(data) {
         ${
           staff.title
             ? `
-
               <div class="hero-title">
-
-                ${escapeHtml(
-                  staff.title
-                )}
-
+                ${escapeHtml(staff.title)}
               </div>
-
             `
             : ''
         }
@@ -2485,15 +2284,9 @@ function renderPage(data) {
         ${
           staff.credentials
             ? `
-
               <div class="credentials">
-
-                ${escapeHtml(
-                  staff.credentials
-                )}
-
+                ${escapeHtml(staff.credentials)}
               </div>
-
             `
             : ''
         }
@@ -2505,31 +2298,19 @@ function renderPage(data) {
 
           <a
             class="contact-action primary"
-            href="${escapeAttribute(
-              staff.phoneHref
-            )}"
+            href="${escapeAttribute(staff.phoneHref)}"
           >
 
             <div class="contact-icon">
-
               ${iconPhone()}
-
             </div>
 
-
             <div class="contact-label">
-
               Call
-
             </div>
 
-
             <div class="contact-sub">
-
-              ${escapeHtml(
-                staff.phone
-              )}
-
+              ${escapeHtml(staff.phone)}
             </div>
 
           </a>
@@ -2538,29 +2319,19 @@ function renderPage(data) {
 
           <a
             class="contact-action"
-            href="mailto:${escapeAttribute(
-              staff.email
-            )}"
+            href="mailto:${escapeAttribute(staff.email)}"
           >
 
             <div class="contact-icon">
-
               ${iconMail()}
-
             </div>
-
 
             <div class="contact-label">
-
               Email
-
             </div>
 
-
             <div class="contact-sub">
-
               Send a Message
-
             </div>
 
           </a>
@@ -2569,29 +2340,19 @@ function renderPage(data) {
 
           <a
             class="contact-action"
-            href="${API_URL}?staff=${encodeURIComponent(
-              staff.id
-            )}&vcard=1"
+            href="${API_URL}?staff=${encodeURIComponent(staff.id)}&vcard=1"
           >
 
             <div class="contact-icon">
-
               ${iconContact()}
-
             </div>
-
 
             <div class="contact-label">
-
               Save Contact
-
             </div>
 
-
             <div class="contact-sub">
-
               Add to Phone
-
             </div>
 
           </a>
@@ -2612,28 +2373,19 @@ function renderPage(data) {
 
       <a
         class="admissions reveal"
-        href="${escapeAttribute(
-          settings.admissionsHref
-        )}"
+        href="${escapeAttribute(settings.admissionsHref)}"
       >
 
-
         <div class="admissions-icon">
-
           ${iconPhone()}
-
         </div>
 
 
         <div class="admissions-copy">
 
-
           <div class="admissions-kicker">
-
             Talk With Admissions
-
           </div>
-
 
           <div class="admissions-title">
 
@@ -2645,32 +2397,20 @@ function renderPage(data) {
 
           </div>
 
-
           <div class="admissions-number">
-
-            ${escapeHtml(
-              settings.admissions_phone
-            )}
-
+            ${escapeHtml(settings.admissions_phone)}
           </div>
-
 
           <div class="admissions-sub">
-
             Real people. Real help. Any time.
-
           </div>
-
 
         </div>
 
 
         <div class="admissions-arrow">
-
           ›
-
         </div>
-
 
       </a>
 
@@ -2681,47 +2421,30 @@ function renderPage(data) {
 
         <a
           class="primary-link"
-          href="${escapeAttribute(
-            settings.main_website
-          )}"
+          href="${escapeAttribute(settings.main_website)}"
           target="_blank"
           rel="noopener"
         >
 
-
           <div class="link-icon">
-
             ${iconGlobe()}
-
           </div>
-
 
           <div class="link-copy">
 
-
             <div class="link-title">
-
               Visit Process Website
-
             </div>
-
 
             <div class="link-sub">
-
               theprocessrecoverycenter.com
-
             </div>
 
-
           </div>
-
 
           <div class="link-arrow">
-
             ›
-
           </div>
-
 
         </a>
 
@@ -2729,49 +2452,30 @@ function renderPage(data) {
 
         <a
           class="primary-link"
-          href="${escapeAttribute(
-            settings.mapsHref
-          )}"
+          href="${escapeAttribute(settings.mapsHref)}"
           target="_blank"
           rel="noopener"
         >
 
-
           <div class="link-icon">
-
             ${iconPin()}
-
           </div>
-
 
           <div class="link-copy">
 
-
             <div class="link-title">
-
               Get Directions
-
             </div>
-
 
             <div class="link-sub">
-
-              ${escapeHtml(
-                settings.main_address
-              )}
-
+              ${escapeHtml(settings.main_address)}
             </div>
 
-
           </div>
-
 
           <div class="link-arrow">
-
             ›
-
           </div>
-
 
         </a>
 
@@ -2782,29 +2486,21 @@ function renderPage(data) {
 
       <div class="section-heading reveal">
 
-
         <div class="section-title">
-
           Recovery Resources
-
         </div>
 
-
         <div class="section-small">
-
           Community<br>
           Support<br>
           Long-Term Change
-
         </div>
-
 
       </div>
 
 
 
       <div class="resource-grid">
-
 
         ${
           visibleResources
@@ -2816,7 +2512,6 @@ function renderPage(data) {
             )
             .join('')
         }
-
 
       </div>
 
@@ -2837,37 +2532,25 @@ function renderPage(data) {
 
         <div class="footer-divider">
 
-
-          <div class="footer-line">
-          </div>
-
+          <div class="footer-line"></div>
 
           <div class="footer-symbol">
-
 
             <img
               src="process-mark.png"
               alt=""
             >
 
-
           </div>
 
-
-          <div class="footer-line">
-          </div>
-
+          <div class="footer-line"></div>
 
         </div>
-
 
 
         <div class="footer-process-text">
-
           The Process Recovery Center
-
         </div>
-
 
 
         ${
@@ -2876,15 +2559,11 @@ function renderPage(data) {
 
               <div class="king-wrap">
 
-
                 <img
                   class="king-logo"
-                  src="${escapeAttribute(
-                    settings.king_logo
-                  )}"
+                  src="${escapeAttribute(settings.king_logo)}"
                   alt="King Healthcare Group"
                 >
-
 
               </div>
 
@@ -2893,25 +2572,17 @@ function renderPage(data) {
         }
 
 
-
         <div class="footer-region">
-
           New England Area and Beyond
-
         </div>
-
 
 
         <div class="footer-tagline">
-
           Recovery Starts Here.
-
         </div>
 
 
-
-        <div class="footer-accent">
-        </div>
+        <div class="footer-accent"></div>
 
 
       </footer>
@@ -2928,14 +2599,7 @@ function renderPage(data) {
 
 
 
-/* =====================================================
-   RESOURCE CARDS
-===================================================== */
-
-
-function renderResource(
-  resource
-) {
+function renderResource(resource) {
 
   const name =
     String(
@@ -2956,9 +2620,7 @@ function renderResource(
   const isPhone =
     url
       .toLowerCase()
-      .startsWith(
-        'tel:'
-      );
+      .startsWith('tel:');
 
 
   let icon =
@@ -2966,9 +2628,7 @@ function renderResource(
 
 
   if (
-    nameLower.includes(
-      'respite'
-    )
+    nameLower.includes('respite')
   ) {
 
     icon =
@@ -2977,9 +2637,7 @@ function renderResource(
   }
 
   else if (
-    nameLower.includes(
-      'door'
-    )
+    nameLower.includes('door')
   ) {
 
     icon =
@@ -3003,9 +2661,7 @@ function renderResource(
   if (!actionLabel) {
 
     if (
-      nameLower.includes(
-        'respite'
-      )
+      nameLower.includes('respite')
     ) {
 
       actionLabel =
@@ -3014,9 +2670,7 @@ function renderResource(
     }
 
     else if (
-      nameLower.includes(
-        'door'
-      )
+      nameLower.includes('door')
     ) {
 
       actionLabel =
@@ -3025,12 +2679,8 @@ function renderResource(
     }
 
     else if (
-      nameLower.includes(
-        'alcoholics'
-      ) ||
-      nameLower.includes(
-        'narcotics'
-      )
+      nameLower.includes('alcoholics') ||
+      nameLower.includes('narcotics')
     ) {
 
       actionLabel =
@@ -3038,7 +2688,9 @@ function renderResource(
 
     }
 
-    else if (isPhone) {
+    else if (
+      isPhone
+    ) {
 
       actionLabel =
         'Call Now';
@@ -3057,48 +2709,28 @@ function renderResource(
 
   return `
 
-
     <a
       class="resource-card reveal ${isPhone ? 'phone-resource' : ''}"
-      href="${escapeAttribute(
-        url || '#'
-      )}"
-      ${
-        isPhone
-          ? ''
-          : 'target="_blank" rel="noopener"'
-      }
+      href="${escapeAttribute(url || '#')}"
+      ${isPhone ? '' : 'target="_blank" rel="noopener"'}
     >
 
-
       <div class="resource-icon">
-
         ${icon}
-
       </div>
 
 
       <div class="resource-name">
-
-        ${escapeHtml(
-          name
-        )}
-
+        ${escapeHtml(name)}
       </div>
 
 
       ${
         resource.description
           ? `
-
             <div class="resource-description">
-
-              ${escapeHtml(
-                resource.description
-              )}
-
+              ${escapeHtml(resource.description)}
             </div>
-
           `
           : ''
       }
@@ -3106,45 +2738,28 @@ function renderResource(
 
       <div class="resource-bottom">
 
-
         <div>
-
 
           ${
             displayNumber
               ? `
-
                 <div class="resource-number">
-
-                  ${escapeHtml(
-                    displayNumber
-                  )}
-
+                  ${escapeHtml(displayNumber)}
                 </div>
-
               `
               : ''
           }
 
-
           <div class="resource-action-label">
-
-            ${escapeHtml(
-              actionLabel
-            )}
-
+            ${escapeHtml(actionLabel)}
           </div>
-
 
         </div>
 
 
         <div class="resource-arrow">
-
           ›
-
         </div>
-
 
       </div>
 
@@ -3157,14 +2772,7 @@ function renderResource(
 
 
 
-/* =====================================================
-   CRISIS
-===================================================== */
-
-
-function renderCrisis(
-  crisis
-) {
+function renderCrisis(crisis) {
 
   const displayNumber =
     crisis &&
@@ -3195,82 +2803,54 @@ function renderCrisis(
 
   return `
 
-
     <div class="crisis">
 
 
       <div class="crisis-number-block">
 
-
         <div class="crisis-icon">
-
           ${iconPhone()}
-
         </div>
-
 
         <div class="crisis-number">
-
-          ${escapeHtml(
-            displayNumber
-          )}
-
+          ${escapeHtml(displayNumber)}
         </div>
 
-
       </div>
 
 
-      <div class="crisis-divider">
-      </div>
+      <div class="crisis-divider"></div>
 
 
       <div class="crisis-copy">
 
-
         <div class="crisis-title">
-
-          ${escapeHtml(
-            crisisName
-          )}
-
+          ${escapeHtml(crisisName)}
         </div>
 
 
         <div class="crisis-buttons">
 
-
           <a
             class="crisis-button call"
-            href="${escapeAttribute(
-              callUrl
-            )}"
+            href="${escapeAttribute(callUrl)}"
           >
-
             Call 988
-
           </a>
-
 
           <a
             class="crisis-button"
             href="sms:988"
           >
-
             Text 988
-
           </a>
-
 
         </div>
 
 
         <div class="crisis-support">
-
           Support is available 24/7.
-
         </div>
-
 
       </div>
 
@@ -3282,20 +2862,13 @@ function renderCrisis(
       class="emergency"
       href="tel:911"
     >
-
       Immediate emergency? Call 911
-
     </a>
 
   `;
 
 }
 
-
-
-/* =====================================================
-   SCROLL REVEAL
-===================================================== */
 
 
 function setupReveal() {
@@ -3323,7 +2896,6 @@ function setupReveal() {
           )
     );
 
-
     return;
 
   }
@@ -3331,11 +2903,9 @@ function setupReveal() {
 
   const observer =
     new IntersectionObserver(
-
       entries => {
 
         entries.forEach(
-
           entry => {
 
             if (
@@ -3358,15 +2928,12 @@ function setupReveal() {
             }
 
           }
-
         );
 
       },
-
       {
         threshold: .08
       }
-
     );
 
 
@@ -3381,65 +2948,30 @@ function setupReveal() {
 
 
 
-/* =====================================================
-   ESCAPE
-===================================================== */
+function escapeHtml(value) {
 
-
-function escapeHtml(
-  value
-) {
-
-  return String(
-    value || ''
-  )
-    .replace(
-      /&/g,
-      '&amp;'
-    )
-    .replace(
-      /</g,
-      '&lt;'
-    )
-    .replace(
-      />/g,
-      '&gt;'
-    )
-    .replace(
-      /"/g,
-      '&quot;'
-    )
-    .replace(
-      /'/g,
-      '&#39;'
-    );
+  return String(value || '')
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
 
 }
 
 
-function escapeAttribute(
-  value
-) {
+function escapeAttribute(value) {
 
-  return escapeHtml(
-    value
-  );
+  return escapeHtml(value);
 
 }
 
-
-
-/* =====================================================
-   ERROR
-===================================================== */
 
 
 function renderError() {
 
   document
-    .getElementById(
-      'app'
-    )
+    .getElementById('app')
     .innerHTML = `
 
       <div
