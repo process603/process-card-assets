@@ -122,13 +122,8 @@
 
     button {
       font-family: inherit;
+      cursor: pointer;
     }
-
-
-
-    /* =====================================================
-       PAGE
-    ===================================================== */
 
 
     .page {
@@ -166,12 +161,6 @@
         );
 
     }
-
-
-
-    /* =====================================================
-       LOADING
-    ===================================================== */
 
 
     .loading {
@@ -231,12 +220,6 @@
       }
 
     }
-
-
-
-    /* =====================================================
-       BRAND HEADER
-    ===================================================== */
 
 
     .brand-panel {
@@ -465,12 +448,6 @@
     }
 
 
-
-    /* =====================================================
-       SECTIONS
-    ===================================================== */
-
-
     .section {
 
       width: 100%;
@@ -531,12 +508,6 @@
         );
 
     }
-
-
-
-    /* =====================================================
-       PROFILE
-    ===================================================== */
 
 
     .profile-card {
@@ -713,12 +684,6 @@
     }
 
 
-
-    /* =====================================================
-       STAFF PHONE
-    ===================================================== */
-
-
     .staff-phone {
 
       position: relative;
@@ -848,12 +813,6 @@
     }
 
 
-
-    /* =====================================================
-       PROFILE ACTIONS
-    ===================================================== */
-
-
     .profile-actions {
 
       position: relative;
@@ -968,12 +927,6 @@
       white-space: nowrap;
 
     }
-
-
-
-    /* =====================================================
-       ADMISSIONS
-    ===================================================== */
 
 
     .admissions-card {
@@ -1111,12 +1064,6 @@
     }
 
 
-
-    /* =====================================================
-       SITE ACTIONS
-    ===================================================== */
-
-
     .service-actions {
 
       display: grid;
@@ -1212,12 +1159,6 @@
       line-height: 1.35;
 
     }
-
-
-
-    /* =====================================================
-       RESOURCES
-    ===================================================== */
 
 
     .resource-panel {
@@ -1361,12 +1302,6 @@
       font-size: 22px;
 
     }
-
-
-
-    /* =====================================================
-       CRISIS
-    ===================================================== */
 
 
     .crisis-card {
@@ -1546,12 +1481,6 @@
     }
 
 
-
-    /* =====================================================
-       GENERIC / ERROR
-    ===================================================== */
-
-
     .generic-card {
 
       padding: 22px;
@@ -1598,12 +1527,6 @@
       line-height: 1.5;
 
     }
-
-
-
-    /* =====================================================
-       FOOTER
-    ===================================================== */
 
 
     .footer {
@@ -1654,7 +1577,6 @@
     }
 
 
-
     @media (max-width: 370px) {
 
       .profile-actions,
@@ -1703,14 +1625,8 @@
 <script>
 
 
-/* =====================================================
-   CONFIG
-===================================================== */
-
-
 const API_URL =
   'https://script.google.com/macros/s/AKfycbzefgAa3hJz9h2emDoa_4hhlxl99fIB_k_h5TEq1AIKmBXukcEx9llpglAsLqabXYOJ/exec';
-
 
 
 const params =
@@ -1728,24 +1644,12 @@ const staffId =
     .trim();
 
 
-
-/* =====================================================
-   JSONP CALLBACK
-===================================================== */
-
-
 window.processCardData =
   function(data) {
 
     renderPage(data);
 
   };
-
-
-
-/* =====================================================
-   LOAD API
-===================================================== */
 
 
 function loadData() {
@@ -1782,14 +1686,7 @@ function loadData() {
 }
 
 
-
 loadData();
-
-
-
-/* =====================================================
-   MAIN RENDER
-===================================================== */
 
 
 function renderPage(data) {
@@ -1821,13 +1718,7 @@ function renderPage(data) {
   }
 
 
-
   let html = '';
-
-
-  /* ===================================================
-     BRAND
-  =================================================== */
 
 
   html += `
@@ -1913,12 +1804,6 @@ function renderPage(data) {
   `;
 
 
-
-  /* ===================================================
-     STAFF PROFILE
-  =================================================== */
-
-
   if (staff) {
 
     html += `
@@ -1984,7 +1869,6 @@ function renderPage(data) {
     `;
 
 
-
     if (
       staff.phone &&
       staff.phoneHref
@@ -2030,13 +1914,11 @@ function renderPage(data) {
     }
 
 
-
     html += `
 
       <div class="profile-actions">
 
     `;
-
 
 
     if (
@@ -2072,7 +1954,6 @@ function renderPage(data) {
       `;
 
     }
-
 
 
     html += `
@@ -2115,12 +1996,6 @@ function renderPage(data) {
   }
 
 
-
-  /* ===================================================
-     GET HELP
-  =================================================== */
-
-
   html += `
 
     <section class="section">
@@ -2130,7 +2005,6 @@ function renderPage(data) {
       </div>
 
   `;
-
 
 
   if (
@@ -2183,13 +2057,11 @@ function renderPage(data) {
   }
 
 
-
   html += `
 
       <div class="service-actions">
 
   `;
-
 
 
   if (
@@ -2229,7 +2101,6 @@ function renderPage(data) {
   }
 
 
-
   if (
     settings.mapsHref
   ) {
@@ -2267,7 +2138,6 @@ function renderPage(data) {
   }
 
 
-
   html += `
 
       </div>
@@ -2275,12 +2145,6 @@ function renderPage(data) {
     </section>
 
   `;
-
-
-
-  /* ===================================================
-     RESOURCES
-  =================================================== */
 
 
   const visibleResources =
@@ -2307,7 +2171,6 @@ function renderPage(data) {
     );
 
 
-
   if (
     visibleResources.length
   ) {
@@ -2324,7 +2187,6 @@ function renderPage(data) {
         <div class="resource-panel">
 
     `;
-
 
 
     visibleResources.forEach(
@@ -2383,7 +2245,6 @@ function renderPage(data) {
     );
 
 
-
     html += `
 
         </div>
@@ -2393,12 +2254,6 @@ function renderPage(data) {
     `;
 
   }
-
-
-
-  /* ===================================================
-     CRISIS
-  =================================================== */
 
 
   html += `
@@ -2466,12 +2321,6 @@ function renderPage(data) {
   `;
 
 
-
-  /* ===================================================
-     FOOTER
-  =================================================== */
-
-
   html += `
 
     <footer class="footer">
@@ -2484,7 +2333,6 @@ function renderPage(data) {
   `;
 
 
-
   if (
     settings.main_address
   ) {
@@ -2495,7 +2343,6 @@ function renderPage(data) {
     `;
 
   }
-
 
 
   html += `
@@ -2516,12 +2363,9 @@ function renderPage(data) {
   `;
 
 
-
   app.innerHTML =
     html;
 
-
-  /* Store data for Save Contact */
 
   window.currentStaff =
     staff;
@@ -2533,17 +2377,15 @@ function renderPage(data) {
 }
 
 
-
 /* =====================================================
-   SAVE CONTACT
+   SAVE CONTACT - MOBILE FRIENDLY
 ===================================================== */
 
 
-function saveContact() {
+async function saveContact() {
 
   const staff =
     window.currentStaff;
-
 
   const settings =
     window.currentSettings || {};
@@ -2568,93 +2410,135 @@ function saveContact() {
     names.join(' ');
 
 
-  const titleParts =
-    [];
+  const titleParts = [];
 
 
   if (staff.title) {
-    titleParts.push(
-      staff.title
-    );
+    titleParts.push(staff.title);
   }
 
 
   if (staff.credentials) {
-    titleParts.push(
-      staff.credentials
-    );
+    titleParts.push(staff.credentials);
   }
 
 
-  const vcard =
-    [
+  const vcard = [
 
-      'BEGIN:VCARD',
+    'BEGIN:VCARD',
 
-      'VERSION:3.0',
+    'VERSION:3.0',
 
-      'N:' +
-        vcardEscape(last) +
-        ';' +
-        vcardEscape(first) +
-        ';;;',
+    'N:' +
+      vcardEscape(last) +
+      ';' +
+      vcardEscape(first) +
+      ';;;',
 
-      'FN:' +
+    'FN:' +
+      vcardEscape(staff.name),
+
+    'ORG:The Process Recovery Center',
+
+    titleParts.length
+      ? 'TITLE:' +
         vcardEscape(
-          staff.name
-        ),
+          titleParts.join(' | ')
+        )
+      : '',
 
-      'ORG:The Process Recovery Center',
+    staff.phone
+      ? 'TEL;TYPE=CELL:' +
+        normalizePhone(staff.phone)
+      : '',
 
-      titleParts.length
-        ? (
-            'TITLE:' +
-            vcardEscape(
-              titleParts.join(' | ')
-            )
-          )
-        : '',
+    staff.email
+      ? 'EMAIL;TYPE=WORK:' +
+        vcardEscape(staff.email)
+      : '',
 
-      staff.phone
-        ? (
-            'TEL;TYPE=CELL:' +
-            normalizePhone(
-              staff.phone
-            )
-          )
-        : '',
+    settings.main_address
+      ? 'ADR;TYPE=WORK:;;' +
+        vcardEscape(
+          settings.main_address
+        ) +
+        ';;;;'
+      : '',
 
-      staff.email
-        ? (
-            'EMAIL;TYPE=WORK:' +
-            vcardEscape(
-              staff.email
-            )
-          )
-        : '',
+    settings.main_website
+      ? 'URL:' +
+        settings.main_website
+      : '',
 
-      settings.main_address
-        ? (
-            'ADR;TYPE=WORK:;;' +
-            vcardEscape(
-              settings.main_address
-            ) +
-            ';;;;'
-          )
-        : '',
+    'END:VCARD'
 
-      settings.main_website
-        ? (
-            'URL:' +
-            settings.main_website
-          )
-        : '',
+  ]
+    .filter(Boolean)
+    .join('\r\n');
 
-      'END:VCARD'
 
-    ]
-      .filter(Boolean)
-      .join('\r\n');
+  const fileName =
+    staff.name
+      .replace(
+        /[^a-zA-Z0-9 _-]/g,
+        ''
+      ) +
+    '.vcf';
+
+
+  const file =
+    new File(
+      [vcard],
+      fileName,
+      {
+        type: 'text/vcard'
+      }
+    );
+
+
+  try {
+
+    if (
+      navigator.share &&
+      navigator.canShare &&
+      navigator.canShare({
+        files: [file]
+      })
+    ) {
+
+      await navigator.share({
+
+        title:
+          staff.name,
+
+        text:
+          'Contact for ' +
+          staff.name +
+          ' at The Process Recovery Center',
+
+        files:
+          [file]
+
+      });
+
+      return;
+
+    }
+
+  }
+  catch (error) {
+
+    if (
+      error &&
+      error.name ===
+      'AbortError'
+    ) {
+
+      return;
+
+    }
+
+  }
 
 
   const blob =
@@ -2668,15 +2552,11 @@ function saveContact() {
 
 
   const url =
-    URL.createObjectURL(
-      blob
-    );
+    URL.createObjectURL(blob);
 
 
   const link =
-    document.createElement(
-      'a'
-    );
+    document.createElement('a');
 
 
   link.href =
@@ -2684,17 +2564,10 @@ function saveContact() {
 
 
   link.download =
-    staff.name
-      .replace(
-        /[^a-zA-Z0-9 _-]/g,
-        ''
-      ) +
-    '.vcf';
+    fileName;
 
 
-  document.body.appendChild(
-    link
-  );
+  document.body.appendChild(link);
 
 
   link.click();
@@ -2706,16 +2579,13 @@ function saveContact() {
   setTimeout(
     function() {
 
-      URL.revokeObjectURL(
-        url
-      );
+      URL.revokeObjectURL(url);
 
     },
-    3000
+    5000
   );
 
 }
-
 
 
 /* =====================================================
@@ -2734,7 +2604,6 @@ function firstName(name) {
     '';
 
 }
-
 
 
 function normalizePhone(phone) {
@@ -2775,7 +2644,6 @@ function normalizePhone(phone) {
 }
 
 
-
 function vcardEscape(value) {
 
   return String(
@@ -2799,7 +2667,6 @@ function vcardEscape(value) {
     );
 
 }
-
 
 
 function escapeHtml(value) {
@@ -2831,7 +2698,6 @@ function escapeHtml(value) {
 }
 
 
-
 function escapeAttribute(value) {
 
   return escapeHtml(
@@ -2839,12 +2705,6 @@ function escapeAttribute(value) {
   );
 
 }
-
-
-
-/* =====================================================
-   ERROR
-===================================================== */
 
 
 function renderError() {
