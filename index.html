@@ -47,7 +47,6 @@
       min-height: 100vh;
 
       font-family:
-        Inter,
         Arial,
         Helvetica,
         sans-serif;
@@ -146,12 +145,12 @@
     .hero {
       position: relative;
 
-      min-height: 500px;
+      min-height: 490px;
 
       padding:
         max(18px, env(safe-area-inset-top))
         20px
-        26px;
+        24px;
 
       display: flex;
       flex-direction: column;
@@ -162,18 +161,16 @@
       background-image:
         linear-gradient(
           180deg,
-          rgba(2,10,16,.18) 0%,
-          rgba(2,10,16,.22) 28%,
-          rgba(2,11,17,.48) 55%,
-          rgba(2,12,18,.82) 80%,
+          rgba(2,10,16,.16) 0%,
+          rgba(2,10,16,.20) 30%,
+          rgba(2,11,17,.46) 57%,
+          rgba(2,12,18,.82) 81%,
           #06131b 100%
         ),
         url("bridge-hero.jpg");
 
       background-size: cover;
-
-      background-position:
-        center 45%;
+      background-position: center 45%;
     }
 
     .hero::after {
@@ -186,7 +183,7 @@
 
       background:
         radial-gradient(
-          circle at 78% 25%,
+          circle at 78% 24%,
           rgba(0,174,239,.10),
           transparent 40%
         );
@@ -213,25 +210,27 @@
       justify-content: center;
 
       padding:
-        9px
-        12px;
+        10px
+        14px;
 
       border:
-        1px solid rgba(255,255,255,.18);
+        1px solid rgba(255,255,255,.30);
 
-      border-radius: 15px;
+      border-radius: 18px;
 
       background:
-        rgba(255,255,255,.78);
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.91),
+          rgba(242,248,250,.84)
+        );
 
-      backdrop-filter:
-        blur(10px);
-
-      -webkit-backdrop-filter:
-        blur(10px);
+      backdrop-filter: blur(13px);
+      -webkit-backdrop-filter: blur(13px);
 
       box-shadow:
-        0 9px 28px rgba(0,0,0,.22);
+        0 10px 28px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.72);
     }
 
     .process-logo {
@@ -249,24 +248,29 @@
 
       z-index: 3;
 
-      margin-top: 190px;
+      margin-top: 175px;
     }
 
     .hero-name {
       margin: 0;
 
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
       font-size:
         clamp(
-          35px,
-          9vw,
-          47px
+          38px,
+          9.5vw,
+          49px
         );
 
-      line-height: 1.02;
+      line-height: .98;
 
-      font-weight: 850;
+      font-weight: 700;
 
-      letter-spacing: -.9px;
+      letter-spacing: -.8px;
 
       text-shadow:
         0 4px 18px rgba(0,0,0,.76);
@@ -279,13 +283,15 @@
 
       gap: 10px;
 
-      margin-top: 10px;
+      margin-top: 11px;
 
       color: #e4edf1;
 
       font-size: 16px;
 
       line-height: 1.3;
+
+      font-weight: 500;
 
       text-shadow:
         0 2px 12px rgba(0,0,0,.8);
@@ -307,16 +313,16 @@
     }
 
     .credentials {
-      margin-top: 7px;
+      margin-top: 8px;
 
       color:
-        var(--blue-soft);
+        #c4e9f8;
 
-      font-size: 12px;
+      font-size: 11px;
 
-      font-weight: 800;
+      font-weight: 600;
 
-      letter-spacing: 1.4px;
+      letter-spacing: 1.1px;
 
       text-transform: uppercase;
     }
@@ -337,14 +343,14 @@
 
       gap: 9px;
 
-      margin-top: 20px;
+      margin-top: 18px;
     }
 
     .contact-action {
-      min-height: 98px;
+      min-height: 96px;
 
       padding:
-        13px
+        12px
         7px;
 
       display: flex;
@@ -409,7 +415,6 @@
 
     .contact-label {
       font-size: 14px;
-
       font-weight: 800;
     }
 
@@ -438,7 +443,7 @@
       padding:
         0
         17px
-        25px;
+        10px;
     }
 
 
@@ -495,9 +500,7 @@
         url("bridge-hero.jpg");
 
       background-size: cover;
-
-      background-position:
-        center 48%;
+      background-position: center 48%;
 
       z-index: 0;
     }
@@ -514,7 +517,6 @@
       min-width: 60px;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -1017,9 +1019,9 @@
 
     .footer {
       padding:
-        34px
+        28px
         12px
-        18px;
+        8px;
 
       text-align: center;
     }
@@ -1042,11 +1044,10 @@
     }
 
     .footer-symbol {
-      width: 45px;
-      height: 45px;
+      width: 48px;
+      height: 48px;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -1055,34 +1056,20 @@
       background:
         radial-gradient(
           circle,
-          rgba(0,174,239,.17),
-          transparent 68%
+          rgba(0,174,239,.15),
+          transparent 72%
         );
     }
 
     .footer-symbol img {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
 
       object-fit: contain;
-
-      object-position: left center;
-
-      /* Crop the logo visually so the blue symbol is dominant */
-      clip-path:
-        inset(
-          0 72% 0 0
-        );
-
-      transform:
-        scale(2.45);
-
-      transform-origin:
-        left center;
     }
 
     .footer-process-text {
-      margin-top: 12px;
+      margin-top: 10px;
 
       color: #b6d4e0;
 
@@ -1096,40 +1083,51 @@
     }
 
     .king-wrap {
-      width: 150px;
+      width: 142px;
 
       margin:
-        18px auto
+        15px auto
         0;
 
       padding:
-        10px
-        12px;
+        9px
+        11px;
 
       border:
-        1px solid rgba(255,255,255,.08);
+        1px solid rgba(255,255,255,.28);
 
-      border-radius: 12px;
+      border-radius: 16px;
 
       background:
-        rgba(255,255,255,.92);
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.92),
+          rgba(241,247,249,.85)
+        );
+
+      backdrop-filter: blur(11px);
+      -webkit-backdrop-filter: blur(11px);
+
+      box-shadow:
+        0 10px 24px rgba(0,0,0,.16),
+        inset 0 1px 0 rgba(255,255,255,.72);
     }
 
     .king-logo {
       display: block;
 
       width: 100%;
-      max-height: 70px;
+      max-height: 68px;
 
       object-fit: contain;
 
-      opacity: .96;
+      opacity: .98;
 
       filter: none;
     }
 
     .footer-region {
-      margin-top: 16px;
+      margin-top: 14px;
 
       color: #a7c9d7;
 
@@ -1143,22 +1141,21 @@
     }
 
     .footer-tagline {
-      margin-top: 21px;
+      margin-top: 18px;
 
       color:
         var(--blue-bright);
 
       font-family:
-        "Brush Script MT",
-        "Segoe Script",
-        cursive;
+        Georgia,
+        "Times New Roman",
+        serif;
 
-      font-size: 30px;
+      font-size: 25px;
 
-      line-height: 1;
+      font-style: italic;
 
-      transform:
-        rotate(-1deg);
+      line-height: 1.1;
     }
 
     .footer-accent {
@@ -1166,7 +1163,7 @@
       height: 3px;
 
       margin:
-        14px auto
+        12px auto
         0;
 
       border-radius: 999px;
@@ -1197,11 +1194,11 @@
 
     @media (max-width: 360px) {
       .hero {
-        min-height: 465px;
+        min-height: 462px;
       }
 
       .hero-name {
-        font-size: 31px;
+        font-size: 34px;
       }
 
       .contact-actions {
@@ -1209,7 +1206,7 @@
       }
 
       .contact-action {
-        min-height: 94px;
+        min-height: 92px;
       }
 
       .contact-label {
@@ -1262,12 +1259,10 @@ const staffId =
     .trim();
 
 
-
 window.processCardData =
   function(data) {
     renderPage(data);
   };
-
 
 
 function loadData() {
@@ -1297,7 +1292,6 @@ function loadData() {
 
 
 loadData();
-
 
 
 function iconPhone() {
@@ -1451,7 +1445,6 @@ function iconPeople() {
 }
 
 
-
 function renderPage(data) {
 
   const app =
@@ -1525,14 +1518,11 @@ function renderPage(data) {
       </div>
 
 
-
       <div class="hero-content">
 
 
         <h1 class="hero-name">
-
           ${escapeHtml(staff.name)}
-
         </h1>
 
 
@@ -1558,7 +1548,6 @@ function renderPage(data) {
         }
 
 
-
         <div class="contact-actions">
 
 
@@ -1582,7 +1571,6 @@ function renderPage(data) {
           </a>
 
 
-
           <a
             class="contact-action"
             href="mailto:${escapeAttribute(staff.email)}"
@@ -1601,7 +1589,6 @@ function renderPage(data) {
             </div>
 
           </a>
-
 
 
           <a
@@ -1631,7 +1618,6 @@ function renderPage(data) {
 
 
     </section>
-
 
 
     <section class="content">
@@ -1676,7 +1662,6 @@ function renderPage(data) {
       </a>
 
 
-
       <div class="primary-links">
 
 
@@ -1710,7 +1695,6 @@ function renderPage(data) {
           </div>
 
         </a>
-
 
 
         <a
@@ -1748,7 +1732,6 @@ function renderPage(data) {
       </div>
 
 
-
       <div class="section-heading">
 
         <div class="section-title">
@@ -1765,7 +1748,6 @@ function renderPage(data) {
       </div>
 
 
-
       <div class="resource-grid">
 
         ${
@@ -1780,9 +1762,7 @@ function renderPage(data) {
       </div>
 
 
-
       ${renderCrisis(crisisResource)}
-
 
 
       <footer class="footer">
@@ -1796,8 +1776,8 @@ function renderPage(data) {
           <div class="footer-symbol">
 
             <img
-              src="${escapeAttribute(settings.process_logo)}"
-              alt=""
+              src="process-mark.png"
+              alt="The Process Recovery Center"
             >
 
           </div>
@@ -1857,7 +1837,6 @@ function renderPage(data) {
     html;
 
 }
-
 
 
 function renderResource(resource) {
@@ -1980,7 +1959,6 @@ function renderResource(resource) {
 }
 
 
-
 function renderCrisis(crisis) {
 
   const displayNumber =
@@ -2078,7 +2056,6 @@ function renderCrisis(crisis) {
 }
 
 
-
 function escapeHtml(value) {
 
   return String(
@@ -2096,7 +2073,6 @@ function escapeHtml(value) {
 function escapeAttribute(value) {
   return escapeHtml(value);
 }
-
 
 
 function renderError() {
