@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -32,11 +31,9 @@
     rel="stylesheet"
   >
 
-
   <style>
 
     :root {
-
       --blue: #5bd1ff;
       --blue-bright: #00b8f4;
       --blue-soft: #b6eaff;
@@ -45,11 +42,9 @@
       --navy-2: #0b2637;
 
       --black: #01070b;
-
       --white: #ffffff;
 
       --muted: #9eb4bf;
-
     }
 
 
@@ -60,7 +55,6 @@
 
     html,
     body {
-
       width: 100%;
 
       height: auto !important;
@@ -69,10 +63,11 @@
       margin: 0;
       padding: 0;
 
+      overflow-x: hidden;
+
       background: var(--black);
 
       -webkit-text-size-adjust: 100%;
-
     }
 
 
@@ -82,8 +77,7 @@
 
 
     body {
-
-      overflow-x: hidden;
+      display: block;
 
       font-family:
         "Manrope",
@@ -94,34 +88,27 @@
       color: white;
 
       background:
-
         radial-gradient(
           circle at 15% 12%,
           rgba(0,184,244,.11),
           transparent 31%
         ),
-
         linear-gradient(
           180deg,
           #061722 0%,
           #01070b 100%
         );
-
     }
 
 
     a {
-
       color: inherit;
 
       text-decoration: none;
 
-      -webkit-tap-highlight-color:
-        transparent;
+      -webkit-tap-highlight-color: transparent;
 
-      touch-action:
-        manipulation;
-
+      touch-action: manipulation;
     }
 
 
@@ -131,12 +118,10 @@
 
 
     img {
-
       user-select: none;
-
       -webkit-user-drag: none;
-
     }
+
 
 
     /* =====================================================
@@ -145,7 +130,6 @@
 
 
     .page {
-
       position: relative;
 
       width: 100%;
@@ -160,13 +144,11 @@
       overflow: hidden;
 
       background:
-
         radial-gradient(
           circle at 92% 46%,
           rgba(0,184,244,.06),
           transparent 25%
         ),
-
         linear-gradient(
           180deg,
           #061722 0%,
@@ -176,35 +158,13 @@
 
       box-shadow:
         0 0 80px rgba(0,0,0,.58);
-
     }
 
 
-    .page::before {
-
-      content: "";
-
-      position: absolute;
-
-      width: 400px;
-      height: 400px;
-
-      top: 780px;
-      right: -300px;
-
-      opacity: .026;
-
-      background:
-        url("process-mark.png")
-        center /
-        contain
-        no-repeat;
-
-      transform:
-        rotate(16deg);
-
-      pointer-events: none;
-
+    .page::before,
+    .page::after {
+      display: none !important;
+      content: none !important;
     }
 
 
@@ -215,23 +175,19 @@
 
 
     .loading {
-
       min-height: 100dvh;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
       color: #b8c9d0;
 
       text-align: center;
-
     }
 
 
     .spinner {
-
       width: 36px;
       height: 36px;
 
@@ -242,25 +198,20 @@
       border-radius: 50%;
 
       border:
-        3px
-        solid
-        rgba(91,209,255,.15);
+        3px solid rgba(91,209,255,.15);
 
       border-top-color:
         var(--blue);
 
       animation:
         spin .8s linear infinite;
-
     }
 
 
     @keyframes spin {
-
       to {
         transform: rotate(360deg);
       }
-
     }
 
 
@@ -271,7 +222,6 @@
 
 
     .hero {
-
       position: relative;
 
       min-height: 495px;
@@ -287,18 +237,14 @@
       isolation: isolate;
 
       padding:
-
         max(
           18px,
           env(safe-area-inset-top)
         )
-
         20px
-
         25px;
 
       background-image:
-
         linear-gradient(
           180deg,
           rgba(2,9,14,.07) 0%,
@@ -307,19 +253,16 @@
           rgba(3,15,23,.72) 71%,
           #061722 100%
         ),
-
         url("bridge-hero.jpg");
 
       background-size: cover;
 
       background-position:
         center 44%;
-
     }
 
 
     .hero::before {
-
       content: "";
 
       position: absolute;
@@ -329,13 +272,11 @@
       z-index: -1;
 
       background:
-
         radial-gradient(
           circle at 87% 22%,
           rgba(45,188,245,.15),
           transparent 30%
         ),
-
         linear-gradient(
           90deg,
           rgba(0,50,78,.10),
@@ -343,12 +284,10 @@
         );
 
       pointer-events: none;
-
     }
 
 
     .hero::after {
-
       content: "";
 
       position: absolute;
@@ -366,22 +305,19 @@
       filter: blur(45px);
 
       opacity: .8;
-
     }
 
 
 
     /* =====================================================
-       TRANSPARENT PROCESS BRAND
+       PROCESS BRAND
     ===================================================== */
 
 
     .hero-brand {
-
       position: absolute;
 
       top:
-
         max(
           19px,
           env(safe-area-inset-top)
@@ -401,43 +337,35 @@
         brandIn .65s ease-out both;
 
       filter:
-
         drop-shadow(
           0 3px 7px rgba(0,0,0,.65)
         )
-
         drop-shadow(
           0 8px 20px rgba(0,0,0,.38)
         );
-
     }
 
 
     @keyframes brandIn {
 
       from {
-
         opacity: 0;
 
         transform:
           translateY(-10px);
-
       }
 
       to {
-
         opacity: 1;
 
         transform:
           translateY(0);
-
       }
 
     }
 
 
     .hero-process-mark {
-
       width: 67px;
       height: 67px;
 
@@ -446,29 +374,22 @@
       object-fit: contain;
 
       filter:
-
         drop-shadow(
           0 0 8px rgba(73,200,246,.22)
         );
-
     }
 
 
     .hero-brand-copy {
-
       color: white;
 
       text-shadow:
-
         0 2px 7px rgba(0,0,0,.88),
-
         0 5px 15px rgba(0,0,0,.48);
-
     }
 
 
     .hero-brand-the {
-
       margin-bottom: 2px;
 
       font-size: 10px;
@@ -480,12 +401,10 @@
       letter-spacing: 5px;
 
       text-transform: uppercase;
-
     }
 
 
     .hero-brand-process {
-
       font-size: 29px;
 
       font-weight: 700;
@@ -495,12 +414,10 @@
       letter-spacing: 2px;
 
       text-transform: uppercase;
-
     }
 
 
     .hero-brand-sub {
-
       margin-top: 6px;
 
       color: #d9eff8;
@@ -514,65 +431,55 @@
       letter-spacing: 3px;
 
       text-transform: uppercase;
-
     }
 
 
 
     /* =====================================================
-       STAFF
+       STAFF IDENTITY
     ===================================================== */
 
 
     .hero-content {
-
       position: relative;
 
       z-index: 3;
 
       animation:
         heroIn .75s .08s ease-out both;
-
     }
 
 
     @keyframes heroIn {
 
       from {
-
         opacity: 0;
 
         transform:
           translateY(15px);
-
       }
 
       to {
-
         opacity: 1;
 
         transform:
           translateY(0);
-
       }
 
     }
 
 
     .hero-name {
-
       max-width: 100%;
 
       margin: 0;
 
       font-family:
-
         "Cormorant Garamond",
         Georgia,
         serif;
 
       font-size:
-
         clamp(
           44px,
           11.4vw,
@@ -588,47 +495,38 @@
       text-wrap: balance;
 
       text-shadow:
-
         0 3px 10px rgba(0,0,0,.64),
-
         0 8px 28px rgba(0,0,0,.42);
-
     }
 
 
     .hero-name.long {
-
       font-size:
-
         clamp(
           39px,
           10vw,
           50px
         );
-
     }
 
 
     .hero-name.xlong {
-
       font-size:
-
         clamp(
           35px,
           8.8vw,
           45px
         );
-
     }
 
 
     .hero-title {
-
       display: flex;
 
       align-items: center;
 
       width: fit-content;
+
       max-width: 100%;
 
       gap: 10px;
@@ -645,13 +543,11 @@
 
       text-shadow:
         0 2px 8px rgba(0,0,0,.65);
-
     }
 
 
     .hero-title::before,
     .hero-title::after {
-
       content: "";
 
       width: 28px;
@@ -662,7 +558,6 @@
       border-radius: 999px;
 
       background:
-
         linear-gradient(
           90deg,
           var(--blue-bright),
@@ -671,12 +566,10 @@
 
       box-shadow:
         0 0 9px rgba(0,184,244,.4);
-
     }
 
 
     .credentials {
-
       margin-top: 8px;
 
       color: #c4eaf8;
@@ -691,7 +584,6 @@
 
       text-shadow:
         0 2px 8px rgba(0,0,0,.65);
-
     }
 
 
@@ -702,11 +594,9 @@
 
 
     .contact-actions {
-
       display: grid;
 
       grid-template-columns:
-
         repeat(
           3,
           minmax(0,1fr)
@@ -715,15 +605,14 @@
       gap: 9px;
 
       margin-top: 18px;
-
     }
 
 
     .contact-action {
-
       position: relative;
 
       min-width: 0;
+
       min-height: 102px;
 
       overflow: hidden;
@@ -736,19 +625,17 @@
       justify-content: center;
 
       padding:
-        12px 7px;
+        12px
+        7px;
 
       text-align: center;
 
       border:
-
-        1px solid
-        rgba(96,197,239,.44);
+        1px solid rgba(96,197,239,.44);
 
       border-radius: 18px;
 
       background:
-
         linear-gradient(
           145deg,
           rgba(18,51,70,.94),
@@ -756,36 +643,31 @@
         );
 
       box-shadow:
-
-        inset 0 1px 0
-        rgba(255,255,255,.06),
-
-        0 12px 27px
-        rgba(0,0,0,.22);
+        inset 0 1px 0 rgba(255,255,255,.06),
+        0 12px 27px rgba(0,0,0,.22);
 
       transition:
-        transform .15s ease;
-
+        transform .15s ease,
+        border-color .15s ease;
     }
 
 
     .contact-action:active {
-      transform: scale(.965);
+      transform:
+        scale(.965);
     }
 
 
     .contact-action.primary {
-
-      border-color: #38d0ff;
+      border-color:
+        #38d0ff;
 
       background:
-
         radial-gradient(
           circle at 20% 0%,
           rgba(96,222,255,.28),
           transparent 43%
         ),
-
         linear-gradient(
           145deg,
           #0da8df,
@@ -793,18 +675,12 @@
         );
 
       box-shadow:
-
-        inset 0 1px 0
-        rgba(255,255,255,.22),
-
-        0 8px 30px
-        rgba(0,153,214,.22);
-
+        inset 0 1px 0 rgba(255,255,255,.22),
+        0 8px 30px rgba(0,153,214,.22);
     }
 
 
     .contact-action.primary::before {
-
       content: "";
 
       position: absolute;
@@ -815,10 +691,10 @@
       width: 50%;
       height: 200%;
 
-      transform: rotate(22deg);
+      transform:
+        rotate(22deg);
 
       background:
-
         linear-gradient(
           90deg,
           transparent,
@@ -828,7 +704,6 @@
 
       animation:
         callShine 5s ease-in-out infinite;
-
     }
 
 
@@ -847,38 +722,31 @@
 
 
     .contact-icon {
-
       width: 29px;
       height: 29px;
 
       margin-bottom: 8px;
 
       color: white;
-
     }
 
 
     .contact-icon svg {
-
       width: 100%;
       height: 100%;
-
     }
 
 
     .contact-label {
-
       color: white;
 
       font-size: 13.5px;
 
       font-weight: 800;
-
     }
 
 
     .contact-sub {
-
       max-width: 110px;
 
       margin-top: 4px;
@@ -892,13 +760,11 @@
       white-space: nowrap;
 
       text-overflow: ellipsis;
-
     }
 
 
     .contact-action.primary
     .contact-sub {
-
       color: white;
 
       font-size: 10.5px;
@@ -907,7 +773,6 @@
 
       font-variant-numeric:
         tabular-nums;
-
     }
 
 
@@ -918,10 +783,11 @@
 
 
     .content {
-
       position: relative;
 
       z-index: 2;
+
+      width: 100%;
 
       height: auto !important;
       min-height: 0 !important;
@@ -932,7 +798,6 @@
         0
         17px
         0;
-
     }
 
 
@@ -943,7 +808,6 @@
 
 
     .admissions {
-
       position: relative;
 
       min-height: 132px;
@@ -959,35 +823,29 @@
       padding: 18px;
 
       border:
-
-        1px solid
-        rgba(18,199,255,.95);
+        1px solid rgba(18,199,255,.95);
 
       border-radius: 20px;
 
-      background: #072333;
+      background:
+        #072333;
 
       box-shadow:
-
-        0 14px 34px
-        rgba(0,0,0,.30),
-
-        inset 0 1px 0
-        rgba(255,255,255,.05);
+        0 14px 34px rgba(0,0,0,.30),
+        inset 0 1px 0 rgba(255,255,255,.05);
 
       transition:
         transform .15s ease;
-
     }
 
 
     .admissions:active {
-      transform: scale(.98);
+      transform:
+        scale(.98);
     }
 
 
     .admissions::before {
-
       content: "";
 
       position: absolute;
@@ -997,34 +855,28 @@
       opacity: .32;
 
       background-image:
-
         linear-gradient(
           90deg,
           rgba(2,22,34,.96),
           rgba(3,32,48,.78)
         ),
-
         url("bridge-hero.jpg");
 
       background-size: cover;
 
       background-position:
         center 46%;
-
     }
 
 
     .admissions > * {
-
       position: relative;
 
       z-index: 2;
-
     }
 
 
     .admissions-icon {
-
       position: relative;
 
       width: 62px;
@@ -1042,7 +894,6 @@
       color: white;
 
       background:
-
         linear-gradient(
           145deg,
           #15b8ed,
@@ -1051,12 +902,10 @@
 
       box-shadow:
         0 8px 22px rgba(0,0,0,.24);
-
     }
 
 
     .admissions-icon::after {
-
       content: "";
 
       position: absolute;
@@ -1064,62 +913,51 @@
       inset: -6px;
 
       border:
-
-        1px solid
-        rgba(91,209,255,.30);
+        1px solid rgba(91,209,255,.30);
 
       border-radius: 50%;
 
       animation:
         phonePulse 2.8s ease-out infinite;
-
     }
 
 
     @keyframes phonePulse {
 
       0% {
-
         opacity: .75;
 
         transform:
           scale(.85);
-
       }
 
       75%,
       100% {
-
         opacity: 0;
 
         transform:
           scale(1.28);
-
       }
 
     }
 
 
     .admissions-icon svg {
-
       width: 30px;
       height: 30px;
-
     }
 
 
     .admissions-copy {
-
       flex: 1;
 
       min-width: 0;
-
     }
 
 
     .admissions-kicker {
-
-      color: var(--blue-soft);
+      color:
+        var(--blue-soft);
 
       font-size: 8px;
 
@@ -1128,12 +966,10 @@
       letter-spacing: 1.7px;
 
       text-transform: uppercase;
-
     }
 
 
     .admissions-title {
-
       margin-top: 3px;
 
       font-size: 23px;
@@ -1143,18 +979,19 @@
       line-height: 1;
 
       letter-spacing: -.7px;
-
     }
 
 
     .admissions-title span {
-      color: var(--blue-bright);
+      color:
+        var(--blue-bright);
     }
 
 
     .admissions-number {
-
       margin-top: 8px;
+
+      color: white;
 
       font-size: 21px;
 
@@ -1164,12 +1001,10 @@
 
       font-variant-numeric:
         tabular-nums;
-
     }
 
 
     .admissions-sub {
-
       margin-top: 8px;
 
       color: #bfe8f7;
@@ -1181,16 +1016,13 @@
       letter-spacing: 1.25px;
 
       text-transform: uppercase;
-
     }
 
 
     .admissions-arrow {
-
       color: white;
 
       font-size: 34px;
-
     }
 
 
@@ -1201,11 +1033,9 @@
 
 
     .primary-links {
-
       display: grid;
 
       grid-template-columns:
-
         repeat(
           2,
           minmax(0,1fr)
@@ -1214,12 +1044,10 @@
       gap: 9px;
 
       margin-top: 11px;
-
     }
 
 
     .primary-link {
-
       min-height: 108px;
 
       display: flex;
@@ -1231,14 +1059,11 @@
       padding: 15px;
 
       border:
-
-        1px solid
-        rgba(105,188,224,.34);
+        1px solid rgba(105,188,224,.34);
 
       border-radius: 17px;
 
       background:
-
         linear-gradient(
           145deg,
           rgba(17,46,64,.96),
@@ -1247,69 +1072,60 @@
 
       transition:
         transform .15s ease;
-
     }
 
 
     .primary-link:active {
-      transform: scale(.975);
+      transform:
+        scale(.975);
     }
 
 
     .link-icon {
-
       width: 35px;
       height: 35px;
 
       min-width: 35px;
-
     }
 
 
     .link-icon svg {
-
       width: 100%;
       height: 100%;
-
     }
 
 
     .link-copy {
-
       min-width: 0;
 
       flex: 1;
-
     }
 
 
     .link-title {
-
       font-size: 12.5px;
 
       font-weight: 800;
 
       line-height: 1.22;
-
     }
 
 
     .link-sub {
-
       max-width: 130px;
 
       margin-top: 5px;
 
       overflow: hidden;
 
-      color: var(--muted);
+      color:
+        var(--muted);
 
       font-size: 8.5px;
 
       line-height: 1.4;
 
       text-overflow: ellipsis;
-
     }
 
 
@@ -1320,17 +1136,17 @@
 
 
     /* =====================================================
-       SECTION
+       SECTION HEADING
     ===================================================== */
 
 
     .section-heading {
-
       display: flex;
 
       align-items: flex-end;
 
-      justify-content: space-between;
+      justify-content:
+        space-between;
 
       gap: 12px;
 
@@ -1342,16 +1158,13 @@
       padding-bottom: 9px;
 
       border-bottom:
-
-        1px solid
-        rgba(91,209,255,.58);
-
+        1px solid rgba(91,209,255,.58);
     }
 
 
     .section-title {
-
-      color: var(--blue-soft);
+      color:
+        var(--blue-soft);
 
       font-size: 15px;
 
@@ -1360,12 +1173,10 @@
       letter-spacing: 2.6px;
 
       text-transform: uppercase;
-
     }
 
 
     .section-small {
-
       color: #73c9e9;
 
       font-size: 6.7px;
@@ -1379,7 +1190,6 @@
       text-align: right;
 
       text-transform: uppercase;
-
     }
 
 
@@ -1390,23 +1200,19 @@
 
 
     .resource-grid {
-
       display: grid;
 
       grid-template-columns:
-
         repeat(
           2,
           minmax(0,1fr)
         );
 
       gap: 9px;
-
     }
 
 
     .resource-card {
-
       min-height: 178px;
 
       display: flex;
@@ -1414,23 +1220,20 @@
       flex-direction: column;
 
       padding:
-        16px 14px;
+        16px
+        14px;
 
       border:
-
-        1px solid
-        rgba(95,190,230,.36);
+        1px solid rgba(95,190,230,.36);
 
       border-radius: 18px;
 
       background:
-
         radial-gradient(
           circle at 100% 0%,
           rgba(91,209,255,.075),
           transparent 45%
         ),
-
         linear-gradient(
           145deg,
           #102d3e,
@@ -1439,48 +1242,41 @@
 
       transition:
         transform .15s ease;
-
     }
 
 
     .resource-card:active {
-      transform: scale(.975);
+      transform:
+        scale(.975);
     }
 
 
     .resource-icon {
-
       width: 37px;
       height: 37px;
 
       margin-bottom: 12px;
 
       color: #e2f6ff;
-
     }
 
 
     .resource-icon svg {
-
       width: 100%;
       height: 100%;
-
     }
 
 
     .resource-name {
-
       font-size: 13.5px;
 
       font-weight: 800;
 
       line-height: 1.2;
-
     }
 
 
     .resource-description {
-
       margin-top: 8px;
 
       color: #a0b6c1;
@@ -1488,29 +1284,26 @@
       font-size: 9px;
 
       line-height: 1.45;
-
     }
 
 
     .resource-bottom {
-
       display: flex;
 
       align-items: flex-end;
 
-      justify-content: space-between;
+      justify-content:
+        space-between;
 
       gap: 8px;
 
       margin-top: auto;
 
       padding-top: 13px;
-
     }
 
 
     .resource-number {
-
       color: white;
 
       font-size: 15px;
@@ -1519,23 +1312,21 @@
 
       font-variant-numeric:
         tabular-nums;
-
     }
 
 
     .phone-resource
     .resource-number {
-
-      color: var(--blue-soft);
-
+      color:
+        var(--blue-soft);
     }
 
 
     .resource-action-label {
-
       margin-top: 6px;
 
-      color: var(--blue);
+      color:
+        var(--blue);
 
       font-size: 8px;
 
@@ -1544,14 +1335,11 @@
       letter-spacing: .5px;
 
       text-transform: uppercase;
-
     }
 
 
     .resource-arrow {
-
       font-size: 25px;
-
     }
 
 
@@ -1562,7 +1350,6 @@
 
 
     .crisis {
-
       min-height: 145px;
 
       display: flex;
@@ -1576,31 +1363,25 @@
       padding: 17px;
 
       border:
-
-        1px solid
-        rgba(22,199,255,.94);
+        1px solid rgba(22,199,255,.94);
 
       border-radius: 20px;
 
       background:
-
         radial-gradient(
           circle at 100% 0%,
           rgba(0,184,244,.12),
           transparent 45%
         ),
-
         linear-gradient(
           145deg,
           #07263a,
           #06141d
         );
-
     }
 
 
     .crisis-number-block {
-
       display: flex;
 
       align-items: center;
@@ -1608,12 +1389,10 @@
       gap: 9px;
 
       flex-shrink: 0;
-
     }
 
 
     .crisis-icon {
-
       width: 50px;
       height: 50px;
 
@@ -1625,94 +1404,77 @@
       border-radius: 50%;
 
       background:
-
         linear-gradient(
           145deg,
           #1888bc,
           #0a3e5e
         );
-
     }
 
 
     .crisis-icon svg {
-
       width: 24px;
       height: 24px;
-
     }
 
 
     .crisis-number {
-
       font-size: 44px;
 
       font-weight: 800;
 
       line-height: 1;
-
     }
 
 
     .crisis-divider {
-
       width: 1px;
       height: 92px;
 
       flex-shrink: 0;
 
       background:
-
         linear-gradient(
           180deg,
           transparent,
           var(--blue-bright),
           transparent
         );
-
     }
 
 
     .crisis-copy {
-
       min-width: 0;
 
       flex: 1;
-
     }
 
 
     .crisis-title {
-
       font-size: 13px;
 
       font-weight: 800;
 
       line-height: 1.3;
-
     }
 
 
     .crisis-buttons {
-
       display: flex;
 
       gap: 6px;
 
       margin-top: 10px;
-
     }
 
 
     .crisis-button {
-
       padding:
-        6px 9px;
+        6px
+        9px;
 
       border:
-
-        1px solid
-        rgba(91,209,255,.28);
+        1px solid rgba(91,209,255,.28);
 
       border-radius: 999px;
 
@@ -1725,12 +1487,10 @@
       letter-spacing: .9px;
 
       text-transform: uppercase;
-
     }
 
 
     .crisis-button.call {
-
       border-color:
         rgba(91,209,255,.60);
 
@@ -1738,15 +1498,14 @@
 
       background:
         rgba(0,184,244,.13);
-
     }
 
 
     .crisis-support {
-
       margin-top: 10px;
 
-      color: var(--blue-bright);
+      color:
+        var(--blue-bright);
 
       font-size: 7.7px;
 
@@ -1755,23 +1514,22 @@
       letter-spacing: 1.35px;
 
       text-transform: uppercase;
-
     }
 
 
     .emergency {
-
       display: block;
 
       width: fit-content;
 
       margin:
-        9px auto 0;
+        9px
+        auto
+        0;
 
       color: #758b96;
 
       font-size: 8px;
-
     }
 
 
@@ -1782,8 +1540,9 @@
 
 
     .footer {
-
       position: relative;
+
+      width: 100%;
 
       height: auto !important;
       min-height: 0 !important;
@@ -1791,31 +1550,40 @@
       margin: 0 !important;
 
       padding:
-
         24px
         12px
         max(
           12px,
           env(safe-area-inset-bottom)
-        ) !important;
+        )
+        !important;
 
       overflow: hidden;
 
       text-align: center;
 
       background:
-
         radial-gradient(
           ellipse at 50% 100%,
           rgba(0,184,244,.07),
           transparent 55%
         );
+    }
 
+
+    .footer::before,
+    .footer::after {
+      display: none !important;
+      content: none !important;
+    }
+
+
+    .footer > *:last-child {
+      margin-bottom: 0 !important;
     }
 
 
     .footer-divider {
-
       display: flex;
 
       align-items: center;
@@ -1823,12 +1591,10 @@
       justify-content: center;
 
       gap: 13px;
-
     }
 
 
     .footer-line {
-
       width: 76px;
 
       max-width: 22vw;
@@ -1836,31 +1602,25 @@
       height: 1px;
 
       background:
-
         linear-gradient(
           90deg,
           transparent,
           var(--blue-bright)
         );
-
     }
 
 
     .footer-line:last-child {
-
       background:
-
         linear-gradient(
           90deg,
           var(--blue-bright),
           transparent
         );
-
     }
 
 
     .footer-symbol {
-
       width: 52px;
       height: 52px;
 
@@ -1872,28 +1632,23 @@
       border-radius: 50%;
 
       background:
-
         radial-gradient(
           circle,
           rgba(0,184,244,.14),
           transparent 70%
         );
-
     }
 
 
     .footer-symbol img {
-
       width: 47px;
       height: 47px;
 
       object-fit: contain;
-
     }
 
 
     .footer-process-text {
-
       margin-top: 8px;
 
       color: #bad5e1;
@@ -1905,29 +1660,27 @@
       letter-spacing: 2.15px;
 
       text-transform: uppercase;
-
     }
 
 
     .king-wrap {
-
       width: 132px;
 
       margin:
-        13px auto 0;
+        13px
+        auto
+        0;
 
       padding:
-        7px 9px;
+        7px
+        9px;
 
       border:
-
-        1px solid
-        rgba(255,255,255,.48);
+        1px solid rgba(255,255,255,.48);
 
       border-radius: 19px;
 
       background:
-
         linear-gradient(
           145deg,
           rgba(255,255,255,.93),
@@ -1941,18 +1694,12 @@
         blur(16px);
 
       box-shadow:
-
-        0 9px 24px
-        rgba(0,0,0,.17),
-
-        inset 0 1px 0
-        rgba(255,255,255,.96);
-
+        0 9px 24px rgba(0,0,0,.17),
+        inset 0 1px 0 rgba(255,255,255,.96);
     }
 
 
     .king-logo {
-
       display: block;
 
       width: 100%;
@@ -1962,12 +1709,10 @@
       object-fit: contain;
 
       filter: none;
-
     }
 
 
     .footer-region {
-
       margin-top: 13px;
 
       color: #a9cad7;
@@ -1979,18 +1724,16 @@
       letter-spacing: 2px;
 
       text-transform: uppercase;
-
     }
 
 
     .footer-tagline {
-
       margin-top: 14px;
 
-      color: var(--blue-bright);
+      color:
+        var(--blue-bright);
 
       font-family:
-
         "Cormorant Garamond",
         Georgia,
         serif;
@@ -2002,17 +1745,17 @@
       font-style: italic;
 
       line-height: 1;
-
     }
 
 
     .footer-accent {
-
       width: 46px;
       height: 3px;
 
       margin:
-        11px auto 0;
+        11px
+        auto
+        0;
 
       border-radius: 999px;
 
@@ -2021,7 +1764,6 @@
 
       box-shadow:
         0 0 12px rgba(0,184,244,.22);
-
     }
 
 
@@ -2032,50 +1774,22 @@
 
 
     .reveal {
-
       opacity: 0;
 
       transform:
         translateY(16px);
 
       transition:
-
         opacity .58s ease,
-
-        transform .58s
-        cubic-bezier(.22,.75,.28,1);
-
+        transform .58s cubic-bezier(.22,.75,.28,1);
     }
 
 
     .reveal.visible {
-
       opacity: 1;
 
       transform:
         translateY(0);
-
-    }
-
-
-
-    /* =====================================================
-       ERROR
-    ===================================================== */
-
-
-    .error-card {
-
-      margin: 40px 18px;
-
-      padding: 25px;
-
-      border-radius: 18px;
-
-      color: #111;
-
-      background: white;
-
     }
 
 
@@ -2093,10 +1807,8 @@
 
 
       .hero-process-mark {
-
         width: 57px;
         height: 57px;
-
       }
 
 
@@ -2131,11 +1843,11 @@
 
 
       .contact-action {
-
         min-height: 96px;
 
-        padding: 10px 5px;
-
+        padding:
+          10px
+          5px;
       }
 
 
@@ -2145,21 +1857,17 @@
 
 
       .admissions {
-
         gap: 10px;
 
         padding: 15px;
-
       }
 
 
       .admissions-icon {
-
         width: 53px;
         height: 53px;
 
         min-width: 53px;
-
       }
 
 
@@ -2176,12 +1884,31 @@
 
 
 
+    /* =====================================================
+       IOS SAFARI HEIGHT CLEANUP
+    ===================================================== */
+
+
+    @supports (-webkit-touch-callout: none) {
+
+      html,
+      body,
+      .page,
+      .content,
+      .footer {
+        height: auto !important;
+        min-height: 0 !important;
+      }
+
+    }
+
+
+
     @media (prefers-reduced-motion: reduce) {
 
       *,
       *::before,
       *::after {
-
         animation-duration:
           .001ms !important;
 
@@ -2190,16 +1917,13 @@
 
         transition-duration:
           .001ms !important;
-
       }
 
 
       .reveal {
-
         opacity: 1;
 
         transform: none;
-
       }
 
     }
@@ -2207,6 +1931,7 @@
   </style>
 
 </head>
+
 
 
 <body>
@@ -2221,7 +1946,8 @@
 
     <div>
 
-      <div class="spinner"></div>
+      <div class="spinner">
+      </div>
 
       Loading...
 
@@ -2267,9 +1993,7 @@ window.processCardData =
 function loadData() {
 
   const script =
-    document.createElement(
-      'script'
-    );
+    document.createElement('script');
 
 
   script.src =
@@ -2304,6 +2028,7 @@ loadData();
 function iconPhone() {
 
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2311,9 +2036,16 @@ function iconPhone() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"></path>
+
+      <path
+        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"
+      >
+      </path>
+
     </svg>
+
   `;
 
 }
@@ -2322,6 +2054,7 @@ function iconPhone() {
 function iconMail() {
 
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2329,10 +2062,22 @@ function iconMail() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
-      <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+
+      <rect
+        x="3"
+        y="5"
+        width="18"
+        height="14"
+        rx="2"
+      >
+      </rect>
+
       <path d="m3 7 9 6 9-6"></path>
+
     </svg>
+
   `;
 
 }
@@ -2341,6 +2086,7 @@ function iconMail() {
 function iconContact() {
 
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2348,12 +2094,26 @@ function iconContact() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
-      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-      <circle cx="9" cy="7" r="4"></circle>
+
+      <path
+        d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+      >
+      </path>
+
+      <circle
+        cx="9"
+        cy="7"
+        r="4"
+      >
+      </circle>
+
       <path d="M19 8v6"></path>
       <path d="M22 11h-6"></path>
+
     </svg>
+
   `;
 
 }
@@ -2362,6 +2122,7 @@ function iconContact() {
 function iconGlobe() {
 
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2369,12 +2130,30 @@ function iconGlobe() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
-      <circle cx="12" cy="12" r="9"></circle>
+
+      <circle
+        cx="12"
+        cy="12"
+        r="9"
+      >
+      </circle>
+
       <path d="M3 12h18"></path>
-      <path d="M12 3a14 14 0 0 1 0 18"></path>
-      <path d="M12 3a14 14 0 0 0 0 18"></path>
+
+      <path
+        d="M12 3a14 14 0 0 1 0 18"
+      >
+      </path>
+
+      <path
+        d="M12 3a14 14 0 0 0 0 18"
+      >
+      </path>
+
     </svg>
+
   `;
 
 }
@@ -2383,6 +2162,7 @@ function iconGlobe() {
 function iconPin() {
 
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2390,10 +2170,23 @@ function iconPin() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
-      <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path>
-      <circle cx="12" cy="10" r="2.5"></circle>
+
+      <path
+        d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"
+      >
+      </path>
+
+      <circle
+        cx="12"
+        cy="10"
+        r="2.5"
+      >
+      </circle>
+
     </svg>
+
   `;
 
 }
@@ -2402,6 +2195,7 @@ function iconPin() {
 function iconHome() {
 
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2409,11 +2203,26 @@ function iconHome() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
-      <path d="M3 11 12 3l9 8"></path>
-      <path d="M5 10v10h14V10"></path>
-      <path d="M9 20v-6h6v6"></path>
+
+      <path
+        d="M3 11 12 3l9 8"
+      >
+      </path>
+
+      <path
+        d="M5 10v10h14V10"
+      >
+      </path>
+
+      <path
+        d="M9 20v-6h6v6"
+      >
+      </path>
+
     </svg>
+
   `;
 
 }
@@ -2422,6 +2231,7 @@ function iconHome() {
 function iconDoor() {
 
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2429,11 +2239,27 @@ function iconDoor() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
+
       <path d="M5 21h14"></path>
-      <path d="M7 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17"></path>
-      <circle cx="14" cy="12" r=".8" fill="currentColor"></circle>
+
+      <path
+        d="M7 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17"
+      >
+      </path>
+
+      <circle
+        cx="14"
+        cy="12"
+        r=".8"
+        fill="currentColor"
+        stroke="none"
+      >
+      </circle>
+
     </svg>
+
   `;
 
 }
@@ -2442,6 +2268,7 @@ function iconDoor() {
 function iconPeople() {
 
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2449,12 +2276,35 @@ function iconPeople() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
-      <circle cx="8" cy="8" r="3"></circle>
-      <circle cx="16" cy="8" r="3"></circle>
-      <path d="M2 20c0-3 2.5-6 6-6s6 3 6 6"></path>
-      <path d="M10 20c0-3 2.5-6 6-6s6 3 6 6"></path>
+
+      <circle
+        cx="8"
+        cy="8"
+        r="3"
+      >
+      </circle>
+
+      <circle
+        cx="16"
+        cy="8"
+        r="3"
+      >
+      </circle>
+
+      <path
+        d="M2 20c0-3 2.5-6 6-6s6 3 6 6"
+      >
+      </path>
+
+      <path
+        d="M10 20c0-3 2.5-6 6-6s6 3 6 6"
+      >
+      </path>
+
     </svg>
+
   `;
 
 }
@@ -2498,24 +2348,35 @@ function renderPage(data) {
     ' | The Process Recovery Center';
 
 
+
   const nameLength =
-    String(staff.name || '').length;
+    String(
+      staff.name || ''
+    ).length;
 
 
-  let nameClass = '';
+  let nameClass =
+    '';
 
 
-  if (nameLength > 24) {
+  if (
+    nameLength > 24
+  ) {
 
-    nameClass = 'xlong';
+    nameClass =
+      'xlong';
 
   }
 
-  else if (nameLength > 18) {
+  else if (
+    nameLength > 18
+  ) {
 
-    nameClass = 'long';
+    nameClass =
+      'long';
 
   }
+
 
 
   const crisisResource =
@@ -2542,6 +2403,7 @@ function renderPage(data) {
     );
 
 
+
   app.innerHTML = `
 
 
@@ -2549,6 +2411,7 @@ function renderPage(data) {
 
 
       <div class="hero-brand">
+
 
         <img
           class="hero-process-mark"
@@ -2559,19 +2422,30 @@ function renderPage(data) {
 
         <div class="hero-brand-copy">
 
+
           <div class="hero-brand-the">
+
             The
+
           </div>
+
 
           <div class="hero-brand-process">
+
             Process
+
           </div>
+
 
           <div class="hero-brand-sub">
+
             Recovery Center
+
           </div>
 
+
         </div>
+
 
       </div>
 
@@ -2580,9 +2454,13 @@ function renderPage(data) {
       <div class="hero-content">
 
 
-        <h1 class="hero-name ${nameClass}">
+        <h1
+          class="hero-name ${nameClass}"
+        >
 
-          ${escapeHtml(staff.name)}
+          ${escapeHtml(
+            staff.name
+          )}
 
         </h1>
 
@@ -2590,9 +2468,15 @@ function renderPage(data) {
         ${
           staff.title
             ? `
+
               <div class="hero-title">
-                ${escapeHtml(staff.title)}
+
+                ${escapeHtml(
+                  staff.title
+                )}
+
               </div>
+
             `
             : ''
         }
@@ -2601,9 +2485,15 @@ function renderPage(data) {
         ${
           staff.credentials
             ? `
+
               <div class="credentials">
-                ${escapeHtml(staff.credentials)}
+
+                ${escapeHtml(
+                  staff.credentials
+                )}
+
               </div>
+
             `
             : ''
         }
@@ -2615,19 +2505,31 @@ function renderPage(data) {
 
           <a
             class="contact-action primary"
-            href="${escapeAttribute(staff.phoneHref)}"
+            href="${escapeAttribute(
+              staff.phoneHref
+            )}"
           >
 
             <div class="contact-icon">
+
               ${iconPhone()}
+
             </div>
 
+
             <div class="contact-label">
+
               Call
+
             </div>
 
+
             <div class="contact-sub">
-              ${escapeHtml(staff.phone)}
+
+              ${escapeHtml(
+                staff.phone
+              )}
+
             </div>
 
           </a>
@@ -2636,19 +2538,29 @@ function renderPage(data) {
 
           <a
             class="contact-action"
-            href="mailto:${escapeAttribute(staff.email)}"
+            href="mailto:${escapeAttribute(
+              staff.email
+            )}"
           >
 
             <div class="contact-icon">
+
               ${iconMail()}
+
             </div>
+
 
             <div class="contact-label">
+
               Email
+
             </div>
 
+
             <div class="contact-sub">
+
               Send a Message
+
             </div>
 
           </a>
@@ -2657,19 +2569,29 @@ function renderPage(data) {
 
           <a
             class="contact-action"
-            href="${API_URL}?staff=${encodeURIComponent(staff.id)}&vcard=1"
+            href="${API_URL}?staff=${encodeURIComponent(
+              staff.id
+            )}&vcard=1"
           >
 
             <div class="contact-icon">
+
               ${iconContact()}
+
             </div>
+
 
             <div class="contact-label">
+
               Save Contact
+
             </div>
 
+
             <div class="contact-sub">
+
               Add to Phone
+
             </div>
 
           </a>
@@ -2690,8 +2612,11 @@ function renderPage(data) {
 
       <a
         class="admissions reveal"
-        href="${escapeAttribute(settings.admissionsHref)}"
+        href="${escapeAttribute(
+          settings.admissionsHref
+        )}"
       >
+
 
         <div class="admissions-icon">
 
@@ -2702,29 +2627,50 @@ function renderPage(data) {
 
         <div class="admissions-copy">
 
+
           <div class="admissions-kicker">
+
             Talk With Admissions
+
           </div>
+
 
           <div class="admissions-title">
+
             ADMISSIONS
-            <span>24/7</span>
+
+            <span>
+              24/7
+            </span>
+
           </div>
+
 
           <div class="admissions-number">
-            ${escapeHtml(settings.admissions_phone)}
+
+            ${escapeHtml(
+              settings.admissions_phone
+            )}
+
           </div>
 
+
           <div class="admissions-sub">
+
             Real people. Real help. Any time.
+
           </div>
+
 
         </div>
 
 
         <div class="admissions-arrow">
+
           ›
+
         </div>
+
 
       </a>
 
@@ -2735,30 +2681,47 @@ function renderPage(data) {
 
         <a
           class="primary-link"
-          href="${escapeAttribute(settings.main_website)}"
+          href="${escapeAttribute(
+            settings.main_website
+          )}"
           target="_blank"
           rel="noopener"
         >
 
+
           <div class="link-icon">
+
             ${iconGlobe()}
+
           </div>
+
 
           <div class="link-copy">
 
+
             <div class="link-title">
+
               Visit Process Website
+
             </div>
+
 
             <div class="link-sub">
+
               theprocessrecoverycenter.com
+
             </div>
 
+
           </div>
 
+
           <div class="link-arrow">
+
             ›
+
           </div>
+
 
         </a>
 
@@ -2766,30 +2729,49 @@ function renderPage(data) {
 
         <a
           class="primary-link"
-          href="${escapeAttribute(settings.mapsHref)}"
+          href="${escapeAttribute(
+            settings.mapsHref
+          )}"
           target="_blank"
           rel="noopener"
         >
 
+
           <div class="link-icon">
+
             ${iconPin()}
+
           </div>
+
 
           <div class="link-copy">
 
+
             <div class="link-title">
+
               Get Directions
+
             </div>
+
 
             <div class="link-sub">
-              ${escapeHtml(settings.main_address)}
+
+              ${escapeHtml(
+                settings.main_address
+              )}
+
             </div>
 
+
           </div>
 
+
           <div class="link-arrow">
+
             ›
+
           </div>
+
 
         </a>
 
@@ -2800,15 +2782,22 @@ function renderPage(data) {
 
       <div class="section-heading reveal">
 
+
         <div class="section-title">
+
           Recovery Resources
+
         </div>
 
+
         <div class="section-small">
+
           Community<br>
           Support<br>
           Long-Term Change
+
         </div>
+
 
       </div>
 
@@ -2816,11 +2805,18 @@ function renderPage(data) {
 
       <div class="resource-grid">
 
+
         ${
           visibleResources
-            .map(renderResource)
+            .map(
+              resource =>
+                renderResource(
+                  resource
+                )
+            )
             .join('')
         }
+
 
       </div>
 
@@ -2828,7 +2824,9 @@ function renderPage(data) {
 
       <div class="reveal">
 
-        ${renderCrisis(crisisResource)}
+        ${renderCrisis(
+          crisisResource
+        )}
 
       </div>
 
@@ -2839,20 +2837,29 @@ function renderPage(data) {
 
         <div class="footer-divider">
 
-          <div class="footer-line"></div>
+
+          <div class="footer-line">
+          </div>
+
 
           <div class="footer-symbol">
+
 
             <img
               src="process-mark.png"
               alt=""
             >
 
+
           </div>
 
-          <div class="footer-line"></div>
+
+          <div class="footer-line">
+          </div>
+
 
         </div>
+
 
 
         <div class="footer-process-text">
@@ -2862,23 +2869,29 @@ function renderPage(data) {
         </div>
 
 
+
         ${
           settings.king_logo
             ? `
 
               <div class="king-wrap">
 
+
                 <img
                   class="king-logo"
-                  src="${escapeAttribute(settings.king_logo)}"
+                  src="${escapeAttribute(
+                    settings.king_logo
+                  )}"
                   alt="King Healthcare Group"
                 >
+
 
               </div>
 
             `
             : ''
         }
+
 
 
         <div class="footer-region">
@@ -2888,6 +2901,7 @@ function renderPage(data) {
         </div>
 
 
+
         <div class="footer-tagline">
 
           Recovery Starts Here.
@@ -2895,7 +2909,9 @@ function renderPage(data) {
         </div>
 
 
-        <div class="footer-accent"></div>
+
+        <div class="footer-accent">
+        </div>
 
 
       </footer>
@@ -2913,14 +2929,18 @@ function renderPage(data) {
 
 
 /* =====================================================
-   RESOURCE
+   RESOURCE CARDS
 ===================================================== */
 
 
-function renderResource(resource) {
+function renderResource(
+  resource
+) {
 
   const name =
-    String(resource.name || '');
+    String(
+      resource.name || ''
+    );
 
 
   const nameLower =
@@ -2928,13 +2948,17 @@ function renderResource(resource) {
 
 
   const url =
-    String(resource.url || '').trim();
+    String(
+      resource.url || ''
+    ).trim();
 
 
   const isPhone =
     url
       .toLowerCase()
-      .startsWith('tel:');
+      .startsWith(
+        'tel:'
+      );
 
 
   let icon =
@@ -2942,7 +2966,9 @@ function renderResource(resource) {
 
 
   if (
-    nameLower.includes('respite')
+    nameLower.includes(
+      'respite'
+    )
   ) {
 
     icon =
@@ -2951,7 +2977,9 @@ function renderResource(resource) {
   }
 
   else if (
-    nameLower.includes('door')
+    nameLower.includes(
+      'door'
+    )
   ) {
 
     icon =
@@ -2960,7 +2988,7 @@ function renderResource(resource) {
   }
 
 
-  let displayNumber =
+  const displayNumber =
     resource.displayNumber ||
     resource.display_number ||
     '';
@@ -2975,7 +3003,9 @@ function renderResource(resource) {
   if (!actionLabel) {
 
     if (
-      nameLower.includes('respite')
+      nameLower.includes(
+        'respite'
+      )
     ) {
 
       actionLabel =
@@ -2984,7 +3014,9 @@ function renderResource(resource) {
     }
 
     else if (
-      nameLower.includes('door')
+      nameLower.includes(
+        'door'
+      )
     ) {
 
       actionLabel =
@@ -2993,8 +3025,12 @@ function renderResource(resource) {
     }
 
     else if (
-      nameLower.includes('alcoholics') ||
-      nameLower.includes('narcotics')
+      nameLower.includes(
+        'alcoholics'
+      ) ||
+      nameLower.includes(
+        'narcotics'
+      )
     ) {
 
       actionLabel =
@@ -3021,51 +3057,94 @@ function renderResource(resource) {
 
   return `
 
+
     <a
       class="resource-card reveal ${isPhone ? 'phone-resource' : ''}"
-      href="${escapeAttribute(url || '#')}"
-      ${isPhone ? '' : 'target="_blank" rel="noopener"'}
+      href="${escapeAttribute(
+        url || '#'
+      )}"
+      ${
+        isPhone
+          ? ''
+          : 'target="_blank" rel="noopener"'
+      }
     >
 
+
       <div class="resource-icon">
+
         ${icon}
+
       </div>
 
 
       <div class="resource-name">
-        ${escapeHtml(name)}
+
+        ${escapeHtml(
+          name
+        )}
+
       </div>
 
 
-      <div class="resource-description">
-        ${escapeHtml(resource.description || '')}
-      </div>
+      ${
+        resource.description
+          ? `
+
+            <div class="resource-description">
+
+              ${escapeHtml(
+                resource.description
+              )}
+
+            </div>
+
+          `
+          : ''
+      }
 
 
       <div class="resource-bottom">
 
+
         <div>
+
 
           ${
             displayNumber
               ? `
+
                 <div class="resource-number">
-                  ${escapeHtml(displayNumber)}
+
+                  ${escapeHtml(
+                    displayNumber
+                  )}
+
                 </div>
+
               `
               : ''
           }
 
+
           <div class="resource-action-label">
-            ${escapeHtml(actionLabel)}
+
+            ${escapeHtml(
+              actionLabel
+            )}
+
           </div>
+
 
         </div>
 
 
         <div class="resource-arrow">
+
           ›
+
         </div>
+
 
       </div>
 
@@ -3083,30 +3162,45 @@ function renderResource(resource) {
 ===================================================== */
 
 
-function renderCrisis(crisis) {
+function renderCrisis(
+  crisis
+) {
 
-  const number =
-    crisis?.displayNumber ||
-    crisis?.display_number ||
-    '988';
+  const displayNumber =
+    crisis &&
+    (
+      crisis.displayNumber ||
+      crisis.display_number
+    )
+      ? (
+          crisis.displayNumber ||
+          crisis.display_number
+        )
+      : '988';
 
 
   const callUrl =
-    crisis?.url ||
-    'tel:988';
+    crisis &&
+    crisis.url
+      ? crisis.url
+      : 'tel:988';
 
 
-  const name =
-    crisis?.name ||
-    'Mental Health Crisis Lifeline';
+  const crisisName =
+    crisis &&
+    crisis.name
+      ? crisis.name
+      : 'Mental Health Crisis Lifeline';
 
 
   return `
+
 
     <div class="crisis">
 
 
       <div class="crisis-number-block">
+
 
         <div class="crisis-icon">
 
@@ -3114,42 +3208,59 @@ function renderCrisis(crisis) {
 
         </div>
 
+
         <div class="crisis-number">
 
-          ${escapeHtml(number)}
+          ${escapeHtml(
+            displayNumber
+          )}
 
         </div>
+
 
       </div>
 
 
-      <div class="crisis-divider"></div>
+      <div class="crisis-divider">
+      </div>
 
 
       <div class="crisis-copy">
 
+
         <div class="crisis-title">
 
-          ${escapeHtml(name)}
+          ${escapeHtml(
+            crisisName
+          )}
 
         </div>
 
 
         <div class="crisis-buttons">
 
+
           <a
             class="crisis-button call"
-            href="${escapeAttribute(callUrl)}"
+            href="${escapeAttribute(
+              callUrl
+            )}"
           >
+
             Call 988
+
           </a>
+
 
           <a
             class="crisis-button"
             href="sms:988"
           >
+
             Text 988
+
           </a>
+
 
         </div>
 
@@ -3159,6 +3270,7 @@ function renderCrisis(crisis) {
           Support is available 24/7.
 
         </div>
+
 
       </div>
 
@@ -3182,7 +3294,7 @@ function renderCrisis(crisis) {
 
 
 /* =====================================================
-   REVEAL
+   SCROLL REVEAL
 ===================================================== */
 
 
@@ -3197,14 +3309,20 @@ function setupReveal() {
   if (
     !(
       'IntersectionObserver'
-      in window
+      in
+      window
     )
   ) {
 
     elements.forEach(
-      el =>
-        el.classList.add('visible')
+      element =>
+        element
+          .classList
+          .add(
+            'visible'
+          )
     );
+
 
     return;
 
@@ -3213,18 +3331,23 @@ function setupReveal() {
 
   const observer =
     new IntersectionObserver(
+
       entries => {
 
         entries.forEach(
+
           entry => {
 
             if (
               entry.isIntersecting
             ) {
 
-              entry.target
+              entry
+                .target
                 .classList
-                .add('visible');
+                .add(
+                  'visible'
+                );
 
 
               observer
@@ -3235,18 +3358,23 @@ function setupReveal() {
             }
 
           }
+
         );
 
       },
+
       {
         threshold: .08
       }
+
     );
 
 
   elements.forEach(
     element =>
-      observer.observe(element)
+      observer.observe(
+        element
+      )
   );
 
 }
@@ -3258,21 +3386,44 @@ function setupReveal() {
 ===================================================== */
 
 
-function escapeHtml(value) {
+function escapeHtml(
+  value
+) {
 
-  return String(value || '')
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;')
-    .replace(/'/g,'&#39;');
+  return String(
+    value || ''
+  )
+    .replace(
+      /&/g,
+      '&amp;'
+    )
+    .replace(
+      /</g,
+      '&lt;'
+    )
+    .replace(
+      />/g,
+      '&gt;'
+    )
+    .replace(
+      /"/g,
+      '&quot;'
+    )
+    .replace(
+      /'/g,
+      '&#39;'
+    );
 
 }
 
 
-function escapeAttribute(value) {
+function escapeAttribute(
+  value
+) {
 
-  return escapeHtml(value);
+  return escapeHtml(
+    value
+  );
 
 }
 
@@ -3286,10 +3437,20 @@ function escapeAttribute(value) {
 function renderError() {
 
   document
-    .getElementById('app')
+    .getElementById(
+      'app'
+    )
     .innerHTML = `
 
-      <div class="error-card">
+      <div
+        style="
+          margin:40px 18px;
+          padding:25px;
+          border-radius:18px;
+          background:white;
+          color:#111;
+        "
+      >
 
         <h2>
           Unable to load
@@ -3311,4 +3472,5 @@ function renderError() {
 
 
 </body>
+
 </html>
