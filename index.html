@@ -113,8 +113,9 @@
     }
 
 
+
     /* =====================================================
-       SCROLL CONTAINER
+       PAGE / SCROLL CONTAINER
     ===================================================== */
 
 
@@ -133,7 +134,12 @@
 
       -webkit-overflow-scrolling: touch;
 
-      overscroll-behavior-y: none;
+      overscroll-behavior-y: contain;
+
+      scroll-behavior: smooth;
+
+      scroll-snap-type:
+        y proximity;
 
       scrollbar-width: none;
 
@@ -235,6 +241,8 @@
 
       isolation: isolate;
 
+      scroll-snap-align: start;
+
       padding:
         max(
           18px,
@@ -333,7 +341,7 @@
       gap: 11px;
 
       animation:
-        brandIn .65s ease-out both;
+        brandIn .8s cubic-bezier(.22,.8,.24,1) both;
 
       filter:
         drop-shadow(
@@ -351,14 +359,16 @@
         opacity: 0;
 
         transform:
-          translateY(-10px);
+          translateY(-12px)
+          scale(.98);
       }
 
       to {
         opacity: 1;
 
         transform:
-          translateY(0);
+          translateY(0)
+          scale(1);
       }
 
     }
@@ -435,7 +445,7 @@
 
 
     /* =====================================================
-       STAFF IDENTITY
+       STAFF
     ===================================================== */
 
 
@@ -445,7 +455,7 @@
       z-index: 3;
 
       animation:
-        heroIn .75s .08s ease-out both;
+        heroIn .9s .08s cubic-bezier(.22,.8,.24,1) both;
     }
 
 
@@ -455,14 +465,22 @@
         opacity: 0;
 
         transform:
-          translateY(15px);
+          translateY(18px)
+          scale(.985);
+
+        filter:
+          blur(2px);
       }
 
       to {
         opacity: 1;
 
         transform:
-          translateY(0);
+          translateY(0)
+          scale(1);
+
+        filter:
+          blur(0);
       }
 
     }
@@ -646,14 +664,15 @@
         0 12px 27px rgba(0,0,0,.22);
 
       transition:
-        transform .15s ease,
-        border-color .15s ease;
+        transform .18s ease,
+        border-color .18s ease,
+        box-shadow .18s ease;
     }
 
 
     .contact-action:active {
       transform:
-        scale(.965);
+        scale(.96);
     }
 
 
@@ -831,7 +850,9 @@
         inset 0 1px 0 rgba(255,255,255,.05);
 
       transition:
-        transform .15s ease;
+        transform .18s ease;
+
+      scroll-snap-align: start;
     }
 
 
@@ -1067,7 +1088,7 @@
         );
 
       transition:
-        transform .15s ease;
+        transform .18s ease;
     }
 
 
@@ -1237,7 +1258,9 @@
         );
 
       transition:
-        transform .15s ease;
+        transform .18s ease;
+
+      scroll-snap-align: start;
     }
 
 
@@ -1374,6 +1397,8 @@
           #07263a,
           #06141d
         );
+
+      scroll-snap-align: start;
     }
 
 
@@ -1556,6 +1581,8 @@
           rgba(0,184,244,.07),
           transparent 55%
         );
+
+      scroll-snap-align: end;
     }
 
 
@@ -1745,7 +1772,7 @@
 
 
     /* =====================================================
-       ANIMATION
+       REVEAL ANIMATIONS
     ===================================================== */
 
 
@@ -1753,11 +1780,16 @@
       opacity: 0;
 
       transform:
-        translateY(16px);
+        translateY(22px)
+        scale(.985);
+
+      filter:
+        blur(2px);
 
       transition:
-        opacity .58s ease,
-        transform .58s cubic-bezier(.22,.75,.28,1);
+        opacity .72s ease,
+        transform .72s cubic-bezier(.22,.8,.24,1),
+        filter .72s ease;
     }
 
 
@@ -1765,7 +1797,36 @@
       opacity: 1;
 
       transform:
-        translateY(0);
+        translateY(0)
+        scale(1);
+
+      filter:
+        blur(0);
+    }
+
+
+    .resource-card.reveal:nth-child(1) {
+      transition-delay: .03s;
+    }
+
+    .resource-card.reveal:nth-child(2) {
+      transition-delay: .10s;
+    }
+
+    .resource-card.reveal:nth-child(3) {
+      transition-delay: .17s;
+    }
+
+    .resource-card.reveal:nth-child(4) {
+      transition-delay: .24s;
+    }
+
+    .resource-card.reveal:nth-child(5) {
+      transition-delay: .31s;
+    }
+
+    .resource-card.reveal:nth-child(6) {
+      transition-delay: .38s;
     }
 
 
@@ -1862,6 +1923,11 @@
 
     @media (prefers-reduced-motion: reduce) {
 
+      .page {
+        scroll-behavior: auto;
+      }
+
+
       *,
       *::before,
       *::after {
@@ -1880,6 +1946,8 @@
         opacity: 1;
 
         transform: none;
+
+        filter: none;
       }
 
     }
@@ -2264,9 +2332,7 @@ function renderPage(data) {
 
 
         <h1 class="hero-name ${nameClass}">
-
           ${escapeHtml(staff.name)}
-
         </h1>
 
 
@@ -2388,13 +2454,8 @@ function renderPage(data) {
           </div>
 
           <div class="admissions-title">
-
             ADMISSIONS
-
-            <span>
-              24/7
-            </span>
-
+            <span>24/7</span>
           </div>
 
           <div class="admissions-number">
@@ -2873,6 +2934,12 @@ function renderCrisis(crisis) {
 
 function setupReveal() {
 
+  const page =
+    document.querySelector(
+      '.page'
+    );
+
+
   const elements =
     document.querySelectorAll(
       '.reveal'
@@ -2903,9 +2970,11 @@ function setupReveal() {
 
   const observer =
     new IntersectionObserver(
+
       entries => {
 
         entries.forEach(
+
           entry => {
 
             if (
@@ -2928,12 +2997,18 @@ function setupReveal() {
             }
 
           }
+
         );
 
       },
+
       {
-        threshold: .08
+        root: page,
+        threshold: .04,
+        rootMargin:
+          '0px 0px 80px 0px'
       }
+
     );
 
 
