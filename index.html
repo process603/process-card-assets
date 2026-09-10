@@ -13,24 +13,12 @@
   <meta name="theme-color" content="#031019">
 
   <meta
-    name="apple-mobile-web-app-capable"
-    content="yes"
-  >
-
-  <meta
-    name="apple-mobile-web-app-status-bar-style"
-    content="black-translucent"
-  >
-
-  <meta
     name="description"
-    content="The Process Recovery Center staff contact and recovery resource page."
+    content="The Process Recovery Center staff contact and recovery resources."
   >
 
   <title>The Process Recovery Center</title>
 
-
-  <!-- Premium typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link
@@ -40,7 +28,7 @@
   >
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Manrope:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
 
@@ -49,47 +37,18 @@
 
     :root {
 
-      --blue:
-        #5bd1ff;
+      --blue: #5bd1ff;
+      --blue-bright: #00b8f4;
+      --blue-soft: #b6eaff;
 
-      --blue-bright:
-        #00b8f4;
+      --navy: #071b28;
+      --navy-2: #0b2637;
 
-      --blue-deep:
-        #0575ab;
+      --black: #01070b;
 
-      --blue-soft:
-        #b6eaff;
+      --white: #ffffff;
 
-      --navy:
-        #071b28;
-
-      --navy-2:
-        #0b2637;
-
-      --navy-3:
-        #102f43;
-
-      --black:
-        #01070b;
-
-      --white:
-        #ffffff;
-
-      --muted:
-        #9eb4bf;
-
-      --muted-light:
-        #c4d5dc;
-
-      --card-border:
-        rgba(93, 205, 248, .40);
-
-      --card-border-soft:
-        rgba(112, 197, 232, .20);
-
-      --shadow:
-        0 18px 45px rgba(0,0,0,.34);
+      --muted: #9eb4bf;
 
     }
 
@@ -99,31 +58,30 @@
     }
 
 
-    html {
+    html,
+    body {
+
+      width: 100%;
+
+      height: auto !important;
+      min-height: 0 !important;
 
       margin: 0;
-
       padding: 0;
 
-      background:
-        #01070b;
+      background: var(--black);
 
-      scroll-behavior:
-        smooth;
-
-      -webkit-text-size-adjust:
-        100%;
+      -webkit-text-size-adjust: 100%;
 
     }
 
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+
     body {
-
-      margin: 0;
-
-      padding: 0;
-
-      min-height: 100%;
 
       overflow-x: hidden;
 
@@ -133,35 +91,30 @@
         Helvetica,
         sans-serif;
 
-      color:
-        white;
+      color: white;
 
       background:
 
         radial-gradient(
           circle at 15% 12%,
-          rgba(0,184,244,.12),
-          transparent 30%
+          rgba(0,184,244,.11),
+          transparent 31%
         ),
 
-        radial-gradient(
-          circle at 90% 42%,
-          rgba(48,157,204,.07),
-          transparent 30%
-        ),
-
-        #01070b;
+        linear-gradient(
+          180deg,
+          #061722 0%,
+          #01070b 100%
+        );
 
     }
 
 
     a {
 
-      color:
-        inherit;
+      color: inherit;
 
-      text-decoration:
-        none;
+      text-decoration: none;
 
       -webkit-tap-highlight-color:
         transparent;
@@ -178,14 +131,16 @@
 
 
     img {
+
       user-select: none;
+
       -webkit-user-drag: none;
+
     }
 
 
-
     /* =====================================================
-       MAIN PAGE
+       PAGE
     ===================================================== */
 
 
@@ -194,25 +149,28 @@
       position: relative;
 
       width: 100%;
-
       max-width: 520px;
 
+      height: auto !important;
+      min-height: 0 !important;
+
       margin: 0 auto;
+      padding: 0;
 
       overflow: hidden;
 
       background:
 
         radial-gradient(
-          circle at 90% 47%,
-          rgba(0,184,244,.07),
-          transparent 24%
+          circle at 92% 46%,
+          rgba(0,184,244,.06),
+          transparent 25%
         ),
 
         linear-gradient(
           180deg,
           #061722 0%,
-          #031018 51%,
+          #031018 53%,
           #01080c 100%
         );
 
@@ -222,81 +180,30 @@
     }
 
 
-    /*
-      Large faint Process symbols create visual continuity
-      without introducing generic stock graphics.
-    */
-
     .page::before {
 
       content: "";
 
       position: absolute;
 
-      width: 420px;
-      height: 420px;
+      width: 400px;
+      height: 400px;
 
-      top: 790px;
-      right: -305px;
+      top: 780px;
+      right: -300px;
 
-      z-index: 0;
+      opacity: .026;
 
-      opacity: .028;
-
-      background-image:
-        url("process-mark.png");
-
-      background-repeat:
+      background:
+        url("process-mark.png")
+        center /
+        contain
         no-repeat;
 
-      background-position:
-        center;
-
-      background-size:
-        contain;
-
       transform:
-        rotate(17deg);
+        rotate(16deg);
 
-      pointer-events:
-        none;
-
-    }
-
-
-    .page::after {
-
-      content: "";
-
-      position: absolute;
-
-      width: 330px;
-      height: 330px;
-
-      bottom: 280px;
-      left: -245px;
-
-      z-index: 0;
-
-      opacity: .025;
-
-      background-image:
-        url("process-mark.png");
-
-      background-repeat:
-        no-repeat;
-
-      background-position:
-        center;
-
-      background-size:
-        contain;
-
-      transform:
-        rotate(-14deg);
-
-      pointer-events:
-        none;
+      pointer-events: none;
 
     }
 
@@ -316,17 +223,9 @@
       align-items: center;
       justify-content: center;
 
-      color:
-        #b6c8d0;
+      color: #b8c9d0;
 
-      text-align:
-        center;
-
-      font-size:
-        13px;
-
-      letter-spacing:
-        .5px;
+      text-align: center;
 
     }
 
@@ -340,17 +239,15 @@
         0 auto
         14px;
 
-      border-radius:
-        50%;
+      border-radius: 50%;
 
       border:
-        3px solid rgba(91,209,255,.15);
+        3px
+        solid
+        rgba(91,209,255,.15);
 
       border-top-color:
         var(--blue);
-
-      box-shadow:
-        0 0 20px rgba(0,184,244,.10);
 
       animation:
         spin .8s linear infinite;
@@ -361,8 +258,7 @@
     @keyframes spin {
 
       to {
-        transform:
-          rotate(360deg);
+        transform: rotate(360deg);
       }
 
     }
@@ -378,13 +274,17 @@
 
       position: relative;
 
-      min-height: 500px;
+      min-height: 495px;
 
       display: flex;
 
       flex-direction: column;
 
       justify-content: flex-end;
+
+      overflow: hidden;
+
+      isolation: isolate;
 
       padding:
 
@@ -397,35 +297,26 @@
 
         25px;
 
-      overflow: hidden;
-
-      isolation: isolate;
-
       background-image:
 
         linear-gradient(
           180deg,
-          rgba(2,9,14,.10) 0%,
-          rgba(2,9,14,.14) 24%,
-          rgba(2,10,16,.28) 47%,
-          rgba(3,15,23,.73) 70%,
+          rgba(2,9,14,.07) 0%,
+          rgba(2,9,14,.11) 24%,
+          rgba(2,10,16,.25) 46%,
+          rgba(3,15,23,.72) 71%,
           #061722 100%
         ),
 
         url("bridge-hero.jpg");
 
-      background-size:
-        cover;
+      background-size: cover;
 
       background-position:
         center 44%;
 
     }
 
-
-    /*
-      Blue atmospheric light over the bridge.
-    */
 
     .hero::before {
 
@@ -440,26 +331,21 @@
       background:
 
         radial-gradient(
-          circle at 88% 22%,
-          rgba(45,188,245,.16),
-          transparent 28%
+          circle at 87% 22%,
+          rgba(45,188,245,.15),
+          transparent 30%
         ),
 
         linear-gradient(
           90deg,
-          rgba(0,50,78,.11),
-          transparent 55%
+          rgba(0,50,78,.10),
+          transparent 58%
         );
 
       pointer-events: none;
 
     }
 
-
-    /*
-      Slight bottom bloom helps bridge hero
-      transition seamlessly into the page.
-    */
 
     .hero::after {
 
@@ -475,21 +361,18 @@
 
       z-index: -1;
 
-      background:
-        #061722;
+      background: #061722;
 
-      filter:
-        blur(45px);
+      filter: blur(45px);
 
-      opacity:
-        .76;
+      opacity: .8;
 
     }
 
 
 
     /* =====================================================
-       TOP LOGO
+       TRANSPARENT PROCESS BRAND
     ===================================================== */
 
 
@@ -498,17 +381,34 @@
       position: absolute;
 
       top:
+
         max(
-          18px,
+          19px,
           env(safe-area-inset-top)
         );
 
-      left: 19px;
+      left: 20px;
 
       z-index: 4;
 
+      display: flex;
+
+      align-items: center;
+
+      gap: 11px;
+
       animation:
         brandIn .65s ease-out both;
+
+      filter:
+
+        drop-shadow(
+          0 3px 7px rgba(0,0,0,.65)
+        )
+
+        drop-shadow(
+          0 8px 20px rgba(0,0,0,.38)
+        );
 
     }
 
@@ -536,118 +436,91 @@
     }
 
 
-    .brand-plaque {
+    .hero-process-mark {
 
-      position: relative;
+      width: 67px;
+      height: 67px;
 
-      display: inline-flex;
+      flex-shrink: 0;
 
-      align-items: center;
+      object-fit: contain;
 
-      justify-content: center;
+      filter:
 
-      overflow: hidden;
-
-      padding:
-        10px
-        14px;
-
-      border:
-
-        1px solid
-        rgba(255,255,255,.52);
-
-      border-radius:
-        20px;
-
-      background:
-
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.94),
-          rgba(239,248,251,.87)
+        drop-shadow(
+          0 0 8px rgba(73,200,246,.22)
         );
-
-      backdrop-filter:
-        blur(18px)
-        saturate(120%);
-
-      -webkit-backdrop-filter:
-        blur(18px)
-        saturate(120%);
-
-      box-shadow:
-
-        0 12px 34px
-        rgba(0,0,0,.24),
-
-        0 2px 5px
-        rgba(0,0,0,.08),
-
-        inset 0 1px 0
-        rgba(255,255,255,.95);
 
     }
 
 
-    .brand-plaque::before {
+    .hero-brand-copy {
 
-      content: "";
+      color: white;
 
-      position: absolute;
+      text-shadow:
 
-      top: -80%;
+        0 2px 7px rgba(0,0,0,.88),
 
-      left: -45%;
-
-      width: 70%;
-
-      height: 240%;
-
-      opacity: .5;
-
-      transform:
-        rotate(24deg);
-
-      background:
-
-        linear-gradient(
-          90deg,
-          transparent,
-          rgba(255,255,255,.92),
-          transparent
-        );
-
-      pointer-events: none;
+        0 5px 15px rgba(0,0,0,.48);
 
     }
 
 
-    .process-logo {
+    .hero-brand-the {
 
-      position: relative;
+      margin-bottom: 2px;
 
-      z-index: 2;
+      font-size: 10px;
 
-      display: block;
+      font-weight: 600;
 
-      width: 218px;
+      line-height: 1;
 
-      max-width:
-        67vw;
+      letter-spacing: 5px;
 
-      max-height:
-        78px;
+      text-transform: uppercase;
 
-      object-fit:
-        contain;
+    }
+
+
+    .hero-brand-process {
+
+      font-size: 29px;
+
+      font-weight: 700;
+
+      line-height: .96;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .hero-brand-sub {
+
+      margin-top: 6px;
+
+      color: #d9eff8;
+
+      font-size: 8px;
+
+      font-weight: 600;
+
+      line-height: 1;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
 
     }
 
 
 
     /* =====================================================
-       STAFF IDENTITY
+       STAFF
     ===================================================== */
 
 
@@ -686,54 +559,39 @@
     }
 
 
-    .identity {
-
-      position: relative;
-
-      padding-right:
-        4px;
-
-    }
-
-
     .hero-name {
+
+      max-width: 100%;
 
       margin: 0;
 
-      max-width:
-        100%;
-
       font-family:
+
         "Cormorant Garamond",
         Georgia,
         serif;
 
       font-size:
+
         clamp(
           44px,
           11.4vw,
           57px
         );
 
-      font-weight:
-        700;
+      font-weight: 700;
 
-      line-height:
-        .88;
+      line-height: .88;
 
-      letter-spacing:
-        -.8px;
+      letter-spacing: -.8px;
 
-      text-wrap:
-        balance;
+      text-wrap: balance;
 
       text-shadow:
 
-        0 3px 10px
-        rgba(0,0,0,.6),
+        0 3px 10px rgba(0,0,0,.64),
 
-        0 8px 28px
-        rgba(0,0,0,.40);
+        0 8px 28px rgba(0,0,0,.42);
 
     }
 
@@ -741,6 +599,7 @@
     .hero-name.long {
 
       font-size:
+
         clamp(
           39px,
           10vw,
@@ -753,6 +612,7 @@
     .hero-name.xlong {
 
       font-size:
+
         clamp(
           35px,
           8.8vw,
@@ -768,32 +628,23 @@
 
       align-items: center;
 
-      width:
-        fit-content;
+      width: fit-content;
+      max-width: 100%;
 
-      max-width:
-        100%;
+      gap: 10px;
 
-      gap:
-        10px;
+      margin-top: 12px;
 
-      margin-top:
-        12px;
+      color: #e7f0f4;
 
-      color:
-        #e7f0f4;
+      font-size: 15px;
 
-      font-size:
-        15px;
+      font-weight: 500;
 
-      font-weight:
-        500;
-
-      line-height:
-        1.3;
+      line-height: 1.3;
 
       text-shadow:
-        0 2px 8px rgba(0,0,0,.6);
+        0 2px 8px rgba(0,0,0,.65);
 
     }
 
@@ -808,8 +659,7 @@
 
       flex-shrink: 0;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
       background:
 
@@ -827,32 +677,17 @@
 
     .credentials {
 
-      width:
-        fit-content;
+      margin-top: 8px;
 
-      margin-top:
-        9px;
+      color: #c4eaf8;
 
-      padding:
-        4px 0;
+      font-size: 10px;
 
-      color:
-        #c4eaf8;
+      font-weight: 700;
 
-      font-size:
-        10.5px;
+      letter-spacing: 1.35px;
 
-      font-weight:
-        700;
-
-      line-height:
-        1.2;
-
-      letter-spacing:
-        1.55px;
-
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
       text-shadow:
         0 2px 8px rgba(0,0,0,.65);
@@ -877,11 +712,9 @@
           minmax(0,1fr)
         );
 
-      gap:
-        9px;
+      gap: 9px;
 
-      margin-top:
-        18px;
+      margin-top: 18px;
 
     }
 
@@ -891,9 +724,7 @@
       position: relative;
 
       min-width: 0;
-
-      min-height:
-        102px;
+      min-height: 102px;
 
       overflow: hidden;
 
@@ -902,23 +733,19 @@
       flex-direction: column;
 
       align-items: center;
-
       justify-content: center;
 
       padding:
-        12px
-        7px;
+        12px 7px;
 
-      text-align:
-        center;
+      text-align: center;
 
       border:
 
         1px solid
         rgba(96,197,239,.44);
 
-      border-radius:
-        18px;
+      border-radius: 18px;
 
       background:
 
@@ -937,65 +764,19 @@
         rgba(0,0,0,.22);
 
       transition:
-
-        transform .16s ease,
-        border-color .16s ease,
-        box-shadow .16s ease;
-
-    }
-
-
-    .contact-action::after {
-
-      content: "";
-
-      position: absolute;
-
-      inset: 0;
-
-      opacity: 0;
-
-      background:
-
-        radial-gradient(
-          circle at 50% 10%,
-          rgba(91,209,255,.15),
-          transparent 55%
-        );
-
-      transition:
-        opacity .18s ease;
-
-      pointer-events: none;
+        transform .15s ease;
 
     }
 
 
     .contact-action:active {
-
-      transform:
-        scale(.965);
-
-      border-color:
-        rgba(91,209,255,.85);
-
+      transform: scale(.965);
     }
 
-
-    .contact-action:active::after {
-      opacity: 1;
-    }
-
-
-    /*
-      Direct staff call is intentionally the
-      brightest button on the hero.
-    */
 
     .contact-action.primary {
 
-      border-color:
-        #38d0ff;
+      border-color: #38d0ff;
 
       background:
 
@@ -1029,15 +810,12 @@
       position: absolute;
 
       top: -50%;
-
       left: -75%;
 
       width: 50%;
-
       height: 200%;
 
-      transform:
-        rotate(22deg);
+      transform: rotate(22deg);
 
       background:
 
@@ -1051,8 +829,6 @@
       animation:
         callShine 5s ease-in-out infinite;
 
-      pointer-events: none;
-
     }
 
 
@@ -1060,17 +836,11 @@
 
       0%,
       76% {
-
-        left:
-          -75%;
-
+        left: -75%;
       }
 
       100% {
-
-        left:
-          160%;
-
+        left: 160%;
       }
 
     }
@@ -1081,17 +851,9 @@
       width: 29px;
       height: 29px;
 
-      margin-bottom:
-        8px;
+      margin-bottom: 8px;
 
-      color:
-        white;
-
-      filter:
-
-        drop-shadow(
-          0 3px 6px rgba(0,0,0,.28)
-        );
+      color: white;
 
     }
 
@@ -1106,64 +868,42 @@
 
     .contact-label {
 
-      position: relative;
+      color: white;
 
-      z-index: 2;
+      font-size: 13.5px;
 
-      color:
-        white;
-
-      font-size:
-        13.5px;
-
-      font-weight:
-        800;
+      font-weight: 800;
 
     }
 
 
     .contact-sub {
 
-      position: relative;
+      max-width: 110px;
 
-      z-index: 2;
-
-      max-width:
-        110px;
-
-      margin-top:
-        4px;
+      margin-top: 4px;
 
       overflow: hidden;
 
-      color:
-        #c6d9e1;
+      color: #c6d9e1;
 
-      font-size:
-        9px;
+      font-size: 9px;
 
-      font-weight:
-        500;
+      white-space: nowrap;
 
-      white-space:
-        nowrap;
-
-      text-overflow:
-        ellipsis;
+      text-overflow: ellipsis;
 
     }
 
 
-    .contact-action.primary .contact-sub {
+    .contact-action.primary
+    .contact-sub {
 
-      color:
-        white;
+      color: white;
 
-      font-size:
-        10.5px;
+      font-size: 10.5px;
 
-      font-weight:
-        700;
+      font-weight: 700;
 
       font-variant-numeric:
         tabular-nums;
@@ -1173,7 +913,7 @@
 
 
     /* =====================================================
-       BODY CONTENT
+       CONTENT
     ===================================================== */
 
 
@@ -1183,21 +923,22 @@
 
       z-index: 2;
 
-      padding:
+      height: auto !important;
+      min-height: 0 !important;
 
+      margin: 0;
+
+      padding:
         0
         17px
-        calc(
-          10px +
-          env(safe-area-inset-bottom)
-        );
+        0;
 
     }
 
 
 
     /* =====================================================
-       ADMISSIONS - MAIN CONVERSION CTA
+       ADMISSIONS
     ===================================================== */
 
 
@@ -1205,8 +946,7 @@
 
       position: relative;
 
-      min-height:
-        132px;
+      min-height: 132px;
 
       overflow: hidden;
 
@@ -1214,52 +954,37 @@
 
       align-items: center;
 
-      gap:
-        14px;
+      gap: 14px;
 
-      padding:
-        18px;
+      padding: 18px;
 
       border:
 
         1px solid
         rgba(18,199,255,.95);
 
-      border-radius:
-        20px;
+      border-radius: 20px;
 
-      background:
-        #072333;
+      background: #072333;
 
       box-shadow:
 
         0 14px 34px
         rgba(0,0,0,.30),
 
-        0 0 0 1px
-        rgba(0,184,244,.05),
-
         inset 0 1px 0
         rgba(255,255,255,.05);
 
       transition:
-        transform .16s ease;
+        transform .15s ease;
 
     }
 
 
     .admissions:active {
-
-      transform:
-        scale(.98);
-
+      transform: scale(.98);
     }
 
-
-    /*
-      Reuses the real bridge rather than adding
-      unrelated stock scenery.
-    */
 
     .admissions::before {
 
@@ -1269,69 +994,22 @@
 
       inset: 0;
 
-      z-index: 0;
-
-      opacity:
-        .32;
+      opacity: .32;
 
       background-image:
 
         linear-gradient(
           90deg,
-          rgba(2,22,34,.96) 5%,
-          rgba(3,32,48,.82) 52%,
-          rgba(4,36,54,.61)
+          rgba(2,22,34,.96),
+          rgba(3,32,48,.78)
         ),
 
         url("bridge-hero.jpg");
 
-      background-size:
-        cover;
+      background-size: cover;
 
       background-position:
         center 46%;
-
-      transition:
-        transform .5s ease;
-
-    }
-
-
-    .admissions:active::before {
-
-      transform:
-        scale(1.025);
-
-    }
-
-
-    .admissions::after {
-
-      content: "";
-
-      position: absolute;
-
-      width: 230px;
-      height: 230px;
-
-      right: -130px;
-      top: -130px;
-
-      z-index: 1;
-
-      border-radius:
-        50%;
-
-      background:
-
-        radial-gradient(
-          circle,
-          rgba(0,184,244,.20),
-          transparent 68%
-        );
-
-      pointer-events:
-        none;
 
     }
 
@@ -1340,7 +1018,7 @@
 
       position: relative;
 
-      z-index: 3;
+      z-index: 2;
 
     }
 
@@ -1357,14 +1035,11 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
-      border-radius:
-        50%;
+      border-radius: 50%;
 
-      color:
-        white;
+      color: white;
 
       background:
 
@@ -1375,20 +1050,10 @@
         );
 
       box-shadow:
-
-        0 8px 22px
-        rgba(0,0,0,.24),
-
-        0 0 25px
-        rgba(0,184,244,.12);
+        0 8px 22px rgba(0,0,0,.24);
 
     }
 
-
-    /*
-      Soft pulsing ring to draw the eye toward
-      the most important help number.
-    */
 
     .admissions-icon::after {
 
@@ -1403,8 +1068,7 @@
         1px solid
         rgba(91,209,255,.30);
 
-      border-radius:
-        50%;
+      border-radius: 50%;
 
       animation:
         phonePulse 2.8s ease-out infinite;
@@ -1416,8 +1080,7 @@
 
       0% {
 
-        opacity:
-          .75;
+        opacity: .75;
 
         transform:
           scale(.85);
@@ -1427,8 +1090,7 @@
       75%,
       100% {
 
-        opacity:
-          0;
+        opacity: 0;
 
         transform:
           scale(1.28);
@@ -1448,148 +1110,93 @@
 
     .admissions-copy {
 
-      min-width: 0;
-
       flex: 1;
+
+      min-width: 0;
 
     }
 
 
     .admissions-kicker {
 
-      color:
-        var(--blue-soft);
+      color: var(--blue-soft);
 
-      font-size:
-        8px;
+      font-size: 8px;
 
-      font-weight:
-        800;
+      font-weight: 800;
 
-      letter-spacing:
-        1.7px;
+      letter-spacing: 1.7px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
     }
 
 
     .admissions-title {
 
-      margin-top:
-        3px;
+      margin-top: 3px;
 
-      color:
-        white;
+      font-size: 23px;
 
-      font-size:
-        23px;
+      font-weight: 800;
 
-      font-weight:
-        800;
+      line-height: 1;
 
-      line-height:
-        1;
-
-      letter-spacing:
-        -.7px;
+      letter-spacing: -.7px;
 
     }
 
 
     .admissions-title span {
-
-      color:
-        var(--blue-bright);
-
+      color: var(--blue-bright);
     }
 
 
     .admissions-number {
 
-      margin-top:
-        8px;
+      margin-top: 8px;
 
-      color:
-        white;
+      font-size: 21px;
 
-      font-size:
-        21px;
+      font-weight: 800;
 
-      font-weight:
-        800;
-
-      line-height:
-        1;
-
-      letter-spacing:
-        .2px;
+      line-height: 1;
 
       font-variant-numeric:
         tabular-nums;
-
-      text-shadow:
-        0 0 18px rgba(0,184,244,.16);
 
     }
 
 
     .admissions-sub {
 
-      margin-top:
-        8px;
+      margin-top: 8px;
 
-      color:
-        #bfe8f7;
+      color: #bfe8f7;
 
-      font-size:
-        8px;
+      font-size: 8px;
 
-      font-weight:
-        700;
+      font-weight: 700;
 
-      letter-spacing:
-        1.25px;
+      letter-spacing: 1.25px;
 
-      line-height:
-        1.4;
-
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
     }
 
 
     .admissions-arrow {
 
-      color:
-        white;
+      color: white;
 
-      font-size:
-        34px;
-
-      transform:
-        translateX(0);
-
-      transition:
-        transform .16s ease;
-
-    }
-
-
-    .admissions:active
-    .admissions-arrow {
-
-      transform:
-        translateX(3px);
+      font-size: 34px;
 
     }
 
 
 
     /* =====================================================
-       PROCESS WEBSITE + DIRECTIONS
+       WEBSITE + DIRECTIONS
     ===================================================== */
 
 
@@ -1604,41 +1211,31 @@
           minmax(0,1fr)
         );
 
-      gap:
-        9px;
+      gap: 9px;
 
-      margin-top:
-        11px;
+      margin-top: 11px;
 
     }
 
 
     .primary-link {
 
-      position: relative;
-
-      min-height:
-        108px;
-
-      overflow: hidden;
+      min-height: 108px;
 
       display: flex;
 
       align-items: center;
 
-      gap:
-        10px;
+      gap: 10px;
 
-      padding:
-        15px;
+      padding: 15px;
 
       border:
 
         1px solid
         rgba(105,188,224,.34);
 
-      border-radius:
-        17px;
+      border-radius: 17px;
 
       background:
 
@@ -1648,71 +1245,23 @@
           rgba(5,20,29,.98)
         );
 
-      box-shadow:
-        inset 0 1px 0
-        rgba(255,255,255,.045);
-
       transition:
-
-        transform .15s ease,
-        border-color .15s ease;
-
-    }
-
-
-    .primary-link::after {
-
-      content: "";
-
-      position: absolute;
-
-      width: 100px;
-      height: 100px;
-
-      right: -55px;
-      top: -55px;
-
-      border-radius:
-        50%;
-
-      opacity:
-        .42;
-
-      background:
-
-        radial-gradient(
-          circle,
-          rgba(0,184,244,.10),
-          transparent 68%
-        );
+        transform .15s ease;
 
     }
 
 
     .primary-link:active {
-
-      transform:
-        scale(.975);
-
-      border-color:
-        rgba(91,209,255,.7);
-
+      transform: scale(.975);
     }
 
 
     .link-icon {
 
-      position: relative;
-
-      z-index: 2;
-
       width: 35px;
       height: 35px;
 
       min-width: 35px;
-
-      color:
-        white;
 
     }
 
@@ -1727,10 +1276,6 @@
 
     .link-copy {
 
-      position: relative;
-
-      z-index: 2;
-
       min-width: 0;
 
       flex: 1;
@@ -1740,64 +1285,42 @@
 
     .link-title {
 
-      color:
-        white;
+      font-size: 12.5px;
 
-      font-size:
-        12.5px;
+      font-weight: 800;
 
-      font-weight:
-        800;
-
-      line-height:
-        1.22;
+      line-height: 1.22;
 
     }
 
 
     .link-sub {
 
-      max-width:
-        130px;
+      max-width: 130px;
 
-      margin-top:
-        5px;
+      margin-top: 5px;
 
       overflow: hidden;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size:
-        8.5px;
+      font-size: 8.5px;
 
-      line-height:
-        1.4;
+      line-height: 1.4;
 
-      text-overflow:
-        ellipsis;
+      text-overflow: ellipsis;
 
     }
 
 
     .link-arrow {
-
-      position: relative;
-
-      z-index: 2;
-
-      color:
-        white;
-
-      font-size:
-        24px;
-
+      font-size: 24px;
     }
 
 
 
     /* =====================================================
-       SECTION TITLES
+       SECTION
     ===================================================== */
 
 
@@ -1807,20 +1330,16 @@
 
       align-items: flex-end;
 
-      justify-content:
-        space-between;
+      justify-content: space-between;
 
-      gap:
-        12px;
+      gap: 12px;
 
       margin:
-
         30px
         3px
         14px;
 
-      padding-bottom:
-        9px;
+      padding-bottom: 9px;
 
       border-bottom:
 
@@ -1830,67 +1349,43 @@
     }
 
 
-    .section-heading::after {
-
-      content: "";
-
-      position: absolute;
-
-    }
-
-
     .section-title {
 
-      color:
-        var(--blue-soft);
+      color: var(--blue-soft);
 
-      font-size:
-        15px;
+      font-size: 15px;
 
-      font-weight:
-        800;
+      font-weight: 800;
 
-      letter-spacing:
-        2.6px;
+      letter-spacing: 2.6px;
 
-      line-height:
-        1.1;
-
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
     }
 
 
     .section-small {
 
-      color:
-        #73c9e9;
+      color: #73c9e9;
 
-      font-size:
-        6.7px;
+      font-size: 6.7px;
 
-      font-weight:
-        700;
+      font-weight: 700;
 
-      line-height:
-        1.45;
+      line-height: 1.45;
 
-      letter-spacing:
-        1.45px;
+      letter-spacing: 1.45px;
 
-      text-align:
-        right;
+      text-align: right;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
     }
 
 
 
     /* =====================================================
-       RESOURCE GRID
+       RESOURCES
     ===================================================== */
 
 
@@ -1905,36 +1400,28 @@
           minmax(0,1fr)
         );
 
-      gap:
-        9px;
+      gap: 9px;
 
     }
 
 
     .resource-card {
 
-      position: relative;
-
-      min-height:
-        178px;
-
-      overflow: hidden;
+      min-height: 178px;
 
       display: flex;
 
       flex-direction: column;
 
       padding:
-        16px
-        14px;
+        16px 14px;
 
       border:
 
         1px solid
         rgba(95,190,230,.36);
 
-      border-radius:
-        18px;
+      border-radius: 18px;
 
       background:
 
@@ -1950,26 +1437,14 @@
           #061620
         );
 
-      box-shadow:
-        inset 0 1px 0
-        rgba(255,255,255,.035);
-
       transition:
-
-        transform .15s ease,
-        border-color .15s ease;
+        transform .15s ease;
 
     }
 
 
     .resource-card:active {
-
-      transform:
-        scale(.975);
-
-      border-color:
-        rgba(91,209,255,.68);
-
+      transform: scale(.975);
     }
 
 
@@ -1978,11 +1453,9 @@
       width: 37px;
       height: 37px;
 
-      margin-bottom:
-        12px;
+      margin-bottom: 12px;
 
-      color:
-        #e2f6ff;
+      color: #e2f6ff;
 
     }
 
@@ -1997,37 +1470,24 @@
 
     .resource-name {
 
-      color:
-        white;
+      font-size: 13.5px;
 
-      font-size:
-        13.5px;
+      font-weight: 800;
 
-      font-weight:
-        800;
-
-      line-height:
-        1.2;
-
-      text-wrap:
-        balance;
+      line-height: 1.2;
 
     }
 
 
     .resource-description {
 
-      margin-top:
-        8px;
+      margin-top: 8px;
 
-      color:
-        #a0b6c1;
+      color: #a0b6c1;
 
-      font-size:
-        9px;
+      font-size: 9px;
 
-      line-height:
-        1.45;
+      line-height: 1.45;
 
     }
 
@@ -2038,37 +1498,24 @@
 
       align-items: flex-end;
 
-      justify-content:
-        space-between;
+      justify-content: space-between;
 
-      gap:
-        8px;
+      gap: 8px;
 
-      margin-top:
-        auto;
+      margin-top: auto;
 
-      padding-top:
-        13px;
+      padding-top: 13px;
 
     }
 
 
     .resource-number {
 
-      color:
-        white;
+      color: white;
 
-      font-size:
-        15px;
+      font-size: 15px;
 
-      font-weight:
-        800;
-
-      line-height:
-        1.05;
-
-      letter-spacing:
-        .05px;
+      font-weight: 800;
 
       font-variant-numeric:
         tabular-nums;
@@ -2076,94 +1523,64 @@
     }
 
 
-    /*
-      Phone-based resources get brighter number treatment.
-    */
-
-    .resource-card.phone-resource
+    .phone-resource
     .resource-number {
 
-      color:
-        var(--blue-soft);
-
-      text-shadow:
-        0 0 13px rgba(0,184,244,.15);
+      color: var(--blue-soft);
 
     }
 
 
     .resource-action-label {
 
-      margin-top:
-        6px;
+      margin-top: 6px;
 
-      color:
-        var(--blue);
+      color: var(--blue);
 
-      font-size:
-        8px;
+      font-size: 8px;
 
-      font-weight:
-        800;
+      font-weight: 800;
 
-      letter-spacing:
-        .5px;
+      letter-spacing: .5px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
     }
 
 
     .resource-arrow {
 
-      color:
-        white;
-
-      font-size:
-        25px;
-
-      line-height:
-        1;
+      font-size: 25px;
 
     }
 
 
 
     /* =====================================================
-       988 CRISIS
+       CRISIS
     ===================================================== */
 
 
     .crisis {
 
-      position: relative;
-
-      min-height:
-        145px;
-
-      overflow: hidden;
+      min-height: 145px;
 
       display: flex;
 
       align-items: center;
 
-      gap:
-        13px;
+      gap: 13px;
 
-      margin-top:
-        16px;
+      margin-top: 16px;
 
-      padding:
-        17px;
+      padding: 17px;
 
       border:
 
         1px solid
         rgba(22,199,255,.94);
 
-      border-radius:
-        20px;
+      border-radius: 20px;
 
       background:
 
@@ -2179,43 +1596,6 @@
           #06141d
         );
 
-      box-shadow:
-
-        0 12px 32px
-        rgba(0,0,0,.18),
-
-        inset 0 1px 0
-        rgba(255,255,255,.04);
-
-    }
-
-
-    .crisis::after {
-
-      content: "";
-
-      position: absolute;
-
-      width: 200px;
-      height: 200px;
-
-      right: -125px;
-      bottom: -130px;
-
-      border-radius:
-        50%;
-
-      background:
-
-        radial-gradient(
-          circle,
-          rgba(0,184,244,.12),
-          transparent 70%
-        );
-
-      pointer-events:
-        none;
-
     }
 
 
@@ -2225,8 +1605,7 @@
 
       align-items: center;
 
-      gap:
-        9px;
+      gap: 9px;
 
       flex-shrink: 0;
 
@@ -2241,14 +1620,9 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
-      border-radius:
-        50%;
-
-      color:
-        white;
+      border-radius: 50%;
 
       background:
 
@@ -2257,9 +1631,6 @@
           #1888bc,
           #0a3e5e
         );
-
-      box-shadow:
-        0 7px 20px rgba(0,0,0,.18);
 
     }
 
@@ -2274,34 +1645,19 @@
 
     .crisis-number {
 
-      color:
-        white;
+      font-size: 44px;
 
-      font-size:
-        44px;
+      font-weight: 800;
 
-      font-weight:
-        800;
-
-      line-height:
-        1;
-
-      letter-spacing:
-        -1px;
-
-      font-variant-numeric:
-        tabular-nums;
+      line-height: 1;
 
     }
 
 
     .crisis-divider {
 
-      width:
-        1px;
-
-      height:
-        92px;
+      width: 1px;
+      height: 92px;
 
       flex-shrink: 0;
 
@@ -2319,10 +1675,6 @@
 
     .crisis-copy {
 
-      position: relative;
-
-      z-index: 2;
-
       min-width: 0;
 
       flex: 1;
@@ -2332,17 +1684,11 @@
 
     .crisis-title {
 
-      color:
-        white;
+      font-size: 13px;
 
-      font-size:
-        13px;
+      font-weight: 800;
 
-      font-weight:
-        800;
-
-      line-height:
-        1.3;
+      line-height: 1.3;
 
     }
 
@@ -2351,55 +1697,34 @@
 
       display: flex;
 
-      gap:
-        6px;
+      gap: 6px;
 
-      margin-top:
-        10px;
+      margin-top: 10px;
 
     }
 
 
     .crisis-button {
 
-      display: inline-flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      min-height:
-        29px;
-
       padding:
-        6px
-        9px;
+        6px 9px;
 
       border:
 
         1px solid
         rgba(91,209,255,.28);
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
-      color:
-        #c9ecfa;
+      color: #c9ecfa;
 
-      background:
-        rgba(255,255,255,.035);
+      font-size: 8px;
 
-      font-size:
-        8px;
+      font-weight: 800;
 
-      font-weight:
-        800;
+      letter-spacing: .9px;
 
-      letter-spacing:
-        .9px;
-
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
     }
 
@@ -2409,8 +1734,7 @@
       border-color:
         rgba(91,209,255,.60);
 
-      color:
-        white;
+      color: white;
 
       background:
         rgba(0,184,244,.13);
@@ -2420,26 +1744,17 @@
 
     .crisis-support {
 
-      margin-top:
-        10px;
+      margin-top: 10px;
 
-      color:
-        var(--blue-bright);
+      color: var(--blue-bright);
 
-      font-size:
-        7.7px;
+      font-size: 7.7px;
 
-      font-weight:
-        800;
+      font-weight: 800;
 
-      letter-spacing:
-        1.35px;
+      letter-spacing: 1.35px;
 
-      line-height:
-        1.4;
-
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
     }
 
@@ -2448,20 +1763,14 @@
 
       display: block;
 
-      width:
-        fit-content;
+      width: fit-content;
 
       margin:
         9px auto 0;
 
-      color:
-        #758b96;
+      color: #758b96;
 
-      font-size:
-        8px;
-
-      text-align:
-        center;
+      font-size: 8px;
 
     }
 
@@ -2476,14 +1785,31 @@
 
       position: relative;
 
+      height: auto !important;
+      min-height: 0 !important;
+
+      margin: 0 !important;
+
       padding:
 
-        27px
+        24px
         12px
-        18px;
+        max(
+          12px,
+          env(safe-area-inset-bottom)
+        ) !important;
 
-      text-align:
-        center;
+      overflow: hidden;
+
+      text-align: center;
+
+      background:
+
+        radial-gradient(
+          ellipse at 50% 100%,
+          rgba(0,184,244,.07),
+          transparent 55%
+        );
 
     }
 
@@ -2496,22 +1822,18 @@
 
       justify-content: center;
 
-      gap:
-        13px;
+      gap: 13px;
 
     }
 
 
     .footer-line {
 
-      width:
-        76px;
+      width: 76px;
 
-      max-width:
-        22vw;
+      max-width: 22vw;
 
-      height:
-        1px;
+      height: 1px;
 
       background:
 
@@ -2539,29 +1861,22 @@
 
     .footer-symbol {
 
-      width: 53px;
-      height: 53px;
+      width: 52px;
+      height: 52px;
 
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
-      border-radius:
-        50%;
+      border-radius: 50%;
 
       background:
 
         radial-gradient(
           circle,
           rgba(0,184,244,.14),
-          transparent 69%
-        );
-
-      filter:
-        drop-shadow(
-          0 0 10px rgba(0,184,244,.09)
+          transparent 70%
         );
 
     }
@@ -2569,181 +1884,110 @@
 
     .footer-symbol img {
 
-      width:
-        47px;
+      width: 47px;
+      height: 47px;
 
-      height:
-        47px;
-
-      object-fit:
-        contain;
+      object-fit: contain;
 
     }
 
 
     .footer-process-text {
 
-      margin-top:
-        10px;
+      margin-top: 8px;
 
-      color:
-        #bad5e1;
+      color: #bad5e1;
 
-      font-size:
-        8px;
+      font-size: 8px;
 
-      font-weight:
-        700;
+      font-weight: 700;
 
-      letter-spacing:
-        2.15px;
+      letter-spacing: 2.15px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
     }
 
 
-
-    /* =====================================================
-       KING CO-BRAND
-    ===================================================== */
-
-
     .king-wrap {
 
-      position: relative;
-
-      width:
-        137px;
-
-      overflow: hidden;
+      width: 132px;
 
       margin:
-        15px auto 0;
+        13px auto 0;
 
       padding:
-        8px
-        11px;
+        7px 9px;
 
       border:
 
         1px solid
-        rgba(255,255,255,.46);
+        rgba(255,255,255,.48);
 
-      border-radius:
-        18px;
+      border-radius: 19px;
 
       background:
 
         linear-gradient(
           145deg,
-          rgba(255,255,255,.94),
-          rgba(239,246,248,.88)
+          rgba(255,255,255,.93),
+          rgba(236,245,248,.86)
         );
 
       backdrop-filter:
-        blur(16px)
-        saturate(110%);
+        blur(16px);
 
       -webkit-backdrop-filter:
-        blur(16px)
-        saturate(110%);
+        blur(16px);
 
       box-shadow:
 
-        0 10px 28px
-        rgba(0,0,0,.18),
+        0 9px 24px
+        rgba(0,0,0,.17),
 
         inset 0 1px 0
-        rgba(255,255,255,.95);
-
-    }
-
-
-    .king-wrap::before {
-
-      content: "";
-
-      position: absolute;
-
-      width:
-        95px;
-
-      height:
-        95px;
-
-      top:
-        -66px;
-
-      right:
-        -52px;
-
-      border-radius:
-        50%;
-
-      background:
-        rgba(91,209,255,.11);
-
-      pointer-events:
-        none;
+        rgba(255,255,255,.96);
 
     }
 
 
     .king-logo {
 
-      position: relative;
-
-      z-index: 2;
-
       display: block;
 
-      width:
-        100%;
+      width: 100%;
 
-      max-height:
-        68px;
+      max-height: 62px;
 
-      object-fit:
-        contain;
+      object-fit: contain;
 
-      filter:
-        none;
+      filter: none;
 
     }
 
 
     .footer-region {
 
-      margin-top:
-        15px;
+      margin-top: 13px;
 
-      color:
-        #a9cad7;
+      color: #a9cad7;
 
-      font-size:
-        7.8px;
+      font-size: 7.8px;
 
-      font-weight:
-        700;
+      font-weight: 700;
 
-      letter-spacing:
-        2px;
+      letter-spacing: 2px;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
 
     }
 
 
     .footer-tagline {
 
-      margin-top:
-        17px;
+      margin-top: 14px;
 
-      color:
-        var(--blue-bright);
+      color: var(--blue-bright);
 
       font-family:
 
@@ -2751,59 +1995,39 @@
         Georgia,
         serif;
 
-      font-size:
-        30px;
+      font-size: 30px;
 
-      font-weight:
-        600;
+      font-weight: 600;
 
-      font-style:
-        italic;
+      font-style: italic;
 
-      line-height:
-        1;
-
-      letter-spacing:
-        -.4px;
-
-      text-shadow:
-        0 0 20px rgba(0,184,244,.10);
+      line-height: 1;
 
     }
 
 
     .footer-accent {
 
-      width:
-        46px;
-
-      height:
-        3px;
+      width: 46px;
+      height: 3px;
 
       margin:
-        13px auto 0;
+        11px auto 0;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
       background:
-
-        linear-gradient(
-          90deg,
-          #028bbf,
-          var(--blue-bright),
-          #028bbf
-        );
+        var(--blue-bright);
 
       box-shadow:
-        0 0 12px rgba(0,184,244,.20);
+        0 0 12px rgba(0,184,244,.22);
 
     }
 
 
 
     /* =====================================================
-       SCROLL REVEAL
+       ANIMATION
     ===================================================== */
 
 
@@ -2817,6 +2041,7 @@
       transition:
 
         opacity .58s ease,
+
         transform .58s
         cubic-bezier(.22,.75,.28,1);
 
@@ -2841,201 +2066,117 @@
 
     .error-card {
 
-      margin:
-        40px
-        18px;
+      margin: 40px 18px;
 
-      padding:
-        25px;
+      padding: 25px;
 
-      border-radius:
-        18px;
+      border-radius: 18px;
 
-      color:
-        #111;
+      color: #111;
 
-      background:
-        white;
+      background: white;
 
     }
 
 
 
     /* =====================================================
-       SMALL MOBILE
+       SMALL PHONES
     ===================================================== */
 
 
-    @media
-    (
-      max-width: 370px
-    ) {
+    @media (max-width: 370px) {
 
       .hero {
+        min-height: 470px;
+      }
 
-        min-height:
-          475px;
 
+      .hero-process-mark {
+
+        width: 57px;
+        height: 57px;
+
+      }
+
+
+      .hero-brand-process {
+        font-size: 24px;
       }
 
 
       .hero-name {
-
-        font-size:
-          40px;
-
+        font-size: 40px;
       }
 
 
       .hero-name.long {
-
-        font-size:
-          36px;
-
+        font-size: 36px;
       }
 
 
       .hero-name.xlong {
-
-        font-size:
-          32px;
-
+        font-size: 32px;
       }
 
 
       .hero-title {
-
-        font-size:
-          13.5px;
-
+        font-size: 13px;
       }
 
 
       .contact-actions {
-
-        gap:
-          6px;
-
+        gap: 6px;
       }
 
 
       .contact-action {
 
-        min-height:
-          96px;
+        min-height: 96px;
 
-        padding:
-          10px 5px;
+        padding: 10px 5px;
 
       }
 
 
       .contact-label {
-
-        font-size:
-          11.5px;
-
-      }
-
-
-      .contact-sub {
-
-        font-size:
-          7.8px;
-
+        font-size: 11.5px;
       }
 
 
       .admissions {
 
-        gap:
-          10px;
+        gap: 10px;
 
-        padding:
-          15px;
+        padding: 15px;
 
       }
 
 
       .admissions-icon {
 
-        width:
-          53px;
+        width: 53px;
+        height: 53px;
 
-        height:
-          53px;
-
-        min-width:
-          53px;
+        min-width: 53px;
 
       }
 
 
       .admissions-title {
-
-        font-size:
-          20px;
-
+        font-size: 20px;
       }
 
 
       .admissions-number {
-
-        font-size:
-          18px;
-
-      }
-
-
-      .crisis {
-
-        gap:
-          9px;
-
-        padding:
-          14px;
-
-      }
-
-
-      .crisis-number {
-
-        font-size:
-          37px;
-
-      }
-
-
-      .crisis-icon {
-
-        width:
-          43px;
-
-        height:
-          43px;
-
+        font-size: 18px;
       }
 
     }
 
 
 
-    /* =====================================================
-       ACCESSIBILITY / REDUCED MOTION
-    ===================================================== */
-
-
-    @media
-    (
-      prefers-reduced-motion:
-      reduce
-    ) {
-
-      html {
-        scroll-behavior:
-          auto;
-      }
-
+    @media (prefers-reduced-motion: reduce) {
 
       *,
       *::before,
@@ -3080,8 +2221,7 @@
 
     <div>
 
-      <div class="spinner">
-      </div>
+      <div class="spinner"></div>
 
       Loading...
 
@@ -3096,14 +2236,8 @@
 <script>
 
 
-/* =====================================================
-   CONFIG
-===================================================== */
-
-
 const API_URL =
   'https://script.google.com/macros/s/AKfycbzefgAa3hJz9h2emDoa_4hhlxl99fIB_k_h5TEq1AIKmBXukcEx9llpglAsLqabXYOJ/exec';
-
 
 
 const params =
@@ -3114,33 +2248,20 @@ const params =
 
 const staffId =
   String(
-    params.get('staff') ||
-    ''
+    params.get('staff') || ''
   )
     .toLowerCase()
     .trim();
 
 
 
-/* =====================================================
-   JSONP CALLBACK
-===================================================== */
-
-
 window.processCardData =
   function(data) {
 
-    renderPage(
-      data
-    );
+    renderPage(data);
 
   };
 
-
-
-/* =====================================================
-   LOAD DATA
-===================================================== */
 
 
 function loadData() {
@@ -3154,9 +2275,7 @@ function loadData() {
   script.src =
     API_URL +
     '?staff=' +
-    encodeURIComponent(
-      staffId
-    ) +
+    encodeURIComponent(staffId) +
     '&callback=processCardData' +
     '&t=' +
     Date.now();
@@ -3170,31 +2289,6 @@ function loadData() {
     script
   );
 
-
-  /*
-    If the API never responds, show an error instead
-    of leaving someone on a permanent loading screen.
-  */
-
-  setTimeout(
-    function() {
-
-      const loading =
-        document.querySelector(
-          '.loading'
-        );
-
-
-      if (loading) {
-
-        renderError();
-
-      }
-
-    },
-    10000
-  );
-
 }
 
 
@@ -3203,14 +2297,13 @@ loadData();
 
 
 /* =====================================================
-   SVG ICONS
+   ICONS
 ===================================================== */
 
 
 function iconPhone() {
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -3218,26 +2311,17 @@ function iconPhone() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      aria-hidden="true"
     >
-
-      <path
-        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"
-      >
-      </path>
-
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"></path>
     </svg>
-
   `;
 
 }
-
 
 
 function iconMail() {
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -3245,35 +2329,18 @@ function iconMail() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      aria-hidden="true"
     >
-
-      <rect
-        x="3"
-        y="5"
-        width="18"
-        height="14"
-        rx="2"
-      >
-      </rect>
-
-      <path
-        d="m3 7 9 6 9-6"
-      >
-      </path>
-
+      <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+      <path d="m3 7 9 6 9-6"></path>
     </svg>
-
   `;
 
 }
-
 
 
 function iconContact() {
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -3281,43 +2348,20 @@ function iconContact() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      aria-hidden="true"
     >
-
-      <path
-        d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
-      >
-      </path>
-
-      <circle
-        cx="9"
-        cy="7"
-        r="4"
-      >
-      </circle>
-
-      <path
-        d="M19 8v6"
-      >
-      </path>
-
-      <path
-        d="M22 11h-6"
-      >
-      </path>
-
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+      <circle cx="9" cy="7" r="4"></circle>
+      <path d="M19 8v6"></path>
+      <path d="M22 11h-6"></path>
     </svg>
-
   `;
 
 }
-
 
 
 function iconGlobe() {
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -3325,43 +2369,20 @@ function iconGlobe() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      aria-hidden="true"
     >
-
-      <circle
-        cx="12"
-        cy="12"
-        r="9"
-      >
-      </circle>
-
-      <path
-        d="M3 12h18"
-      >
-      </path>
-
-      <path
-        d="M12 3a14 14 0 0 1 0 18"
-      >
-      </path>
-
-      <path
-        d="M12 3a14 14 0 0 0 0 18"
-      >
-      </path>
-
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="M3 12h18"></path>
+      <path d="M12 3a14 14 0 0 1 0 18"></path>
+      <path d="M12 3a14 14 0 0 0 0 18"></path>
     </svg>
-
   `;
 
 }
-
 
 
 function iconPin() {
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -3369,33 +2390,18 @@ function iconPin() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      aria-hidden="true"
     >
-
-      <path
-        d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"
-      >
-      </path>
-
-      <circle
-        cx="12"
-        cy="10"
-        r="2.5"
-      >
-      </circle>
-
+      <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path>
+      <circle cx="12" cy="10" r="2.5"></circle>
     </svg>
-
   `;
 
 }
-
 
 
 function iconHome() {
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -3403,36 +2409,19 @@ function iconHome() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      aria-hidden="true"
     >
-
-      <path
-        d="M3 11 12 3l9 8"
-      >
-      </path>
-
-      <path
-        d="M5 10v10h14V10"
-      >
-      </path>
-
-      <path
-        d="M9 20v-6h6v6"
-      >
-      </path>
-
+      <path d="M3 11 12 3l9 8"></path>
+      <path d="M5 10v10h14V10"></path>
+      <path d="M9 20v-6h6v6"></path>
     </svg>
-
   `;
 
 }
-
 
 
 function iconDoor() {
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -3440,40 +2429,19 @@ function iconDoor() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      aria-hidden="true"
     >
-
-      <path
-        d="M5 21h14"
-      >
-      </path>
-
-      <path
-        d="M7 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17"
-      >
-      </path>
-
-      <circle
-        cx="14"
-        cy="12"
-        r=".8"
-        fill="currentColor"
-        stroke="none"
-      >
-      </circle>
-
+      <path d="M5 21h14"></path>
+      <path d="M7 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17"></path>
+      <circle cx="14" cy="12" r=".8" fill="currentColor"></circle>
     </svg>
-
   `;
 
 }
 
 
-
 function iconPeople() {
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -3481,35 +2449,12 @@ function iconPeople() {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      aria-hidden="true"
     >
-
-      <circle
-        cx="8"
-        cy="8"
-        r="3"
-      >
-      </circle>
-
-      <circle
-        cx="16"
-        cy="8"
-        r="3"
-      >
-      </circle>
-
-      <path
-        d="M2 20c0-3 2.5-6 6-6s6 3 6 6"
-      >
-      </path>
-
-      <path
-        d="M10 20c0-3 2.5-6 6-6s6 3 6 6"
-      >
-      </path>
-
+      <circle cx="8" cy="8" r="3"></circle>
+      <circle cx="16" cy="8" r="3"></circle>
+      <path d="M2 20c0-3 2.5-6 6-6s6 3 6 6"></path>
+      <path d="M10 20c0-3 2.5-6 6-6s6 3 6 6"></path>
     </svg>
-
   `;
 
 }
@@ -3517,31 +2462,26 @@ function iconPeople() {
 
 
 /* =====================================================
-   RENDER MAIN PAGE
+   RENDER PAGE
 ===================================================== */
 
 
 function renderPage(data) {
 
   const app =
-    document.getElementById(
-      'app'
-    );
+    document.getElementById('app');
 
 
   const staff =
-    data.staff ||
-    null;
+    data.staff || null;
 
 
   const settings =
-    data.settings ||
-    {};
+    data.settings || {};
 
 
   const resources =
-    data.resources ||
-    [];
+    data.resources || [];
 
 
   if (!staff) {
@@ -3558,93 +2498,51 @@ function renderPage(data) {
     ' | The Process Recovery Center';
 
 
-
-  /* ===================================================
-     NAME LENGTH HANDLING
-  =================================================== */
-
-
   const nameLength =
-    String(
-      staff.name ||
-      ''
-    ).length;
+    String(staff.name || '').length;
 
 
-  let nameClass =
-    '';
+  let nameClass = '';
 
 
-  if (
-    nameLength >
-    24
-  ) {
+  if (nameLength > 24) {
 
-    nameClass =
-      'xlong';
+    nameClass = 'xlong';
 
   }
 
-  else if (
-    nameLength >
-    18
-  ) {
+  else if (nameLength > 18) {
 
-    nameClass =
-      'long';
+    nameClass = 'long';
 
   }
-
-
-
-  /* ===================================================
-     RESOURCES
-  =================================================== */
 
 
   const crisisResource =
     resources.find(
-      function(resource) {
-
-        return (
-          String(
-            resource.category ||
-            ''
-          )
-            .toLowerCase()
-            .trim() ===
-          'crisis'
-        );
-
-      }
+      resource =>
+        String(
+          resource.category || ''
+        )
+          .toLowerCase()
+          .trim() ===
+        'crisis'
     );
 
 
   const visibleResources =
     resources.filter(
-      function(resource) {
-
-        return (
-          String(
-            resource.category ||
-            ''
-          )
-            .toLowerCase()
-            .trim() !==
-          'crisis'
-        );
-
-      }
+      resource =>
+        String(
+          resource.category || ''
+        )
+          .toLowerCase()
+          .trim() !==
+        'crisis'
     );
 
 
-
-  /* ===================================================
-     HTML
-  =================================================== */
-
-
-  let html = `
+  app.innerHTML = `
 
 
     <section class="hero">
@@ -3652,21 +2550,28 @@ function renderPage(data) {
 
       <div class="hero-brand">
 
+        <img
+          class="hero-process-mark"
+          src="process-mark.png"
+          alt=""
+        >
 
-        <div class="brand-plaque">
 
+        <div class="hero-brand-copy">
 
-          <img
-            class="process-logo"
-            src="${escapeAttribute(
-              settings.process_logo
-            )}"
-            alt="The Process Recovery Center"
-          >
+          <div class="hero-brand-the">
+            The
+          </div>
 
+          <div class="hero-brand-process">
+            Process
+          </div>
+
+          <div class="hero-brand-sub">
+            Recovery Center
+          </div>
 
         </div>
-
 
       </div>
 
@@ -3675,55 +2580,33 @@ function renderPage(data) {
       <div class="hero-content">
 
 
-        <div class="identity">
+        <h1 class="hero-name ${nameClass}">
+
+          ${escapeHtml(staff.name)}
+
+        </h1>
 
 
-          <h1
-            class="hero-name ${nameClass}"
-          >
-
-            ${escapeHtml(
-              staff.name
-            )}
-
-          </h1>
-
-
-          ${
-            staff.title
-              ? `
-
-                <div class="hero-title">
-
-                  ${escapeHtml(
-                    staff.title
-                  )}
-
-                </div>
-
-              `
-              : ''
-          }
+        ${
+          staff.title
+            ? `
+              <div class="hero-title">
+                ${escapeHtml(staff.title)}
+              </div>
+            `
+            : ''
+        }
 
 
-          ${
-            staff.credentials
-              ? `
-
-                <div class="credentials">
-
-                  ${escapeHtml(
-                    staff.credentials
-                  )}
-
-                </div>
-
-              `
-              : ''
-          }
-
-
-        </div>
+        ${
+          staff.credentials
+            ? `
+              <div class="credentials">
+                ${escapeHtml(staff.credentials)}
+              </div>
+            `
+            : ''
+        }
 
 
 
@@ -3732,39 +2615,20 @@ function renderPage(data) {
 
           <a
             class="contact-action primary"
-            href="${escapeAttribute(
-              staff.phoneHref
-            )}"
-            aria-label="Call ${escapeAttribute(
-              staff.name
-            )} at ${escapeAttribute(
-              staff.phone
-            )}"
+            href="${escapeAttribute(staff.phoneHref)}"
           >
 
-
             <div class="contact-icon">
-
               ${iconPhone()}
-
             </div>
 
-
             <div class="contact-label">
-
               Call
-
             </div>
-
 
             <div class="contact-sub">
-
-              ${escapeHtml(
-                staff.phone
-              )}
-
+              ${escapeHtml(staff.phone)}
             </div>
-
 
           </a>
 
@@ -3772,35 +2636,20 @@ function renderPage(data) {
 
           <a
             class="contact-action"
-            href="mailto:${escapeAttribute(
-              staff.email
-            )}"
-            aria-label="Email ${escapeAttribute(
-              staff.name
-            )}"
+            href="mailto:${escapeAttribute(staff.email)}"
           >
 
-
             <div class="contact-icon">
-
               ${iconMail()}
-
             </div>
-
 
             <div class="contact-label">
-
               Email
-
             </div>
-
 
             <div class="contact-sub">
-
               Send a Message
-
             </div>
-
 
           </a>
 
@@ -3808,35 +2657,20 @@ function renderPage(data) {
 
           <a
             class="contact-action"
-            href="${API_URL}?staff=${encodeURIComponent(
-              staff.id
-            )}&vcard=1"
-            aria-label="Save ${escapeAttribute(
-              staff.name
-            )} to contacts"
+            href="${API_URL}?staff=${encodeURIComponent(staff.id)}&vcard=1"
           >
 
-
             <div class="contact-icon">
-
               ${iconContact()}
-
             </div>
-
 
             <div class="contact-label">
-
               Save Contact
-
             </div>
-
 
             <div class="contact-sub">
-
               Add to Phone
-
             </div>
-
 
           </a>
 
@@ -3854,17 +2688,10 @@ function renderPage(data) {
     <section class="content">
 
 
-
       <a
         class="admissions reveal"
-        href="${escapeAttribute(
-          settings.admissionsHref
-        )}"
-        aria-label="Call The Process Recovery Center admissions at ${escapeAttribute(
-          settings.admissions_phone
-        )}"
+        href="${escapeAttribute(settings.admissionsHref)}"
       >
-
 
         <div class="admissions-icon">
 
@@ -3873,53 +2700,31 @@ function renderPage(data) {
         </div>
 
 
-
         <div class="admissions-copy">
 
-
           <div class="admissions-kicker">
-
             Talk With Admissions
-
           </div>
-
 
           <div class="admissions-title">
-
             ADMISSIONS
-            <span>
-              24/7
-            </span>
-
+            <span>24/7</span>
           </div>
-
 
           <div class="admissions-number">
-
-            ${escapeHtml(
-              settings.admissions_phone
-            )}
-
+            ${escapeHtml(settings.admissions_phone)}
           </div>
-
 
           <div class="admissions-sub">
-
             Real people. Real help. Any time.
-
           </div>
 
-
         </div>
-
 
 
         <div class="admissions-arrow">
-
           ›
-
         </div>
-
 
       </a>
 
@@ -3930,47 +2735,30 @@ function renderPage(data) {
 
         <a
           class="primary-link"
-          href="${escapeAttribute(
-            settings.main_website
-          )}"
+          href="${escapeAttribute(settings.main_website)}"
           target="_blank"
           rel="noopener"
         >
 
-
           <div class="link-icon">
-
             ${iconGlobe()}
-
           </div>
-
 
           <div class="link-copy">
 
-
             <div class="link-title">
-
               Visit Process Website
-
             </div>
-
 
             <div class="link-sub">
-
               theprocessrecoverycenter.com
-
             </div>
 
-
           </div>
-
 
           <div class="link-arrow">
-
             ›
-
           </div>
-
 
         </a>
 
@@ -3978,49 +2766,30 @@ function renderPage(data) {
 
         <a
           class="primary-link"
-          href="${escapeAttribute(
-            settings.mapsHref
-          )}"
+          href="${escapeAttribute(settings.mapsHref)}"
           target="_blank"
           rel="noopener"
         >
 
-
           <div class="link-icon">
-
             ${iconPin()}
-
           </div>
-
 
           <div class="link-copy">
 
-
             <div class="link-title">
-
               Get Directions
-
             </div>
-
 
             <div class="link-sub">
-
-              ${escapeHtml(
-                settings.main_address
-              )}
-
+              ${escapeHtml(settings.main_address)}
             </div>
 
-
           </div>
-
 
           <div class="link-arrow">
-
             ›
-
           </div>
-
 
         </a>
 
@@ -4031,22 +2800,15 @@ function renderPage(data) {
 
       <div class="section-heading reveal">
 
-
         <div class="section-title">
-
           Recovery Resources
-
         </div>
 
-
         <div class="section-small">
-
           Community<br>
           Support<br>
           Long-Term Change
-
         </div>
-
 
       </div>
 
@@ -4054,21 +2816,11 @@ function renderPage(data) {
 
       <div class="resource-grid">
 
-
         ${
           visibleResources
-            .map(
-              function(resource) {
-
-                return renderResource(
-                  resource
-                );
-
-              }
-            )
+            .map(renderResource)
             .join('')
         }
-
 
       </div>
 
@@ -4076,9 +2828,7 @@ function renderPage(data) {
 
       <div class="reveal">
 
-        ${renderCrisis(
-          crisisResource
-        )}
+        ${renderCrisis(crisisResource)}
 
       </div>
 
@@ -4089,29 +2839,20 @@ function renderPage(data) {
 
         <div class="footer-divider">
 
-
-          <div class="footer-line">
-          </div>
-
+          <div class="footer-line"></div>
 
           <div class="footer-symbol">
-
 
             <img
               src="process-mark.png"
               alt=""
             >
 
-
           </div>
 
-
-          <div class="footer-line">
-          </div>
-
+          <div class="footer-line"></div>
 
         </div>
-
 
 
         <div class="footer-process-text">
@@ -4121,29 +2862,23 @@ function renderPage(data) {
         </div>
 
 
-
         ${
           settings.king_logo
             ? `
 
               <div class="king-wrap">
 
-
                 <img
                   class="king-logo"
-                  src="${escapeAttribute(
-                    settings.king_logo
-                  )}"
+                  src="${escapeAttribute(settings.king_logo)}"
                   alt="King Healthcare Group"
                 >
-
 
               </div>
 
             `
             : ''
         }
-
 
 
         <div class="footer-region">
@@ -4153,7 +2888,6 @@ function renderPage(data) {
         </div>
 
 
-
         <div class="footer-tagline">
 
           Recovery Starts Here.
@@ -4161,9 +2895,7 @@ function renderPage(data) {
         </div>
 
 
-
-        <div class="footer-accent">
-        </div>
+        <div class="footer-accent"></div>
 
 
       </footer>
@@ -4174,10 +2906,6 @@ function renderPage(data) {
   `;
 
 
-  app.innerHTML =
-    html;
-
-
   setupReveal();
 
 }
@@ -4185,39 +2913,28 @@ function renderPage(data) {
 
 
 /* =====================================================
-   RESOURCE CARDS
+   RESOURCE
 ===================================================== */
 
 
-function renderResource(
-  resource
-) {
+function renderResource(resource) {
 
   const name =
-    String(
-      resource.name ||
-      ''
-    );
+    String(resource.name || '');
 
 
   const nameLower =
-    name
-      .toLowerCase();
+    name.toLowerCase();
 
 
   const url =
-    String(
-      resource.url ||
-      ''
-    ).trim();
+    String(resource.url || '').trim();
 
 
   const isPhone =
     url
       .toLowerCase()
-      .startsWith(
-        'tel:'
-      );
+      .startsWith('tel:');
 
 
   let icon =
@@ -4225,9 +2942,7 @@ function renderResource(
 
 
   if (
-    nameLower.includes(
-      'respite'
-    )
+    nameLower.includes('respite')
   ) {
 
     icon =
@@ -4236,38 +2951,13 @@ function renderResource(
   }
 
   else if (
-    nameLower.includes(
-      'door'
-    )
+    nameLower.includes('door')
   ) {
 
     icon =
       iconDoor();
 
   }
-
-  else if (
-    nameLower.includes(
-      'alcoholics'
-    ) ||
-    nameLower.includes(
-      'narcotics'
-    )
-  ) {
-
-    icon =
-      iconPeople();
-
-  }
-
-
-
-  /*
-    Use Sheet values when present.
-    If an older API response omits them,
-    provide sensible fallbacks instead
-    of showing "OPEN RESOURCE."
-  */
 
 
   let displayNumber =
@@ -4276,34 +2966,16 @@ function renderResource(
     '';
 
 
-  if (
-    !displayNumber &&
-    isPhone
-  ) {
-
-    displayNumber =
-      formatTelForDisplay(
-        url
-      );
-
-  }
-
-
-
   let actionLabel =
     resource.actionLabel ||
     resource.action_label ||
     '';
 
 
-  if (
-    !actionLabel
-  ) {
+  if (!actionLabel) {
 
     if (
-      nameLower.includes(
-        'respite'
-      )
+      nameLower.includes('respite')
     ) {
 
       actionLabel =
@@ -4312,9 +2984,7 @@ function renderResource(
     }
 
     else if (
-      nameLower.includes(
-        'door'
-      )
+      nameLower.includes('door')
     ) {
 
       actionLabel =
@@ -4323,12 +2993,8 @@ function renderResource(
     }
 
     else if (
-      nameLower.includes(
-        'alcoholics'
-      ) ||
-      nameLower.includes(
-        'narcotics'
-      )
+      nameLower.includes('alcoholics') ||
+      nameLower.includes('narcotics')
     ) {
 
       actionLabel =
@@ -4336,9 +3002,7 @@ function renderResource(
 
     }
 
-    else if (
-      isPhone
-    ) {
+    else if (isPhone) {
 
       actionLabel =
         'Call Now';
@@ -4355,102 +3019,53 @@ function renderResource(
   }
 
 
-
   return `
-
 
     <a
       class="resource-card reveal ${isPhone ? 'phone-resource' : ''}"
-      href="${escapeAttribute(
-        url ||
-        '#'
-      )}"
-      ${
-        isPhone
-          ? ''
-          : 'target="_blank" rel="noopener"'
-      }
+      href="${escapeAttribute(url || '#')}"
+      ${isPhone ? '' : 'target="_blank" rel="noopener"'}
     >
 
-
       <div class="resource-icon">
-
         ${icon}
-
       </div>
-
 
 
       <div class="resource-name">
-
-        ${escapeHtml(
-          name
-        )}
-
+        ${escapeHtml(name)}
       </div>
 
 
-
-      ${
-        resource.description
-          ? `
-
-            <div class="resource-description">
-
-              ${escapeHtml(
-                resource.description
-              )}
-
-            </div>
-
-          `
-          : ''
-      }
-
+      <div class="resource-description">
+        ${escapeHtml(resource.description || '')}
+      </div>
 
 
       <div class="resource-bottom">
 
-
         <div>
-
 
           ${
             displayNumber
               ? `
-
                 <div class="resource-number">
-
-                  ${escapeHtml(
-                    displayNumber
-                  )}
-
+                  ${escapeHtml(displayNumber)}
                 </div>
-
               `
               : ''
           }
 
-
           <div class="resource-action-label">
-
-            ${escapeHtml(
-              actionLabel
-            )}
-
+            ${escapeHtml(actionLabel)}
           </div>
 
-
         </div>
-
 
 
         <div class="resource-arrow">
-
           ›
-
         </div>
-
 
       </div>
 
@@ -4464,49 +3079,34 @@ function renderResource(
 
 
 /* =====================================================
-   CRISIS CARD
+   CRISIS
 ===================================================== */
 
 
-function renderCrisis(
-  crisis
-) {
+function renderCrisis(crisis) {
 
-  const displayNumber =
-    crisis &&
-    (
-      crisis.displayNumber ||
-      crisis.display_number
-    )
-      ? (
-          crisis.displayNumber ||
-          crisis.display_number
-        )
-      : '988';
+  const number =
+    crisis?.displayNumber ||
+    crisis?.display_number ||
+    '988';
 
 
   const callUrl =
-    crisis &&
-    crisis.url
-      ? crisis.url
-      : 'tel:988';
+    crisis?.url ||
+    'tel:988';
 
 
-  const crisisName =
-    crisis &&
-    crisis.name
-      ? crisis.name
-      : 'Mental Health Crisis Lifeline';
+  const name =
+    crisis?.name ||
+    'Mental Health Crisis Lifeline';
 
 
   return `
-
 
     <div class="crisis">
 
 
       <div class="crisis-number-block">
-
 
         <div class="crisis-icon">
 
@@ -4514,65 +3114,44 @@ function renderCrisis(
 
         </div>
 
-
         <div class="crisis-number">
 
-          ${escapeHtml(
-            displayNumber
-          )}
+          ${escapeHtml(number)}
 
         </div>
 
-
       </div>
 
 
-
-      <div class="crisis-divider">
-      </div>
-
+      <div class="crisis-divider"></div>
 
 
       <div class="crisis-copy">
 
-
         <div class="crisis-title">
 
-          ${escapeHtml(
-            crisisName
-          )}
+          ${escapeHtml(name)}
 
         </div>
 
 
-
         <div class="crisis-buttons">
-
 
           <a
             class="crisis-button call"
-            href="${escapeAttribute(
-              callUrl
-            )}"
+            href="${escapeAttribute(callUrl)}"
           >
-
             Call 988
-
           </a>
-
 
           <a
             class="crisis-button"
             href="sms:988"
           >
-
             Text 988
-
           </a>
 
-
         </div>
-
 
 
         <div class="crisis-support">
@@ -4581,12 +3160,10 @@ function renderCrisis(
 
         </div>
 
-
       </div>
 
 
     </div>
-
 
 
     <a
@@ -4605,85 +3182,7 @@ function renderCrisis(
 
 
 /* =====================================================
-   RESOURCE PHONE FORMATTING FALLBACK
-===================================================== */
-
-
-function formatTelForDisplay(
-  url
-) {
-
-  const digits =
-    String(
-      url ||
-      ''
-    )
-      .replace(
-        /\D/g,
-        ''
-      );
-
-
-  if (!digits) {
-
-    return '';
-
-  }
-
-
-  if (
-    digits.length <=
-    6
-  ) {
-
-    return digits;
-
-  }
-
-
-  let ten =
-    digits;
-
-
-  if (
-    digits.length ===
-      11 &&
-    digits.charAt(0) ===
-      '1'
-  ) {
-
-    ten =
-      digits.substring(
-        1
-      );
-
-  }
-
-
-  if (
-    ten.length ===
-    10
-  ) {
-
-    return (
-      ten.substring(0,3) +
-      '-' +
-      ten.substring(3,6) +
-      '-' +
-      ten.substring(6)
-    );
-
-  }
-
-
-  return digits;
-
-}
-
-
-
-/* =====================================================
-   SCROLL REVEAL
+   REVEAL
 ===================================================== */
 
 
@@ -4698,23 +3197,14 @@ function setupReveal() {
   if (
     !(
       'IntersectionObserver'
-      in
-      window
+      in window
     )
   ) {
 
     elements.forEach(
-      function(element) {
-
-        element
-          .classList
-          .add(
-            'visible'
-          );
-
-      }
+      el =>
+        el.classList.add('visible')
     );
-
 
     return;
 
@@ -4723,10 +3213,10 @@ function setupReveal() {
 
   const observer =
     new IntersectionObserver(
-      function(entries) {
+      entries => {
 
         entries.forEach(
-          function(entry) {
+          entry => {
 
             if (
               entry.isIntersecting
@@ -4734,9 +3224,7 @@ function setupReveal() {
 
               entry.target
                 .classList
-                .add(
-                  'visible'
-                );
+                .add('visible');
 
 
               observer
@@ -4751,25 +3239,14 @@ function setupReveal() {
 
       },
       {
-
-        threshold:
-          .08,
-
-        rootMargin:
-          '0px 0px -25px 0px'
-
+        threshold: .08
       }
     );
 
 
   elements.forEach(
-    function(element) {
-
-      observer.observe(
-        element
-      );
-
-    }
+    element =>
+      observer.observe(element)
   );
 
 }
@@ -4777,91 +3254,55 @@ function setupReveal() {
 
 
 /* =====================================================
-   ESCAPING
+   ESCAPE
 ===================================================== */
 
 
-function escapeHtml(
-  value
-) {
+function escapeHtml(value) {
 
-  return String(
-    value ||
-    ''
-  )
-    .replace(
-      /&/g,
-      '&amp;'
-    )
-    .replace(
-      /</g,
-      '&lt;'
-    )
-    .replace(
-      />/g,
-      '&gt;'
-    )
-    .replace(
-      /"/g,
-      '&quot;'
-    )
-    .replace(
-      /'/g,
-      '&#39;'
-    );
+  return String(value || '')
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
 
 }
 
 
+function escapeAttribute(value) {
 
-function escapeAttribute(
-  value
-) {
-
-  return escapeHtml(
-    value
-  );
+  return escapeHtml(value);
 
 }
 
 
 
 /* =====================================================
-   ERROR STATE
+   ERROR
 ===================================================== */
 
 
 function renderError() {
 
-  const app =
-    document.getElementById(
-      'app'
-    );
+  document
+    .getElementById('app')
+    .innerHTML = `
 
+      <div class="error-card">
 
-  app.innerHTML = `
+        <h2>
+          Unable to load
+        </h2>
 
-    <div class="error-card">
+        <p>
+          Please refresh the page or visit
+          The Process Recovery Center website.
+        </p>
 
+      </div>
 
-      <h2>
-
-        Unable to load
-
-      </h2>
-
-
-      <p>
-
-        Please refresh the page or visit
-        The Process Recovery Center website.
-
-      </p>
-
-
-    </div>
-
-  `;
+    `;
 
 }
 
@@ -4870,5 +3311,4 @@ function renderError() {
 
 
 </body>
-
 </html>
