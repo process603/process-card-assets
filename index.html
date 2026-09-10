@@ -30,12 +30,8 @@
 
       --black: #060809;
       --dark: #0d1214;
-      --dark-2: #172023;
 
       --white: #ffffff;
-
-      --surface: #f8fafb;
-      --surface-blue: #eaf6fa;
 
       --text: #101416;
       --muted: #647278;
@@ -122,7 +118,6 @@
 
     button {
       font-family: inherit;
-      cursor: pointer;
     }
 
 
@@ -161,6 +156,11 @@
         );
 
     }
+
+
+    /* =====================================================
+       LOADING
+    ===================================================== */
 
 
     .loading {
@@ -220,6 +220,11 @@
       }
 
     }
+
+
+    /* =====================================================
+       BRAND HEADER
+    ===================================================== */
 
 
     .brand-panel {
@@ -383,7 +388,7 @@
 
       z-index: 2;
 
-      max-width: 370px;
+      max-width: 390px;
 
       margin:
         10px auto
@@ -448,6 +453,11 @@
     }
 
 
+    /* =====================================================
+       SECTIONS
+    ===================================================== */
+
+
     .section {
 
       width: 100%;
@@ -508,6 +518,11 @@
         );
 
     }
+
+
+    /* =====================================================
+       PROFILE
+    ===================================================== */
 
 
     .profile-card {
@@ -684,6 +699,11 @@
     }
 
 
+    /* =====================================================
+       STAFF PHONE
+    ===================================================== */
+
+
     .staff-phone {
 
       position: relative;
@@ -813,6 +833,11 @@
     }
 
 
+    /* =====================================================
+       PROFILE ACTIONS
+    ===================================================== */
+
+
     .profile-actions {
 
       position: relative;
@@ -927,6 +952,11 @@
       white-space: nowrap;
 
     }
+
+
+    /* =====================================================
+       ADMISSIONS
+    ===================================================== */
 
 
     .admissions-card {
@@ -1064,6 +1094,11 @@
     }
 
 
+    /* =====================================================
+       PROCESS ACTIONS
+    ===================================================== */
+
+
     .service-actions {
 
       display: grid;
@@ -1089,7 +1124,7 @@
 
       justify-content: space-between;
 
-      min-height: 112px;
+      min-height: 118px;
 
       padding: 15px;
 
@@ -1161,6 +1196,11 @@
     }
 
 
+    /* =====================================================
+       RESOURCES
+    ===================================================== */
+
+
     .resource-panel {
 
       overflow: hidden;
@@ -1189,12 +1229,11 @@
 
       align-items: center;
 
-      min-height: 76px;
+      min-height: 86px;
 
       gap: 12px;
 
       padding:
-        14px
         15px;
 
       color: inherit;
@@ -1216,10 +1255,10 @@
 
     .resource-badge {
 
-      width: 42px;
-      height: 42px;
+      width: 46px;
+      height: 46px;
 
-      min-width: 42px;
+      min-width: 46px;
 
       display: flex;
 
@@ -1227,7 +1266,7 @@
 
       justify-content: center;
 
-      border-radius: 12px;
+      border-radius: 13px;
 
       color:
         var(--blue-dark);
@@ -1275,7 +1314,7 @@
 
       color: #101517;
 
-      font-size: 14px;
+      font-size: 15px;
 
       font-weight: 900;
 
@@ -1295,6 +1334,32 @@
     }
 
 
+    .resource-number {
+
+      margin-top: 7px;
+
+      color: #111719;
+
+      font-size: 15px;
+
+      font-weight: 900;
+
+    }
+
+
+    .resource-action {
+
+      margin-top: 5px;
+
+      color: var(--blue-dark);
+
+      font-size: 10.5px;
+
+      font-weight: 900;
+
+    }
+
+
     .resource-chevron {
 
       color: #96a2a7;
@@ -1302,6 +1367,11 @@
       font-size: 22px;
 
     }
+
+
+    /* =====================================================
+       CRISIS
+    ===================================================== */
 
 
     .crisis-card {
@@ -1369,9 +1439,24 @@
     }
 
 
+    .crisis-number {
+
+      margin-top: 10px;
+
+      color: var(--blue);
+
+      font-size: 32px;
+
+      font-weight: 900;
+
+      line-height: 1;
+
+    }
+
+
     .crisis-description {
 
-      margin-top: 7px;
+      margin-top: 8px;
 
       color: #b9c3c7;
 
@@ -1481,6 +1566,11 @@
     }
 
 
+    /* =====================================================
+       GENERIC
+    ===================================================== */
+
+
     .generic-card {
 
       padding: 22px;
@@ -1527,6 +1617,11 @@
       line-height: 1.5;
 
     }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
 
 
     .footer {
@@ -1625,6 +1720,11 @@
 <script>
 
 
+/* =====================================================
+   CONFIG
+===================================================== */
+
+
 const API_URL =
   'https://script.google.com/macros/s/AKfycbzefgAa3hJz9h2emDoa_4hhlxl99fIB_k_h5TEq1AIKmBXukcEx9llpglAsLqabXYOJ/exec';
 
@@ -1644,12 +1744,22 @@ const staffId =
     .trim();
 
 
+/* =====================================================
+   JSONP CALLBACK
+===================================================== */
+
+
 window.processCardData =
   function(data) {
 
     renderPage(data);
 
   };
+
+
+/* =====================================================
+   LOAD DATA
+===================================================== */
 
 
 function loadData() {
@@ -1689,6 +1799,11 @@ function loadData() {
 loadData();
 
 
+/* =====================================================
+   MAIN RENDER
+===================================================== */
+
+
 function renderPage(data) {
 
   const app =
@@ -1721,6 +1836,11 @@ function renderPage(data) {
   let html = '';
 
 
+  /* ===================================================
+     BRAND
+  =================================================== */
+
+
   html += `
     <header class="brand-panel">
   `;
@@ -1731,11 +1851,13 @@ function renderPage(data) {
   ) {
 
     html += `
+
       <img
         class="process-logo"
         src="${escapeAttribute(settings.process_logo)}"
         alt="The Process Recovery Center"
       >
+
     `;
 
   }
@@ -1801,7 +1923,13 @@ function renderPage(data) {
       </div>
 
     </header>
+
   `;
+
+
+  /* ===================================================
+     STAFF PROFILE
+  =================================================== */
 
 
   if (staff) {
@@ -1811,7 +1939,11 @@ function renderPage(data) {
       <section class="section">
 
         <div class="section-heading">
-          <span>Your Contact</span>
+
+          <span>
+            Your Contact
+          </span>
+
         </div>
 
 
@@ -1819,12 +1951,16 @@ function renderPage(data) {
 
 
           <div class="profile-eyebrow">
+
             The Process Recovery Center
+
           </div>
 
 
           <h1 class="profile-name">
+
             ${escapeHtml(staff.name)}
+
           </h1>
 
 
@@ -1833,12 +1969,16 @@ function renderPage(data) {
     `;
 
 
-    if (staff.title) {
+    if (
+      staff.title
+    ) {
 
       html += `
 
         <div class="profile-title">
+
           ${escapeHtml(staff.title)}
+
         </div>
 
       `;
@@ -1846,12 +1986,16 @@ function renderPage(data) {
     }
 
 
-    if (staff.credentials) {
+    if (
+      staff.credentials
+    ) {
 
       html += `
 
         <div class="credentials">
+
           ${escapeHtml(staff.credentials)}
+
         </div>
 
       `;
@@ -1862,6 +2006,7 @@ function renderPage(data) {
     html += `
 
           </div>
+
 
           <div class="profile-accent">
           </div>
@@ -1889,22 +2034,32 @@ function renderPage(data) {
           <div class="staff-phone-copy">
 
             <div class="staff-phone-label">
+
               Call ${escapeHtml(firstName(staff.name))}
+
             </div>
 
+
             <span class="staff-phone-number">
+
               ${escapeHtml(staff.phone)}
+
             </span>
 
+
             <div class="staff-phone-hint">
+
               Tap to call
+
             </div>
 
           </div>
 
 
           <div class="arrow">
+
             ›
+
           </div>
 
         </a>
@@ -1940,11 +2095,15 @@ function renderPage(data) {
           <div class="profile-action-copy">
 
             <div class="profile-action-title">
+
               Email
+
             </div>
 
             <div class="profile-action-sub">
+
               ${escapeHtml(staff.email)}
+
             </div>
 
           </div>
@@ -1956,32 +2115,43 @@ function renderPage(data) {
     }
 
 
+    /* ===================================================
+       SAVE CONTACT
+       Uses existing Apps Script vCard route.
+    =================================================== */
+
+
     html += `
 
-        <button
+        <a
           class="profile-action"
-          type="button"
-          onclick="saveContact()"
+          href="${API_URL}?staff=${encodeURIComponent(staff.id)}&vcard=1"
         >
 
           <div class="mini-icon">
+
             +
+
           </div>
 
 
           <div class="profile-action-copy">
 
             <div class="profile-action-title">
+
               Save Contact
+
             </div>
 
             <div class="profile-action-sub">
+
               Add to your phone
+
             </div>
 
           </div>
 
-        </button>
+        </a>
 
 
       </div>
@@ -1996,12 +2166,21 @@ function renderPage(data) {
   }
 
 
+  /* ===================================================
+     GET HELP
+  =================================================== */
+
+
   html += `
 
     <section class="section">
 
       <div class="section-heading">
-        <span>Get Help</span>
+
+        <span>
+          Get Help
+        </span>
+
       </div>
 
   `;
@@ -2022,18 +2201,24 @@ function renderPage(data) {
         <div class="admissions-top">
 
           <div class="admissions-label">
+
             Call Admissions
+
           </div>
 
           <div class="badge">
+
             24 / 7
+
           </div>
 
         </div>
 
 
         <span class="admissions-number">
+
           ${escapeHtml(settings.admissions_phone)}
+
         </span>
 
 
@@ -2047,7 +2232,9 @@ function renderPage(data) {
 
 
         <div class="tap-call">
+
           Tap to call →
+
         </div>
 
       </a>
@@ -2055,6 +2242,11 @@ function renderPage(data) {
     `;
 
   }
+
+
+  /* ===================================================
+     PROCESS LINKS
+  =================================================== */
 
 
   html += `
@@ -2078,18 +2270,24 @@ function renderPage(data) {
       >
 
         <div class="service-icon">
+
           ◎
+
         </div>
 
 
         <div>
 
           <div class="service-title">
-            Visit Website
+
+            Visit Process Website
+
           </div>
 
           <div class="service-sub">
+
             Programs, services and treatment information
+
           </div>
 
         </div>
@@ -2115,18 +2313,24 @@ function renderPage(data) {
       >
 
         <div class="service-icon">
+
           ⌖
+
         </div>
 
 
         <div>
 
           <div class="service-title">
+
             Directions
+
           </div>
 
           <div class="service-sub">
+
             ${escapeHtml(settings.main_address || '')}
+
           </div>
 
         </div>
@@ -2147,28 +2351,63 @@ function renderPage(data) {
   `;
 
 
+  /* ===================================================
+     RESOURCE FILTERING
+  =================================================== */
+
+
+  const crisisResource =
+    resources.find(
+      function(resource) {
+
+        return (
+          String(
+            resource.category || ''
+          )
+            .toLowerCase()
+            .trim() ===
+          'crisis'
+        );
+
+      }
+    );
+
+
   const visibleResources =
     resources.filter(
       function(resource) {
 
+        const category =
+          String(
+            resource.category || ''
+          )
+            .toLowerCase()
+            .trim();
+
+
         const name =
-          (
-            resource.name ||
-            ''
+          String(
+            resource.name || ''
           )
             .toLowerCase()
             .trim();
 
 
         return (
+          category !==
+            'crisis' &&
+
           name !==
-            'process website' &&
-          name !==
-            '988'
+            'process website'
         );
 
       }
     );
+
+
+  /* ===================================================
+     RECOVERY + RESOURCES
+  =================================================== */
 
 
   if (
@@ -2180,7 +2419,13 @@ function renderPage(data) {
       <section class="section">
 
         <div class="section-heading">
-          <span>Recovery & Support</span>
+
+          <span>
+
+            Recovery & Support
+
+          </span>
+
         </div>
 
 
@@ -2198,8 +2443,33 @@ function renderPage(data) {
             resource.category ||
             'GO'
           )
-            .substring(0,2)
+            .substring(
+              0,
+              2
+            )
             .toUpperCase();
+
+
+        const actionLabel =
+          resource.actionLabel ||
+          resource.action_label ||
+          'Open Resource';
+
+
+        const displayNumber =
+          resource.displayNumber ||
+          resource.display_number ||
+          '';
+
+
+        const isPhone =
+          String(
+            resource.url || ''
+          )
+            .toLowerCase()
+            .startsWith(
+              'tel:'
+            );
 
 
         html += `
@@ -2207,34 +2477,75 @@ function renderPage(data) {
           <a
             class="resource-item"
             href="${escapeAttribute(resource.url || '#')}"
-            target="_blank"
-            rel="noopener"
+            ${isPhone ? '' : 'target="_blank" rel="noopener"'}
           >
 
             <div class="resource-badge">
+
               ${escapeHtml(badge)}
+
             </div>
 
 
             <div class="resource-copy">
 
               <div class="resource-type">
+
                 ${escapeHtml(resource.category || '')}
+
               </div>
+
 
               <div class="resource-name">
+
                 ${escapeHtml(resource.name || '')}
+
               </div>
 
+
               <div class="resource-description">
+
                 ${escapeHtml(resource.description || '')}
+
               </div>
+
+
+              ${
+                displayNumber
+                  ? `
+
+                    <div class="resource-number">
+
+                      ${escapeHtml(displayNumber)}
+
+                    </div>
+
+                  `
+                  : ''
+              }
+
+
+              ${
+                actionLabel
+                  ? `
+
+                    <div class="resource-action">
+
+                      ${escapeHtml(actionLabel)} →
+
+                    </div>
+
+                  `
+                  : ''
+              }
 
             </div>
 
 
             <div class="resource-chevron">
+
               ›
+
             </div>
 
           </a>
@@ -2256,12 +2567,57 @@ function renderPage(data) {
   }
 
 
+  /* ===================================================
+     CRISIS
+  =================================================== */
+
+
+  const crisisName =
+    crisisResource &&
+    crisisResource.name
+      ? crisisResource.name
+      : 'Mental Health Crisis Lifeline';
+
+
+  const crisisDescription =
+    crisisResource &&
+    crisisResource.description
+      ? crisisResource.description
+      : 'Mental health and crisis support is available 24/7.';
+
+
+  const crisisDisplayNumber =
+    crisisResource &&
+    (
+      crisisResource.displayNumber ||
+      crisisResource.display_number
+    )
+      ? (
+          crisisResource.displayNumber ||
+          crisisResource.display_number
+        )
+      : '988';
+
+
+  const crisisCallUrl =
+    crisisResource &&
+    crisisResource.url
+      ? crisisResource.url
+      : 'tel:988';
+
+
   html += `
 
     <section class="section">
 
       <div class="section-heading">
-        <span>Immediate Support</span>
+
+        <span>
+
+          Immediate Support
+
+        </span>
+
       </div>
 
 
@@ -2269,39 +2625,55 @@ function renderPage(data) {
 
 
         <div class="crisis-eyebrow">
+
           Crisis Support
+
         </div>
 
 
         <h2 class="crisis-title">
-          Need help right now?
+
+          ${escapeHtml(crisisName)}
+
         </h2>
+
+
+        <div class="crisis-number">
+
+          ${escapeHtml(crisisDisplayNumber)}
+
+        </div>
 
 
         <div class="crisis-description">
 
-          If you or someone you know is experiencing
-          a mental health or substance use crisis,
-          help is available.
+          ${escapeHtml(crisisDescription)}
 
         </div>
 
 
         <div class="crisis-actions">
 
+
           <a
             class="crisis-action primary"
-            href="tel:988"
+            href="${escapeAttribute(crisisCallUrl)}"
           >
+
             Call 988
+
           </a>
+
 
           <a
             class="crisis-action secondary"
             href="sms:988"
           >
+
             Text 988
+
           </a>
+
 
         </div>
 
@@ -2310,7 +2682,9 @@ function renderPage(data) {
           class="emergency"
           href="tel:911"
         >
+
           Immediate emergency? Call 911
+
         </a>
 
 
@@ -2321,13 +2695,20 @@ function renderPage(data) {
   `;
 
 
+  /* ===================================================
+     FOOTER
+  =================================================== */
+
+
   html += `
 
     <footer class="footer">
 
 
       <div class="footer-name">
+
         The Process Recovery Center
+
       </div>
 
   `;
@@ -2338,8 +2719,11 @@ function renderPage(data) {
   ) {
 
     html += `
+
       ${escapeHtml(settings.main_address)}
+
       <br>
+
     `;
 
   }
@@ -2366,225 +2750,6 @@ function renderPage(data) {
   app.innerHTML =
     html;
 
-
-  window.currentStaff =
-    staff;
-
-
-  window.currentSettings =
-    settings;
-
-}
-
-
-/* =====================================================
-   SAVE CONTACT - MOBILE FRIENDLY
-===================================================== */
-
-
-async function saveContact() {
-
-  const staff =
-    window.currentStaff;
-
-  const settings =
-    window.currentSettings || {};
-
-
-  if (!staff) {
-    return;
-  }
-
-
-  const names =
-    staff.name
-      .trim()
-      .split(/\s+/);
-
-
-  const first =
-    names.shift() || '';
-
-
-  const last =
-    names.join(' ');
-
-
-  const titleParts = [];
-
-
-  if (staff.title) {
-    titleParts.push(staff.title);
-  }
-
-
-  if (staff.credentials) {
-    titleParts.push(staff.credentials);
-  }
-
-
-  const vcard = [
-
-    'BEGIN:VCARD',
-
-    'VERSION:3.0',
-
-    'N:' +
-      vcardEscape(last) +
-      ';' +
-      vcardEscape(first) +
-      ';;;',
-
-    'FN:' +
-      vcardEscape(staff.name),
-
-    'ORG:The Process Recovery Center',
-
-    titleParts.length
-      ? 'TITLE:' +
-        vcardEscape(
-          titleParts.join(' | ')
-        )
-      : '',
-
-    staff.phone
-      ? 'TEL;TYPE=CELL:' +
-        normalizePhone(staff.phone)
-      : '',
-
-    staff.email
-      ? 'EMAIL;TYPE=WORK:' +
-        vcardEscape(staff.email)
-      : '',
-
-    settings.main_address
-      ? 'ADR;TYPE=WORK:;;' +
-        vcardEscape(
-          settings.main_address
-        ) +
-        ';;;;'
-      : '',
-
-    settings.main_website
-      ? 'URL:' +
-        settings.main_website
-      : '',
-
-    'END:VCARD'
-
-  ]
-    .filter(Boolean)
-    .join('\r\n');
-
-
-  const fileName =
-    staff.name
-      .replace(
-        /[^a-zA-Z0-9 _-]/g,
-        ''
-      ) +
-    '.vcf';
-
-
-  const file =
-    new File(
-      [vcard],
-      fileName,
-      {
-        type: 'text/vcard'
-      }
-    );
-
-
-  try {
-
-    if (
-      navigator.share &&
-      navigator.canShare &&
-      navigator.canShare({
-        files: [file]
-      })
-    ) {
-
-      await navigator.share({
-
-        title:
-          staff.name,
-
-        text:
-          'Contact for ' +
-          staff.name +
-          ' at The Process Recovery Center',
-
-        files:
-          [file]
-
-      });
-
-      return;
-
-    }
-
-  }
-  catch (error) {
-
-    if (
-      error &&
-      error.name ===
-      'AbortError'
-    ) {
-
-      return;
-
-    }
-
-  }
-
-
-  const blob =
-    new Blob(
-      [vcard],
-      {
-        type:
-          'text/vcard;charset=utf-8'
-      }
-    );
-
-
-  const url =
-    URL.createObjectURL(blob);
-
-
-  const link =
-    document.createElement('a');
-
-
-  link.href =
-    url;
-
-
-  link.download =
-    fileName;
-
-
-  document.body.appendChild(link);
-
-
-  link.click();
-
-
-  link.remove();
-
-
-  setTimeout(
-    function() {
-
-      URL.revokeObjectURL(url);
-
-    },
-    5000
-  );
-
 }
 
 
@@ -2602,69 +2767,6 @@ function firstName(name) {
     .trim()
     .split(/\s+/)[0] ||
     '';
-
-}
-
-
-function normalizePhone(phone) {
-
-  const digits =
-    String(
-      phone || ''
-    )
-      .replace(
-        /\D/g,
-        ''
-      );
-
-
-  if (
-    digits.length === 10
-  ) {
-
-    return '+1' +
-      digits;
-
-  }
-
-
-  if (
-    digits.length === 11 &&
-    digits.charAt(0) === '1'
-  ) {
-
-    return '+' +
-      digits;
-
-  }
-
-
-  return digits;
-
-}
-
-
-function vcardEscape(value) {
-
-  return String(
-    value || ''
-  )
-    .replace(
-      /\\/g,
-      '\\\\'
-    )
-    .replace(
-      /\n/g,
-      '\\n'
-    )
-    .replace(
-      /;/g,
-      '\\;'
-    )
-    .replace(
-      /,/g,
-      '\\,'
-    );
 
 }
 
@@ -2707,6 +2809,11 @@ function escapeAttribute(value) {
 }
 
 
+/* =====================================================
+   ERROR
+===================================================== */
+
+
 function renderError() {
 
   const app =
@@ -2722,7 +2829,9 @@ function renderError() {
       <div class="generic-card">
 
         <h1>
+
           Unable to load
+
         </h1>
 
         <p>
