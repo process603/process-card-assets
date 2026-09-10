@@ -10,70 +10,41 @@
     content="width=device-width, initial-scale=1, viewport-fit=cover"
   >
 
-  <meta
-    name="theme-color"
-    content="#081012"
-  >
+  <meta name="theme-color" content="#031019">
 
-  <title>
-    The Process Recovery Center
-  </title>
-
+  <title>The Process Recovery Center</title>
 
   <style>
 
     :root {
-
-      --blue: #a9d7e8;
-      --blue-strong: #62b7d8;
-      --blue-dark: #258ab3;
-
-      --black: #060809;
-      --dark: #0d1214;
-
+      --blue: #59c7f2;
+      --blue-bright: #00aeef;
+      --blue-soft: #9eddf5;
+      --navy: #061722;
+      --navy-2: #0a2231;
+      --navy-3: #102c3d;
       --white: #ffffff;
-
-      --text: #101416;
-      --muted: #647278;
-
-      --border: #e1e8eb;
-
+      --muted: #abc0cc;
+      --border: rgba(102, 202, 241, .42);
     }
-
 
     * {
       box-sizing: border-box;
     }
 
-
     html {
-
-      width: 100%;
-      min-height: 100%;
-
       margin: 0;
       padding: 0;
-
-      background: var(--black);
-
-      scroll-behavior: smooth;
-
+      background: #02090d;
       -webkit-text-size-adjust: 100%;
-
     }
 
-
     body {
-
-      width: 100%;
-      min-height: 100dvh;
-
       margin: 0;
-      padding: 0;
-
-      overflow-x: hidden;
+      min-height: 100vh;
 
       font-family:
+        Inter,
         Arial,
         Helvetica,
         sans-serif;
@@ -81,1605 +52,1098 @@
       color: white;
 
       background:
-
         radial-gradient(
-          circle at 100% 0%,
-          rgba(169,215,232,.13),
-          transparent 30%
-        ),
-
-        radial-gradient(
-          circle at 0% 55%,
-          rgba(169,215,232,.05),
+          circle at 10% 20%,
+          rgba(0, 174, 239, .13),
           transparent 32%
         ),
-
         linear-gradient(
-          150deg,
-          #050708 0%,
-          #0b1012 52%,
-          #151d20 100%
+          180deg,
+          #06131b 0%,
+          #02090d 70%
         );
-
     }
 
-
-    a,
-    button {
-
-      -webkit-tap-highlight-color:
-        transparent;
-
-      touch-action:
-        manipulation;
-
+    a {
+      text-decoration: none;
+      color: inherit;
+      -webkit-tap-highlight-color: transparent;
     }
-
 
     button {
       font-family: inherit;
     }
 
-
     .page {
-
       width: 100%;
-
-      max-width: 560px;
-
-      min-height: 100dvh;
+      max-width: 520px;
+      min-height: 100vh;
 
       margin: 0 auto;
 
-      padding-top:
-        max(
-          8px,
-          env(safe-area-inset-top)
+      background:
+        linear-gradient(
+          180deg,
+          #06131b 0%,
+          #031017 50%,
+          #02090d 100%
         );
 
-      padding-right:
-        max(
-          8px,
-          env(safe-area-inset-right)
-        );
+      overflow: hidden;
 
-      padding-bottom:
-        max(
-          42px,
-          env(safe-area-inset-bottom)
-        );
-
-      padding-left:
-        max(
-          8px,
-          env(safe-area-inset-left)
-        );
-
+      box-shadow:
+        0 0 70px rgba(0, 0, 0, .55);
     }
+
 
 
     /* =====================================================
        LOADING
     ===================================================== */
 
-
     .loading {
-
-      min-height: 90dvh;
+      min-height: 100vh;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
-      text-align: center;
-
-      padding: 30px;
-
+      color: #b9c8cf;
     }
-
-
-    .loading-inner {
-
-      color: #b8c4c9;
-
-      font-size: 14px;
-
-    }
-
 
     .spinner {
-
       width: 34px;
       height: 34px;
 
-      margin:
-        0 auto
-        14px;
+      margin: 0 auto 14px;
 
       border-radius: 50%;
 
-      border:
-        3px
-        solid
-        rgba(169,215,232,.18);
+      border: 3px solid rgba(89, 199, 242, .18);
+      border-top-color: var(--blue);
 
-      border-top-color:
-        var(--blue);
-
-      animation:
-        spin .8s linear infinite;
-
+      animation: spin .8s linear infinite;
     }
 
-
     @keyframes spin {
-
       to {
         transform: rotate(360deg);
       }
-
     }
+
 
 
     /* =====================================================
-       BRAND HEADER
+       HERO
     ===================================================== */
 
-
-    .brand-panel {
-
+    .hero {
       position: relative;
 
-      overflow: hidden;
-
-      width: 100%;
+      min-height: 430px;
 
       padding:
-        24px
-        18px
-        21px;
+        max(18px, env(safe-area-inset-top))
+        20px
+        28px;
 
-      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
 
-      color: var(--text);
-
-      background:
-
-        radial-gradient(
-          circle at 98% 0%,
-          rgba(169,215,232,.68),
-          transparent 32%
-        ),
-
+      background-image:
         linear-gradient(
-          145deg,
-          #ffffff 0%,
-          #f5fafc 56%,
-          #e5f3f8 100%
-        );
+          180deg,
+          rgba(2, 11, 17, .28) 0%,
+          rgba(2, 12, 19, .25) 35%,
+          rgba(2, 12, 19, .72) 72%,
+          #06131b 100%
+        ),
+        url("bridge-hero.jpg");
 
-      box-shadow:
-        0
-        16px
-        44px
-        rgba(0,0,0,.27);
+      background-size: cover;
 
+      background-position:
+        center center;
+
+      overflow: hidden;
     }
 
-
-    .brand-panel::after {
-
+    .hero::after {
       content: "";
 
       position: absolute;
-
-      width: 200px;
-      height: 200px;
-
-      top: -142px;
-      right: -128px;
-
-      border:
-        32px
-        solid
-        rgba(73,164,198,.08);
-
-      border-radius: 50%;
+      inset: 0;
 
       pointer-events: none;
 
+      background:
+        radial-gradient(
+          circle at 82% 24%,
+          rgba(0, 174, 239, .10),
+          transparent 38%
+        );
     }
 
+    .hero-top {
+      position: absolute;
+
+      top:
+        max(
+          18px,
+          env(safe-area-inset-top)
+        );
+
+      left: 20px;
+      right: 20px;
+
+      z-index: 2;
+    }
 
     .process-logo {
-
-      position: relative;
-
-      z-index: 2;
-
       display: block;
 
-      width: 345px;
-      max-width: 96%;
-      max-height: 145px;
-
-      object-fit: contain;
-
-      margin: 0 auto;
-
-    }
-
-
-    .affiliation {
-
-      position: relative;
-
-      z-index: 2;
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 10px;
-
-      width: 76%;
-      max-width: 300px;
-
-      margin:
-        12px auto
-        0;
-
-    }
-
-
-    .affiliation-line {
-
-      height: 1px;
-
-      flex: 1;
-
-      background:
-        rgba(70,94,104,.18);
-
-    }
-
-
-    .affiliation-text {
-
-      flex-shrink: 0;
-
-      color: #6c7b82;
-
-      font-size: 9px;
-
-      font-weight: 800;
-
-      letter-spacing: 1.4px;
-
-      text-transform: uppercase;
-
-    }
-
-
-    .king-logo {
-
-      position: relative;
-
-      z-index: 2;
-
-      display: block;
-
-      width: 225px;
-      max-width: 70%;
-      max-height: 125px;
-
-      object-fit: contain;
-
-      margin:
-        3px auto 0;
-
-    }
-
-
-    .brand-copy {
-
-      position: relative;
-
-      z-index: 2;
-
-      max-width: 390px;
-
-      margin:
-        10px auto
-        0;
-
-      text-align: center;
-
-      color: #526269;
-
-      font-size: 13px;
-
-      line-height: 1.5;
-
-    }
-
-
-    .pills {
-
-      position: relative;
-
-      z-index: 2;
-
-      display: flex;
-
-      flex-wrap: wrap;
-
-      justify-content: center;
-
-      gap: 6px;
-
-      margin-top: 14px;
-
-    }
-
-
-    .pill {
-
-      padding:
-        6px
-        9px;
-
-      border:
-        1px
-        solid
-        rgba(57,145,178,.18);
-
-      border-radius: 999px;
-
-      background:
-        rgba(255,255,255,.62);
-
-      color: #59717b;
-
-      font-size: 8.5px;
-
-      font-weight: 800;
-
-      letter-spacing: .8px;
-
-      text-transform: uppercase;
-
-    }
-
-
-    /* =====================================================
-       SECTIONS
-    ===================================================== */
-
-
-    .section {
-
-      width: 100%;
-
-      margin-top: 23px;
-
-    }
-
-
-    .section-heading {
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 10px;
-
-      margin-bottom: 10px;
-
-      padding:
-        0
-        4px;
-
-    }
-
-
-    .section-heading span {
-
-      flex-shrink: 0;
-
-      color: var(--blue);
-
-      font-size: 10.5px;
-
-      font-weight: 900;
-
-      letter-spacing: 1.8px;
-
-      text-transform: uppercase;
-
-    }
-
-
-    .section-heading::after {
-
-      content: "";
-
-      height: 1px;
-
-      flex: 1;
-
-      background:
-
-        linear-gradient(
-          90deg,
-          rgba(169,215,232,.34),
-          transparent
+      width: 220px;
+      max-width: 64%;
+
+      filter:
+        drop-shadow(
+          0 5px 14px rgba(0, 0, 0, .45)
         );
-
     }
 
-
-    /* =====================================================
-       PROFILE
-    ===================================================== */
-
-
-    .profile-card {
-
+    .hero-content {
       position: relative;
 
-      overflow: hidden;
+      z-index: 3;
 
-      width: 100%;
-
-      padding: 22px;
-
-      color: var(--text);
-
-      border-radius: 22px;
-
-      background:
-
-        linear-gradient(
-          145deg,
-          #ffffff,
-          #f7fafb
-        );
-
-      box-shadow:
-        0
-        14px
-        38px
-        rgba(0,0,0,.24);
-
+      margin-top: 170px;
     }
 
-
-    .profile-card::after {
-
-      content: "";
-
-      position: absolute;
-
-      width: 180px;
-      height: 180px;
-
-      right: -120px;
-      top: -120px;
-
-      border:
-        29px
-        solid
-        rgba(169,215,232,.08);
-
-      border-radius: 50%;
-
-      pointer-events: none;
-
-    }
-
-
-    .profile-eyebrow {
-
-      position: relative;
-
-      z-index: 2;
-
-      color: #748187;
-
-      font-size: 9.5px;
-
-      font-weight: 800;
-
-      letter-spacing: 1.6px;
-
-      text-transform: uppercase;
-
-    }
-
-
-    .profile-name {
-
-      position: relative;
-
-      z-index: 2;
-
-      margin:
-        7px
-        0
-        0;
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    .hero-name {
+      margin: 0;
 
       font-size:
         clamp(
-          30px,
-          8vw,
-          36px
+          34px,
+          8.8vw,
+          46px
         );
 
-      line-height: 1.03;
-
-      letter-spacing: -.5px;
-
-    }
-
-
-    .profile-meta {
-
-      position: relative;
-
-      z-index: 2;
-
-      display: flex;
-
-      flex-wrap: wrap;
-
-      align-items: center;
-
-      gap:
-        7px
-        10px;
-
-      margin-top: 9px;
-
-    }
-
-
-    .profile-title {
-
-      color:
-        var(--blue-dark);
-
-      font-size: 12.5px;
-
-      font-weight: 900;
-
-      letter-spacing: 1px;
-
-      text-transform: uppercase;
-
-    }
-
-
-    .credentials {
-
-      color: #647278;
-
-      font-size: 12px;
-
-      font-weight: 600;
-
-    }
-
-
-    .profile-accent {
-
-      position: relative;
-
-      z-index: 2;
-
-      width: 47px;
-      height: 3px;
-
-      margin:
-        16px
-        0
-        17px;
-
-      border-radius: 5px;
-
-      background:
-        var(--blue-strong);
-
-    }
-
-
-    /* =====================================================
-       STAFF PHONE
-    ===================================================== */
-
-
-    .staff-phone {
-
-      position: relative;
-
-      z-index: 2;
-
-      display: flex;
-
-      align-items: center;
-
-      width: 100%;
-
-      min-height: 84px;
-
-      gap: 14px;
-
-      padding:
-        14px
-        15px;
-
-      color: white;
-
-      text-decoration: none;
-
-      border-radius: 16px;
-
-      background:
-
-        radial-gradient(
-          circle at 96% 8%,
-          rgba(169,215,232,.16),
-          transparent 42%
-        ),
-
-        linear-gradient(
-          135deg,
-          #050708,
-          #12191c
-        );
-
-    }
-
-
-    .phone-icon {
-
-      width: 49px;
-      height: 49px;
-
-      min-width: 49px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      border-radius: 50%;
-
-      color: #154d62;
-
-      background:
-        var(--blue);
-
-      font-size: 20px;
-
-    }
-
-
-    .staff-phone-copy {
-
-      flex: 1;
-
-      min-width: 0;
-
-    }
-
-
-    .staff-phone-label {
-
-      color: #cad6da;
-
-      font-size: 10px;
+      line-height: 1.02;
 
       font-weight: 800;
 
-      letter-spacing: 1px;
+      letter-spacing: -.9px;
+
+      text-shadow:
+        0 4px 16px rgba(0,0,0,.7);
+    }
+
+    .hero-title {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      margin-top: 10px;
+
+      color: #d9e8ef;
+
+      font-size: 16px;
+
+      line-height: 1.3;
+
+      text-shadow:
+        0 2px 10px rgba(0,0,0,.8);
+    }
+
+    .hero-title::before,
+    .hero-title::after {
+      content: "";
+
+      height: 2px;
+
+      width: 27px;
+
+      flex-shrink: 0;
+
+      background:
+        var(--blue-bright);
+    }
+
+    .credentials {
+      margin-top: 5px;
+
+      color: var(--blue-soft);
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      letter-spacing: 1.2px;
 
       text-transform: uppercase;
-
     }
 
-
-    .staff-phone-number {
-
-      display: block;
-
-      margin-top: 4px;
-
-      color: white;
-
-      font-size: 24px;
-
-      font-weight: 900;
-
-      line-height: 1.05;
-
-    }
-
-
-    .staff-phone-hint {
-
-      margin-top: 4px;
-
-      color: #9cabb1;
-
-      font-size: 10px;
-
-    }
-
-
-    .arrow {
-
-      color: var(--blue);
-
-      font-size: 24px;
-
-    }
 
 
     /* =====================================================
-       PROFILE ACTIONS
+       CONTACT ACTIONS
     ===================================================== */
 
-
-    .profile-actions {
-
-      position: relative;
-
-      z-index: 2;
-
+    .contact-actions {
       display: grid;
 
       grid-template-columns:
         repeat(
-          2,
-          minmax(0,1fr)
+          3,
+          minmax(0, 1fr)
         );
 
       gap: 9px;
 
-      margin-top: 10px;
-
+      margin-top: 19px;
     }
 
-
-    .profile-action {
-
-      display: flex;
-
-      align-items: center;
-
-      min-width: 0;
-
-      min-height: 68px;
-
-      gap: 10px;
+    .contact-action {
+      min-height: 94px;
 
       padding:
-        10px
-        11px;
+        13px
+        8px;
 
-      color: var(--text);
+      display: flex;
+      flex-direction: column;
 
-      text-decoration: none;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
 
       border:
         1px
         solid
-        var(--border);
+        rgba(107, 200, 239, .45);
 
-      border-radius: 14px;
-
-      background: #f7fafb;
-
-    }
-
-
-    .mini-icon {
-
-      width: 37px;
-      height: 37px;
-
-      min-width: 37px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      border-radius: 50%;
-
-      color:
-        var(--blue-dark);
+      border-radius: 17px;
 
       background:
-        #ddf2fa;
+        linear-gradient(
+          145deg,
+          rgba(16, 44, 61, .93),
+          rgba(5, 21, 31, .95)
+        );
 
-      font-size: 16px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.05),
+        0 9px 24px rgba(0,0,0,.18);
+
+      transition:
+        transform .12s ease,
+        border-color .12s ease;
+    }
+
+    .contact-action:active {
+      transform: scale(.97);
+
+      border-color:
+        var(--blue);
+    }
+
+    .contact-action.primary {
+      background:
+        linear-gradient(
+          145deg,
+          #0c9dd7,
+          #086ca5
+        );
+
+      border-color:
+        #26c5ff;
+    }
+
+    .contact-icon {
+      height: 25px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 7px;
+
+      font-size: 23px;
+    }
+
+    .contact-label {
+      font-size: 14px;
 
       font-weight: 800;
-
     }
 
+    .contact-sub {
+      margin-top: 4px;
 
-    .profile-action-copy {
-
-      min-width: 0;
-
-      flex: 1;
-
-    }
-
-
-    .profile-action-title {
-
-      font-size: 13px;
-
-      font-weight: 900;
-
-    }
-
-
-    .profile-action-sub {
+      max-width: 110px;
 
       overflow: hidden;
 
-      margin-top: 3px;
+      color: #c2d4dc;
 
-      color: #748187;
-
-      font-size: 10px;
+      font-size: 9.5px;
 
       text-overflow: ellipsis;
 
       white-space: nowrap;
-
     }
+
+
+
+    /* =====================================================
+       CONTENT
+    ===================================================== */
+
+    .content {
+      padding:
+        0
+        17px
+        36px;
+    }
+
 
 
     /* =====================================================
        ADMISSIONS
     ===================================================== */
 
+    .admissions {
+      position: relative;
 
-    .admissions-card {
+      overflow: hidden;
 
-      display: block;
-
-      width: 100%;
-
-      padding:
-        21px
-        20px;
-
-      color: #092a36;
-
-      text-decoration: none;
-
-      border-radius: 22px;
-
-      background:
-
-        radial-gradient(
-          circle at 97% 0%,
-          rgba(255,255,255,.78),
-          transparent 42%
-        ),
-
-        linear-gradient(
-          140deg,
-          #dff3fa,
-          #a9d7e8
-        );
-
-      box-shadow:
-        0
-        14px
-        36px
-        rgba(0,0,0,.20);
-
-    }
-
-
-    .admissions-top {
+      min-height: 127px;
 
       display: flex;
 
       align-items: center;
 
-      justify-content: space-between;
+      gap: 15px;
 
-      gap: 12px;
+      padding:
+        19px
+        19px;
 
+      border:
+        1px
+        solid
+        #0ebdff;
+
+      border-radius: 19px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(5, 31, 46, .98),
+          rgba(6, 38, 58, .91)
+        );
+
+      box-shadow:
+        0 10px 28px rgba(0,0,0,.24),
+        inset 0 0 30px rgba(0,174,239,.05);
     }
 
+    .admissions::after {
+      content: "";
 
-    .admissions-label {
+      position: absolute;
+      inset: 0;
 
-      font-size: 11px;
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(4, 21, 31, .96),
+          rgba(4, 28, 43, .75)
+        ),
+        url("bridge-hero.jpg");
+
+      background-size: cover;
+      background-position: center 58%;
+
+      opacity: .42;
+
+      z-index: 0;
+    }
+
+    .admissions > * {
+      position: relative;
+
+      z-index: 2;
+    }
+
+    .admissions-icon {
+      width: 61px;
+      height: 61px;
+
+      min-width: 61px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          145deg,
+          #0ca4de,
+          #075a91
+        );
+
+      font-size: 28px;
+    }
+
+    .admissions-copy {
+      flex: 1;
+    }
+
+    .admissions-title {
+      font-size: 25px;
 
       font-weight: 900;
+
+      letter-spacing: -.3px;
+    }
+
+    .admissions-title span {
+      color:
+        var(--blue-bright);
+    }
+
+    .admissions-number {
+      margin-top: 7px;
+
+      color: white;
+
+      font-size: 18px;
+
+      font-weight: 800;
+    }
+
+    .admissions-sub {
+      margin-top: 7px;
+
+      color:
+        var(--blue-soft);
+
+      font-size: 9px;
+
+      font-weight: 700;
 
       letter-spacing: 1.4px;
 
       text-transform: uppercase;
-
     }
 
+    .admissions-arrow {
+      font-size: 34px;
 
-    .badge {
-
-      padding:
-        5px
-        8px;
-
-      border-radius: 999px;
-
-      background:
-        rgba(255,255,255,.7);
-
-      font-size: 9px;
-
-      font-weight: 900;
-
+      color: white;
     }
 
-
-    .admissions-number {
-
-      display: block;
-
-      margin-top: 9px;
-
-      color: #071c24;
-
-      font-size:
-        clamp(
-          29px,
-          8vw,
-          35px
-        );
-
-      font-weight: 900;
-
-      line-height: 1;
-
-      letter-spacing: -.4px;
-
-    }
-
-
-    .admissions-description {
-
-      margin-top: 10px;
-
-      max-width: 390px;
-
-      color: #35535e;
-
-      font-size: 12.5px;
-
-      line-height: 1.45;
-
-    }
-
-
-    .tap-call {
-
-      margin-top: 14px;
-
-      color: #0b4053;
-
-      font-size: 11px;
-
-      font-weight: 900;
-
-    }
 
 
     /* =====================================================
-       PROCESS ACTIONS
+       WEBSITE + DIRECTIONS
     ===================================================== */
 
-
-    .service-actions {
-
+    .primary-links {
       display: grid;
 
       grid-template-columns:
         repeat(
           2,
-          minmax(0,1fr)
+          minmax(0, 1fr)
         );
 
       gap: 9px;
 
-      margin-top: 10px;
-
+      margin-top: 11px;
     }
 
-
-    .service-action {
-
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: space-between;
-
-      min-height: 118px;
-
-      padding: 15px;
-
-      color: var(--text);
-
-      text-decoration: none;
-
-      border-radius: 16px;
-
-      background:
-        rgba(255,255,255,.98);
-
-      box-shadow:
-        0
-        10px
-        27px
-        rgba(0,0,0,.14);
-
-    }
-
-
-    .service-icon {
-
-      width: 38px;
-      height: 38px;
+    .primary-link {
+      min-height: 102px;
 
       display: flex;
 
       align-items: center;
 
-      justify-content: center;
+      gap: 11px;
 
-      border-radius: 50%;
+      padding: 15px;
 
-      color:
-        var(--blue-dark);
+      border:
+        1px
+        solid
+        rgba(105, 188, 224, .36);
+
+      border-radius: 16px;
 
       background:
-        #ddf2fa;
+        linear-gradient(
+          145deg,
+          #102838,
+          #071722
+        );
 
-      font-size: 17px;
-
+      transition:
+        transform .12s ease;
     }
 
-
-    .service-title {
-
-      margin-top: 13px;
-
-      color: #111719;
-
-      font-size: 13.5px;
-
-      font-weight: 900;
-
+    .primary-link:active {
+      transform: scale(.98);
     }
 
+    .link-icon {
+      width: 38px;
 
-    .service-sub {
+      min-width: 38px;
 
-      margin-top: 4px;
+      text-align: center;
 
-      color: #6f7c82;
+      font-size: 28px;
+    }
 
-      font-size: 10.5px;
+    .link-copy {
+      flex: 1;
+
+      min-width: 0;
+    }
+
+    .link-title {
+      font-size: 13px;
+
+      font-weight: 800;
+    }
+
+    .link-sub {
+      overflow: hidden;
+
+      margin-top: 5px;
+
+      color:
+        var(--muted);
+
+      font-size: 9.5px;
 
       line-height: 1.35;
 
+      text-overflow: ellipsis;
     }
+
+    .link-arrow {
+      color: white;
+
+      font-size: 24px;
+    }
+
+
+
+    /* =====================================================
+       SECTION TITLE
+    ===================================================== */
+
+    .section-heading {
+      display: flex;
+
+      align-items: flex-end;
+
+      justify-content: space-between;
+
+      gap: 12px;
+
+      margin:
+        29px
+        4px
+        13px;
+
+      padding-bottom: 8px;
+
+      border-bottom:
+        2px
+        solid
+        rgba(0, 174, 239, .72);
+    }
+
+    .section-title {
+      color:
+        var(--blue-soft);
+
+      font-size: 16px;
+
+      font-weight: 800;
+
+      letter-spacing: 2.7px;
+
+      text-transform: uppercase;
+    }
+
+    .section-small {
+      color:
+        #7ccbe9;
+
+      font-size: 7px;
+
+      font-weight: 700;
+
+      line-height: 1.4;
+
+      letter-spacing: 1.5px;
+
+      text-align: right;
+
+      text-transform: uppercase;
+    }
+
 
 
     /* =====================================================
        RESOURCES
     ===================================================== */
 
+    .resource-grid {
+      display: grid;
 
-    .resource-panel {
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(0, 1fr)
+        );
+
+      gap: 9px;
+    }
+
+    .resource-card {
+      position: relative;
+
+      min-height: 164px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      padding:
+        16px
+        14px;
+
+      border:
+        1px
+        solid
+        rgba(100, 190, 229, .42);
+
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #112b3c,
+          #071723
+        );
 
       overflow: hidden;
 
-      width: 100%;
-
-      color: var(--text);
-
-      border-radius: 21px;
-
-      background:
-        rgba(255,255,255,.98);
-
-      box-shadow:
-        0
-        13px
-        36px
-        rgba(0,0,0,.18);
-
+      transition:
+        transform .12s ease;
     }
 
+    .resource-card:active {
+      transform: scale(.98);
+    }
 
-    .resource-item {
+    .resource-icon {
+      height: 37px;
 
       display: flex;
 
       align-items: center;
 
-      min-height: 86px;
+      margin-bottom: 11px;
 
-      gap: 12px;
+      color: white;
 
-      padding:
-        15px;
-
-      color: inherit;
-
-      text-decoration: none;
-
-      border-bottom:
-        1px
-        solid
-        #e8edef;
-
+      font-size: 30px;
     }
 
+    .resource-name {
+      min-height: 34px;
 
-    .resource-item:last-child {
-      border-bottom: 0;
+      color: white;
+
+      font-size: 14px;
+
+      font-weight: 800;
+
+      line-height: 1.2;
     }
 
+    .resource-description {
+      margin-top: 6px;
 
-    .resource-badge {
+      color: #9bb4c0;
 
-      width: 46px;
-      height: 46px;
+      font-size: 9.5px;
 
-      min-width: 46px;
+      line-height: 1.35;
+    }
 
+    .resource-bottom {
       display: flex;
 
-      align-items: center;
+      align-items: flex-end;
 
-      justify-content: center;
+      justify-content: space-between;
 
-      border-radius: 13px;
+      gap: 8px;
 
-      color:
-        var(--blue-dark);
+      margin-top: auto;
 
-      background:
-        #e3f4fa;
-
-      font-size: 11px;
-
-      font-weight: 900;
-
-      text-transform: uppercase;
-
+      padding-top: 13px;
     }
 
+    .resource-number {
+      color:
+        #dcebf1;
 
-    .resource-copy {
+      font-size: 12px;
 
-      flex: 1;
-
-      min-width: 0;
-
+      font-weight: 700;
     }
 
-
-    .resource-type {
+    .resource-action-label {
+      margin-top: 4px;
 
       color:
-        var(--blue-dark);
+        var(--blue);
 
       font-size: 8.5px;
 
-      font-weight: 900;
-
-      letter-spacing: 1px;
+      font-weight: 800;
 
       text-transform: uppercase;
-
     }
 
+    .resource-arrow {
+      color: white;
 
-    .resource-name {
-
-      margin-top: 3px;
-
-      color: #101517;
-
-      font-size: 15px;
-
-      font-weight: 900;
-
+      font-size: 24px;
     }
 
-
-    .resource-description {
-
-      margin-top: 4px;
-
-      color: #748187;
-
-      font-size: 11.5px;
-
-      line-height: 1.35;
-
-    }
-
-
-    .resource-number {
-
-      margin-top: 7px;
-
-      color: #111719;
-
-      font-size: 15px;
-
-      font-weight: 900;
-
-    }
-
-
-    .resource-action {
-
-      margin-top: 5px;
-
-      color: var(--blue-dark);
-
-      font-size: 10.5px;
-
-      font-weight: 900;
-
-    }
-
-
-    .resource-chevron {
-
-      color: #96a2a7;
-
-      font-size: 22px;
-
-    }
 
 
     /* =====================================================
        CRISIS
     ===================================================== */
 
+    .crisis {
+      position: relative;
 
-    .crisis-card {
+      overflow: hidden;
 
-      width: 100%;
+      margin-top: 15px;
 
-      padding: 21px;
+      min-height: 138px;
 
-      border-radius: 22px;
+      display: flex;
+
+      align-items: center;
+
+      gap: 15px;
+
+      padding:
+        18px;
 
       border:
         1px
         solid
-        rgba(169,215,232,.15);
+        #0dbdff;
+
+      border-radius: 18px;
 
       background:
-
-        radial-gradient(
-          circle at 96% 0%,
-          rgba(169,215,232,.12),
-          transparent 40%
-        ),
-
         linear-gradient(
           145deg,
-          #080a0b,
-          #12191c
+          #062033,
+          #07141e
+        );
+    }
+
+    .crisis-number-block {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      flex-shrink: 0;
+    }
+
+    .crisis-icon {
+      width: 50px;
+      height: 50px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          145deg,
+          #167aaf,
+          #0b3857
         );
 
-      box-shadow:
-        0
-        14px
-        38px
-        rgba(0,0,0,.23);
-
+      font-size: 24px;
     }
-
-
-    .crisis-eyebrow {
-
-      color: var(--blue);
-
-      font-size: 9px;
-
-      font-weight: 900;
-
-      letter-spacing: 1.4px;
-
-      text-transform: uppercase;
-
-    }
-
-
-    .crisis-title {
-
-      margin:
-        6px
-        0
-        0;
-
-      font-size: 22px;
-
-      font-weight: 900;
-
-    }
-
 
     .crisis-number {
-
-      margin-top: 10px;
-
-      color: var(--blue);
-
-      font-size: 32px;
+      font-size: 42px;
 
       font-weight: 900;
 
       line-height: 1;
-
     }
 
+    .crisis-divider {
+      width: 1px;
 
-    .crisis-description {
+      align-self: stretch;
 
-      margin-top: 8px;
-
-      color: #b9c3c7;
-
-      font-size: 12px;
-
-      line-height: 1.5;
-
+      background:
+        var(--blue-bright);
     }
 
-
-    .crisis-actions {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(
-          2,
-          minmax(0,1fr)
-        );
-
-      gap: 9px;
-
-      margin-top: 15px;
-
+    .crisis-copy {
+      flex: 1;
     }
 
-
-    .crisis-action {
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      min-height: 54px;
-
-      padding: 11px;
-
-      border-radius: 12px;
-
-      text-align: center;
-
-      text-decoration: none;
-
-      font-size: 12.5px;
+    .crisis-title {
+      font-size: 14px;
 
       font-weight: 900;
 
+      line-height: 1.25;
     }
 
-
-    .crisis-action.primary {
-
-      color: #092a36;
-
-      background:
-        var(--blue);
-
-    }
-
-
-    .crisis-action.secondary {
-
-      color: white;
-
-      background:
-        rgba(255,255,255,.08);
-
-      border:
-        1px
-        solid
-        rgba(255,255,255,.12);
-
-    }
-
-
-    .emergency {
-
+    .crisis-actions {
       display: flex;
 
-      align-items: center;
-
-      justify-content: center;
-
-      min-height: 50px;
+      gap: 7px;
 
       margin-top: 9px;
+    }
 
-      padding: 12px;
+    .crisis-action {
+      color:
+        var(--blue-soft);
 
-      color: #c6d0d4;
-
-      text-decoration: none;
-
-      border-radius: 12px;
-
-      border:
-        1px
-        solid
-        rgba(255,255,255,.09);
-
-      font-size: 11px;
+      font-size: 9px;
 
       font-weight: 800;
 
+      letter-spacing: 1.3px;
+
+      text-transform: uppercase;
     }
 
+    .crisis-support {
+      margin-top: 11px;
 
-    /* =====================================================
-       GENERIC
-    ===================================================== */
+      color:
+        var(--blue-bright);
 
+      font-size: 9px;
 
-    .generic-card {
+      font-weight: 800;
 
-      padding: 22px;
+      letter-spacing: 1.7px;
 
-      color: var(--text);
-
-      border-radius: 21px;
-
-      background: white;
-
-      box-shadow:
-        0
-        13px
-        36px
-        rgba(0,0,0,.20);
-
+      text-transform: uppercase;
     }
 
+    .emergency {
+      display: block;
 
-    .generic-card h1 {
+      margin-top: 8px;
 
-      margin: 0;
+      color: #758c98;
 
-      font-family:
-        Georgia,
-        serif;
+      font-size: 8.5px;
 
-      font-size: 29px;
-
+      text-align: center;
     }
 
-
-    .generic-card p {
-
-      margin:
-        8px
-        0
-        0;
-
-      color: #6d797e;
-
-      font-size: 12.5px;
-
-      line-height: 1.5;
-
-    }
 
 
     /* =====================================================
        FOOTER
     ===================================================== */
 
-
     .footer {
-
       padding:
-        35px
-        14px
-        3px;
+        34px
+        15px
+        10px;
 
       text-align: center;
-
-      color: #8d999e;
-
-      font-size: 10px;
-
-      line-height: 1.7;
-
     }
 
+    .footer-brand-row {
+      display: flex;
 
-    .footer-name {
+      align-items: center;
 
-      margin-bottom: 4px;
+      justify-content: center;
 
-      color: white;
-
-      font-size: 11.5px;
-
-      font-weight: 900;
-
+      gap: 16px;
     }
 
+    .footer-line {
+      width: 72px;
+      height: 1px;
 
-    .footer-tagline {
+      background:
+        var(--blue-bright);
+    }
 
-      margin-top: 10px;
+    .footer-mark {
+      width: 52px;
+      height: 52px;
 
-      color: var(--blue);
+      object-fit: contain;
+    }
 
-      font-size: 9px;
+    .footer-company {
+      margin-top: 11px;
 
-      font-weight: 800;
+      color: #a9c8d6;
 
-      letter-spacing: 1px;
+      font-size: 8px;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
 
       text-transform: uppercase;
+    }
 
+    .king-logo {
+      display: block;
+
+      width: 100px;
+      max-height: 70px;
+
+      margin:
+        17px auto
+        0;
+
+      object-fit: contain;
+
+      filter:
+        brightness(0)
+        invert(1);
+
+      opacity: .72;
+    }
+
+    .footer-tagline {
+      margin-top: 22px;
+
+      color:
+        var(--blue-bright);
+
+      font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+      font-size: 31px;
+
+      line-height: 1;
+
+      transform: rotate(-1deg);
+    }
+
+    .footer-accent {
+      width: 45px;
+      height: 3px;
+
+      margin:
+        15px auto
+        0;
+
+      border-radius: 999px;
+
+      background:
+        var(--blue-bright);
     }
 
 
-    @media (max-width: 370px) {
 
-      .profile-actions,
-      .service-actions {
+    /* =====================================================
+       ERROR
+    ===================================================== */
 
-        grid-template-columns:
-          1fr;
+    .error-card {
+      margin: 40px 18px;
 
+      padding: 24px;
+
+      border-radius: 18px;
+
+      background: white;
+
+      color: #111;
+    }
+
+
+
+    /* =====================================================
+       MOBILE SMALL
+    ===================================================== */
+
+    @media (max-width: 360px) {
+
+      .hero {
+        min-height: 400px;
+      }
+
+      .hero-name {
+        font-size: 31px;
+      }
+
+      .contact-actions {
+        gap: 6px;
+      }
+
+      .contact-action {
+        padding:
+          11px
+          5px;
+      }
+
+      .contact-label {
+        font-size: 12px;
+      }
+
+      .contact-sub {
+        font-size: 8px;
+      }
+
+      .admissions-title {
+        font-size: 21px;
       }
 
     }
@@ -1689,41 +1153,34 @@
 </head>
 
 
-
 <body>
 
+  <main
+    id="app"
+    class="page"
+  >
 
-<div
-  id="app"
-  class="page"
->
+    <div class="loading">
 
+      <div>
 
-  <div class="loading">
+        <div class="spinner"></div>
 
-    <div class="loading-inner">
+        Loading...
 
-      <div class="spinner">
       </div>
-
-      Loading The Process...
 
     </div>
 
-  </div>
-
-
-</div>
+  </main>
 
 
 
 <script>
 
-
 /* =====================================================
    CONFIG
 ===================================================== */
-
 
 const API_URL =
   'https://script.google.com/macros/s/AKfycbzefgAa3hJz9h2emDoa_4hhlxl99fIB_k_h5TEq1AIKmBXukcEx9llpglAsLqabXYOJ/exec';
@@ -1736,18 +1193,17 @@ const params =
 
 
 const staffId =
-  (
-    params.get('staff') ||
-    ''
+  String(
+    params.get('staff') || ''
   )
     .toLowerCase()
     .trim();
 
 
-/* =====================================================
-   JSONP CALLBACK
-===================================================== */
 
+/* =====================================================
+   API CALLBACK
+===================================================== */
 
 window.processCardData =
   function(data) {
@@ -1757,10 +1213,10 @@ window.processCardData =
   };
 
 
-/* =====================================================
-   LOAD DATA
-===================================================== */
 
+/* =====================================================
+   LOAD
+===================================================== */
 
 function loadData() {
 
@@ -1782,11 +1238,7 @@ function loadData() {
 
 
   script.onerror =
-    function() {
-
-      renderError();
-
-    };
+    renderError;
 
 
   document.body.appendChild(
@@ -1799,10 +1251,10 @@ function loadData() {
 loadData();
 
 
-/* =====================================================
-   MAIN RENDER
-===================================================== */
 
+/* =====================================================
+   RENDER
+===================================================== */
 
 function renderPage(data) {
 
@@ -1824,925 +1276,395 @@ function renderPage(data) {
     data.resources || [];
 
 
-  if (staff) {
+  if (!staff) {
 
-    document.title =
-      staff.name +
-      ' | The Process Recovery Center';
+    renderError();
+
+    return;
 
   }
 
 
-  let html = '';
+  document.title =
+    staff.name +
+    ' | The Process Recovery Center';
+
 
 
   /* ===================================================
-     BRAND
+     RESOURCES
   =================================================== */
-
-
-  html += `
-    <header class="brand-panel">
-  `;
-
-
-  if (
-    settings.process_logo
-  ) {
-
-    html += `
-
-      <img
-        class="process-logo"
-        src="${escapeAttribute(settings.process_logo)}"
-        alt="The Process Recovery Center"
-      >
-
-    `;
-
-  }
-
-
-  if (
-    settings.king_logo
-  ) {
-
-    html += `
-
-      <div class="affiliation">
-
-        <div class="affiliation-line">
-        </div>
-
-        <div class="affiliation-text">
-          Part of
-        </div>
-
-        <div class="affiliation-line">
-        </div>
-
-      </div>
-
-
-      <img
-        class="king-logo"
-        src="${escapeAttribute(settings.king_logo)}"
-        alt="King Healthcare Group"
-      >
-
-    `;
-
-  }
-
-
-  html += `
-
-      <div class="brand-copy">
-
-        Treatment, recovery resources,
-        staff contacts and support —
-        available in one place.
-
-      </div>
-
-
-      <div class="pills">
-
-        <div class="pill">
-          Mental Health
-        </div>
-
-        <div class="pill">
-          Substance Use
-        </div>
-
-        <div class="pill">
-          Recovery
-        </div>
-
-      </div>
-
-    </header>
-
-  `;
-
-
-  /* ===================================================
-     STAFF PROFILE
-  =================================================== */
-
-
-  if (staff) {
-
-    html += `
-
-      <section class="section">
-
-        <div class="section-heading">
-
-          <span>
-            Your Contact
-          </span>
-
-        </div>
-
-
-        <div class="profile-card">
-
-
-          <div class="profile-eyebrow">
-
-            The Process Recovery Center
-
-          </div>
-
-
-          <h1 class="profile-name">
-
-            ${escapeHtml(staff.name)}
-
-          </h1>
-
-
-          <div class="profile-meta">
-
-    `;
-
-
-    if (
-      staff.title
-    ) {
-
-      html += `
-
-        <div class="profile-title">
-
-          ${escapeHtml(staff.title)}
-
-        </div>
-
-      `;
-
-    }
-
-
-    if (
-      staff.credentials
-    ) {
-
-      html += `
-
-        <div class="credentials">
-
-          ${escapeHtml(staff.credentials)}
-
-        </div>
-
-      `;
-
-    }
-
-
-    html += `
-
-          </div>
-
-
-          <div class="profile-accent">
-          </div>
-
-    `;
-
-
-    if (
-      staff.phone &&
-      staff.phoneHref
-    ) {
-
-      html += `
-
-        <a
-          class="staff-phone"
-          href="${escapeAttribute(staff.phoneHref)}"
-        >
-
-          <div class="phone-icon">
-            ☎
-          </div>
-
-
-          <div class="staff-phone-copy">
-
-            <div class="staff-phone-label">
-
-              Call ${escapeHtml(firstName(staff.name))}
-
-            </div>
-
-
-            <span class="staff-phone-number">
-
-              ${escapeHtml(staff.phone)}
-
-            </span>
-
-
-            <div class="staff-phone-hint">
-
-              Tap to call
-
-            </div>
-
-          </div>
-
-
-          <div class="arrow">
-
-            ›
-
-          </div>
-
-        </a>
-
-      `;
-
-    }
-
-
-    html += `
-
-      <div class="profile-actions">
-
-    `;
-
-
-    if (
-      staff.email
-    ) {
-
-      html += `
-
-        <a
-          class="profile-action"
-          href="mailto:${escapeAttribute(staff.email)}"
-        >
-
-          <div class="mini-icon">
-            ✉
-          </div>
-
-
-          <div class="profile-action-copy">
-
-            <div class="profile-action-title">
-
-              Email
-
-            </div>
-
-            <div class="profile-action-sub">
-
-              ${escapeHtml(staff.email)}
-
-            </div>
-
-          </div>
-
-        </a>
-
-      `;
-
-    }
-
-
-    /* ===================================================
-       SAVE CONTACT
-       Uses existing Apps Script vCard route.
-    =================================================== */
-
-
-    html += `
-
-        <a
-          class="profile-action"
-          href="${API_URL}?staff=${encodeURIComponent(staff.id)}&vcard=1"
-        >
-
-          <div class="mini-icon">
-
-            +
-
-          </div>
-
-
-          <div class="profile-action-copy">
-
-            <div class="profile-action-title">
-
-              Save Contact
-
-            </div>
-
-            <div class="profile-action-sub">
-
-              Add to your phone
-
-            </div>
-
-          </div>
-
-        </a>
-
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-    `;
-
-  }
-
-
-  /* ===================================================
-     GET HELP
-  =================================================== */
-
-
-  html += `
-
-    <section class="section">
-
-      <div class="section-heading">
-
-        <span>
-          Get Help
-        </span>
-
-      </div>
-
-  `;
-
-
-  if (
-    settings.admissions_phone &&
-    settings.admissionsHref
-  ) {
-
-    html += `
-
-      <a
-        class="admissions-card"
-        href="${escapeAttribute(settings.admissionsHref)}"
-      >
-
-        <div class="admissions-top">
-
-          <div class="admissions-label">
-
-            Call Admissions
-
-          </div>
-
-          <div class="badge">
-
-            24 / 7
-
-          </div>
-
-        </div>
-
-
-        <span class="admissions-number">
-
-          ${escapeHtml(settings.admissions_phone)}
-
-        </span>
-
-
-        <div class="admissions-description">
-
-          Questions about treatment,
-          availability, insurance or next steps?
-          Speak directly with our admissions team.
-
-        </div>
-
-
-        <div class="tap-call">
-
-          Tap to call →
-
-        </div>
-
-      </a>
-
-    `;
-
-  }
-
-
-  /* ===================================================
-     PROCESS LINKS
-  =================================================== */
-
-
-  html += `
-
-      <div class="service-actions">
-
-  `;
-
-
-  if (
-    settings.main_website
-  ) {
-
-    html += `
-
-      <a
-        class="service-action"
-        href="${escapeAttribute(settings.main_website)}"
-        target="_blank"
-        rel="noopener"
-      >
-
-        <div class="service-icon">
-
-          ◎
-
-        </div>
-
-
-        <div>
-
-          <div class="service-title">
-
-            Visit Process Website
-
-          </div>
-
-          <div class="service-sub">
-
-            Programs, services and treatment information
-
-          </div>
-
-        </div>
-
-      </a>
-
-    `;
-
-  }
-
-
-  if (
-    settings.mapsHref
-  ) {
-
-    html += `
-
-      <a
-        class="service-action"
-        href="${escapeAttribute(settings.mapsHref)}"
-        target="_blank"
-        rel="noopener"
-      >
-
-        <div class="service-icon">
-
-          ⌖
-
-        </div>
-
-
-        <div>
-
-          <div class="service-title">
-
-            Directions
-
-          </div>
-
-          <div class="service-sub">
-
-            ${escapeHtml(settings.main_address || '')}
-
-          </div>
-
-        </div>
-
-      </a>
-
-    `;
-
-  }
-
-
-  html += `
-
-      </div>
-
-    </section>
-
-  `;
-
-
-  /* ===================================================
-     RESOURCE FILTERING
-  =================================================== */
-
 
   const crisisResource =
     resources.find(
-      function(resource) {
-
-        return (
-          String(
-            resource.category || ''
-          )
-            .toLowerCase()
-            .trim() ===
-          'crisis'
-        );
-
-      }
+      resource =>
+        String(
+          resource.category || ''
+        )
+          .toLowerCase()
+          .trim() === 'crisis'
     );
 
 
   const visibleResources =
     resources.filter(
-      function(resource) {
-
-        const category =
-          String(
-            resource.category || ''
-          )
-            .toLowerCase()
-            .trim();
-
-
-        const name =
-          String(
-            resource.name || ''
-          )
-            .toLowerCase()
-            .trim();
-
-
-        return (
-          category !==
-            'crisis' &&
-
-          name !==
-            'process website'
-        );
-
-      }
-    );
-
-
-  /* ===================================================
-     RECOVERY + RESOURCES
-  =================================================== */
-
-
-  if (
-    visibleResources.length
-  ) {
-
-    html += `
-
-      <section class="section">
-
-        <div class="section-heading">
-
-          <span>
-
-            Recovery & Support
-
-          </span>
-
-        </div>
-
-
-        <div class="resource-panel">
-
-    `;
-
-
-    visibleResources.forEach(
-      function(resource) {
-
-        const badge =
-          (
-            resource.name ||
-            resource.category ||
-            'GO'
-          )
-            .substring(
-              0,
-              2
-            )
-            .toUpperCase();
-
-
-        const actionLabel =
-          resource.actionLabel ||
-          resource.action_label ||
-          'Open Resource';
-
-
-        const displayNumber =
-          resource.displayNumber ||
-          resource.display_number ||
-          '';
-
-
-        const isPhone =
-          String(
-            resource.url || ''
-          )
-            .toLowerCase()
-            .startsWith(
-              'tel:'
-            );
-
-
-        html += `
-
-          <a
-            class="resource-item"
-            href="${escapeAttribute(resource.url || '#')}"
-            ${isPhone ? '' : 'target="_blank" rel="noopener"'}
-          >
-
-            <div class="resource-badge">
-
-              ${escapeHtml(badge)}
-
-            </div>
-
-
-            <div class="resource-copy">
-
-              <div class="resource-type">
-
-                ${escapeHtml(resource.category || '')}
-
-              </div>
-
-
-              <div class="resource-name">
-
-                ${escapeHtml(resource.name || '')}
-
-              </div>
-
-
-              <div class="resource-description">
-
-                ${escapeHtml(resource.description || '')}
-
-              </div>
-
-
-              ${
-                displayNumber
-                  ? `
-
-                    <div class="resource-number">
-
-                      ${escapeHtml(displayNumber)}
-
-                    </div>
-
-                  `
-                  : ''
-              }
-
-
-              ${
-                actionLabel
-                  ? `
-
-                    <div class="resource-action">
-
-                      ${escapeHtml(actionLabel)} →
-
-                    </div>
-
-                  `
-                  : ''
-              }
-
-            </div>
-
-
-            <div class="resource-chevron">
-
-              ›
-
-            </div>
-
-          </a>
-
-        `;
-
-      }
-    );
-
-
-    html += `
-
-        </div>
-
-      </section>
-
-    `;
-
-  }
-
-
-  /* ===================================================
-     CRISIS
-  =================================================== */
-
-
-  const crisisName =
-    crisisResource &&
-    crisisResource.name
-      ? crisisResource.name
-      : 'Mental Health Crisis Lifeline';
-
-
-  const crisisDescription =
-    crisisResource &&
-    crisisResource.description
-      ? crisisResource.description
-      : 'Mental health and crisis support is available 24/7.';
-
-
-  const crisisDisplayNumber =
-    crisisResource &&
-    (
-      crisisResource.displayNumber ||
-      crisisResource.display_number
-    )
-      ? (
-          crisisResource.displayNumber ||
-          crisisResource.display_number
+      resource =>
+        String(
+          resource.category || ''
         )
-      : '988';
+          .toLowerCase()
+          .trim() !== 'crisis'
+    );
 
 
-  const crisisCallUrl =
-    crisisResource &&
-    crisisResource.url
-      ? crisisResource.url
-      : 'tel:988';
+
+  /* ===================================================
+     PAGE
+  =================================================== */
+
+  let html = `
 
 
-  html += `
+    <section class="hero">
 
-    <section class="section">
 
-      <div class="section-heading">
+      <div class="hero-top">
 
-        <span>
-
-          Immediate Support
-
-        </span>
+        <img
+          class="process-logo"
+          src="${escapeAttribute(settings.process_logo)}"
+          alt="The Process Recovery Center"
+        >
 
       </div>
 
 
-      <div class="crisis-card">
+      <div class="hero-content">
 
 
-        <div class="crisis-eyebrow">
+        <h1 class="hero-name">
 
-          Crisis Support
+          ${escapeHtml(staff.name)}
 
-        </div>
-
-
-        <h2 class="crisis-title">
-
-          ${escapeHtml(crisisName)}
-
-        </h2>
+        </h1>
 
 
-        <div class="crisis-number">
+        ${
+          staff.title
+            ? `
 
-          ${escapeHtml(crisisDisplayNumber)}
+              <div class="hero-title">
 
-        </div>
+                ${escapeHtml(staff.title)}
+
+              </div>
+
+            `
+            : ''
+        }
 
 
-        <div class="crisis-description">
+        ${
+          staff.credentials
+            ? `
 
-          ${escapeHtml(crisisDescription)}
+              <div class="credentials">
 
-        </div>
+                ${escapeHtml(staff.credentials)}
+
+              </div>
+
+            `
+            : ''
+        }
 
 
-        <div class="crisis-actions">
+        <div class="contact-actions">
 
 
           <a
-            class="crisis-action primary"
-            href="${escapeAttribute(crisisCallUrl)}"
+            class="contact-action primary"
+            href="${escapeAttribute(staff.phoneHref)}"
           >
 
-            Call 988
+            <div class="contact-icon">
+              ☎
+            </div>
+
+            <div class="contact-label">
+              Call
+            </div>
+
+            <div class="contact-sub">
+              ${escapeHtml(staff.phone)}
+            </div>
 
           </a>
 
 
           <a
-            class="crisis-action secondary"
-            href="sms:988"
+            class="contact-action"
+            href="mailto:${escapeAttribute(staff.email)}"
           >
 
-            Text 988
+            <div class="contact-icon">
+              ✉
+            </div>
+
+            <div class="contact-label">
+              Email
+            </div>
+
+            <div class="contact-sub">
+              Send a Message
+            </div>
+
+          </a>
+
+
+          <a
+            class="contact-action"
+            href="${API_URL}?staff=${encodeURIComponent(staff.id)}&vcard=1"
+          >
+
+            <div class="contact-icon">
+              +
+            </div>
+
+            <div class="contact-label">
+              Save Contact
+            </div>
+
+            <div class="contact-sub">
+              Add to Phone
+            </div>
 
           </a>
 
 
         </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <section class="content">
+
+
+      <a
+        class="admissions"
+        href="${escapeAttribute(settings.admissionsHref)}"
+      >
+
+        <div class="admissions-icon">
+          ☎
+        </div>
+
+
+        <div class="admissions-copy">
+
+          <div class="admissions-title">
+
+            ADMISSIONS
+            <span>24/7</span>
+
+          </div>
+
+          <div class="admissions-number">
+
+            ${escapeHtml(settings.admissions_phone)}
+
+          </div>
+
+          <div class="admissions-sub">
+
+            Real people. Real help. Any time.
+
+          </div>
+
+        </div>
+
+
+        <div class="admissions-arrow">
+
+          ›
+
+        </div>
+
+
+      </a>
+
+
+
+      <div class="primary-links">
 
 
         <a
-          class="emergency"
-          href="tel:911"
+          class="primary-link"
+          href="${escapeAttribute(settings.main_website)}"
+          target="_blank"
+          rel="noopener"
         >
 
-          Immediate emergency? Call 911
+          <div class="link-icon">
+            ◎
+          </div>
+
+          <div class="link-copy">
+
+            <div class="link-title">
+              Visit Process Website
+            </div>
+
+            <div class="link-sub">
+              theprocessrecoverycenter.com
+            </div>
+
+          </div>
+
+          <div class="link-arrow">
+            ›
+          </div>
+
+        </a>
+
+
+        <a
+          class="primary-link"
+          href="${escapeAttribute(settings.mapsHref)}"
+          target="_blank"
+          rel="noopener"
+        >
+
+          <div class="link-icon">
+            ⌖
+          </div>
+
+          <div class="link-copy">
+
+            <div class="link-title">
+              Get Directions
+            </div>
+
+            <div class="link-sub">
+              ${escapeHtml(settings.main_address)}
+            </div>
+
+          </div>
+
+          <div class="link-arrow">
+            ›
+          </div>
 
         </a>
 
 
       </div>
 
+
+
+      <div class="section-heading">
+
+        <div class="section-title">
+          Recovery Resources
+        </div>
+
+        <div class="section-small">
+          Community<br>
+          Support<br>
+          Long-Term Change
+        </div>
+
+      </div>
+
+
+
+      <div class="resource-grid">
+
+        ${
+          visibleResources
+            .map(
+              resource =>
+                renderResource(
+                  resource
+                )
+            )
+            .join('')
+        }
+
+      </div>
+
+
+
+      ${renderCrisis(crisisResource)}
+
+
+
+      <footer class="footer">
+
+
+        <div class="footer-brand-row">
+
+          <div class="footer-line"></div>
+
+          <img
+            class="footer-mark"
+            src="${escapeAttribute(settings.process_logo)}"
+            alt=""
+          >
+
+          <div class="footer-line"></div>
+
+        </div>
+
+
+        <div class="footer-company">
+
+          The Process Recovery Center
+
+        </div>
+
+
+        ${
+          settings.king_logo
+            ? `
+
+              <img
+                class="king-logo"
+                src="${escapeAttribute(settings.king_logo)}"
+                alt="King Healthcare Group"
+              >
+
+            `
+            : ''
+        }
+
+
+        <div class="footer-company">
+
+          New England Area and Beyond
+
+        </div>
+
+
+        <div class="footer-tagline">
+
+          Recovery Starts Here.
+
+        </div>
+
+
+        <div class="footer-accent"></div>
+
+
+      </footer>
+
+
     </section>
-
-  `;
-
-
-  /* ===================================================
-     FOOTER
-  =================================================== */
-
-
-  html += `
-
-    <footer class="footer">
-
-
-      <div class="footer-name">
-
-        The Process Recovery Center
-
-      </div>
-
-  `;
-
-
-  if (
-    settings.main_address
-  ) {
-
-    html += `
-
-      ${escapeHtml(settings.main_address)}
-
-      <br>
-
-    `;
-
-  }
-
-
-  html += `
-
-      theprocessrecoverycenter.com
-
-
-      <div class="footer-tagline">
-
-        Life is a journey.
-        Recovery is a process.
-
-      </div>
-
-
-    </footer>
 
   `;
 
@@ -2753,25 +1675,283 @@ function renderPage(data) {
 }
 
 
+
 /* =====================================================
-   HELPERS
+   RESOURCE CARD
 ===================================================== */
 
+function renderResource(
+  resource
+) {
 
-function firstName(name) {
+  const name =
+    String(
+      resource.name || ''
+    );
 
-  return (
-    name ||
-    ''
-  )
-    .trim()
-    .split(/\s+/)[0] ||
+
+  const nameLower =
+    name.toLowerCase();
+
+
+  let icon =
+    '◆';
+
+
+  if (
+    nameLower.includes(
+      'respite'
+    )
+  ) {
+
+    icon =
+      '⌂';
+
+  }
+
+  else if (
+    nameLower.includes(
+      'door'
+    )
+  ) {
+
+    icon =
+      '🚪';
+
+  }
+
+  else if (
+    nameLower.includes(
+      'alcoholics'
+    ) ||
+    nameLower.includes(
+      'narcotics'
+    )
+  ) {
+
+    icon =
+      '●●●';
+
+  }
+
+
+  const displayNumber =
+    resource.displayNumber ||
+    resource.display_number ||
     '';
+
+
+  const actionLabel =
+    resource.actionLabel ||
+    resource.action_label ||
+    'Open Resource';
+
+
+  const isPhone =
+    String(
+      resource.url || ''
+    )
+      .toLowerCase()
+      .startsWith(
+        'tel:'
+      );
+
+
+  return `
+
+    <a
+      class="resource-card"
+      href="${escapeAttribute(resource.url || '#')}"
+      ${isPhone ? '' : 'target="_blank" rel="noopener"'}
+    >
+
+      <div class="resource-icon">
+
+        ${icon}
+
+      </div>
+
+
+      <div class="resource-name">
+
+        ${escapeHtml(name)}
+
+      </div>
+
+
+      <div class="resource-description">
+
+        ${escapeHtml(resource.description || '')}
+
+      </div>
+
+
+      <div class="resource-bottom">
+
+
+        <div>
+
+          ${
+            displayNumber
+              ? `
+
+                <div class="resource-number">
+
+                  ${escapeHtml(displayNumber)}
+
+                </div>
+
+              `
+              : ''
+          }
+
+
+          <div class="resource-action-label">
+
+            ${escapeHtml(actionLabel)}
+
+          </div>
+
+        </div>
+
+
+        <div class="resource-arrow">
+
+          ›
+
+        </div>
+
+
+      </div>
+
+
+    </a>
+
+  `;
 
 }
 
 
-function escapeHtml(value) {
+
+/* =====================================================
+   CRISIS
+===================================================== */
+
+function renderCrisis(
+  crisis
+) {
+
+  const displayNumber =
+    crisis &&
+    (
+      crisis.displayNumber ||
+      crisis.display_number
+    )
+      ? (
+          crisis.displayNumber ||
+          crisis.display_number
+        )
+      : '988';
+
+
+  const callUrl =
+    crisis &&
+    crisis.url
+      ? crisis.url
+      : 'tel:988';
+
+
+  return `
+
+    <div class="crisis">
+
+
+      <div class="crisis-number-block">
+
+        <div class="crisis-icon">
+
+          ☎
+
+        </div>
+
+        <div class="crisis-number">
+
+          ${escapeHtml(displayNumber)}
+
+        </div>
+
+      </div>
+
+
+      <div class="crisis-divider"></div>
+
+
+      <div class="crisis-copy">
+
+        <div class="crisis-title">
+
+          Mental Health Crisis Lifeline
+
+        </div>
+
+
+        <div class="crisis-actions">
+
+          <a
+            class="crisis-action"
+            href="${escapeAttribute(callUrl)}"
+          >
+            Call
+          </a>
+
+          <span class="crisis-action">
+            |
+          </span>
+
+          <a
+            class="crisis-action"
+            href="sms:988"
+          >
+            Text
+          </a>
+
+        </div>
+
+
+        <div class="crisis-support">
+
+          Support is available 24/7.
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <a
+      class="emergency"
+      href="tel:911"
+    >
+
+      Immediate emergency? Call 911
+
+    </a>
+
+  `;
+
+}
+
+
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function escapeHtml(
+  value
+) {
 
   return String(
     value || ''
@@ -2800,7 +1980,9 @@ function escapeHtml(value) {
 }
 
 
-function escapeAttribute(value) {
+function escapeAttribute(
+  value
+) {
 
   return escapeHtml(
     value
@@ -2809,10 +1991,10 @@ function escapeAttribute(value) {
 }
 
 
+
 /* =====================================================
    ERROR
 ===================================================== */
-
 
 function renderError() {
 
@@ -2824,32 +2006,22 @@ function renderError() {
 
   app.innerHTML = `
 
-    <section class="section">
+    <div class="error-card">
 
-      <div class="generic-card">
+      <h2>
+        Unable to load
+      </h2>
 
-        <h1>
+      <p>
+        Please refresh the page or visit
+        The Process Recovery Center website.
+      </p>
 
-          Unable to load
-
-        </h1>
-
-        <p>
-
-          We couldn't load this resource page.
-          Please refresh the page or visit
-          The Process Recovery Center website.
-
-        </p>
-
-      </div>
-
-    </section>
+    </div>
 
   `;
 
 }
-
 
 </script>
 
