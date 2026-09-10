@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -10,186 +12,489 @@
 
   <meta name="theme-color" content="#031019">
 
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent"
+  >
+
+  <meta
+    name="description"
+    content="The Process Recovery Center staff contact and recovery resource page."
+  >
+
   <title>The Process Recovery Center</title>
 
+
+  <!-- Premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+
   <style>
+
     :root {
-      --blue: #56c8f2;
-      --blue-bright: #00aeef;
-      --blue-soft: #a8e1f7;
 
-      --bg: #02090d;
-      --bg-2: #04111a;
-      --panel: #0b2230;
-      --panel-2: #102d3f;
+      --blue:
+        #5bd1ff;
 
-      --white: #ffffff;
-      --muted: #9eb3be;
+      --blue-bright:
+        #00b8f4;
 
-      --border: rgba(76, 191, 236, .42);
-      --border-soft: rgba(112, 197, 232, .24);
+      --blue-deep:
+        #0575ab;
+
+      --blue-soft:
+        #b6eaff;
+
+      --navy:
+        #071b28;
+
+      --navy-2:
+        #0b2637;
+
+      --navy-3:
+        #102f43;
+
+      --black:
+        #01070b;
+
+      --white:
+        #ffffff;
+
+      --muted:
+        #9eb4bf;
+
+      --muted-light:
+        #c4d5dc;
+
+      --card-border:
+        rgba(93, 205, 248, .40);
+
+      --card-border-soft:
+        rgba(112, 197, 232, .20);
+
+      --shadow:
+        0 18px 45px rgba(0,0,0,.34);
+
     }
+
 
     * {
       box-sizing: border-box;
     }
 
+
     html {
+
       margin: 0;
+
       padding: 0;
-      background: var(--bg);
-      -webkit-text-size-adjust: 100%;
+
+      background:
+        #01070b;
+
+      scroll-behavior:
+        smooth;
+
+      -webkit-text-size-adjust:
+        100%;
+
     }
 
+
     body {
+
       margin: 0;
 
-      min-height: 100vh;
+      padding: 0;
+
+      min-height: 100%;
+
+      overflow-x: hidden;
 
       font-family:
+        "Manrope",
         Arial,
         Helvetica,
         sans-serif;
 
-      color: white;
+      color:
+        white;
 
       background:
+
         radial-gradient(
-          circle at 10% 12%,
-          rgba(0,174,239,.14),
-          transparent 32%
+          circle at 15% 12%,
+          rgba(0,184,244,.12),
+          transparent 30%
         ),
-        linear-gradient(
-          180deg,
-          #06131b 0%,
-          #02090d 100%
-        );
+
+        radial-gradient(
+          circle at 90% 42%,
+          rgba(48,157,204,.07),
+          transparent 30%
+        ),
+
+        #01070b;
+
     }
 
+
     a {
-      color: inherit;
-      text-decoration: none;
-      -webkit-tap-highlight-color: transparent;
+
+      color:
+        inherit;
+
+      text-decoration:
+        none;
+
+      -webkit-tap-highlight-color:
+        transparent;
+
+      touch-action:
+        manipulation;
+
     }
+
 
     svg {
       display: block;
     }
 
+
+    img {
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+
+
+    /* =====================================================
+       MAIN PAGE
+    ===================================================== */
+
+
     .page {
+
+      position: relative;
+
       width: 100%;
+
       max-width: 520px;
-      min-height: 100vh;
 
       margin: 0 auto;
 
       overflow: hidden;
 
       background:
+
+        radial-gradient(
+          circle at 90% 47%,
+          rgba(0,184,244,.07),
+          transparent 24%
+        ),
+
         linear-gradient(
           180deg,
-          #06131b 0%,
-          #031017 50%,
-          #02090d 100%
+          #061722 0%,
+          #031018 51%,
+          #01080c 100%
         );
 
       box-shadow:
-        0 0 70px rgba(0,0,0,.55);
+        0 0 80px rgba(0,0,0,.58);
+
     }
+
+
+    /*
+      Large faint Process symbols create visual continuity
+      without introducing generic stock graphics.
+    */
+
+    .page::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 420px;
+      height: 420px;
+
+      top: 790px;
+      right: -305px;
+
+      z-index: 0;
+
+      opacity: .028;
+
+      background-image:
+        url("process-mark.png");
+
+      background-repeat:
+        no-repeat;
+
+      background-position:
+        center;
+
+      background-size:
+        contain;
+
+      transform:
+        rotate(17deg);
+
+      pointer-events:
+        none;
+
+    }
+
+
+    .page::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 330px;
+      height: 330px;
+
+      bottom: 280px;
+      left: -245px;
+
+      z-index: 0;
+
+      opacity: .025;
+
+      background-image:
+        url("process-mark.png");
+
+      background-repeat:
+        no-repeat;
+
+      background-position:
+        center;
+
+      background-size:
+        contain;
+
+      transform:
+        rotate(-14deg);
+
+      pointer-events:
+        none;
+
+    }
+
 
 
     /* =====================================================
        LOADING
     ===================================================== */
 
+
     .loading {
-      min-height: 100vh;
+
+      min-height: 100dvh;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
-      color: #bac9d0;
-      text-align: center;
+      color:
+        #b6c8d0;
+
+      text-align:
+        center;
+
+      font-size:
+        13px;
+
+      letter-spacing:
+        .5px;
+
     }
 
+
     .spinner {
-      width: 34px;
-      height: 34px;
 
-      margin: 0 auto 14px;
+      width: 36px;
+      height: 36px;
 
-      border-radius: 50%;
+      margin:
+        0 auto
+        14px;
+
+      border-radius:
+        50%;
 
       border:
-        3px solid rgba(89,199,242,.18);
+        3px solid rgba(91,209,255,.15);
 
       border-top-color:
         var(--blue);
 
+      box-shadow:
+        0 0 20px rgba(0,184,244,.10);
+
       animation:
         spin .8s linear infinite;
+
     }
 
+
     @keyframes spin {
+
       to {
-        transform: rotate(360deg);
+        transform:
+          rotate(360deg);
       }
+
     }
+
 
 
     /* =====================================================
        HERO
     ===================================================== */
 
+
     .hero {
+
       position: relative;
 
-      min-height: 490px;
-
-      padding:
-        max(18px, env(safe-area-inset-top))
-        20px
-        24px;
+      min-height: 500px;
 
       display: flex;
+
       flex-direction: column;
+
       justify-content: flex-end;
+
+      padding:
+
+        max(
+          18px,
+          env(safe-area-inset-top)
+        )
+
+        20px
+
+        25px;
 
       overflow: hidden;
 
+      isolation: isolate;
+
       background-image:
+
         linear-gradient(
           180deg,
-          rgba(2,10,16,.16) 0%,
-          rgba(2,10,16,.20) 30%,
-          rgba(2,11,17,.46) 57%,
-          rgba(2,12,18,.82) 81%,
-          #06131b 100%
+          rgba(2,9,14,.10) 0%,
+          rgba(2,9,14,.14) 24%,
+          rgba(2,10,16,.28) 47%,
+          rgba(3,15,23,.73) 70%,
+          #061722 100%
         ),
+
         url("bridge-hero.jpg");
 
-      background-size: cover;
-      background-position: center 45%;
+      background-size:
+        cover;
+
+      background-position:
+        center 44%;
+
     }
 
-    .hero::after {
+
+    /*
+      Blue atmospheric light over the bridge.
+    */
+
+    .hero::before {
+
       content: "";
 
       position: absolute;
+
       inset: 0;
+
+      z-index: -1;
+
+      background:
+
+        radial-gradient(
+          circle at 88% 22%,
+          rgba(45,188,245,.16),
+          transparent 28%
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(0,50,78,.11),
+          transparent 55%
+        );
 
       pointer-events: none;
 
-      background:
-        radial-gradient(
-          circle at 78% 24%,
-          rgba(0,174,239,.10),
-          transparent 40%
-        );
     }
 
-    .hero-top {
+
+    /*
+      Slight bottom bloom helps bridge hero
+      transition seamlessly into the page.
+    */
+
+    .hero::after {
+
+      content: "";
+
+      position: absolute;
+
+      left: -15%;
+      right: -15%;
+      bottom: -80px;
+
+      height: 180px;
+
+      z-index: -1;
+
+      background:
+        #061722;
+
+      filter:
+        blur(45px);
+
+      opacity:
+        .76;
+
+    }
+
+
+
+    /* =====================================================
+       TOP LOGO
+    ===================================================== */
+
+
+    .hero-brand {
+
       position: absolute;
 
       top:
@@ -200,1049 +505,2605 @@
 
       left: 19px;
 
-      z-index: 3;
+      z-index: 4;
+
+      animation:
+        brandIn .65s ease-out both;
+
     }
 
-    .logo-glass {
+
+    @keyframes brandIn {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          translateY(-10px);
+
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          translateY(0);
+
+      }
+
+    }
+
+
+    .brand-plaque {
+
+      position: relative;
+
       display: inline-flex;
 
       align-items: center;
+
       justify-content: center;
+
+      overflow: hidden;
 
       padding:
         10px
         14px;
 
       border:
-        1px solid rgba(255,255,255,.30);
 
-      border-radius: 18px;
+        1px solid
+        rgba(255,255,255,.52);
+
+      border-radius:
+        20px;
 
       background:
+
         linear-gradient(
           145deg,
-          rgba(255,255,255,.91),
-          rgba(242,248,250,.84)
+          rgba(255,255,255,.94),
+          rgba(239,248,251,.87)
         );
 
-      backdrop-filter: blur(13px);
-      -webkit-backdrop-filter: blur(13px);
+      backdrop-filter:
+        blur(18px)
+        saturate(120%);
+
+      -webkit-backdrop-filter:
+        blur(18px)
+        saturate(120%);
 
       box-shadow:
-        0 10px 28px rgba(0,0,0,.22),
-        inset 0 1px 0 rgba(255,255,255,.72);
+
+        0 12px 34px
+        rgba(0,0,0,.24),
+
+        0 2px 5px
+        rgba(0,0,0,.08),
+
+        inset 0 1px 0
+        rgba(255,255,255,.95);
+
     }
+
+
+    .brand-plaque::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: -80%;
+
+      left: -45%;
+
+      width: 70%;
+
+      height: 240%;
+
+      opacity: .5;
+
+      transform:
+        rotate(24deg);
+
+      background:
+
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,.92),
+          transparent
+        );
+
+      pointer-events: none;
+
+    }
+
 
     .process-logo {
+
+      position: relative;
+
+      z-index: 2;
+
       display: block;
 
-      width: 215px;
-      max-width: 66vw;
-      max-height: 82px;
+      width: 218px;
 
-      object-fit: contain;
+      max-width:
+        67vw;
+
+      max-height:
+        78px;
+
+      object-fit:
+        contain;
+
     }
 
+
+
+    /* =====================================================
+       STAFF IDENTITY
+    ===================================================== */
+
+
     .hero-content {
+
       position: relative;
 
       z-index: 3;
 
-      margin-top: 175px;
+      animation:
+        heroIn .75s .08s ease-out both;
+
     }
 
+
+    @keyframes heroIn {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          translateY(15px);
+
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          translateY(0);
+
+      }
+
+    }
+
+
+    .identity {
+
+      position: relative;
+
+      padding-right:
+        4px;
+
+    }
+
+
     .hero-name {
+
       margin: 0;
 
+      max-width:
+        100%;
+
       font-family:
+        "Cormorant Garamond",
         Georgia,
-        "Times New Roman",
         serif;
 
       font-size:
         clamp(
-          38px,
-          9.5vw,
-          49px
+          44px,
+          11.4vw,
+          57px
         );
 
-      line-height: .98;
+      font-weight:
+        700;
 
-      font-weight: 700;
+      line-height:
+        .88;
 
-      letter-spacing: -.8px;
+      letter-spacing:
+        -.8px;
+
+      text-wrap:
+        balance;
 
       text-shadow:
-        0 4px 18px rgba(0,0,0,.76);
+
+        0 3px 10px
+        rgba(0,0,0,.6),
+
+        0 8px 28px
+        rgba(0,0,0,.40);
+
     }
 
+
+    .hero-name.long {
+
+      font-size:
+        clamp(
+          39px,
+          10vw,
+          50px
+        );
+
+    }
+
+
+    .hero-name.xlong {
+
+      font-size:
+        clamp(
+          35px,
+          8.8vw,
+          45px
+        );
+
+    }
+
+
     .hero-title {
+
       display: flex;
 
       align-items: center;
 
-      gap: 10px;
+      width:
+        fit-content;
 
-      margin-top: 11px;
+      max-width:
+        100%;
 
-      color: #e4edf1;
+      gap:
+        10px;
 
-      font-size: 16px;
+      margin-top:
+        12px;
 
-      line-height: 1.3;
+      color:
+        #e7f0f4;
 
-      font-weight: 500;
+      font-size:
+        15px;
+
+      font-weight:
+        500;
+
+      line-height:
+        1.3;
 
       text-shadow:
-        0 2px 12px rgba(0,0,0,.8);
+        0 2px 8px rgba(0,0,0,.6);
+
     }
+
 
     .hero-title::before,
     .hero-title::after {
+
       content: "";
 
-      width: 27px;
+      width: 28px;
       height: 2px;
 
       flex-shrink: 0;
 
-      border-radius: 999px;
+      border-radius:
+        999px;
 
       background:
-        var(--blue-bright);
+
+        linear-gradient(
+          90deg,
+          var(--blue-bright),
+          var(--blue)
+        );
+
+      box-shadow:
+        0 0 9px rgba(0,184,244,.4);
+
     }
+
 
     .credentials {
-      margin-top: 8px;
+
+      width:
+        fit-content;
+
+      margin-top:
+        9px;
+
+      padding:
+        4px 0;
 
       color:
-        #c4e9f8;
+        #c4eaf8;
 
-      font-size: 11px;
+      font-size:
+        10.5px;
 
-      font-weight: 600;
+      font-weight:
+        700;
 
-      letter-spacing: 1.1px;
+      line-height:
+        1.2;
 
-      text-transform: uppercase;
+      letter-spacing:
+        1.55px;
+
+      text-transform:
+        uppercase;
+
+      text-shadow:
+        0 2px 8px rgba(0,0,0,.65);
+
     }
+
 
 
     /* =====================================================
-       CONTACT ACTIONS
+       CONTACT BUTTONS
     ===================================================== */
 
+
     .contact-actions {
+
       display: grid;
 
       grid-template-columns:
+
         repeat(
           3,
           minmax(0,1fr)
         );
 
-      gap: 9px;
+      gap:
+        9px;
 
-      margin-top: 18px;
+      margin-top:
+        18px;
+
     }
 
+
     .contact-action {
-      min-height: 96px;
+
+      position: relative;
+
+      min-width: 0;
+
+      min-height:
+        102px;
+
+      overflow: hidden;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
 
       padding:
         12px
         7px;
 
-      display: flex;
-      flex-direction: column;
-
-      align-items: center;
-      justify-content: center;
-
-      text-align: center;
+      text-align:
+        center;
 
       border:
-        1px solid rgba(90,194,235,.45);
 
-      border-radius: 17px;
+        1px solid
+        rgba(96,197,239,.44);
+
+      border-radius:
+        18px;
 
       background:
+
         linear-gradient(
           145deg,
-          rgba(17,48,66,.94),
-          rgba(4,18,27,.97)
+          rgba(18,51,70,.94),
+          rgba(3,17,25,.97)
         );
 
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.05),
-        0 10px 25px rgba(0,0,0,.2);
+
+        inset 0 1px 0
+        rgba(255,255,255,.06),
+
+        0 12px 27px
+        rgba(0,0,0,.22);
 
       transition:
-        transform .12s ease,
-        border-color .12s ease;
+
+        transform .16s ease,
+        border-color .16s ease,
+        box-shadow .16s ease;
+
     }
 
-    .contact-action.primary {
+
+    .contact-action::after {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      opacity: 0;
+
       background:
-        linear-gradient(
-          145deg,
-          #0ca5df,
-          #0669a0
+
+        radial-gradient(
+          circle at 50% 10%,
+          rgba(91,209,255,.15),
+          transparent 55%
         );
 
-      border-color:
-        #32caff;
+      transition:
+        opacity .18s ease;
+
+      pointer-events: none;
+
     }
+
 
     .contact-action:active {
+
       transform:
-        scale(.97);
+        scale(.965);
+
+      border-color:
+        rgba(91,209,255,.85);
+
     }
+
+
+    .contact-action:active::after {
+      opacity: 1;
+    }
+
+
+    /*
+      Direct staff call is intentionally the
+      brightest button on the hero.
+    */
+
+    .contact-action.primary {
+
+      border-color:
+        #38d0ff;
+
+      background:
+
+        radial-gradient(
+          circle at 20% 0%,
+          rgba(96,222,255,.28),
+          transparent 43%
+        ),
+
+        linear-gradient(
+          145deg,
+          #0da8df,
+          #056798
+        );
+
+      box-shadow:
+
+        inset 0 1px 0
+        rgba(255,255,255,.22),
+
+        0 8px 30px
+        rgba(0,153,214,.22);
+
+    }
+
+
+    .contact-action.primary::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: -50%;
+
+      left: -75%;
+
+      width: 50%;
+
+      height: 200%;
+
+      transform:
+        rotate(22deg);
+
+      background:
+
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,.13),
+          transparent
+        );
+
+      animation:
+        callShine 5s ease-in-out infinite;
+
+      pointer-events: none;
+
+    }
+
+
+    @keyframes callShine {
+
+      0%,
+      76% {
+
+        left:
+          -75%;
+
+      }
+
+      100% {
+
+        left:
+          160%;
+
+      }
+
+    }
+
 
     .contact-icon {
-      width: 27px;
-      height: 27px;
 
-      margin-bottom: 8px;
+      width: 29px;
+      height: 29px;
 
-      color: white;
+      margin-bottom:
+        8px;
+
+      color:
+        white;
+
+      filter:
+
+        drop-shadow(
+          0 3px 6px rgba(0,0,0,.28)
+        );
+
     }
+
 
     .contact-icon svg {
+
       width: 100%;
       height: 100%;
+
     }
+
 
     .contact-label {
-      font-size: 14px;
-      font-weight: 800;
-    }
 
-    .contact-sub {
-      margin-top: 4px;
-
-      max-width: 110px;
-
-      overflow: hidden;
-
-      color: #c3d3da;
-
-      font-size: 9.5px;
-
-      white-space: nowrap;
-
-      text-overflow: ellipsis;
-    }
-
-
-    /* =====================================================
-       CONTENT
-    ===================================================== */
-
-    .content {
-      padding:
-        0
-        17px
-        10px;
-    }
-
-
-    /* =====================================================
-       ADMISSIONS
-    ===================================================== */
-
-    .admissions {
       position: relative;
 
+      z-index: 2;
+
+      color:
+        white;
+
+      font-size:
+        13.5px;
+
+      font-weight:
+        800;
+
+    }
+
+
+    .contact-sub {
+
+      position: relative;
+
+      z-index: 2;
+
+      max-width:
+        110px;
+
+      margin-top:
+        4px;
+
       overflow: hidden;
 
-      min-height: 124px;
+      color:
+        #c6d9e1;
+
+      font-size:
+        9px;
+
+      font-weight:
+        500;
+
+      white-space:
+        nowrap;
+
+      text-overflow:
+        ellipsis;
+
+    }
+
+
+    .contact-action.primary .contact-sub {
+
+      color:
+        white;
+
+      font-size:
+        10.5px;
+
+      font-weight:
+        700;
+
+      font-variant-numeric:
+        tabular-nums;
+
+    }
+
+
+
+    /* =====================================================
+       BODY CONTENT
+    ===================================================== */
+
+
+    .content {
+
+      position: relative;
+
+      z-index: 2;
+
+      padding:
+
+        0
+        17px
+        calc(
+          10px +
+          env(safe-area-inset-bottom)
+        );
+
+    }
+
+
+
+    /* =====================================================
+       ADMISSIONS - MAIN CONVERSION CTA
+    ===================================================== */
+
+
+    .admissions {
+
+      position: relative;
+
+      min-height:
+        132px;
+
+      overflow: hidden;
 
       display: flex;
+
       align-items: center;
 
-      gap: 15px;
+      gap:
+        14px;
 
       padding:
         18px;
 
       border:
-        1px solid #0ebdff;
 
-      border-radius: 19px;
+        1px solid
+        rgba(18,199,255,.95);
+
+      border-radius:
+        20px;
 
       background:
-        linear-gradient(
-          90deg,
-          #062233,
-          #0a3047
-        );
+        #072333;
 
       box-shadow:
-        0 12px 28px rgba(0,0,0,.26),
-        inset 0 0 34px rgba(0,174,239,.05);
+
+        0 14px 34px
+        rgba(0,0,0,.30),
+
+        0 0 0 1px
+        rgba(0,184,244,.05),
+
+        inset 0 1px 0
+        rgba(255,255,255,.05);
+
+      transition:
+        transform .16s ease;
+
     }
 
-    .admissions::after {
+
+    .admissions:active {
+
+      transform:
+        scale(.98);
+
+    }
+
+
+    /*
+      Reuses the real bridge rather than adding
+      unrelated stock scenery.
+    */
+
+    .admissions::before {
+
       content: "";
 
       position: absolute;
+
       inset: 0;
 
-      opacity: .22;
+      z-index: 0;
+
+      opacity:
+        .32;
 
       background-image:
+
         linear-gradient(
           90deg,
-          rgba(3,18,27,.95),
-          rgba(4,34,50,.62)
+          rgba(2,22,34,.96) 5%,
+          rgba(3,32,48,.82) 52%,
+          rgba(4,36,54,.61)
         ),
+
         url("bridge-hero.jpg");
 
-      background-size: cover;
-      background-position: center 48%;
+      background-size:
+        cover;
 
-      z-index: 0;
+      background-position:
+        center 46%;
+
+      transition:
+        transform .5s ease;
+
     }
 
-    .admissions > * {
-      position: relative;
-      z-index: 2;
+
+    .admissions:active::before {
+
+      transform:
+        scale(1.025);
+
     }
 
-    .admissions-icon {
-      width: 60px;
-      height: 60px;
 
-      min-width: 60px;
+    .admissions::after {
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      content: "";
 
-      border-radius: 50%;
+      position: absolute;
+
+      width: 230px;
+      height: 230px;
+
+      right: -130px;
+      top: -130px;
+
+      z-index: 1;
+
+      border-radius:
+        50%;
 
       background:
+
+        radial-gradient(
+          circle,
+          rgba(0,184,244,.20),
+          transparent 68%
+        );
+
+      pointer-events:
+        none;
+
+    }
+
+
+    .admissions > * {
+
+      position: relative;
+
+      z-index: 3;
+
+    }
+
+
+    .admissions-icon {
+
+      position: relative;
+
+      width: 62px;
+      height: 62px;
+
+      min-width: 62px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius:
+        50%;
+
+      color:
+        white;
+
+      background:
+
         linear-gradient(
           145deg,
-          #13aae4,
-          #075889
+          #15b8ed,
+          #08628f
         );
 
       box-shadow:
-        0 7px 20px rgba(0,0,0,.22);
+
+        0 8px 22px
+        rgba(0,0,0,.24),
+
+        0 0 25px
+        rgba(0,184,244,.12);
+
     }
+
+
+    /*
+      Soft pulsing ring to draw the eye toward
+      the most important help number.
+    */
+
+    .admissions-icon::after {
+
+      content: "";
+
+      position: absolute;
+
+      inset: -6px;
+
+      border:
+
+        1px solid
+        rgba(91,209,255,.30);
+
+      border-radius:
+        50%;
+
+      animation:
+        phonePulse 2.8s ease-out infinite;
+
+    }
+
+
+    @keyframes phonePulse {
+
+      0% {
+
+        opacity:
+          .75;
+
+        transform:
+          scale(.85);
+
+      }
+
+      75%,
+      100% {
+
+        opacity:
+          0;
+
+        transform:
+          scale(1.28);
+
+      }
+
+    }
+
 
     .admissions-icon svg {
+
       width: 30px;
       height: 30px;
+
     }
+
 
     .admissions-copy {
+
       min-width: 0;
+
       flex: 1;
+
     }
 
-    .admissions-title {
-      font-size: 25px;
 
-      font-weight: 900;
-
-      letter-spacing: -.4px;
-    }
-
-    .admissions-title span {
-      color:
-        var(--blue-bright);
-    }
-
-    .admissions-number {
-      margin-top: 5px;
-
-      color: white;
-
-      font-size: 18px;
-
-      font-weight: 850;
-    }
-
-    .admissions-sub {
-      margin-top: 7px;
+    .admissions-kicker {
 
       color:
         var(--blue-soft);
 
-      font-size: 8.5px;
+      font-size:
+        8px;
 
-      font-weight: 800;
+      font-weight:
+        800;
 
-      letter-spacing: 1.4px;
+      letter-spacing:
+        1.7px;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
+
     }
+
+
+    .admissions-title {
+
+      margin-top:
+        3px;
+
+      color:
+        white;
+
+      font-size:
+        23px;
+
+      font-weight:
+        800;
+
+      line-height:
+        1;
+
+      letter-spacing:
+        -.7px;
+
+    }
+
+
+    .admissions-title span {
+
+      color:
+        var(--blue-bright);
+
+    }
+
+
+    .admissions-number {
+
+      margin-top:
+        8px;
+
+      color:
+        white;
+
+      font-size:
+        21px;
+
+      font-weight:
+        800;
+
+      line-height:
+        1;
+
+      letter-spacing:
+        .2px;
+
+      font-variant-numeric:
+        tabular-nums;
+
+      text-shadow:
+        0 0 18px rgba(0,184,244,.16);
+
+    }
+
+
+    .admissions-sub {
+
+      margin-top:
+        8px;
+
+      color:
+        #bfe8f7;
+
+      font-size:
+        8px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        1.25px;
+
+      line-height:
+        1.4;
+
+      text-transform:
+        uppercase;
+
+    }
+
 
     .admissions-arrow {
-      color: white;
 
-      font-size: 32px;
+      color:
+        white;
+
+      font-size:
+        34px;
+
+      transform:
+        translateX(0);
+
+      transition:
+        transform .16s ease;
+
     }
+
+
+    .admissions:active
+    .admissions-arrow {
+
+      transform:
+        translateX(3px);
+
+    }
+
 
 
     /* =====================================================
-       WEBSITE + DIRECTIONS
+       PROCESS WEBSITE + DIRECTIONS
     ===================================================== */
 
+
     .primary-links {
+
       display: grid;
 
       grid-template-columns:
+
         repeat(
           2,
           minmax(0,1fr)
         );
 
-      gap: 9px;
+      gap:
+        9px;
 
-      margin-top: 11px;
+      margin-top:
+        11px;
+
     }
 
+
     .primary-link {
-      min-height: 106px;
+
+      position: relative;
+
+      min-height:
+        108px;
+
+      overflow: hidden;
 
       display: flex;
+
       align-items: center;
 
-      gap: 10px;
+      gap:
+        10px;
 
       padding:
         15px;
 
       border:
-        1px solid rgba(105,188,224,.36);
 
-      border-radius: 16px;
+        1px solid
+        rgba(105,188,224,.34);
+
+      border-radius:
+        17px;
 
       background:
+
         linear-gradient(
           145deg,
-          #102a3b,
-          #071620
+          rgba(17,46,64,.96),
+          rgba(5,20,29,.98)
         );
 
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.04);
+        inset 0 1px 0
+        rgba(255,255,255,.045);
 
       transition:
-        transform .12s ease;
+
+        transform .15s ease,
+        border-color .15s ease;
+
     }
+
+
+    .primary-link::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 100px;
+      height: 100px;
+
+      right: -55px;
+      top: -55px;
+
+      border-radius:
+        50%;
+
+      opacity:
+        .42;
+
+      background:
+
+        radial-gradient(
+          circle,
+          rgba(0,184,244,.10),
+          transparent 68%
+        );
+
+    }
+
 
     .primary-link:active {
+
       transform:
-        scale(.98);
+        scale(.975);
+
+      border-color:
+        rgba(91,209,255,.7);
+
     }
+
 
     .link-icon {
-      width: 34px;
-      height: 34px;
 
-      min-width: 34px;
+      position: relative;
 
-      color: white;
+      z-index: 2;
+
+      width: 35px;
+      height: 35px;
+
+      min-width: 35px;
+
+      color:
+        white;
+
     }
+
 
     .link-icon svg {
+
       width: 100%;
       height: 100%;
+
     }
+
 
     .link-copy {
-      flex: 1;
+
+      position: relative;
+
+      z-index: 2;
+
       min-width: 0;
+
+      flex: 1;
+
     }
+
 
     .link-title {
-      font-size: 13px;
 
-      font-weight: 850;
+      color:
+        white;
 
-      line-height: 1.18;
+      font-size:
+        12.5px;
+
+      font-weight:
+        800;
+
+      line-height:
+        1.22;
+
     }
 
+
     .link-sub {
-      margin-top: 5px;
+
+      max-width:
+        130px;
+
+      margin-top:
+        5px;
 
       overflow: hidden;
 
       color:
         var(--muted);
 
-      font-size: 9.5px;
+      font-size:
+        8.5px;
 
-      line-height: 1.35;
+      line-height:
+        1.4;
 
-      text-overflow: ellipsis;
+      text-overflow:
+        ellipsis;
+
     }
+
 
     .link-arrow {
-      color: white;
 
-      font-size: 24px;
+      position: relative;
+
+      z-index: 2;
+
+      color:
+        white;
+
+      font-size:
+        24px;
+
     }
+
 
 
     /* =====================================================
-       SECTION HEADER
+       SECTION TITLES
     ===================================================== */
 
+
     .section-heading {
+
       display: flex;
 
       align-items: flex-end;
-      justify-content: space-between;
 
-      gap: 12px;
+      justify-content:
+        space-between;
+
+      gap:
+        12px;
 
       margin:
-        29px
-        4px
-        13px;
 
-      padding-bottom: 8px;
+        30px
+        3px
+        14px;
+
+      padding-bottom:
+        9px;
 
       border-bottom:
-        2px solid rgba(0,174,239,.72);
+
+        1px solid
+        rgba(91,209,255,.58);
+
     }
 
+
+    .section-heading::after {
+
+      content: "";
+
+      position: absolute;
+
+    }
+
+
     .section-title {
+
       color:
         var(--blue-soft);
 
-      font-size: 16px;
+      font-size:
+        15px;
 
-      font-weight: 850;
+      font-weight:
+        800;
 
-      letter-spacing: 2.6px;
+      letter-spacing:
+        2.6px;
 
-      text-transform: uppercase;
+      line-height:
+        1.1;
+
+      text-transform:
+        uppercase;
+
     }
+
 
     .section-small {
-      color: #7ccbe9;
 
-      font-size: 7px;
+      color:
+        #73c9e9;
 
-      font-weight: 750;
+      font-size:
+        6.7px;
 
-      line-height: 1.4;
+      font-weight:
+        700;
 
-      letter-spacing: 1.45px;
+      line-height:
+        1.45;
 
-      text-align: right;
+      letter-spacing:
+        1.45px;
 
-      text-transform: uppercase;
+      text-align:
+        right;
+
+      text-transform:
+        uppercase;
+
     }
+
 
 
     /* =====================================================
-       RESOURCES
+       RESOURCE GRID
     ===================================================== */
 
+
     .resource-grid {
+
       display: grid;
 
       grid-template-columns:
+
         repeat(
           2,
           minmax(0,1fr)
         );
 
-      gap: 9px;
+      gap:
+        9px;
+
     }
 
+
     .resource-card {
-      min-height: 165px;
+
+      position: relative;
+
+      min-height:
+        178px;
+
+      overflow: hidden;
+
+      display: flex;
+
+      flex-direction: column;
 
       padding:
         16px
         14px;
 
-      display: flex;
-      flex-direction: column;
-
       border:
-        1px solid rgba(100,190,229,.42);
 
-      border-radius: 16px;
+        1px solid
+        rgba(95,190,230,.36);
+
+      border-radius:
+        18px;
 
       background:
+
+        radial-gradient(
+          circle at 100% 0%,
+          rgba(91,209,255,.075),
+          transparent 45%
+        ),
+
         linear-gradient(
           145deg,
-          #112b3c,
-          #071723
+          #102d3e,
+          #061620
         );
 
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.04);
+        inset 0 1px 0
+        rgba(255,255,255,.035);
 
       transition:
-        transform .12s ease;
+
+        transform .15s ease,
+        border-color .15s ease;
+
     }
+
 
     .resource-card:active {
+
       transform:
-        scale(.98);
+        scale(.975);
+
+      border-color:
+        rgba(91,209,255,.68);
+
     }
+
 
     .resource-icon {
-      width: 36px;
-      height: 36px;
 
-      margin-bottom: 11px;
+      width: 37px;
+      height: 37px;
+
+      margin-bottom:
+        12px;
 
       color:
-        #dff5ff;
+        #e2f6ff;
+
     }
+
 
     .resource-icon svg {
+
       width: 100%;
       height: 100%;
+
     }
+
 
     .resource-name {
-      min-height: 34px;
 
-      color: white;
+      color:
+        white;
 
-      font-size: 14px;
+      font-size:
+        13.5px;
 
-      font-weight: 850;
+      font-weight:
+        800;
 
-      line-height: 1.2;
+      line-height:
+        1.2;
+
+      text-wrap:
+        balance;
+
     }
+
 
     .resource-description {
-      margin-top: 6px;
 
-      color: #9fb4bf;
+      margin-top:
+        8px;
 
-      font-size: 9.5px;
+      color:
+        #a0b6c1;
 
-      line-height: 1.35;
+      font-size:
+        9px;
+
+      line-height:
+        1.45;
+
     }
 
+
     .resource-bottom {
-      margin-top: auto;
-      padding-top: 12px;
 
       display: flex;
 
       align-items: flex-end;
-      justify-content: space-between;
 
-      gap: 8px;
+      justify-content:
+        space-between;
+
+      gap:
+        8px;
+
+      margin-top:
+        auto;
+
+      padding-top:
+        13px;
+
     }
+
 
     .resource-number {
-      color: #dcebf1;
 
-      font-size: 12px;
+      color:
+        white;
 
-      font-weight: 750;
+      font-size:
+        15px;
+
+      font-weight:
+        800;
+
+      line-height:
+        1.05;
+
+      letter-spacing:
+        .05px;
+
+      font-variant-numeric:
+        tabular-nums;
+
     }
 
+
+    /*
+      Phone-based resources get brighter number treatment.
+    */
+
+    .resource-card.phone-resource
+    .resource-number {
+
+      color:
+        var(--blue-soft);
+
+      text-shadow:
+        0 0 13px rgba(0,184,244,.15);
+
+    }
+
+
     .resource-action-label {
-      margin-top: 4px;
+
+      margin-top:
+        6px;
 
       color:
         var(--blue);
 
-      font-size: 8.5px;
+      font-size:
+        8px;
 
-      font-weight: 850;
+      font-weight:
+        800;
 
-      text-transform: uppercase;
+      letter-spacing:
+        .5px;
+
+      text-transform:
+        uppercase;
+
     }
+
 
     .resource-arrow {
-      color: white;
 
-      font-size: 24px;
+      color:
+        white;
+
+      font-size:
+        25px;
+
+      line-height:
+        1;
+
     }
+
 
 
     /* =====================================================
-       CRISIS
+       988 CRISIS
     ===================================================== */
 
+
     .crisis {
-      margin-top: 15px;
 
-      min-height: 138px;
+      position: relative;
 
-      padding:
-        18px;
+      min-height:
+        145px;
+
+      overflow: hidden;
 
       display: flex;
+
       align-items: center;
 
-      gap: 15px;
+      gap:
+        13px;
+
+      margin-top:
+        16px;
+
+      padding:
+        17px;
 
       border:
-        1px solid #0dbdff;
 
-      border-radius: 18px;
+        1px solid
+        rgba(22,199,255,.94);
+
+      border-radius:
+        20px;
 
       background:
+
+        radial-gradient(
+          circle at 100% 0%,
+          rgba(0,184,244,.12),
+          transparent 45%
+        ),
+
         linear-gradient(
           145deg,
-          #062033,
-          #07141e
+          #07263a,
+          #06141d
         );
 
       box-shadow:
-        inset 0 0 30px rgba(0,174,239,.035);
+
+        0 12px 32px
+        rgba(0,0,0,.18),
+
+        inset 0 1px 0
+        rgba(255,255,255,.04);
+
     }
+
+
+    .crisis::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 200px;
+      height: 200px;
+
+      right: -125px;
+      bottom: -130px;
+
+      border-radius:
+        50%;
+
+      background:
+
+        radial-gradient(
+          circle,
+          rgba(0,184,244,.12),
+          transparent 70%
+        );
+
+      pointer-events:
+        none;
+
+    }
+
 
     .crisis-number-block {
+
       display: flex;
+
       align-items: center;
 
-      gap: 10px;
+      gap:
+        9px;
 
       flex-shrink: 0;
+
     }
 
+
     .crisis-icon {
+
       width: 50px;
       height: 50px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
-      border-radius: 50%;
+      border-radius:
+        50%;
+
+      color:
+        white;
 
       background:
+
         linear-gradient(
           145deg,
-          #167eaf,
-          #0b3958
+          #1888bc,
+          #0a3e5e
         );
+
+      box-shadow:
+        0 7px 20px rgba(0,0,0,.18);
+
     }
+
 
     .crisis-icon svg {
+
       width: 24px;
       height: 24px;
+
     }
+
 
     .crisis-number {
-      font-size: 42px;
 
-      font-weight: 900;
+      color:
+        white;
 
-      line-height: 1;
+      font-size:
+        44px;
+
+      font-weight:
+        800;
+
+      line-height:
+        1;
+
+      letter-spacing:
+        -1px;
+
+      font-variant-numeric:
+        tabular-nums;
+
     }
+
 
     .crisis-divider {
-      width: 1px;
 
-      align-self: stretch;
+      width:
+        1px;
+
+      height:
+        92px;
+
+      flex-shrink: 0;
 
       background:
-        var(--blue-bright);
+
+        linear-gradient(
+          180deg,
+          transparent,
+          var(--blue-bright),
+          transparent
+        );
+
     }
+
 
     .crisis-copy {
+
+      position: relative;
+
+      z-index: 2;
+
+      min-width: 0;
+
       flex: 1;
+
     }
+
 
     .crisis-title {
-      font-size: 14px;
 
-      font-weight: 900;
+      color:
+        white;
 
-      line-height: 1.25;
+      font-size:
+        13px;
+
+      font-weight:
+        800;
+
+      line-height:
+        1.3;
+
     }
 
-    .crisis-actions {
+
+    .crisis-buttons {
+
       display: flex;
 
-      gap: 7px;
+      gap:
+        6px;
 
-      margin-top: 9px;
+      margin-top:
+        10px;
+
     }
 
-    .crisis-action {
+
+    .crisis-button {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height:
+        29px;
+
+      padding:
+        6px
+        9px;
+
+      border:
+
+        1px solid
+        rgba(91,209,255,.28);
+
+      border-radius:
+        999px;
+
       color:
-        var(--blue-soft);
+        #c9ecfa;
 
-      font-size: 9px;
+      background:
+        rgba(255,255,255,.035);
 
-      font-weight: 850;
+      font-size:
+        8px;
 
-      letter-spacing: 1.25px;
+      font-weight:
+        800;
 
-      text-transform: uppercase;
+      letter-spacing:
+        .9px;
+
+      text-transform:
+        uppercase;
+
     }
+
+
+    .crisis-button.call {
+
+      border-color:
+        rgba(91,209,255,.60);
+
+      color:
+        white;
+
+      background:
+        rgba(0,184,244,.13);
+
+    }
+
 
     .crisis-support {
-      margin-top: 11px;
+
+      margin-top:
+        10px;
 
       color:
         var(--blue-bright);
 
-      font-size: 9px;
+      font-size:
+        7.7px;
 
-      font-weight: 850;
+      font-weight:
+        800;
 
-      letter-spacing: 1.55px;
+      letter-spacing:
+        1.35px;
 
-      text-transform: uppercase;
+      line-height:
+        1.4;
+
+      text-transform:
+        uppercase;
+
     }
+
 
     .emergency {
+
       display: block;
 
-      margin-top: 9px;
+      width:
+        fit-content;
 
-      color: #758c98;
+      margin:
+        9px auto 0;
 
-      font-size: 8.5px;
+      color:
+        #758b96;
 
-      text-align: center;
+      font-size:
+        8px;
+
+      text-align:
+        center;
+
     }
+
 
 
     /* =====================================================
        FOOTER
     ===================================================== */
 
-    .footer {
-      padding:
-        28px
-        12px
-        8px;
 
-      text-align: center;
+    .footer {
+
+      position: relative;
+
+      padding:
+
+        27px
+        12px
+        18px;
+
+      text-align:
+        center;
+
     }
+
 
     .footer-divider {
+
       display: flex;
 
       align-items: center;
+
       justify-content: center;
 
-      gap: 13px;
+      gap:
+        13px;
+
     }
+
 
     .footer-line {
-      width: 76px;
-      height: 1px;
+
+      width:
+        76px;
+
+      max-width:
+        22vw;
+
+      height:
+        1px;
 
       background:
-        var(--blue-bright);
+
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--blue-bright)
+        );
+
     }
+
+
+    .footer-line:last-child {
+
+      background:
+
+        linear-gradient(
+          90deg,
+          var(--blue-bright),
+          transparent
+        );
+
+    }
+
 
     .footer-symbol {
-      width: 48px;
-      height: 48px;
+
+      width: 53px;
+      height: 53px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
-      border-radius: 50%;
+      border-radius:
+        50%;
 
       background:
+
         radial-gradient(
           circle,
-          rgba(0,174,239,.15),
-          transparent 72%
+          rgba(0,184,244,.14),
+          transparent 69%
         );
+
+      filter:
+        drop-shadow(
+          0 0 10px rgba(0,184,244,.09)
+        );
+
     }
+
 
     .footer-symbol img {
-      width: 44px;
-      height: 44px;
 
-      object-fit: contain;
+      width:
+        47px;
+
+      height:
+        47px;
+
+      object-fit:
+        contain;
+
     }
+
 
     .footer-process-text {
-      margin-top: 10px;
 
-      color: #b6d4e0;
+      margin-top:
+        10px;
 
-      font-size: 8.5px;
+      color:
+        #bad5e1;
 
-      font-weight: 800;
+      font-size:
+        8px;
 
-      letter-spacing: 2px;
+      font-weight:
+        700;
 
-      text-transform: uppercase;
+      letter-spacing:
+        2.15px;
+
+      text-transform:
+        uppercase;
+
     }
 
+
+
+    /* =====================================================
+       KING CO-BRAND
+    ===================================================== */
+
+
     .king-wrap {
-      width: 142px;
+
+      position: relative;
+
+      width:
+        137px;
+
+      overflow: hidden;
 
       margin:
-        15px auto
-        0;
+        15px auto 0;
 
       padding:
-        9px
+        8px
         11px;
 
       border:
-        1px solid rgba(255,255,255,.28);
 
-      border-radius: 16px;
+        1px solid
+        rgba(255,255,255,.46);
+
+      border-radius:
+        18px;
 
       background:
+
         linear-gradient(
           145deg,
-          rgba(255,255,255,.92),
-          rgba(241,247,249,.85)
+          rgba(255,255,255,.94),
+          rgba(239,246,248,.88)
         );
 
-      backdrop-filter: blur(11px);
-      -webkit-backdrop-filter: blur(11px);
+      backdrop-filter:
+        blur(16px)
+        saturate(110%);
+
+      -webkit-backdrop-filter:
+        blur(16px)
+        saturate(110%);
 
       box-shadow:
-        0 10px 24px rgba(0,0,0,.16),
-        inset 0 1px 0 rgba(255,255,255,.72);
+
+        0 10px 28px
+        rgba(0,0,0,.18),
+
+        inset 0 1px 0
+        rgba(255,255,255,.95);
+
     }
+
+
+    .king-wrap::before {
+
+      content: "";
+
+      position: absolute;
+
+      width:
+        95px;
+
+      height:
+        95px;
+
+      top:
+        -66px;
+
+      right:
+        -52px;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(91,209,255,.11);
+
+      pointer-events:
+        none;
+
+    }
+
 
     .king-logo {
+
+      position: relative;
+
+      z-index: 2;
+
       display: block;
 
-      width: 100%;
-      max-height: 68px;
+      width:
+        100%;
 
-      object-fit: contain;
+      max-height:
+        68px;
 
-      opacity: .98;
+      object-fit:
+        contain;
 
-      filter: none;
+      filter:
+        none;
+
     }
+
 
     .footer-region {
-      margin-top: 14px;
 
-      color: #a7c9d7;
+      margin-top:
+        15px;
 
-      font-size: 8.5px;
+      color:
+        #a9cad7;
 
-      font-weight: 800;
+      font-size:
+        7.8px;
 
-      letter-spacing: 2px;
+      font-weight:
+        700;
 
-      text-transform: uppercase;
+      letter-spacing:
+        2px;
+
+      text-transform:
+        uppercase;
+
     }
 
+
     .footer-tagline {
-      margin-top: 18px;
+
+      margin-top:
+        17px;
 
       color:
         var(--blue-bright);
 
       font-family:
+
+        "Cormorant Garamond",
         Georgia,
-        "Times New Roman",
         serif;
 
-      font-size: 25px;
+      font-size:
+        30px;
 
-      font-style: italic;
+      font-weight:
+        600;
 
-      line-height: 1.1;
+      font-style:
+        italic;
+
+      line-height:
+        1;
+
+      letter-spacing:
+        -.4px;
+
+      text-shadow:
+        0 0 20px rgba(0,184,244,.10);
+
     }
+
 
     .footer-accent {
-      width: 46px;
-      height: 3px;
+
+      width:
+        46px;
+
+      height:
+        3px;
 
       margin:
-        12px auto
-        0;
+        13px auto 0;
 
-      border-radius: 999px;
+      border-radius:
+        999px;
 
       background:
-        var(--blue-bright);
+
+        linear-gradient(
+          90deg,
+          #028bbf,
+          var(--blue-bright),
+          #028bbf
+        );
+
+      box-shadow:
+        0 0 12px rgba(0,184,244,.20);
+
     }
+
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+
+    .reveal {
+
+      opacity: 0;
+
+      transform:
+        translateY(16px);
+
+      transition:
+
+        opacity .58s ease,
+        transform .58s
+        cubic-bezier(.22,.75,.28,1);
+
+    }
+
+
+    .reveal.visible {
+
+      opacity: 1;
+
+      transform:
+        translateY(0);
+
+    }
+
 
 
     /* =====================================================
        ERROR
     ===================================================== */
 
+
     .error-card {
+
       margin:
         40px
         18px;
 
-      padding: 24px;
+      padding:
+        25px;
 
-      border-radius: 18px;
+      border-radius:
+        18px;
 
-      background: white;
+      color:
+        #111;
 
-      color: #111;
+      background:
+        white;
+
     }
 
 
-    @media (max-width: 360px) {
+
+    /* =====================================================
+       SMALL MOBILE
+    ===================================================== */
+
+
+    @media
+    (
+      max-width: 370px
+    ) {
+
       .hero {
-        min-height: 462px;
+
+        min-height:
+          475px;
+
       }
+
 
       .hero-name {
-        font-size: 34px;
+
+        font-size:
+          40px;
+
       }
+
+
+      .hero-name.long {
+
+        font-size:
+          36px;
+
+      }
+
+
+      .hero-name.xlong {
+
+        font-size:
+          32px;
+
+      }
+
+
+      .hero-title {
+
+        font-size:
+          13.5px;
+
+      }
+
 
       .contact-actions {
-        gap: 6px;
+
+        gap:
+          6px;
+
       }
+
 
       .contact-action {
-        min-height: 92px;
+
+        min-height:
+          96px;
+
+        padding:
+          10px 5px;
+
       }
+
 
       .contact-label {
-        font-size: 12px;
+
+        font-size:
+          11.5px;
+
       }
+
 
       .contact-sub {
-        font-size: 8px;
+
+        font-size:
+          7.8px;
+
       }
 
-      .admissions-title {
-        font-size: 21px;
+
+      .admissions {
+
+        gap:
+          10px;
+
+        padding:
+          15px;
+
       }
+
+
+      .admissions-icon {
+
+        width:
+          53px;
+
+        height:
+          53px;
+
+        min-width:
+          53px;
+
+      }
+
+
+      .admissions-title {
+
+        font-size:
+          20px;
+
+      }
+
+
+      .admissions-number {
+
+        font-size:
+          18px;
+
+      }
+
+
+      .crisis {
+
+        gap:
+          9px;
+
+        padding:
+          14px;
+
+      }
+
+
+      .crisis-number {
+
+        font-size:
+          37px;
+
+      }
+
+
+      .crisis-icon {
+
+        width:
+          43px;
+
+        height:
+          43px;
+
+      }
+
     }
+
+
+
+    /* =====================================================
+       ACCESSIBILITY / REDUCED MOTION
+    ===================================================== */
+
+
+    @media
+    (
+      prefers-reduced-motion:
+      reduce
+    ) {
+
+      html {
+        scroll-behavior:
+          auto;
+      }
+
+
+      *,
+      *::before,
+      *::after {
+
+        animation-duration:
+          .001ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
+        transition-duration:
+          .001ms !important;
+
+      }
+
+
+      .reveal {
+
+        opacity: 1;
+
+        transform: none;
+
+      }
+
+    }
+
   </style>
+
 </head>
 
 
 <body>
 
-  <main id="app" class="page">
 
-    <div class="loading">
-      <div>
-        <div class="spinner"></div>
-        Loading...
+<main
+  id="app"
+  class="page"
+>
+
+  <div class="loading">
+
+    <div>
+
+      <div class="spinner">
       </div>
+
+      Loading...
+
     </div>
 
-  </main>
+  </div>
+
+</main>
+
 
 
 <script>
 
+
+/* =====================================================
+   CONFIG
+===================================================== */
+
+
 const API_URL =
   'https://script.google.com/macros/s/AKfycbzefgAa3hJz9h2emDoa_4hhlxl99fIB_k_h5TEq1AIKmBXukcEx9llpglAsLqabXYOJ/exec';
+
 
 
 const params =
@@ -1253,28 +3114,49 @@ const params =
 
 const staffId =
   String(
-    params.get('staff') || ''
+    params.get('staff') ||
+    ''
   )
     .toLowerCase()
     .trim();
 
 
+
+/* =====================================================
+   JSONP CALLBACK
+===================================================== */
+
+
 window.processCardData =
   function(data) {
-    renderPage(data);
+
+    renderPage(
+      data
+    );
+
   };
+
+
+
+/* =====================================================
+   LOAD DATA
+===================================================== */
 
 
 function loadData() {
 
   const script =
-    document.createElement('script');
+    document.createElement(
+      'script'
+    );
 
 
   script.src =
     API_URL +
     '?staff=' +
-    encodeURIComponent(staffId) +
+    encodeURIComponent(
+      staffId
+    ) +
     '&callback=processCardData' +
     '&t=' +
     Date.now();
@@ -1288,14 +3170,47 @@ function loadData() {
     script
   );
 
+
+  /*
+    If the API never responds, show an error instead
+    of leaving someone on a permanent loading screen.
+  */
+
+  setTimeout(
+    function() {
+
+      const loading =
+        document.querySelector(
+          '.loading'
+        );
+
+
+      if (loading) {
+
+        renderError();
+
+      }
+
+    },
+    10000
+  );
+
 }
 
 
 loadData();
 
 
+
+/* =====================================================
+   SVG ICONS
+===================================================== */
+
+
 function iconPhone() {
+
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -1305,14 +3220,24 @@ function iconPhone() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"></path>
+
+      <path
+        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"
+      >
+      </path>
+
     </svg>
+
   `;
+
 }
+
 
 
 function iconMail() {
+
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -1322,15 +3247,33 @@ function iconMail() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-      <path d="m3 7 9 6 9-6"></path>
+
+      <rect
+        x="3"
+        y="5"
+        width="18"
+        height="14"
+        rx="2"
+      >
+      </rect>
+
+      <path
+        d="m3 7 9 6 9-6"
+      >
+      </path>
+
     </svg>
+
   `;
+
 }
+
 
 
 function iconContact() {
+
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -1340,17 +3283,41 @@ function iconContact() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-      <circle cx="9" cy="7" r="4"></circle>
-      <path d="M19 8v6"></path>
-      <path d="M22 11h-6"></path>
+
+      <path
+        d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+      >
+      </path>
+
+      <circle
+        cx="9"
+        cy="7"
+        r="4"
+      >
+      </circle>
+
+      <path
+        d="M19 8v6"
+      >
+      </path>
+
+      <path
+        d="M22 11h-6"
+      >
+      </path>
+
     </svg>
+
   `;
+
 }
+
 
 
 function iconGlobe() {
+
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -1360,17 +3327,41 @@ function iconGlobe() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <circle cx="12" cy="12" r="9"></circle>
-      <path d="M3 12h18"></path>
-      <path d="M12 3a14 14 0 0 1 0 18"></path>
-      <path d="M12 3a14 14 0 0 0 0 18"></path>
+
+      <circle
+        cx="12"
+        cy="12"
+        r="9"
+      >
+      </circle>
+
+      <path
+        d="M3 12h18"
+      >
+      </path>
+
+      <path
+        d="M12 3a14 14 0 0 1 0 18"
+      >
+      </path>
+
+      <path
+        d="M12 3a14 14 0 0 0 0 18"
+      >
+      </path>
+
     </svg>
+
   `;
+
 }
+
 
 
 function iconPin() {
+
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -1380,15 +3371,31 @@ function iconPin() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path>
-      <circle cx="12" cy="10" r="2.5"></circle>
+
+      <path
+        d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"
+      >
+      </path>
+
+      <circle
+        cx="12"
+        cy="10"
+        r="2.5"
+      >
+      </circle>
+
     </svg>
+
   `;
+
 }
+
 
 
 function iconHome() {
+
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -1398,16 +3405,34 @@ function iconHome() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <path d="M3 11 12 3l9 8"></path>
-      <path d="M5 10v10h14V10"></path>
-      <path d="M9 20v-6h6v6"></path>
+
+      <path
+        d="M3 11 12 3l9 8"
+      >
+      </path>
+
+      <path
+        d="M5 10v10h14V10"
+      >
+      </path>
+
+      <path
+        d="M9 20v-6h6v6"
+      >
+      </path>
+
     </svg>
+
   `;
+
 }
+
 
 
 function iconDoor() {
+
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -1417,16 +3442,38 @@ function iconDoor() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <path d="M5 21h14"></path>
-      <path d="M7 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17"></path>
-      <circle cx="14" cy="12" r=".7" fill="currentColor"></circle>
+
+      <path
+        d="M5 21h14"
+      >
+      </path>
+
+      <path
+        d="M7 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17"
+      >
+      </path>
+
+      <circle
+        cx="14"
+        cy="12"
+        r=".8"
+        fill="currentColor"
+        stroke="none"
+      >
+      </circle>
+
     </svg>
+
   `;
+
 }
+
 
 
 function iconPeople() {
+
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -1436,36 +3483,73 @@ function iconPeople() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <circle cx="8" cy="8" r="3"></circle>
-      <circle cx="16" cy="8" r="3"></circle>
-      <path d="M2 20c0-3 2.5-6 6-6s6 3 6 6"></path>
-      <path d="M10 20c0-3 2.5-6 6-6s6 3 6 6"></path>
+
+      <circle
+        cx="8"
+        cy="8"
+        r="3"
+      >
+      </circle>
+
+      <circle
+        cx="16"
+        cy="8"
+        r="3"
+      >
+      </circle>
+
+      <path
+        d="M2 20c0-3 2.5-6 6-6s6 3 6 6"
+      >
+      </path>
+
+      <path
+        d="M10 20c0-3 2.5-6 6-6s6 3 6 6"
+      >
+      </path>
+
     </svg>
+
   `;
+
 }
+
+
+
+/* =====================================================
+   RENDER MAIN PAGE
+===================================================== */
 
 
 function renderPage(data) {
 
   const app =
-    document.getElementById('app');
+    document.getElementById(
+      'app'
+    );
 
 
   const staff =
-    data.staff || null;
+    data.staff ||
+    null;
 
 
   const settings =
-    data.settings || {};
+    data.settings ||
+    {};
 
 
   const resources =
-    data.resources || [];
+    data.resources ||
+    [];
 
 
   if (!staff) {
+
     renderError();
+
     return;
+
   }
 
 
@@ -1474,78 +3558,173 @@ function renderPage(data) {
     ' | The Process Recovery Center';
 
 
+
+  /* ===================================================
+     NAME LENGTH HANDLING
+  =================================================== */
+
+
+  const nameLength =
+    String(
+      staff.name ||
+      ''
+    ).length;
+
+
+  let nameClass =
+    '';
+
+
+  if (
+    nameLength >
+    24
+  ) {
+
+    nameClass =
+      'xlong';
+
+  }
+
+  else if (
+    nameLength >
+    18
+  ) {
+
+    nameClass =
+      'long';
+
+  }
+
+
+
+  /* ===================================================
+     RESOURCES
+  =================================================== */
+
+
   const crisisResource =
     resources.find(
-      resource =>
-        String(
-          resource.category || ''
-        )
-          .toLowerCase()
-          .trim() ===
-        'crisis'
+      function(resource) {
+
+        return (
+          String(
+            resource.category ||
+            ''
+          )
+            .toLowerCase()
+            .trim() ===
+          'crisis'
+        );
+
+      }
     );
 
 
   const visibleResources =
     resources.filter(
-      resource =>
-        String(
-          resource.category || ''
-        )
-          .toLowerCase()
-          .trim() !==
-        'crisis'
+      function(resource) {
+
+        return (
+          String(
+            resource.category ||
+            ''
+          )
+            .toLowerCase()
+            .trim() !==
+          'crisis'
+        );
+
+      }
     );
+
+
+
+  /* ===================================================
+     HTML
+  =================================================== */
 
 
   let html = `
 
+
     <section class="hero">
 
 
-      <div class="hero-top">
+      <div class="hero-brand">
 
-        <div class="logo-glass">
+
+        <div class="brand-plaque">
+
 
           <img
             class="process-logo"
-            src="${escapeAttribute(settings.process_logo)}"
+            src="${escapeAttribute(
+              settings.process_logo
+            )}"
             alt="The Process Recovery Center"
           >
 
+
         </div>
 
+
       </div>
+
 
 
       <div class="hero-content">
 
 
-        <h1 class="hero-name">
-          ${escapeHtml(staff.name)}
-        </h1>
+        <div class="identity">
 
 
-        ${
-          staff.title
-            ? `
-              <div class="hero-title">
-                ${escapeHtml(staff.title)}
-              </div>
-            `
-            : ''
-        }
+          <h1
+            class="hero-name ${nameClass}"
+          >
+
+            ${escapeHtml(
+              staff.name
+            )}
+
+          </h1>
 
 
-        ${
-          staff.credentials
-            ? `
-              <div class="credentials">
-                ${escapeHtml(staff.credentials)}
-              </div>
-            `
-            : ''
-        }
+          ${
+            staff.title
+              ? `
+
+                <div class="hero-title">
+
+                  ${escapeHtml(
+                    staff.title
+                  )}
+
+                </div>
+
+              `
+              : ''
+          }
+
+
+          ${
+            staff.credentials
+              ? `
+
+                <div class="credentials">
+
+                  ${escapeHtml(
+                    staff.credentials
+                  )}
+
+                </div>
+
+              `
+              : ''
+          }
+
+
+        </div>
+
 
 
         <div class="contact-actions">
@@ -1553,60 +3732,111 @@ function renderPage(data) {
 
           <a
             class="contact-action primary"
-            href="${escapeAttribute(staff.phoneHref)}"
+            href="${escapeAttribute(
+              staff.phoneHref
+            )}"
+            aria-label="Call ${escapeAttribute(
+              staff.name
+            )} at ${escapeAttribute(
+              staff.phone
+            )}"
           >
 
+
             <div class="contact-icon">
+
               ${iconPhone()}
+
             </div>
 
+
             <div class="contact-label">
+
               Call
+
             </div>
 
+
             <div class="contact-sub">
-              ${escapeHtml(staff.phone)}
+
+              ${escapeHtml(
+                staff.phone
+              )}
+
             </div>
+
 
           </a>
 
 
+
           <a
             class="contact-action"
-            href="mailto:${escapeAttribute(staff.email)}"
+            href="mailto:${escapeAttribute(
+              staff.email
+            )}"
+            aria-label="Email ${escapeAttribute(
+              staff.name
+            )}"
           >
 
+
             <div class="contact-icon">
+
               ${iconMail()}
+
             </div>
+
 
             <div class="contact-label">
+
               Email
+
             </div>
 
+
             <div class="contact-sub">
+
               Send a Message
+
             </div>
+
 
           </a>
 
 
+
           <a
             class="contact-action"
-            href="${API_URL}?staff=${encodeURIComponent(staff.id)}&vcard=1"
+            href="${API_URL}?staff=${encodeURIComponent(
+              staff.id
+            )}&vcard=1"
+            aria-label="Save ${escapeAttribute(
+              staff.name
+            )} to contacts"
           >
 
+
             <div class="contact-icon">
+
               ${iconContact()}
+
             </div>
+
 
             <div class="contact-label">
+
               Save Contact
+
             </div>
 
+
             <div class="contact-sub">
+
               Add to Phone
+
             </div>
+
 
           </a>
 
@@ -1620,111 +3850,177 @@ function renderPage(data) {
     </section>
 
 
+
     <section class="content">
 
 
+
       <a
-        class="admissions"
-        href="${escapeAttribute(settings.admissionsHref)}"
+        class="admissions reveal"
+        href="${escapeAttribute(
+          settings.admissionsHref
+        )}"
+        aria-label="Call The Process Recovery Center admissions at ${escapeAttribute(
+          settings.admissions_phone
+        )}"
       >
 
+
         <div class="admissions-icon">
+
           ${iconPhone()}
+
         </div>
+
 
 
         <div class="admissions-copy">
 
+
+          <div class="admissions-kicker">
+
+            Talk With Admissions
+
+          </div>
+
+
           <div class="admissions-title">
 
             ADMISSIONS
-            <span>24/7</span>
+            <span>
+              24/7
+            </span>
 
           </div>
 
 
           <div class="admissions-number">
-            ${escapeHtml(settings.admissions_phone)}
+
+            ${escapeHtml(
+              settings.admissions_phone
+            )}
+
           </div>
 
 
           <div class="admissions-sub">
+
             Real people. Real help. Any time.
+
           </div>
 
+
         </div>
+
 
 
         <div class="admissions-arrow">
+
           ›
+
         </div>
+
 
       </a>
 
 
-      <div class="primary-links">
+
+      <div class="primary-links reveal">
 
 
         <a
           class="primary-link"
-          href="${escapeAttribute(settings.main_website)}"
+          href="${escapeAttribute(
+            settings.main_website
+          )}"
           target="_blank"
           rel="noopener"
         >
 
+
           <div class="link-icon">
+
             ${iconGlobe()}
+
           </div>
 
 
           <div class="link-copy">
 
+
             <div class="link-title">
+
               Visit Process Website
+
             </div>
 
+
             <div class="link-sub">
+
               theprocessrecoverycenter.com
+
             </div>
+
 
           </div>
 
 
           <div class="link-arrow">
+
             ›
+
           </div>
+
 
         </a>
 
 
+
         <a
           class="primary-link"
-          href="${escapeAttribute(settings.mapsHref)}"
+          href="${escapeAttribute(
+            settings.mapsHref
+          )}"
           target="_blank"
           rel="noopener"
         >
 
+
           <div class="link-icon">
+
             ${iconPin()}
+
           </div>
 
 
           <div class="link-copy">
 
+
             <div class="link-title">
+
               Get Directions
+
             </div>
 
+
             <div class="link-sub">
-              ${escapeHtml(settings.main_address)}
+
+              ${escapeHtml(
+                settings.main_address
+              )}
+
             </div>
+
 
           </div>
 
 
           <div class="link-arrow">
+
             ›
+
           </div>
+
 
         </a>
 
@@ -1732,65 +4028,98 @@ function renderPage(data) {
       </div>
 
 
-      <div class="section-heading">
+
+      <div class="section-heading reveal">
+
 
         <div class="section-title">
+
           Recovery Resources
+
         </div>
 
 
         <div class="section-small">
+
           Community<br>
           Support<br>
           Long-Term Change
+
         </div>
 
+
       </div>
+
 
 
       <div class="resource-grid">
 
+
         ${
           visibleResources
             .map(
-              resource =>
-                renderResource(resource)
+              function(resource) {
+
+                return renderResource(
+                  resource
+                );
+
+              }
             )
             .join('')
         }
 
+
       </div>
 
 
-      ${renderCrisis(crisisResource)}
+
+      <div class="reveal">
+
+        ${renderCrisis(
+          crisisResource
+        )}
+
+      </div>
 
 
-      <footer class="footer">
+
+      <footer class="footer reveal">
 
 
         <div class="footer-divider">
 
-          <div class="footer-line"></div>
+
+          <div class="footer-line">
+          </div>
 
 
           <div class="footer-symbol">
 
+
             <img
               src="process-mark.png"
-              alt="The Process Recovery Center"
+              alt=""
             >
+
 
           </div>
 
 
-          <div class="footer-line"></div>
+          <div class="footer-line">
+          </div>
+
 
         </div>
+
 
 
         <div class="footer-process-text">
+
           The Process Recovery Center
+
         </div>
+
 
 
         ${
@@ -1799,11 +4128,15 @@ function renderPage(data) {
 
               <div class="king-wrap">
 
+
                 <img
                   class="king-logo"
-                  src="${escapeAttribute(settings.king_logo)}"
+                  src="${escapeAttribute(
+                    settings.king_logo
+                  )}"
                   alt="King Healthcare Group"
                 >
+
 
               </div>
 
@@ -1812,17 +4145,25 @@ function renderPage(data) {
         }
 
 
+
         <div class="footer-region">
+
           New England Area and Beyond
+
         </div>
+
 
 
         <div class="footer-tagline">
+
           Recovery Starts Here.
+
         </div>
 
 
-        <div class="footer-accent"></div>
+
+        <div class="footer-accent">
+        </div>
 
 
       </footer>
@@ -1836,19 +4177,47 @@ function renderPage(data) {
   app.innerHTML =
     html;
 
+
+  setupReveal();
+
 }
 
 
-function renderResource(resource) {
+
+/* =====================================================
+   RESOURCE CARDS
+===================================================== */
+
+
+function renderResource(
+  resource
+) {
 
   const name =
     String(
-      resource.name || ''
+      resource.name ||
+      ''
     );
 
 
   const nameLower =
-    name.toLowerCase();
+    name
+      .toLowerCase();
+
+
+  const url =
+    String(
+      resource.url ||
+      ''
+    ).trim();
+
+
+  const isPhone =
+    url
+      .toLowerCase()
+      .startsWith(
+        'tel:'
+      );
 
 
   let icon =
@@ -1856,69 +4225,188 @@ function renderResource(resource) {
 
 
   if (
-    nameLower.includes('respite')
+    nameLower.includes(
+      'respite'
+    )
   ) {
+
     icon =
       iconHome();
+
   }
 
   else if (
-    nameLower.includes('door')
+    nameLower.includes(
+      'door'
+    )
   ) {
+
     icon =
       iconDoor();
+
   }
 
   else if (
-    nameLower.includes('alcoholics') ||
-    nameLower.includes('narcotics')
+    nameLower.includes(
+      'alcoholics'
+    ) ||
+    nameLower.includes(
+      'narcotics'
+    )
   ) {
+
     icon =
       iconPeople();
+
   }
 
 
-  const displayNumber =
+
+  /*
+    Use Sheet values when present.
+    If an older API response omits them,
+    provide sensible fallbacks instead
+    of showing "OPEN RESOURCE."
+  */
+
+
+  let displayNumber =
     resource.displayNumber ||
     resource.display_number ||
     '';
 
 
-  const actionLabel =
+  if (
+    !displayNumber &&
+    isPhone
+  ) {
+
+    displayNumber =
+      formatTelForDisplay(
+        url
+      );
+
+  }
+
+
+
+  let actionLabel =
     resource.actionLabel ||
     resource.action_label ||
-    'Open Resource';
+    '';
 
 
-  const isPhone =
-    String(
-      resource.url || ''
-    )
-      .toLowerCase()
-      .startsWith('tel:');
+  if (
+    !actionLabel
+  ) {
+
+    if (
+      nameLower.includes(
+        'respite'
+      )
+    ) {
+
+      actionLabel =
+        'Call Respite';
+
+    }
+
+    else if (
+      nameLower.includes(
+        'door'
+      )
+    ) {
+
+      actionLabel =
+        'Call Doorways';
+
+    }
+
+    else if (
+      nameLower.includes(
+        'alcoholics'
+      ) ||
+      nameLower.includes(
+        'narcotics'
+      )
+    ) {
+
+      actionLabel =
+        'Find Meetings';
+
+    }
+
+    else if (
+      isPhone
+    ) {
+
+      actionLabel =
+        'Call Now';
+
+    }
+
+    else {
+
+      actionLabel =
+        'Visit Resource';
+
+    }
+
+  }
+
 
 
   return `
 
+
     <a
-      class="resource-card"
-      href="${escapeAttribute(resource.url || '#')}"
-      ${isPhone ? '' : 'target="_blank" rel="noopener"'}
+      class="resource-card reveal ${isPhone ? 'phone-resource' : ''}"
+      href="${escapeAttribute(
+        url ||
+        '#'
+      )}"
+      ${
+        isPhone
+          ? ''
+          : 'target="_blank" rel="noopener"'
+      }
     >
 
+
       <div class="resource-icon">
+
         ${icon}
+
       </div>
+
 
 
       <div class="resource-name">
-        ${escapeHtml(name)}
+
+        ${escapeHtml(
+          name
+        )}
+
       </div>
 
 
-      <div class="resource-description">
-        ${escapeHtml(resource.description || '')}
-      </div>
+
+      ${
+        resource.description
+          ? `
+
+            <div class="resource-description">
+
+              ${escapeHtml(
+                resource.description
+              )}
+
+            </div>
+
+          `
+          : ''
+      }
+
 
 
       <div class="resource-bottom">
@@ -1926,26 +4414,41 @@ function renderResource(resource) {
 
         <div>
 
+
           ${
             displayNumber
               ? `
+
                 <div class="resource-number">
-                  ${escapeHtml(displayNumber)}
+
+                  ${escapeHtml(
+                    displayNumber
+                  )}
+
                 </div>
+
               `
               : ''
           }
 
 
           <div class="resource-action-label">
-            ${escapeHtml(actionLabel)}
+
+            ${escapeHtml(
+              actionLabel
+            )}
+
           </div>
+
 
         </div>
 
 
+
         <div class="resource-arrow">
+
           ›
+
         </div>
 
 
@@ -1959,7 +4462,15 @@ function renderResource(resource) {
 }
 
 
-function renderCrisis(crisis) {
+
+/* =====================================================
+   CRISIS CARD
+===================================================== */
+
+
+function renderCrisis(
+  crisis
+) {
 
   const displayNumber =
     crisis &&
@@ -1981,60 +4492,93 @@ function renderCrisis(crisis) {
       : 'tel:988';
 
 
+  const crisisName =
+    crisis &&
+    crisis.name
+      ? crisis.name
+      : 'Mental Health Crisis Lifeline';
+
+
   return `
+
 
     <div class="crisis">
 
 
       <div class="crisis-number-block">
 
+
         <div class="crisis-icon">
+
           ${iconPhone()}
+
         </div>
 
+
         <div class="crisis-number">
-          ${escapeHtml(displayNumber)}
+
+          ${escapeHtml(
+            displayNumber
+          )}
+
         </div>
+
 
       </div>
 
 
-      <div class="crisis-divider"></div>
+
+      <div class="crisis-divider">
+      </div>
+
 
 
       <div class="crisis-copy">
 
 
         <div class="crisis-title">
-          Mental Health Crisis Lifeline
+
+          ${escapeHtml(
+            crisisName
+          )}
+
         </div>
 
 
-        <div class="crisis-actions">
+
+        <div class="crisis-buttons">
+
 
           <a
-            class="crisis-action"
-            href="${escapeAttribute(callUrl)}"
+            class="crisis-button call"
+            href="${escapeAttribute(
+              callUrl
+            )}"
           >
-            Call
+
+            Call 988
+
           </a>
 
-          <span class="crisis-action">
-            |
-          </span>
 
           <a
-            class="crisis-action"
+            class="crisis-button"
             href="sms:988"
           >
-            Text
+
+            Text 988
+
           </a>
 
+
         </div>
+
 
 
         <div class="crisis-support">
+
           Support is available 24/7.
+
         </div>
 
 
@@ -2044,11 +4588,14 @@ function renderCrisis(crisis) {
     </div>
 
 
+
     <a
       class="emergency"
       href="tel:911"
     >
+
       Immediate emergency? Call 911
+
     </a>
 
   `;
@@ -2056,43 +4603,261 @@ function renderCrisis(crisis) {
 }
 
 
-function escapeHtml(value) {
+
+/* =====================================================
+   RESOURCE PHONE FORMATTING FALLBACK
+===================================================== */
+
+
+function formatTelForDisplay(
+  url
+) {
+
+  const digits =
+    String(
+      url ||
+      ''
+    )
+      .replace(
+        /\D/g,
+        ''
+      );
+
+
+  if (!digits) {
+
+    return '';
+
+  }
+
+
+  if (
+    digits.length <=
+    6
+  ) {
+
+    return digits;
+
+  }
+
+
+  let ten =
+    digits;
+
+
+  if (
+    digits.length ===
+      11 &&
+    digits.charAt(0) ===
+      '1'
+  ) {
+
+    ten =
+      digits.substring(
+        1
+      );
+
+  }
+
+
+  if (
+    ten.length ===
+    10
+  ) {
+
+    return (
+      ten.substring(0,3) +
+      '-' +
+      ten.substring(3,6) +
+      '-' +
+      ten.substring(6)
+    );
+
+  }
+
+
+  return digits;
+
+}
+
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+
+function setupReveal() {
+
+  const elements =
+    document.querySelectorAll(
+      '.reveal'
+    );
+
+
+  if (
+    !(
+      'IntersectionObserver'
+      in
+      window
+    )
+  ) {
+
+    elements.forEach(
+      function(element) {
+
+        element
+          .classList
+          .add(
+            'visible'
+          );
+
+      }
+    );
+
+
+    return;
+
+  }
+
+
+  const observer =
+    new IntersectionObserver(
+      function(entries) {
+
+        entries.forEach(
+          function(entry) {
+
+            if (
+              entry.isIntersecting
+            ) {
+
+              entry.target
+                .classList
+                .add(
+                  'visible'
+                );
+
+
+              observer
+                .unobserve(
+                  entry.target
+                );
+
+            }
+
+          }
+        );
+
+      },
+      {
+
+        threshold:
+          .08,
+
+        rootMargin:
+          '0px 0px -25px 0px'
+
+      }
+    );
+
+
+  elements.forEach(
+    function(element) {
+
+      observer.observe(
+        element
+      );
+
+    }
+  );
+
+}
+
+
+
+/* =====================================================
+   ESCAPING
+===================================================== */
+
+
+function escapeHtml(
+  value
+) {
 
   return String(
-    value || ''
+    value ||
+    ''
   )
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;')
-    .replace(/'/g,'&#39;');
+    .replace(
+      /&/g,
+      '&amp;'
+    )
+    .replace(
+      /</g,
+      '&lt;'
+    )
+    .replace(
+      />/g,
+      '&gt;'
+    )
+    .replace(
+      /"/g,
+      '&quot;'
+    )
+    .replace(
+      /'/g,
+      '&#39;'
+    );
 
 }
 
 
-function escapeAttribute(value) {
-  return escapeHtml(value);
+
+function escapeAttribute(
+  value
+) {
+
+  return escapeHtml(
+    value
+  );
+
 }
+
+
+
+/* =====================================================
+   ERROR STATE
+===================================================== */
 
 
 function renderError() {
 
   const app =
-    document.getElementById('app');
+    document.getElementById(
+      'app'
+    );
 
 
   app.innerHTML = `
 
     <div class="error-card">
 
+
       <h2>
+
         Unable to load
+
       </h2>
 
+
       <p>
+
         Please refresh the page or visit
         The Process Recovery Center website.
+
       </p>
+
 
     </div>
 
@@ -2100,7 +4865,10 @@ function renderError() {
 
 }
 
+
 </script>
 
+
 </body>
+
 </html>
