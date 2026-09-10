@@ -1,9 +1,2890 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Process Assets</title>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta
+    name="theme-color"
+    content="#081012"
+  >
+
+  <title>
+    The Process Recovery Center
+  </title>
+
+
+  <style>
+
+    :root {
+
+      --blue: #a9d7e8;
+      --blue-strong: #62b7d8;
+      --blue-dark: #258ab3;
+
+      --black: #060809;
+      --dark: #0d1214;
+      --dark-2: #172023;
+
+      --white: #ffffff;
+
+      --surface: #f8fafb;
+      --surface-blue: #eaf6fa;
+
+      --text: #101416;
+      --muted: #647278;
+
+      --border: #e1e8eb;
+
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html {
+
+      width: 100%;
+      min-height: 100%;
+
+      margin: 0;
+      padding: 0;
+
+      background: var(--black);
+
+      scroll-behavior: smooth;
+
+      -webkit-text-size-adjust: 100%;
+
+    }
+
+
+    body {
+
+      width: 100%;
+      min-height: 100dvh;
+
+      margin: 0;
+      padding: 0;
+
+      overflow-x: hidden;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      color: white;
+
+      background:
+
+        radial-gradient(
+          circle at 100% 0%,
+          rgba(169,215,232,.13),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 0% 55%,
+          rgba(169,215,232,.05),
+          transparent 32%
+        ),
+
+        linear-gradient(
+          150deg,
+          #050708 0%,
+          #0b1012 52%,
+          #151d20 100%
+        );
+
+    }
+
+
+    a,
+    button {
+
+      -webkit-tap-highlight-color:
+        transparent;
+
+      touch-action:
+        manipulation;
+
+    }
+
+
+    button {
+      font-family: inherit;
+    }
+
+
+
+    /* =====================================================
+       PAGE
+    ===================================================== */
+
+
+    .page {
+
+      width: 100%;
+
+      max-width: 560px;
+
+      min-height: 100dvh;
+
+      margin: 0 auto;
+
+      padding-top:
+        max(
+          8px,
+          env(safe-area-inset-top)
+        );
+
+      padding-right:
+        max(
+          8px,
+          env(safe-area-inset-right)
+        );
+
+      padding-bottom:
+        max(
+          42px,
+          env(safe-area-inset-bottom)
+        );
+
+      padding-left:
+        max(
+          8px,
+          env(safe-area-inset-left)
+        );
+
+    }
+
+
+
+    /* =====================================================
+       LOADING
+    ===================================================== */
+
+
+    .loading {
+
+      min-height: 90dvh;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 30px;
+
+    }
+
+
+    .loading-inner {
+
+      color: #b8c4c9;
+
+      font-size: 14px;
+
+    }
+
+
+    .spinner {
+
+      width: 34px;
+      height: 34px;
+
+      margin:
+        0 auto
+        14px;
+
+      border-radius: 50%;
+
+      border:
+        3px
+        solid
+        rgba(169,215,232,.18);
+
+      border-top-color:
+        var(--blue);
+
+      animation:
+        spin .8s linear infinite;
+
+    }
+
+
+    @keyframes spin {
+
+      to {
+        transform: rotate(360deg);
+      }
+
+    }
+
+
+
+    /* =====================================================
+       BRAND HEADER
+    ===================================================== */
+
+
+    .brand-panel {
+
+      position: relative;
+
+      overflow: hidden;
+
+      width: 100%;
+
+      padding:
+        24px
+        18px
+        21px;
+
+      border-radius: 24px;
+
+      color: var(--text);
+
+      background:
+
+        radial-gradient(
+          circle at 98% 0%,
+          rgba(169,215,232,.68),
+          transparent 32%
+        ),
+
+        linear-gradient(
+          145deg,
+          #ffffff 0%,
+          #f5fafc 56%,
+          #e5f3f8 100%
+        );
+
+      box-shadow:
+        0
+        16px
+        44px
+        rgba(0,0,0,.27);
+
+    }
+
+
+    .brand-panel::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 200px;
+      height: 200px;
+
+      top: -142px;
+      right: -128px;
+
+      border:
+        32px
+        solid
+        rgba(73,164,198,.08);
+
+      border-radius: 50%;
+
+      pointer-events: none;
+
+    }
+
+
+    .process-logo {
+
+      position: relative;
+
+      z-index: 2;
+
+      display: block;
+
+      width: 345px;
+      max-width: 96%;
+      max-height: 145px;
+
+      object-fit: contain;
+
+      margin: 0 auto;
+
+    }
+
+
+    .affiliation {
+
+      position: relative;
+
+      z-index: 2;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      width: 76%;
+      max-width: 300px;
+
+      margin:
+        12px auto
+        0;
+
+    }
+
+
+    .affiliation-line {
+
+      height: 1px;
+
+      flex: 1;
+
+      background:
+        rgba(70,94,104,.18);
+
+    }
+
+
+    .affiliation-text {
+
+      flex-shrink: 0;
+
+      color: #6c7b82;
+
+      font-size: 9px;
+
+      font-weight: 800;
+
+      letter-spacing: 1.4px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .king-logo {
+
+      position: relative;
+
+      z-index: 2;
+
+      display: block;
+
+      width: 225px;
+      max-width: 70%;
+      max-height: 125px;
+
+      object-fit: contain;
+
+      margin:
+        3px auto 0;
+
+    }
+
+
+    .brand-copy {
+
+      position: relative;
+
+      z-index: 2;
+
+      max-width: 370px;
+
+      margin:
+        10px auto
+        0;
+
+      text-align: center;
+
+      color: #526269;
+
+      font-size: 13px;
+
+      line-height: 1.5;
+
+    }
+
+
+    .pills {
+
+      position: relative;
+
+      z-index: 2;
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      justify-content: center;
+
+      gap: 6px;
+
+      margin-top: 14px;
+
+    }
+
+
+    .pill {
+
+      padding:
+        6px
+        9px;
+
+      border:
+        1px
+        solid
+        rgba(57,145,178,.18);
+
+      border-radius: 999px;
+
+      background:
+        rgba(255,255,255,.62);
+
+      color: #59717b;
+
+      font-size: 8.5px;
+
+      font-weight: 800;
+
+      letter-spacing: .8px;
+
+      text-transform: uppercase;
+
+    }
+
+
+
+    /* =====================================================
+       SECTIONS
+    ===================================================== */
+
+
+    .section {
+
+      width: 100%;
+
+      margin-top: 23px;
+
+    }
+
+
+    .section-heading {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      margin-bottom: 10px;
+
+      padding:
+        0
+        4px;
+
+    }
+
+
+    .section-heading span {
+
+      flex-shrink: 0;
+
+      color: var(--blue);
+
+      font-size: 10.5px;
+
+      font-weight: 900;
+
+      letter-spacing: 1.8px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .section-heading::after {
+
+      content: "";
+
+      height: 1px;
+
+      flex: 1;
+
+      background:
+
+        linear-gradient(
+          90deg,
+          rgba(169,215,232,.34),
+          transparent
+        );
+
+    }
+
+
+
+    /* =====================================================
+       PROFILE
+    ===================================================== */
+
+
+    .profile-card {
+
+      position: relative;
+
+      overflow: hidden;
+
+      width: 100%;
+
+      padding: 22px;
+
+      color: var(--text);
+
+      border-radius: 22px;
+
+      background:
+
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #f7fafb
+        );
+
+      box-shadow:
+        0
+        14px
+        38px
+        rgba(0,0,0,.24);
+
+    }
+
+
+    .profile-card::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      right: -120px;
+      top: -120px;
+
+      border:
+        29px
+        solid
+        rgba(169,215,232,.08);
+
+      border-radius: 50%;
+
+      pointer-events: none;
+
+    }
+
+
+    .profile-eyebrow {
+
+      position: relative;
+
+      z-index: 2;
+
+      color: #748187;
+
+      font-size: 9.5px;
+
+      font-weight: 800;
+
+      letter-spacing: 1.6px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .profile-name {
+
+      position: relative;
+
+      z-index: 2;
+
+      margin:
+        7px
+        0
+        0;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(
+          30px,
+          8vw,
+          36px
+        );
+
+      line-height: 1.03;
+
+      letter-spacing: -.5px;
+
+    }
+
+
+    .profile-meta {
+
+      position: relative;
+
+      z-index: 2;
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      align-items: center;
+
+      gap:
+        7px
+        10px;
+
+      margin-top: 9px;
+
+    }
+
+
+    .profile-title {
+
+      color:
+        var(--blue-dark);
+
+      font-size: 12.5px;
+
+      font-weight: 900;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .credentials {
+
+      color: #647278;
+
+      font-size: 12px;
+
+      font-weight: 600;
+
+    }
+
+
+    .profile-accent {
+
+      position: relative;
+
+      z-index: 2;
+
+      width: 47px;
+      height: 3px;
+
+      margin:
+        16px
+        0
+        17px;
+
+      border-radius: 5px;
+
+      background:
+        var(--blue-strong);
+
+    }
+
+
+
+    /* =====================================================
+       STAFF PHONE
+    ===================================================== */
+
+
+    .staff-phone {
+
+      position: relative;
+
+      z-index: 2;
+
+      display: flex;
+
+      align-items: center;
+
+      width: 100%;
+
+      min-height: 84px;
+
+      gap: 14px;
+
+      padding:
+        14px
+        15px;
+
+      color: white;
+
+      text-decoration: none;
+
+      border-radius: 16px;
+
+      background:
+
+        radial-gradient(
+          circle at 96% 8%,
+          rgba(169,215,232,.16),
+          transparent 42%
+        ),
+
+        linear-gradient(
+          135deg,
+          #050708,
+          #12191c
+        );
+
+    }
+
+
+    .phone-icon {
+
+      width: 49px;
+      height: 49px;
+
+      min-width: 49px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 50%;
+
+      color: #154d62;
+
+      background:
+        var(--blue);
+
+      font-size: 20px;
+
+    }
+
+
+    .staff-phone-copy {
+
+      flex: 1;
+
+      min-width: 0;
+
+    }
+
+
+    .staff-phone-label {
+
+      color: #cad6da;
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .staff-phone-number {
+
+      display: block;
+
+      margin-top: 4px;
+
+      color: white;
+
+      font-size: 24px;
+
+      font-weight: 900;
+
+      line-height: 1.05;
+
+    }
+
+
+    .staff-phone-hint {
+
+      margin-top: 4px;
+
+      color: #9cabb1;
+
+      font-size: 10px;
+
+    }
+
+
+    .arrow {
+
+      color: var(--blue);
+
+      font-size: 24px;
+
+    }
+
+
+
+    /* =====================================================
+       PROFILE ACTIONS
+    ===================================================== */
+
+
+    .profile-actions {
+
+      position: relative;
+
+      z-index: 2;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(0,1fr)
+        );
+
+      gap: 9px;
+
+      margin-top: 10px;
+
+    }
+
+
+    .profile-action {
+
+      display: flex;
+
+      align-items: center;
+
+      min-width: 0;
+
+      min-height: 68px;
+
+      gap: 10px;
+
+      padding:
+        10px
+        11px;
+
+      color: var(--text);
+
+      text-decoration: none;
+
+      border:
+        1px
+        solid
+        var(--border);
+
+      border-radius: 14px;
+
+      background: #f7fafb;
+
+    }
+
+
+    .mini-icon {
+
+      width: 37px;
+      height: 37px;
+
+      min-width: 37px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 50%;
+
+      color:
+        var(--blue-dark);
+
+      background:
+        #ddf2fa;
+
+      font-size: 16px;
+
+      font-weight: 800;
+
+    }
+
+
+    .profile-action-copy {
+
+      min-width: 0;
+
+      flex: 1;
+
+    }
+
+
+    .profile-action-title {
+
+      font-size: 13px;
+
+      font-weight: 900;
+
+    }
+
+
+    .profile-action-sub {
+
+      overflow: hidden;
+
+      margin-top: 3px;
+
+      color: #748187;
+
+      font-size: 10px;
+
+      text-overflow: ellipsis;
+
+      white-space: nowrap;
+
+    }
+
+
+
+    /* =====================================================
+       ADMISSIONS
+    ===================================================== */
+
+
+    .admissions-card {
+
+      display: block;
+
+      width: 100%;
+
+      padding:
+        21px
+        20px;
+
+      color: #092a36;
+
+      text-decoration: none;
+
+      border-radius: 22px;
+
+      background:
+
+        radial-gradient(
+          circle at 97% 0%,
+          rgba(255,255,255,.78),
+          transparent 42%
+        ),
+
+        linear-gradient(
+          140deg,
+          #dff3fa,
+          #a9d7e8
+        );
+
+      box-shadow:
+        0
+        14px
+        36px
+        rgba(0,0,0,.20);
+
+    }
+
+
+    .admissions-top {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 12px;
+
+    }
+
+
+    .admissions-label {
+
+      font-size: 11px;
+
+      font-weight: 900;
+
+      letter-spacing: 1.4px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .badge {
+
+      padding:
+        5px
+        8px;
+
+      border-radius: 999px;
+
+      background:
+        rgba(255,255,255,.7);
+
+      font-size: 9px;
+
+      font-weight: 900;
+
+    }
+
+
+    .admissions-number {
+
+      display: block;
+
+      margin-top: 9px;
+
+      color: #071c24;
+
+      font-size:
+        clamp(
+          29px,
+          8vw,
+          35px
+        );
+
+      font-weight: 900;
+
+      line-height: 1;
+
+      letter-spacing: -.4px;
+
+    }
+
+
+    .admissions-description {
+
+      margin-top: 10px;
+
+      max-width: 390px;
+
+      color: #35535e;
+
+      font-size: 12.5px;
+
+      line-height: 1.45;
+
+    }
+
+
+    .tap-call {
+
+      margin-top: 14px;
+
+      color: #0b4053;
+
+      font-size: 11px;
+
+      font-weight: 900;
+
+    }
+
+
+
+    /* =====================================================
+       SITE ACTIONS
+    ===================================================== */
+
+
+    .service-actions {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(0,1fr)
+        );
+
+      gap: 9px;
+
+      margin-top: 10px;
+
+    }
+
+
+    .service-action {
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: space-between;
+
+      min-height: 112px;
+
+      padding: 15px;
+
+      color: var(--text);
+
+      text-decoration: none;
+
+      border-radius: 16px;
+
+      background:
+        rgba(255,255,255,.98);
+
+      box-shadow:
+        0
+        10px
+        27px
+        rgba(0,0,0,.14);
+
+    }
+
+
+    .service-icon {
+
+      width: 38px;
+      height: 38px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 50%;
+
+      color:
+        var(--blue-dark);
+
+      background:
+        #ddf2fa;
+
+      font-size: 17px;
+
+    }
+
+
+    .service-title {
+
+      margin-top: 13px;
+
+      color: #111719;
+
+      font-size: 13.5px;
+
+      font-weight: 900;
+
+    }
+
+
+    .service-sub {
+
+      margin-top: 4px;
+
+      color: #6f7c82;
+
+      font-size: 10.5px;
+
+      line-height: 1.35;
+
+    }
+
+
+
+    /* =====================================================
+       RESOURCES
+    ===================================================== */
+
+
+    .resource-panel {
+
+      overflow: hidden;
+
+      width: 100%;
+
+      color: var(--text);
+
+      border-radius: 21px;
+
+      background:
+        rgba(255,255,255,.98);
+
+      box-shadow:
+        0
+        13px
+        36px
+        rgba(0,0,0,.18);
+
+    }
+
+
+    .resource-item {
+
+      display: flex;
+
+      align-items: center;
+
+      min-height: 76px;
+
+      gap: 12px;
+
+      padding:
+        14px
+        15px;
+
+      color: inherit;
+
+      text-decoration: none;
+
+      border-bottom:
+        1px
+        solid
+        #e8edef;
+
+    }
+
+
+    .resource-item:last-child {
+      border-bottom: 0;
+    }
+
+
+    .resource-badge {
+
+      width: 42px;
+      height: 42px;
+
+      min-width: 42px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 12px;
+
+      color:
+        var(--blue-dark);
+
+      background:
+        #e3f4fa;
+
+      font-size: 11px;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .resource-copy {
+
+      flex: 1;
+
+      min-width: 0;
+
+    }
+
+
+    .resource-type {
+
+      color:
+        var(--blue-dark);
+
+      font-size: 8.5px;
+
+      font-weight: 900;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .resource-name {
+
+      margin-top: 3px;
+
+      color: #101517;
+
+      font-size: 14px;
+
+      font-weight: 900;
+
+    }
+
+
+    .resource-description {
+
+      margin-top: 4px;
+
+      color: #748187;
+
+      font-size: 11.5px;
+
+      line-height: 1.35;
+
+    }
+
+
+    .resource-chevron {
+
+      color: #96a2a7;
+
+      font-size: 22px;
+
+    }
+
+
+
+    /* =====================================================
+       CRISIS
+    ===================================================== */
+
+
+    .crisis-card {
+
+      width: 100%;
+
+      padding: 21px;
+
+      border-radius: 22px;
+
+      border:
+        1px
+        solid
+        rgba(169,215,232,.15);
+
+      background:
+
+        radial-gradient(
+          circle at 96% 0%,
+          rgba(169,215,232,.12),
+          transparent 40%
+        ),
+
+        linear-gradient(
+          145deg,
+          #080a0b,
+          #12191c
+        );
+
+      box-shadow:
+        0
+        14px
+        38px
+        rgba(0,0,0,.23);
+
+    }
+
+
+    .crisis-eyebrow {
+
+      color: var(--blue);
+
+      font-size: 9px;
+
+      font-weight: 900;
+
+      letter-spacing: 1.4px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .crisis-title {
+
+      margin:
+        6px
+        0
+        0;
+
+      font-size: 22px;
+
+      font-weight: 900;
+
+    }
+
+
+    .crisis-description {
+
+      margin-top: 7px;
+
+      color: #b9c3c7;
+
+      font-size: 12px;
+
+      line-height: 1.5;
+
+    }
+
+
+    .crisis-actions {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(0,1fr)
+        );
+
+      gap: 9px;
+
+      margin-top: 15px;
+
+    }
+
+
+    .crisis-action {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 54px;
+
+      padding: 11px;
+
+      border-radius: 12px;
+
+      text-align: center;
+
+      text-decoration: none;
+
+      font-size: 12.5px;
+
+      font-weight: 900;
+
+    }
+
+
+    .crisis-action.primary {
+
+      color: #092a36;
+
+      background:
+        var(--blue);
+
+    }
+
+
+    .crisis-action.secondary {
+
+      color: white;
+
+      background:
+        rgba(255,255,255,.08);
+
+      border:
+        1px
+        solid
+        rgba(255,255,255,.12);
+
+    }
+
+
+    .emergency {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 50px;
+
+      margin-top: 9px;
+
+      padding: 12px;
+
+      color: #c6d0d4;
+
+      text-decoration: none;
+
+      border-radius: 12px;
+
+      border:
+        1px
+        solid
+        rgba(255,255,255,.09);
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+    }
+
+
+
+    /* =====================================================
+       GENERIC / ERROR
+    ===================================================== */
+
+
+    .generic-card {
+
+      padding: 22px;
+
+      color: var(--text);
+
+      border-radius: 21px;
+
+      background: white;
+
+      box-shadow:
+        0
+        13px
+        36px
+        rgba(0,0,0,.20);
+
+    }
+
+
+    .generic-card h1 {
+
+      margin: 0;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size: 29px;
+
+    }
+
+
+    .generic-card p {
+
+      margin:
+        8px
+        0
+        0;
+
+      color: #6d797e;
+
+      font-size: 12.5px;
+
+      line-height: 1.5;
+
+    }
+
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+
+    .footer {
+
+      padding:
+        35px
+        14px
+        3px;
+
+      text-align: center;
+
+      color: #8d999e;
+
+      font-size: 10px;
+
+      line-height: 1.7;
+
+    }
+
+
+    .footer-name {
+
+      margin-bottom: 4px;
+
+      color: white;
+
+      font-size: 11.5px;
+
+      font-weight: 900;
+
+    }
+
+
+    .footer-tagline {
+
+      margin-top: 10px;
+
+      color: var(--blue);
+
+      font-size: 9px;
+
+      font-weight: 800;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
+    }
+
+
+
+    @media (max-width: 370px) {
+
+      .profile-actions,
+      .service-actions {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+    }
+
+  </style>
+
 </head>
+
+
+
 <body>
-  Process Recovery Center Assets
+
+
+<div
+  id="app"
+  class="page"
+>
+
+
+  <div class="loading">
+
+    <div class="loading-inner">
+
+      <div class="spinner">
+      </div>
+
+      Loading The Process...
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =====================================================
+   CONFIG
+===================================================== */
+
+
+const API_URL =
+  'https://script.google.com/macros/s/AKfycbzefgAa3hJz9h2emDoa_4hhlxl99fIB_k_h5TEq1AIKmBXukcEx9llpglAsLqabXYOJ/exec';
+
+
+
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
+
+
+const staffId =
+  (
+    params.get('staff') ||
+    ''
+  )
+    .toLowerCase()
+    .trim();
+
+
+
+/* =====================================================
+   JSONP CALLBACK
+===================================================== */
+
+
+window.processCardData =
+  function(data) {
+
+    renderPage(data);
+
+  };
+
+
+
+/* =====================================================
+   LOAD API
+===================================================== */
+
+
+function loadData() {
+
+  const script =
+    document.createElement(
+      'script'
+    );
+
+
+  script.src =
+    API_URL +
+    '?staff=' +
+    encodeURIComponent(
+      staffId
+    ) +
+    '&callback=processCardData' +
+    '&t=' +
+    Date.now();
+
+
+  script.onerror =
+    function() {
+
+      renderError();
+
+    };
+
+
+  document.body.appendChild(
+    script
+  );
+
+}
+
+
+
+loadData();
+
+
+
+/* =====================================================
+   MAIN RENDER
+===================================================== */
+
+
+function renderPage(data) {
+
+  const app =
+    document.getElementById(
+      'app'
+    );
+
+
+  const staff =
+    data.staff || null;
+
+
+  const settings =
+    data.settings || {};
+
+
+  const resources =
+    data.resources || [];
+
+
+  if (staff) {
+
+    document.title =
+      staff.name +
+      ' | The Process Recovery Center';
+
+  }
+
+
+
+  let html = '';
+
+
+  /* ===================================================
+     BRAND
+  =================================================== */
+
+
+  html += `
+    <header class="brand-panel">
+  `;
+
+
+  if (
+    settings.process_logo
+  ) {
+
+    html += `
+      <img
+        class="process-logo"
+        src="${escapeAttribute(settings.process_logo)}"
+        alt="The Process Recovery Center"
+      >
+    `;
+
+  }
+
+
+  if (
+    settings.king_logo
+  ) {
+
+    html += `
+
+      <div class="affiliation">
+
+        <div class="affiliation-line">
+        </div>
+
+        <div class="affiliation-text">
+          Part of
+        </div>
+
+        <div class="affiliation-line">
+        </div>
+
+      </div>
+
+
+      <img
+        class="king-logo"
+        src="${escapeAttribute(settings.king_logo)}"
+        alt="King Healthcare Group"
+      >
+
+    `;
+
+  }
+
+
+  html += `
+
+      <div class="brand-copy">
+
+        Treatment, recovery resources,
+        staff contacts and support —
+        available in one place.
+
+      </div>
+
+
+      <div class="pills">
+
+        <div class="pill">
+          Mental Health
+        </div>
+
+        <div class="pill">
+          Substance Use
+        </div>
+
+        <div class="pill">
+          Recovery
+        </div>
+
+      </div>
+
+    </header>
+  `;
+
+
+
+  /* ===================================================
+     STAFF PROFILE
+  =================================================== */
+
+
+  if (staff) {
+
+    html += `
+
+      <section class="section">
+
+        <div class="section-heading">
+          <span>Your Contact</span>
+        </div>
+
+
+        <div class="profile-card">
+
+
+          <div class="profile-eyebrow">
+            The Process Recovery Center
+          </div>
+
+
+          <h1 class="profile-name">
+            ${escapeHtml(staff.name)}
+          </h1>
+
+
+          <div class="profile-meta">
+
+    `;
+
+
+    if (staff.title) {
+
+      html += `
+
+        <div class="profile-title">
+          ${escapeHtml(staff.title)}
+        </div>
+
+      `;
+
+    }
+
+
+    if (staff.credentials) {
+
+      html += `
+
+        <div class="credentials">
+          ${escapeHtml(staff.credentials)}
+        </div>
+
+      `;
+
+    }
+
+
+    html += `
+
+          </div>
+
+          <div class="profile-accent">
+          </div>
+
+    `;
+
+
+
+    if (
+      staff.phone &&
+      staff.phoneHref
+    ) {
+
+      html += `
+
+        <a
+          class="staff-phone"
+          href="${escapeAttribute(staff.phoneHref)}"
+        >
+
+          <div class="phone-icon">
+            ☎
+          </div>
+
+
+          <div class="staff-phone-copy">
+
+            <div class="staff-phone-label">
+              Call ${escapeHtml(firstName(staff.name))}
+            </div>
+
+            <span class="staff-phone-number">
+              ${escapeHtml(staff.phone)}
+            </span>
+
+            <div class="staff-phone-hint">
+              Tap to call
+            </div>
+
+          </div>
+
+
+          <div class="arrow">
+            ›
+          </div>
+
+        </a>
+
+      `;
+
+    }
+
+
+
+    html += `
+
+      <div class="profile-actions">
+
+    `;
+
+
+
+    if (
+      staff.email
+    ) {
+
+      html += `
+
+        <a
+          class="profile-action"
+          href="mailto:${escapeAttribute(staff.email)}"
+        >
+
+          <div class="mini-icon">
+            ✉
+          </div>
+
+
+          <div class="profile-action-copy">
+
+            <div class="profile-action-title">
+              Email
+            </div>
+
+            <div class="profile-action-sub">
+              ${escapeHtml(staff.email)}
+            </div>
+
+          </div>
+
+        </a>
+
+      `;
+
+    }
+
+
+
+    html += `
+
+        <button
+          class="profile-action"
+          type="button"
+          onclick="saveContact()"
+        >
+
+          <div class="mini-icon">
+            +
+          </div>
+
+
+          <div class="profile-action-copy">
+
+            <div class="profile-action-title">
+              Save Contact
+            </div>
+
+            <div class="profile-action-sub">
+              Add to your phone
+            </div>
+
+          </div>
+
+        </button>
+
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+    `;
+
+  }
+
+
+
+  /* ===================================================
+     GET HELP
+  =================================================== */
+
+
+  html += `
+
+    <section class="section">
+
+      <div class="section-heading">
+        <span>Get Help</span>
+      </div>
+
+  `;
+
+
+
+  if (
+    settings.admissions_phone &&
+    settings.admissionsHref
+  ) {
+
+    html += `
+
+      <a
+        class="admissions-card"
+        href="${escapeAttribute(settings.admissionsHref)}"
+      >
+
+        <div class="admissions-top">
+
+          <div class="admissions-label">
+            Call Admissions
+          </div>
+
+          <div class="badge">
+            24 / 7
+          </div>
+
+        </div>
+
+
+        <span class="admissions-number">
+          ${escapeHtml(settings.admissions_phone)}
+        </span>
+
+
+        <div class="admissions-description">
+
+          Questions about treatment,
+          availability, insurance or next steps?
+          Speak directly with our admissions team.
+
+        </div>
+
+
+        <div class="tap-call">
+          Tap to call →
+        </div>
+
+      </a>
+
+    `;
+
+  }
+
+
+
+  html += `
+
+      <div class="service-actions">
+
+  `;
+
+
+
+  if (
+    settings.main_website
+  ) {
+
+    html += `
+
+      <a
+        class="service-action"
+        href="${escapeAttribute(settings.main_website)}"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <div class="service-icon">
+          ◎
+        </div>
+
+
+        <div>
+
+          <div class="service-title">
+            Visit Website
+          </div>
+
+          <div class="service-sub">
+            Programs, services and treatment information
+          </div>
+
+        </div>
+
+      </a>
+
+    `;
+
+  }
+
+
+
+  if (
+    settings.mapsHref
+  ) {
+
+    html += `
+
+      <a
+        class="service-action"
+        href="${escapeAttribute(settings.mapsHref)}"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <div class="service-icon">
+          ⌖
+        </div>
+
+
+        <div>
+
+          <div class="service-title">
+            Directions
+          </div>
+
+          <div class="service-sub">
+            ${escapeHtml(settings.main_address || '')}
+          </div>
+
+        </div>
+
+      </a>
+
+    `;
+
+  }
+
+
+
+  html += `
+
+      </div>
+
+    </section>
+
+  `;
+
+
+
+  /* ===================================================
+     RESOURCES
+  =================================================== */
+
+
+  const visibleResources =
+    resources.filter(
+      function(resource) {
+
+        const name =
+          (
+            resource.name ||
+            ''
+          )
+            .toLowerCase()
+            .trim();
+
+
+        return (
+          name !==
+            'process website' &&
+          name !==
+            '988'
+        );
+
+      }
+    );
+
+
+
+  if (
+    visibleResources.length
+  ) {
+
+    html += `
+
+      <section class="section">
+
+        <div class="section-heading">
+          <span>Recovery & Support</span>
+        </div>
+
+
+        <div class="resource-panel">
+
+    `;
+
+
+
+    visibleResources.forEach(
+      function(resource) {
+
+        const badge =
+          (
+            resource.name ||
+            resource.category ||
+            'GO'
+          )
+            .substring(0,2)
+            .toUpperCase();
+
+
+        html += `
+
+          <a
+            class="resource-item"
+            href="${escapeAttribute(resource.url || '#')}"
+            target="_blank"
+            rel="noopener"
+          >
+
+            <div class="resource-badge">
+              ${escapeHtml(badge)}
+            </div>
+
+
+            <div class="resource-copy">
+
+              <div class="resource-type">
+                ${escapeHtml(resource.category || '')}
+              </div>
+
+              <div class="resource-name">
+                ${escapeHtml(resource.name || '')}
+              </div>
+
+              <div class="resource-description">
+                ${escapeHtml(resource.description || '')}
+              </div>
+
+            </div>
+
+
+            <div class="resource-chevron">
+              ›
+            </div>
+
+          </a>
+
+        `;
+
+      }
+    );
+
+
+
+    html += `
+
+        </div>
+
+      </section>
+
+    `;
+
+  }
+
+
+
+  /* ===================================================
+     CRISIS
+  =================================================== */
+
+
+  html += `
+
+    <section class="section">
+
+      <div class="section-heading">
+        <span>Immediate Support</span>
+      </div>
+
+
+      <div class="crisis-card">
+
+
+        <div class="crisis-eyebrow">
+          Crisis Support
+        </div>
+
+
+        <h2 class="crisis-title">
+          Need help right now?
+        </h2>
+
+
+        <div class="crisis-description">
+
+          If you or someone you know is experiencing
+          a mental health or substance use crisis,
+          help is available.
+
+        </div>
+
+
+        <div class="crisis-actions">
+
+          <a
+            class="crisis-action primary"
+            href="tel:988"
+          >
+            Call 988
+          </a>
+
+          <a
+            class="crisis-action secondary"
+            href="sms:988"
+          >
+            Text 988
+          </a>
+
+        </div>
+
+
+        <a
+          class="emergency"
+          href="tel:911"
+        >
+          Immediate emergency? Call 911
+        </a>
+
+
+      </div>
+
+    </section>
+
+  `;
+
+
+
+  /* ===================================================
+     FOOTER
+  =================================================== */
+
+
+  html += `
+
+    <footer class="footer">
+
+
+      <div class="footer-name">
+        The Process Recovery Center
+      </div>
+
+  `;
+
+
+
+  if (
+    settings.main_address
+  ) {
+
+    html += `
+      ${escapeHtml(settings.main_address)}
+      <br>
+    `;
+
+  }
+
+
+
+  html += `
+
+      theprocessrecoverycenter.com
+
+
+      <div class="footer-tagline">
+
+        Life is a journey.
+        Recovery is a process.
+
+      </div>
+
+
+    </footer>
+
+  `;
+
+
+
+  app.innerHTML =
+    html;
+
+
+  /* Store data for Save Contact */
+
+  window.currentStaff =
+    staff;
+
+
+  window.currentSettings =
+    settings;
+
+}
+
+
+
+/* =====================================================
+   SAVE CONTACT
+===================================================== */
+
+
+function saveContact() {
+
+  const staff =
+    window.currentStaff;
+
+
+  const settings =
+    window.currentSettings || {};
+
+
+  if (!staff) {
+    return;
+  }
+
+
+  const names =
+    staff.name
+      .trim()
+      .split(/\s+/);
+
+
+  const first =
+    names.shift() || '';
+
+
+  const last =
+    names.join(' ');
+
+
+  const titleParts =
+    [];
+
+
+  if (staff.title) {
+    titleParts.push(
+      staff.title
+    );
+  }
+
+
+  if (staff.credentials) {
+    titleParts.push(
+      staff.credentials
+    );
+  }
+
+
+  const vcard =
+    [
+
+      'BEGIN:VCARD',
+
+      'VERSION:3.0',
+
+      'N:' +
+        vcardEscape(last) +
+        ';' +
+        vcardEscape(first) +
+        ';;;',
+
+      'FN:' +
+        vcardEscape(
+          staff.name
+        ),
+
+      'ORG:The Process Recovery Center',
+
+      titleParts.length
+        ? (
+            'TITLE:' +
+            vcardEscape(
+              titleParts.join(' | ')
+            )
+          )
+        : '',
+
+      staff.phone
+        ? (
+            'TEL;TYPE=CELL:' +
+            normalizePhone(
+              staff.phone
+            )
+          )
+        : '',
+
+      staff.email
+        ? (
+            'EMAIL;TYPE=WORK:' +
+            vcardEscape(
+              staff.email
+            )
+          )
+        : '',
+
+      settings.main_address
+        ? (
+            'ADR;TYPE=WORK:;;' +
+            vcardEscape(
+              settings.main_address
+            ) +
+            ';;;;'
+          )
+        : '',
+
+      settings.main_website
+        ? (
+            'URL:' +
+            settings.main_website
+          )
+        : '',
+
+      'END:VCARD'
+
+    ]
+      .filter(Boolean)
+      .join('\r\n');
+
+
+  const blob =
+    new Blob(
+      [vcard],
+      {
+        type:
+          'text/vcard;charset=utf-8'
+      }
+    );
+
+
+  const url =
+    URL.createObjectURL(
+      blob
+    );
+
+
+  const link =
+    document.createElement(
+      'a'
+    );
+
+
+  link.href =
+    url;
+
+
+  link.download =
+    staff.name
+      .replace(
+        /[^a-zA-Z0-9 _-]/g,
+        ''
+      ) +
+    '.vcf';
+
+
+  document.body.appendChild(
+    link
+  );
+
+
+  link.click();
+
+
+  link.remove();
+
+
+  setTimeout(
+    function() {
+
+      URL.revokeObjectURL(
+        url
+      );
+
+    },
+    3000
+  );
+
+}
+
+
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+
+function firstName(name) {
+
+  return (
+    name ||
+    ''
+  )
+    .trim()
+    .split(/\s+/)[0] ||
+    '';
+
+}
+
+
+
+function normalizePhone(phone) {
+
+  const digits =
+    String(
+      phone || ''
+    )
+      .replace(
+        /\D/g,
+        ''
+      );
+
+
+  if (
+    digits.length === 10
+  ) {
+
+    return '+1' +
+      digits;
+
+  }
+
+
+  if (
+    digits.length === 11 &&
+    digits.charAt(0) === '1'
+  ) {
+
+    return '+' +
+      digits;
+
+  }
+
+
+  return digits;
+
+}
+
+
+
+function vcardEscape(value) {
+
+  return String(
+    value || ''
+  )
+    .replace(
+      /\\/g,
+      '\\\\'
+    )
+    .replace(
+      /\n/g,
+      '\\n'
+    )
+    .replace(
+      /;/g,
+      '\\;'
+    )
+    .replace(
+      /,/g,
+      '\\,'
+    );
+
+}
+
+
+
+function escapeHtml(value) {
+
+  return String(
+    value || ''
+  )
+    .replace(
+      /&/g,
+      '&amp;'
+    )
+    .replace(
+      /</g,
+      '&lt;'
+    )
+    .replace(
+      />/g,
+      '&gt;'
+    )
+    .replace(
+      /"/g,
+      '&quot;'
+    )
+    .replace(
+      /'/g,
+      '&#39;'
+    );
+
+}
+
+
+
+function escapeAttribute(value) {
+
+  return escapeHtml(
+    value
+  );
+
+}
+
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+
+function renderError() {
+
+  const app =
+    document.getElementById(
+      'app'
+    );
+
+
+  app.innerHTML = `
+
+    <section class="section">
+
+      <div class="generic-card">
+
+        <h1>
+          Unable to load
+        </h1>
+
+        <p>
+
+          We couldn't load this resource page.
+          Please refresh the page or visit
+          The Process Recovery Center website.
+
+        </p>
+
+      </div>
+
+    </section>
+
+  `;
+
+}
+
+
+</script>
+
+
 </body>
+
 </html>
