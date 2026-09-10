@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Process Assets</title>
+</head>
+<body>
+  Process Recovery Center Assets
+</body>
+</html>
