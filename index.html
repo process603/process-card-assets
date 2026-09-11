@@ -2666,7 +2666,7 @@ function renderPage(data) {
         <div class="contact-actions">
 
 
-          
+          <a
             class="contact-action primary"
             href="${escapeAttribute(staff.phoneHref)}"
           >
@@ -2687,7 +2687,7 @@ function renderPage(data) {
 
 
 
-          
+          <a
             class="contact-action"
             href="mailto:${escapeAttribute(staff.email)}"
           >
@@ -2708,7 +2708,7 @@ function renderPage(data) {
 
 
 
-          
+          <a
             class="contact-action"
             href="${API_URL}?staff=${encodeURIComponent(staff.id)}&vcard=1"
           >
@@ -2741,7 +2741,7 @@ function renderPage(data) {
     <section class="content">
 
 
-      
+      <a
         class="admissions reveal"
         href="${escapeAttribute(settings.admissionsHref)}"
       >
@@ -2784,7 +2784,7 @@ function renderPage(data) {
       <div class="primary-links reveal">
 
 
-        
+        <a
           class="primary-link"
           href="${escapeAttribute(settings.main_website)}"
           target="_blank"
@@ -2815,7 +2815,7 @@ function renderPage(data) {
 
 
 
-        
+        <a
           class="primary-link"
           href="${escapeAttribute(settings.mapsHref)}"
           target="_blank"
@@ -3058,7 +3058,7 @@ function renderResource(resource) {
 
   return `
 
-    
+    <a
       class="resource-card reveal ${isPhone ? 'phone-resource' : ''}"
       href="${escapeAttribute(url || '#')}"
       ${isPhone ? '' : 'target="_blank" rel="noopener"'}
@@ -3180,14 +3180,14 @@ function renderCrisis(crisis) {
 
         <div class="crisis-buttons">
 
-          
+          <a
             class="crisis-button call"
             href="${escapeAttribute(callUrl)}"
           >
             Call 988
           </a>
 
-          
+          <a
             class="crisis-button"
             href="sms:988"
           >
@@ -3207,7 +3207,7 @@ function renderCrisis(crisis) {
     </div>
 
 
-    
+    <a
       class="emergency"
       href="tel:911"
     >
@@ -3366,7 +3366,7 @@ function renderState(options) {
         ${
           options.actionHref
             ? `
-              
+              <a
                 class="state-action"
                 href="${escapeAttribute(options.actionHref)}"
                 target="_blank"
@@ -3429,34 +3429,6 @@ function renderTimeoutError() {
   });
 
 }
-
-
-// Safety net: some in-app browsers (notably ones opened from a QR/
-// Camera scan) can fail to run CSS animations or fire
-// IntersectionObserver correctly on the very first load. If that
-// happens, content meant to fade in can get stuck invisible. This
-// forces everything visible after a short delay regardless, so a
-// flaky first paint can never leave real content hidden.
-setTimeout(function() {
-  document.querySelectorAll('.reveal').forEach(function(el) {
-    el.classList.add('visible');
-  });
-
-  var brand = document.querySelector('.hero-brand');
-  var content = document.querySelector('.hero-content');
-
-  if (brand) {
-    brand.style.opacity = '1';
-    brand.style.transform = 'none';
-    brand.style.filter = 'none';
-  }
-
-  if (content) {
-    content.style.opacity = '1';
-    content.style.transform = 'none';
-    content.style.filter = 'none';
-  }
-}, 1200);
 
 
 </script>
