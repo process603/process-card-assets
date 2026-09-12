@@ -16,6 +16,11 @@
     content="The Process Recovery Center staff contact and recovery resources."
   >
 
+  <meta
+    name="format-detection"
+    content="telephone=yes"
+  >
+
   <title>The Process Recovery Center</title>
 
   <link
@@ -4217,10 +4222,11 @@ function renderResource(
 
     <a
       class="resource-card reveal ${isPhone ? 'phone-resource' : ''}"
-      href="${escapeAttribute(
-        url ||
-        '#'
-      )}"
+      href="${
+        isPhone
+          ? escapeAttribute(url)
+          : escapeAttribute(url || '#')
+      }"
       aria-label="${escapeAttribute(
         actionLabel
       )}: ${escapeAttribute(
