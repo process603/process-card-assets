@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
 
@@ -23,6 +24,7 @@
     href="process-mark.png"
   >
 
+  <!-- HERO PRELOAD -->
   <link
     rel="preload"
     as="image"
@@ -37,6 +39,7 @@
     href="process-mark.png"
   >
 
+  <!-- CONNECTION WARMUP -->
   <link
     rel="preconnect"
     href="https://fonts.googleapis.com"
@@ -63,6 +66,7 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
+
 
   <style>
 
@@ -146,7 +150,6 @@
 
     img {
       user-select: none;
-
       -webkit-user-drag: none;
     }
 
@@ -170,6 +173,7 @@
 
       margin: 0 auto;
 
+      min-height: 0;
       height: auto;
 
       overflow: visible;
@@ -194,7 +198,7 @@
 
 
     /* =====================================================
-       FULL-PAGE FIRST-LOAD SKELETON
+       FIRST-LOAD FULL PAGE SKELETON
     ===================================================== */
 
 
@@ -204,9 +208,9 @@
       background:
         linear-gradient(
           180deg,
-          var(--navy),
+          var(--navy) 0%,
           var(--navy-2) 55%,
-          #01080c
+          #01080c 100%
         );
     }
 
@@ -219,9 +223,7 @@
       overflow: hidden;
 
       display: flex;
-
       flex-direction: column;
-
       justify-content: flex-end;
 
       padding:
@@ -235,18 +237,16 @@
       background-image:
         linear-gradient(
           180deg,
-          rgba(2,9,14,.07),
+          rgba(2,9,14,.07) 0%,
           rgba(2,9,14,.11) 24%,
           rgba(2,10,16,.25) 46%,
           rgba(3,15,23,.72) 71%,
-          var(--navy)
+          var(--navy) 100%
         ),
         url("bridge-hero.webp");
 
       background-size: cover;
-
-      background-position:
-        center 44%;
+      background-position: center 44%;
     }
 
 
@@ -262,7 +262,6 @@
       left: 20px;
 
       display: flex;
-
       align-items: center;
 
       gap: 11px;
@@ -348,36 +347,9 @@
     }
 
 
+    /* Static skeletons reduce first-load rendering work. */
     .skeleton::after {
-      content: "";
-
-      position: absolute;
-
-      inset: 0;
-
-      transform:
-        translateX(-100%);
-
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          rgba(255,255,255,.14),
-          transparent
-        );
-
-      animation:
-        skeletonShine 1.45s ease-in-out infinite;
-    }
-
-
-    @keyframes skeletonShine {
-
-      to {
-        transform:
-          translateX(100%);
-      }
-
+      content: none;
     }
 
 
@@ -446,10 +418,10 @@
 
       margin-bottom: 11px;
 
+      border-radius: 20px;
+
       border:
         1px solid rgba(18,199,255,.40);
-
-      border-radius: 20px;
 
       background:
         rgba(8,39,57,.78);
@@ -472,10 +444,10 @@
     .loading-link {
       height: 108px;
 
+      border-radius: 17px;
+
       border:
         1px solid rgba(105,188,224,.22);
-
-      border-radius: 17px;
 
       background:
         rgba(10,34,48,.70);
@@ -486,7 +458,6 @@
       display: flex;
 
       justify-content: space-between;
-
       align-items: flex-end;
 
       margin:
@@ -533,10 +504,10 @@
     .loading-resource {
       height: 178px;
 
+      border-radius: 18px;
+
       border:
         1px solid rgba(95,190,230,.20);
-
-      border-radius: 18px;
 
       background:
         rgba(12,42,58,.62);
@@ -548,10 +519,10 @@
 
       margin-top: 16px;
 
+      border-radius: 20px;
+
       border:
         1px solid rgba(22,199,255,.28);
-
-      border-radius: 20px;
 
       background:
         rgba(7,38,58,.68);
@@ -609,9 +580,8 @@
     }
 
 
-
     /* =====================================================
-       ERROR STATE
+       STATE / ERROR CARD
     ===================================================== */
 
 
@@ -621,7 +591,6 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       padding: 28px;
@@ -630,12 +599,9 @@
 
     .state-card {
       width: 100%;
-
       max-width: 360px;
 
-      padding:
-        32px
-        26px;
+      padding: 32px 26px;
 
       text-align: center;
 
@@ -671,10 +637,11 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       border-radius: 50%;
+
+      color: white;
 
       background:
         linear-gradient(
@@ -693,7 +660,6 @@
 
     .state-title {
       font-size: 18px;
-
       font-weight: 800;
     }
 
@@ -726,7 +692,6 @@
       display: inline-flex;
 
       align-items: center;
-
       justify-content: center;
 
       min-height: 44px;
@@ -735,17 +700,16 @@
         12px
         22px;
 
-      border: 0;
+      border: none;
 
       border-radius: 999px;
 
       font-family: inherit;
 
-      font-size: 13px;
-
-      font-weight: 800;
-
       color: white;
+
+      font-size: 13px;
+      font-weight: 800;
 
       cursor: pointer;
 
@@ -806,11 +770,11 @@
       background-image:
         linear-gradient(
           180deg,
-          rgba(2,9,14,.07),
+          rgba(2,9,14,.07) 0%,
           rgba(2,9,14,.11) 24%,
           rgba(2,10,16,.25) 46%,
           rgba(3,15,23,.72) 71%,
-          var(--navy)
+          var(--navy) 100%
         ),
         url("bridge-hero.webp");
 
@@ -853,16 +817,17 @@
 
       left: -15%;
       right: -15%;
-
       bottom: -80px;
 
       height: 180px;
 
       z-index: -1;
 
-      background: var(--navy);
+      background:
+        var(--navy);
 
-      filter: blur(45px);
+      filter:
+        blur(45px);
 
       opacity: .8;
     }
@@ -870,7 +835,7 @@
 
 
     /* =====================================================
-       PROCESS BRAND
+       TOP BRAND
     ===================================================== */
 
 
@@ -894,7 +859,10 @@
       gap: 11px;
 
       animation:
-        brandIn .8s cubic-bezier(.22,.8,.24,1) both;
+        brandIn
+        .8s
+        cubic-bezier(.22,.8,.24,1)
+        both;
 
       filter:
         drop-shadow(
@@ -907,7 +875,6 @@
 
 
     @keyframes brandIn {
-
       from {
         opacity: 0;
 
@@ -919,9 +886,10 @@
       to {
         opacity: 1;
 
-        transform: none;
+        transform:
+          translateY(0)
+          scale(1);
       }
-
     }
 
 
@@ -941,7 +909,7 @@
 
 
     .hero-brand-copy {
-      color: white;
+      color: var(--white);
 
       text-shadow:
         0 2px 7px rgba(0,0,0,.88),
@@ -993,7 +961,7 @@
 
 
     /* =====================================================
-       STAFF
+       STAFF IDENTITY
     ===================================================== */
 
 
@@ -1003,30 +971,30 @@
       z-index: 3;
 
       animation:
-        heroIn .9s .08s cubic-bezier(.22,.8,.24,1) both;
+        heroIn
+        .9s
+        .08s
+        cubic-bezier(.22,.8,.24,1)
+        both;
     }
 
 
     @keyframes heroIn {
-
       from {
         opacity: 0;
 
         transform:
           translateY(18px)
           scale(.985);
-
-        filter: blur(2px);
       }
 
       to {
         opacity: 1;
 
-        transform: none;
-
-        filter: none;
+        transform:
+          translateY(0)
+          scale(1);
       }
-
     }
 
 
@@ -1089,6 +1057,7 @@
       font-family:
         "Manrope",
         Arial,
+        Helvetica,
         sans-serif;
 
       font-size: 12px;
@@ -1157,7 +1126,7 @@
 
 
     /* =====================================================
-       CONTACT ACTIONS
+       CONTACT BUTTONS
     ===================================================== */
 
 
@@ -1180,7 +1149,6 @@
       position: relative;
 
       min-width: 0;
-
       min-height: 102px;
 
       overflow: hidden;
@@ -1190,7 +1158,6 @@
       flex-direction: column;
 
       align-items: center;
-
       justify-content: center;
 
       padding:
@@ -1216,7 +1183,9 @@
         0 12px 27px rgba(0,0,0,.22);
 
       transition:
-        transform .18s ease;
+        transform .18s ease,
+        border-color .18s ease,
+        box-shadow .18s ease;
     }
 
 
@@ -1227,7 +1196,8 @@
 
 
     .contact-action.primary {
-      border-color: #38d0ff;
+      border-color:
+        #38d0ff;
 
       background:
         radial-gradient(
@@ -1270,12 +1240,14 @@
         );
 
       animation:
-        callShine 5s ease-in-out infinite;
+        callShine
+        5s
+        ease-in-out
+        infinite;
     }
 
 
     @keyframes callShine {
-
       0%,
       76% {
         left: -75%;
@@ -1284,7 +1256,6 @@
       100% {
         left: 160%;
       }
-
     }
 
 
@@ -1293,6 +1264,8 @@
       height: 29px;
 
       margin-bottom: 8px;
+
+      color: var(--white);
     }
 
 
@@ -1303,8 +1276,9 @@
 
 
     .contact-label {
-      font-size: 13.5px;
+      color: var(--white);
 
+      font-size: 13.5px;
       font-weight: 800;
     }
 
@@ -1328,10 +1302,9 @@
 
     .contact-action.primary
     .contact-sub {
-      color: white;
+      color: var(--white);
 
       font-size: 10.5px;
-
       font-weight: 700;
 
       font-variant-numeric:
@@ -1356,7 +1329,8 @@
 
       padding:
         0
-        17px;
+        17px
+        0;
     }
 
 
@@ -1446,10 +1420,11 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       border-radius: 50%;
+
+      color: var(--white);
 
       background:
         linear-gradient(
@@ -1476,12 +1451,14 @@
       border-radius: 50%;
 
       animation:
-        phonePulse 2.8s ease-out infinite;
+        phonePulse
+        2.8s
+        ease-out
+        infinite;
     }
 
 
     @keyframes phonePulse {
-
       0% {
         opacity: .75;
 
@@ -1496,7 +1473,6 @@
         transform:
           scale(1.28);
       }
-
     }
 
 
@@ -1517,7 +1493,6 @@
       color: var(--blue-soft);
 
       font-size: 8px;
-
       font-weight: 800;
 
       letter-spacing: 1.7px;
@@ -1530,7 +1505,6 @@
       margin-top: 3px;
 
       font-size: 23px;
-
       font-weight: 800;
 
       line-height: 1;
@@ -1547,8 +1521,9 @@
     .admissions-number {
       margin-top: 8px;
 
-      font-size: 21px;
+      color: var(--white);
 
+      font-size: 21px;
       font-weight: 800;
 
       line-height: 1;
@@ -1564,7 +1539,6 @@
       color: #bfe8f7;
 
       font-size: 8px;
-
       font-weight: 700;
 
       letter-spacing: 1.25px;
@@ -1574,6 +1548,8 @@
 
 
     .admissions-arrow {
+      color: var(--white);
+
       font-size: 34px;
     }
 
@@ -1656,7 +1632,6 @@
 
     .link-title {
       font-size: 12.5px;
-
       font-weight: 800;
 
       line-height: 1.22;
@@ -1687,7 +1662,7 @@
 
 
     /* =====================================================
-       SECTION HEADING
+       SECTION TITLE
     ===================================================== */
 
 
@@ -1717,7 +1692,6 @@
       color: var(--blue-soft);
 
       font-size: 15px;
-
       font-weight: 800;
 
       letter-spacing: 2.6px;
@@ -1730,7 +1704,6 @@
       color: #73c9e9;
 
       font-size: 6.7px;
-
       font-weight: 700;
 
       line-height: 1.45;
@@ -1819,7 +1792,6 @@
 
     .resource-name {
       font-size: 13.5px;
-
       font-weight: 800;
 
       line-height: 1.2;
@@ -1854,8 +1826,9 @@
 
 
     .resource-number {
-      font-size: 15px;
+      color: var(--white);
 
+      font-size: 15px;
       font-weight: 800;
 
       font-variant-numeric:
@@ -1875,7 +1848,6 @@
       color: var(--blue);
 
       font-size: 8px;
-
       font-weight: 800;
 
       letter-spacing: .5px;
@@ -1945,7 +1917,6 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       border-radius: 50%;
@@ -1967,7 +1938,6 @@
 
     .crisis-number {
       font-size: 44px;
-
       font-weight: 800;
 
       line-height: 1;
@@ -1999,7 +1969,6 @@
 
     .crisis-title {
       font-size: 13px;
-
       font-weight: 800;
 
       line-height: 1.3;
@@ -2028,7 +1997,6 @@
       color: #c9ecfa;
 
       font-size: 8px;
-
       font-weight: 800;
 
       letter-spacing: .9px;
@@ -2041,7 +2009,7 @@
       border-color:
         rgba(91,209,255,.60);
 
-      color: white;
+      color: var(--white);
 
       background:
         rgba(0,184,244,.13);
@@ -2054,7 +2022,6 @@
       color: var(--blue-bright);
 
       font-size: 7.7px;
-
       font-weight: 800;
 
       letter-spacing: 1.35px;
@@ -2088,6 +2055,8 @@
     .footer {
       width: 100%;
 
+      margin: 0;
+
       padding:
         24px
         12px
@@ -2111,7 +2080,6 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       gap: 13px;
@@ -2151,7 +2119,6 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       border-radius: 50%;
@@ -2179,7 +2146,6 @@
       color: #bad5e1;
 
       font-size: 8px;
-
       font-weight: 700;
 
       letter-spacing: 2.15px;
@@ -2212,6 +2178,12 @@
           rgba(236,245,248,.86)
         );
 
+      backdrop-filter:
+        blur(16px);
+
+      -webkit-backdrop-filter:
+        blur(16px);
+
       box-shadow:
         0 9px 24px rgba(0,0,0,.17),
         inset 0 1px 0 rgba(255,255,255,.96);
@@ -2235,7 +2207,6 @@
       color: #a9cad7;
 
       font-size: 7.8px;
-
       font-weight: 700;
 
       letter-spacing: 2px;
@@ -2285,7 +2256,7 @@
 
 
     /* =====================================================
-       REVEAL
+       REVEAL ANIMATIONS
     ===================================================== */
 
 
@@ -2296,22 +2267,18 @@
         translateY(22px)
         scale(.985);
 
-      filter:
-        blur(2px);
-
       transition:
         opacity .72s ease,
-        transform .72s cubic-bezier(.22,.8,.24,1),
-        filter .72s ease;
+        transform .72s cubic-bezier(.22,.8,.24,1);
     }
 
 
     .reveal.visible {
       opacity: 1;
 
-      transform: none;
-
-      filter: none;
+      transform:
+        translateY(0)
+        scale(1);
     }
 
 
@@ -2335,6 +2302,16 @@
     }
 
 
+    .resource-card.reveal:nth-child(5) {
+      transition-delay: .31s;
+    }
+
+
+    .resource-card.reveal:nth-child(6) {
+      transition-delay: .38s;
+    }
+
+
 
     /* =====================================================
        SMALL PHONES
@@ -2343,21 +2320,18 @@
 
     @media (max-width: 370px) {
 
-      .hero,
-      .loading-hero {
+      .hero {
         min-height: 470px;
       }
 
 
-      .hero-process-mark,
-      .loading-shell-brand img {
+      .hero-process-mark {
         width: 57px;
         height: 57px;
       }
 
 
-      .hero-brand-process,
-      .loading-brand-process {
+      .hero-brand-process {
         font-size: 24px;
       }
 
@@ -2382,17 +2356,22 @@
       }
 
 
-      .contact-actions,
-      .skeleton-actions {
+      .contact-actions {
         gap: 6px;
       }
 
 
-      .contact-action,
-      .skeleton-button {
+      .contact-action {
         min-height: 96px;
 
-        height: 96px;
+        padding:
+          10px
+          5px;
+      }
+
+
+      .contact-label {
+        font-size: 11.5px;
       }
 
 
@@ -2456,14 +2435,20 @@
     }
 
   </style>
+
 </head>
 
+
 <body>
+
 
 <main
   id="app"
   class="page"
 >
+
+
+  <!-- IMMEDIATE FIRST-LOAD FULL PAGE SKELETON -->
 
   <section class="loading-shell">
 
@@ -2503,7 +2488,6 @@
         <div class="skeleton skeleton-credentials"></div>
 
         <div class="skeleton skeleton-title"></div>
-
 
         <div class="skeleton-actions">
 
@@ -2577,7 +2561,9 @@
 
   </section>
 
+
 </main>
+
 
 
 <script>
@@ -2631,18 +2617,6 @@ const CACHE_KEY =
 
 
 
-/*
-  Save a pristine copy of the full loading skeleton.
-
-  If Retry is ever pressed later, we can restore the
-  exact same full-page scrollable loading state.
-*/
-
-const INITIAL_LOADING_HTML =
-  document.getElementById('app').innerHTML;
-
-
-
 let dataLoaded =
   false;
 
@@ -2661,7 +2635,7 @@ let cardRendered =
 
 
 /* =====================================================
-   CACHE
+   LOCAL CACHE
 ===================================================== */
 
 
@@ -2766,29 +2740,7 @@ function saveCachedCard(
 
   catch (error) {
 
-  }
-
-}
-
-
-
-function sameData(
-  first,
-  second
-) {
-
-  try {
-
-    return (
-      JSON.stringify(first) ===
-      JSON.stringify(second)
-    );
-
-  }
-
-  catch (error) {
-
-    return false;
+    /* Cache failure does not affect card functionality. */
 
   }
 
@@ -2797,7 +2749,7 @@ function sameData(
 
 
 /* =====================================================
-   CACHED FIRST RENDER
+   INITIAL CACHED RENDER
 ===================================================== */
 
 
@@ -2850,10 +2802,11 @@ window.processCardData =
 
 
     /*
-      A cached card may already be on screen.
+      If a cached card is already on screen
+      and the fresh server response is identical,
+      leave the page alone.
 
-      If the server response is identical, don't rebuild
-      the entire page and cause a visible jump.
+      This prevents a second render / visual jump.
     */
 
     if (
@@ -2885,7 +2838,36 @@ window.processCardData =
 
 
 /* =====================================================
-   LOAD DATA
+   COMPARE DATA
+===================================================== */
+
+
+function sameData(
+  first,
+  second
+) {
+
+  try {
+
+    return (
+      JSON.stringify(first) ===
+      JSON.stringify(second)
+    );
+
+  }
+
+  catch (error) {
+
+    return false;
+
+  }
+
+}
+
+
+
+/* =====================================================
+   LOAD FROM APPS SCRIPT
 ===================================================== */
 
 
@@ -2931,10 +2913,12 @@ function loadData() {
 
 
   /*
-    No Date.now() cache-buster.
+    IMPORTANT:
 
-    This gives the browser/network layer the opportunity
-    to reuse the request rather than forcing a unique URL.
+    No Date.now() cache-buster here anymore.
+
+    That allows the browser/network layer
+    to reuse the request when appropriate.
   */
 
   script.src =
@@ -2964,6 +2948,19 @@ function loadData() {
 }
 
 
+
+/*
+  We always check the server.
+
+  If cache exists:
+  cached card shows immediately,
+  then fresh data updates silently.
+
+  If no cache exists:
+  branded skeleton stays visible
+  until data arrives.
+*/
+
 loadData();
 
 
@@ -2982,11 +2979,7 @@ function retryLoad() {
 
 
   app.innerHTML =
-    INITIAL_LOADING_HTML;
-
-
-  cardRendered =
-    false;
+    loadingShellHtml();
 
 
   loadData();
@@ -2996,7 +2989,7 @@ function retryLoad() {
 
 
 /* =====================================================
-   RESPONSE HANDLING
+   API RESPONSE HANDLING
 ===================================================== */
 
 
@@ -3107,12 +3100,9 @@ function handleResponse(
 ===================================================== */
 
 
-function svg(
-  body
-) {
+function iconPhone() {
 
   return `
-
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -3122,26 +3112,11 @@ function svg(
       stroke-linejoin="round"
       aria-hidden="true"
     >
-
-      ${body}
-
+      <path
+        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"
+      ></path>
     </svg>
-
   `;
-
-}
-
-
-
-function iconPhone() {
-
-  return svg(`
-
-    <path
-      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"
-    ></path>
-
-  `);
 
 }
 
@@ -3149,21 +3124,29 @@ function iconPhone() {
 
 function iconMail() {
 
-  return svg(`
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <rect
+        x="3"
+        y="5"
+        width="18"
+        height="14"
+        rx="2"
+      ></rect>
 
-    <rect
-      x="3"
-      y="5"
-      width="18"
-      height="14"
-      rx="2"
-    ></rect>
-
-    <path
-      d="m3 7 9 6 9-6"
-    ></path>
-
-  `);
+      <path
+        d="m3 7 9 6 9-6"
+      ></path>
+    </svg>
+  `;
 
 }
 
@@ -3171,27 +3154,35 @@ function iconMail() {
 
 function iconContact() {
 
-  return svg(`
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path
+        d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+      ></path>
 
-    <path
-      d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
-    ></path>
+      <circle
+        cx="9"
+        cy="7"
+        r="4"
+      ></circle>
 
-    <circle
-      cx="9"
-      cy="7"
-      r="4"
-    ></circle>
+      <path
+        d="M19 8v6"
+      ></path>
 
-    <path
-      d="M19 8v6"
-    ></path>
-
-    <path
-      d="M22 11h-6"
-    ></path>
-
-  `);
+      <path
+        d="M22 11h-6"
+      ></path>
+    </svg>
+  `;
 
 }
 
@@ -3199,27 +3190,35 @@ function iconContact() {
 
 function iconGlobe() {
 
-  return svg(`
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        r="9"
+      ></circle>
 
-    <circle
-      cx="12"
-      cy="12"
-      r="9"
-    ></circle>
+      <path
+        d="M3 12h18"
+      ></path>
 
-    <path
-      d="M3 12h18"
-    ></path>
+      <path
+        d="M12 3a14 14 0 0 1 0 18"
+      ></path>
 
-    <path
-      d="M12 3a14 14 0 0 1 0 18"
-    ></path>
-
-    <path
-      d="M12 3a14 14 0 0 0 0 18"
-    ></path>
-
-  `);
+      <path
+        d="M12 3a14 14 0 0 0 0 18"
+      ></path>
+    </svg>
+  `;
 
 }
 
@@ -3227,19 +3226,27 @@ function iconGlobe() {
 
 function iconPin() {
 
-  return svg(`
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path
+        d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"
+      ></path>
 
-    <path
-      d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"
-    ></path>
-
-    <circle
-      cx="12"
-      cy="10"
-      r="2.5"
-    ></circle>
-
-  `);
+      <circle
+        cx="12"
+        cy="10"
+        r="2.5"
+      ></circle>
+    </svg>
+  `;
 
 }
 
@@ -3247,21 +3254,29 @@ function iconPin() {
 
 function iconHome() {
 
-  return svg(`
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path
+        d="M3 11 12 3l9 8"
+      ></path>
 
-    <path
-      d="M3 11 12 3l9 8"
-    ></path>
+      <path
+        d="M5 10v10h14V10"
+      ></path>
 
-    <path
-      d="M5 10v10h14V10"
-    ></path>
-
-    <path
-      d="M9 20v-6h6v6"
-    ></path>
-
-  `);
+      <path
+        d="M9 20v-6h6v6"
+      ></path>
+    </svg>
+  `;
 
 }
 
@@ -3269,25 +3284,33 @@ function iconHome() {
 
 function iconDoor() {
 
-  return svg(`
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path
+        d="M5 21h14"
+      ></path>
 
-    <path
-      d="M5 21h14"
-    ></path>
+      <path
+        d="M7 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17"
+      ></path>
 
-    <path
-      d="M7 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17"
-    ></path>
-
-    <circle
-      cx="14"
-      cy="12"
-      r=".8"
-      fill="currentColor"
-      stroke="none"
-    ></circle>
-
-  `);
+      <circle
+        cx="14"
+        cy="12"
+        r=".8"
+        fill="currentColor"
+        stroke="none"
+      ></circle>
+    </svg>
+  `;
 
 }
 
@@ -3295,29 +3318,37 @@ function iconDoor() {
 
 function iconPeople() {
 
-  return svg(`
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <circle
+        cx="8"
+        cy="8"
+        r="3"
+      ></circle>
 
-    <circle
-      cx="8"
-      cy="8"
-      r="3"
-    ></circle>
+      <circle
+        cx="16"
+        cy="8"
+        r="3"
+      ></circle>
 
-    <circle
-      cx="16"
-      cy="8"
-      r="3"
-    ></circle>
+      <path
+        d="M2 20c0-3 2.5-6 6-6s6 3 6 6"
+      ></path>
 
-    <path
-      d="M2 20c0-3 2.5-6 6-6s6 3 6 6"
-    ></path>
-
-    <path
-      d="M10 20c0-3 2.5-6 6-6s6 3 6 6"
-    ></path>
-
-  `);
+      <path
+        d="M10 20c0-3 2.5-6 6-6s6 3 6 6"
+      ></path>
+    </svg>
+  `;
 
 }
 
@@ -3325,52 +3356,43 @@ function iconPeople() {
 
 function iconWarn() {
 
-  return svg(`
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 9v4"
+      ></path>
 
-    <path
-      d="M12 9v4"
-    ></path>
+      <path
+        d="M12 17h.01"
+      ></path>
 
-    <path
-      d="M12 17h.01"
-    ></path>
-
-    <path
-      d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"
-    ></path>
-
-  `);
+      <path
+        d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"
+      ></path>
+    </svg>
+  `;
 
 }
 
 
 
 const ICON_MAP = {
-
-  home:
-    iconHome,
-
-  door:
-    iconDoor,
-
-  people:
-    iconPeople,
-
-  phone:
-    iconPhone,
-
-  mail:
-    iconMail,
-
-  globe:
-    iconGlobe,
-
-  pin:
-    iconPin,
-
-  contact:
-    iconContact
-
+  home: iconHome,
+  door: iconDoor,
+  people: iconPeople,
+  phone: iconPhone,
+  mail: iconMail,
+  globe: iconGlobe,
+  pin: iconPin,
+  contact: iconContact
 };
 
 
@@ -3555,17 +3577,21 @@ function renderPage(
 
         <div class="hero-brand-copy">
 
+
           <div class="hero-brand-the">
             The
           </div>
+
 
           <div class="hero-brand-process">
             Process
           </div>
 
+
           <div class="hero-brand-sub">
             Recovery Center
           </div>
+
 
         </div>
 
@@ -3580,11 +3606,9 @@ function renderPage(
         <h1
           class="hero-name ${nameClass}"
         >
-
           ${escapeHtml(
             staff.name
           )}
-
         </h1>
 
 
@@ -3638,13 +3662,20 @@ function renderPage(
             )}"
           >
 
+
             <div class="contact-icon">
+
               ${iconPhone()}
+
             </div>
 
+
             <div class="contact-label">
+
               Call
+
             </div>
+
 
             <div class="contact-sub">
 
@@ -3653,6 +3684,7 @@ function renderPage(
               )}
 
             </div>
+
 
           </a>
 
@@ -3668,17 +3700,27 @@ function renderPage(
             )}"
           >
 
+
             <div class="contact-icon">
+
               ${iconMail()}
+
             </div>
+
 
             <div class="contact-label">
+
               Email
+
             </div>
 
+
             <div class="contact-sub">
+
               Send a Message
+
             </div>
+
 
           </a>
 
@@ -3694,17 +3736,27 @@ function renderPage(
             )} to contacts"
           >
 
+
             <div class="contact-icon">
+
               ${iconContact()}
+
             </div>
+
 
             <div class="contact-label">
+
               Save Contact
+
             </div>
 
+
             <div class="contact-sub">
+
               Add to Phone
+
             </div>
+
 
           </a>
 
@@ -3732,16 +3784,23 @@ function renderPage(
         )}"
       >
 
+
         <div class="admissions-icon">
+
           ${iconPhone()}
+
         </div>
 
 
         <div class="admissions-copy">
 
+
           <div class="admissions-kicker">
+
             Talk With Admissions
+
           </div>
+
 
           <div class="admissions-title">
 
@@ -3753,6 +3812,7 @@ function renderPage(
 
           </div>
 
+
           <div class="admissions-number">
 
             ${escapeHtml(
@@ -3761,16 +3821,23 @@ function renderPage(
 
           </div>
 
+
           <div class="admissions-sub">
+
             Real people. Real help. Any time.
+
           </div>
+
 
         </div>
 
 
         <div class="admissions-arrow">
+
           ›
+
         </div>
+
 
       </a>
 
@@ -3789,25 +3856,40 @@ function renderPage(
           rel="noopener"
         >
 
+
           <div class="link-icon">
+
             ${iconGlobe()}
+
           </div>
+
 
           <div class="link-copy">
 
+
             <div class="link-title">
+
               Visit Process Website
+
             </div>
+
 
             <div class="link-sub">
+
               theprocessrecoverycenter.com
+
             </div>
 
+
           </div>
 
+
           <div class="link-arrow">
+
             ›
+
           </div>
+
 
         </a>
 
@@ -3823,15 +3905,23 @@ function renderPage(
           rel="noopener"
         >
 
+
           <div class="link-icon">
+
             ${iconPin()}
+
           </div>
+
 
           <div class="link-copy">
 
+
             <div class="link-title">
+
               Get Directions
+
             </div>
+
 
             <div class="link-sub">
 
@@ -3841,11 +3931,16 @@ function renderPage(
 
             </div>
 
+
           </div>
 
+
           <div class="link-arrow">
+
             ›
+
           </div>
+
 
         </a>
 
@@ -3856,21 +3951,31 @@ function renderPage(
 
       <div class="section-heading reveal">
 
+
         <div class="section-title">
+
           Recovery Resources
+
         </div>
 
+
         <div class="section-small">
+
           Community<br>
+
           Support<br>
+
           Long-Term Change
+
         </div>
+
 
       </div>
 
 
 
       <div class="resource-grid">
+
 
         ${
           visibleResources
@@ -3882,6 +3987,7 @@ function renderPage(
             )
             .join('')
         }
+
 
       </div>
 
@@ -3902,9 +4008,13 @@ function renderPage(
 
         <div class="footer-divider">
 
-          <div class="footer-line"></div>
+
+          <div class="footer-line">
+          </div>
+
 
           <div class="footer-symbol">
+
 
             <img
               src="process-mark.png"
@@ -3912,16 +4022,24 @@ function renderPage(
               decoding="async"
             >
 
+
           </div>
 
-          <div class="footer-line"></div>
+
+          <div class="footer-line">
+          </div>
+
 
         </div>
+
 
 
         <div class="footer-process-text">
+
           The Process Recovery Center
+
         </div>
+
 
 
         ${
@@ -3929,6 +4047,7 @@ function renderPage(
             ? `
 
               <div class="king-wrap">
+
 
                 <img
                   class="king-logo"
@@ -3939,6 +4058,7 @@ function renderPage(
                   decoding="async"
                 >
 
+
               </div>
 
             `
@@ -3946,17 +4066,25 @@ function renderPage(
         }
 
 
+
         <div class="footer-region">
+
           New England Area and Beyond
+
         </div>
+
 
 
         <div class="footer-tagline">
+
           Recovery Starts Here.
+
         </div>
 
 
-        <div class="footer-accent"></div>
+
+        <div class="footer-accent">
+        </div>
 
 
       </footer>
@@ -4086,6 +4214,7 @@ function renderResource(
 
   return `
 
+
     <a
       class="resource-card reveal ${isPhone ? 'phone-resource' : ''}"
       href="${escapeAttribute(
@@ -4104,8 +4233,11 @@ function renderResource(
       }
     >
 
+
       <div class="resource-icon">
+
         ${icon}
+
       </div>
 
 
@@ -4140,6 +4272,7 @@ function renderResource(
 
         <div>
 
+
           ${
             displayNumber
               ? `
@@ -4165,11 +4298,14 @@ function renderResource(
 
           </div>
 
+
         </div>
 
 
         <div class="resource-arrow">
+
           ›
+
         </div>
 
 
@@ -4222,6 +4358,7 @@ function renderCrisis(
 
   return `
 
+
     <div class="crisis">
 
 
@@ -4229,7 +4366,9 @@ function renderCrisis(
 
 
         <div class="crisis-icon">
+
           ${iconPhone()}
+
         </div>
 
 
@@ -4245,7 +4384,8 @@ function renderCrisis(
       </div>
 
 
-      <div class="crisis-divider"></div>
+      <div class="crisis-divider">
+      </div>
 
 
       <div class="crisis-copy">
@@ -4270,7 +4410,9 @@ function renderCrisis(
             )}"
             aria-label="Call 988 Mental Health Crisis Lifeline"
           >
+
             Call 988
+
           </a>
 
 
@@ -4279,7 +4421,9 @@ function renderCrisis(
             href="sms:988"
             aria-label="Text 988 Mental Health Crisis Lifeline"
           >
+
             Text 988
+
           </a>
 
 
@@ -4287,7 +4431,9 @@ function renderCrisis(
 
 
         <div class="crisis-support">
+
           Support is available 24/7.
+
         </div>
 
 
@@ -4301,7 +4447,9 @@ function renderCrisis(
       class="emergency"
       href="tel:911"
     >
+
       Immediate emergency? Call 911
+
     </a>
 
   `;
@@ -4311,7 +4459,7 @@ function renderCrisis(
 
 
 /* =====================================================
-   REVEAL
+   REVEAL ANIMATION
 ===================================================== */
 
 
@@ -4333,9 +4481,11 @@ function setupReveal() {
 
     elements.forEach(
       element =>
-        element.classList.add(
-          'visible'
-        )
+        element
+          .classList
+          .add(
+            'visible'
+          )
     );
 
 
@@ -4357,9 +4507,12 @@ function setupReveal() {
               entry.isIntersecting
             ) {
 
-              entry.target.classList.add(
-                'visible'
-              );
+              entry
+                .target
+                .classList
+                .add(
+                  'visible'
+                );
 
 
               observer.unobserve(
@@ -4375,10 +4528,16 @@ function setupReveal() {
       },
 
       {
-        threshold: .04,
+
+        root:
+          null,
+
+        threshold:
+          .04,
 
         rootMargin:
           '0px 0px 80px 0px'
+
       }
 
     );
@@ -4396,7 +4555,184 @@ function setupReveal() {
 
 
 /* =====================================================
-   ESCAPE
+   LOADING SHELL HTML
+===================================================== */
+
+
+function loadingShellHtml() {
+
+  return `
+
+    <section class="loading-shell">
+
+
+      <div class="loading-hero">
+
+
+        <div class="loading-shell-brand">
+
+
+          <img
+            src="process-mark.png"
+            alt=""
+          >
+
+
+          <div class="loading-brand-copy">
+
+
+            <div class="loading-brand-the">
+
+              The
+
+            </div>
+
+
+            <div class="loading-brand-process">
+
+              Process
+
+            </div>
+
+
+            <div class="loading-brand-sub">
+
+              Recovery Center
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+
+        <div class="loading-identity">
+
+
+          <div class="skeleton skeleton-name"></div>
+
+
+          <div class="skeleton skeleton-credentials"></div>
+
+
+          <div class="skeleton skeleton-title"></div>
+
+
+
+          <div class="skeleton-actions">
+
+
+            <div class="skeleton skeleton-button"></div>
+
+
+            <div class="skeleton skeleton-button"></div>
+
+
+            <div class="skeleton skeleton-button"></div>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+
+      <div class="loading-body">
+
+
+        <div class="skeleton loading-admissions"></div>
+
+
+
+        <div class="loading-primary-links">
+
+
+          <div class="skeleton loading-link"></div>
+
+
+          <div class="skeleton loading-link"></div>
+
+
+        </div>
+
+
+
+        <div class="loading-heading-row">
+
+
+          <div class="skeleton loading-heading-main"></div>
+
+
+          <div class="skeleton loading-heading-side"></div>
+
+
+        </div>
+
+
+
+        <div class="loading-resource-grid">
+
+
+          <div class="skeleton loading-resource"></div>
+
+
+          <div class="skeleton loading-resource"></div>
+
+
+          <div class="skeleton loading-resource"></div>
+
+
+          <div class="skeleton loading-resource"></div>
+
+
+        </div>
+
+
+
+        <div class="skeleton loading-crisis"></div>
+
+
+
+        <div class="loading-footer">
+
+
+          <div class="skeleton loading-footer-mark"></div>
+
+
+          <div class="skeleton loading-footer-line"></div>
+
+
+          <div class="skeleton loading-footer-logo"></div>
+
+
+          <div class="skeleton loading-footer-line short"></div>
+
+
+          <div class="skeleton loading-footer-line"></div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+  `;
+
+}
+
+
+/* =====================================================
+   ESCAPING
 ===================================================== */
 
 
@@ -4446,13 +4782,18 @@ function escapeAttribute(
 
 
 /* =====================================================
-   ERROR STATES
+   STATE SCREEN
 ===================================================== */
 
 
 function renderState(
   options
 ) {
+
+  /*
+    If a valid cached card is already visible,
+    never replace it with a temporary network error.
+  */
 
   if (
     cardRendered &&
@@ -4479,7 +4820,9 @@ function renderState(
 
 
         <div class="state-icon">
+
           ${iconWarn()}
+
         </div>
 
 
@@ -4520,7 +4863,9 @@ function renderState(
                         type="button"
                         onclick="retryLoad()"
                       >
+
                         Try Again
+
                       </button>
 
                     `
@@ -4569,6 +4914,11 @@ function renderState(
 
 }
 
+
+
+/* =====================================================
+   ERRORS
+===================================================== */
 
 
 function renderNetworkError() {
@@ -4657,5 +5007,7 @@ function renderTimeoutError() {
 
 </script>
 
+
 </body>
+
 </html>
