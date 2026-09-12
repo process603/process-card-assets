@@ -20,6 +20,9 @@
 
   <link rel="icon" type="image/png" href="process-mark.png">
 
+  <link rel="preload" as="image" href="bridge-hero.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="process-mark.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link
@@ -127,8 +130,6 @@
       width: 100%;
       max-width: 520px;
 
-      /* 100vh first as a fallback for browsers that don't support dvh
-         (older Safari) — modern browsers immediately override it below. */
       height: 100vh;
       height: 100dvh;
 
@@ -142,9 +143,6 @@
       overscroll-behavior-y: contain;
 
       scroll-behavior: smooth;
-
-      scroll-snap-type:
-        y proximity;
 
       scrollbar-width: none;
 
@@ -228,9 +226,6 @@
 
     /* =====================================================
        STATE CARD
-       (used for network errors, timeouts, "no staff on this
-       link", and "card not found" — replaces the old plain
-       white error box so it stays on-brand)
     ===================================================== */
 
 
@@ -306,7 +301,6 @@
 
     .state-title {
       font-size: 18px;
-
       font-weight: 800;
     }
 
@@ -318,7 +312,6 @@
         var(--muted);
 
       font-size: 13px;
-
       line-height: 1.55;
     }
 
@@ -353,6 +346,41 @@
     }
 
 
+    .state-action-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      gap: 10px;
+
+      margin-top: 20px;
+    }
+
+
+    .state-action-row .state-action {
+      margin-top: 0;
+
+      border: 0;
+
+      cursor: pointer;
+
+      font-family: inherit;
+    }
+
+
+    .state-action.secondary {
+      color: var(--blue-soft);
+
+      background:
+        rgba(255,255,255,.045);
+
+      border:
+        1px solid rgba(91,209,255,.28);
+
+      box-shadow: none;
+    }
+
+
 
     /* =====================================================
        HERO
@@ -365,16 +393,12 @@
       min-height: 495px;
 
       display: flex;
-
       flex-direction: column;
-
       justify-content: flex-end;
 
       overflow: hidden;
 
       isolation: isolate;
-
-      scroll-snap-align: start;
 
       padding:
         max(
@@ -468,7 +492,6 @@
       z-index: 4;
 
       display: flex;
-
       align-items: center;
 
       gap: 11px;
@@ -536,7 +559,6 @@
       margin-bottom: 2px;
 
       font-size: 10px;
-
       font-weight: 600;
 
       line-height: 1;
@@ -549,7 +571,6 @@
 
     .hero-brand-process {
       font-size: 29px;
-
       font-weight: 700;
 
       line-height: .96;
@@ -566,7 +587,6 @@
       color: #d9eff8;
 
       font-size: 8px;
-
       font-weight: 600;
 
       line-height: 1;
@@ -677,7 +697,6 @@
       align-items: center;
 
       width: fit-content;
-
       max-width: 100%;
 
       gap: 10px;
@@ -687,7 +706,6 @@
       color: #e7f0f4;
 
       font-size: 15px;
-
       font-weight: 500;
 
       line-height: 1.3;
@@ -726,7 +744,6 @@
       color: #c4eaf8;
 
       font-size: 10px;
-
       font-weight: 700;
 
       letter-spacing: 1.35px;
@@ -763,7 +780,6 @@
       position: relative;
 
       min-width: 0;
-
       min-height: 102px;
 
       overflow: hidden;
@@ -988,8 +1004,6 @@
 
       transition:
         transform .18s ease;
-
-      scroll-snap-align: start;
     }
 
 
@@ -1399,11 +1413,6 @@
 
       transition:
         transform .18s ease;
-
-      /* Intentionally no scroll-snap-align here: snapping to every
-         individual card in a grid made scrolling feel "catchy" rather
-         than smooth. Snap points are kept on the major sections only
-         (hero, admissions, crisis, footer). */
     }
 
 
@@ -1541,8 +1550,6 @@
           #07263a,
           #06141d
         );
-
-      scroll-snap-align: start;
     }
 
 
@@ -1726,8 +1733,6 @@
           rgba(0,184,244,.07),
           transparent 55%
         );
-
-      scroll-snap-align: end;
     }
 
 
@@ -1735,7 +1740,6 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       gap: 13px;
@@ -2133,12 +2137,79 @@
 const API_URL =
   'https://script.google.com/macros/s/AKfycbzefgAa3hJz9h2emDoa_4hhlxl99fIB_k_h5TEq1AIKmBXukcEx9llpglAsLqabXYOJ/exec';
 
+
 const FALLBACK_WEBSITE =
   'https://www.theprocessrecoverycenter.com';
 
-// If the backend hasn't responded in this long, stop waiting silently
-// and show a real message instead of an endless spinner.
-const LOAD_TIMEOUT_MS = 12000;
+
+const LOAD_TIMEOUT_MS =
+  12000;
+
+
+
+/* =====================================================
+   ALWAYS START QR CARD AT TOP
+===================================================== */
+
+
+if (
+  'scrollRestoration'
+  in history
+) {
+
+  history.scrollRestoration =
+    'manual';
+
+}
+
+
+function resetCardToTop() {
+
+  window.scrollTo(
+    0,
+    0
+  );
+
+
+  const page =
+    document.getElementById(
+      'app'
+    );
+
+
+  if (page) {
+
+    page.scrollTop =
+      0;
+
+    page.scrollLeft =
+      0;
+
+  }
+
+}
+
+
+window.addEventListener(
+  'pageshow',
+  function() {
+
+    resetCardToTop();
+
+
+    requestAnimationFrame(
+      resetCardToTop
+    );
+
+
+    setTimeout(
+      resetCardToTop,
+      120
+    );
+
+  }
+);
+
 
 
 const params =
@@ -2149,27 +2220,43 @@ const params =
 
 const staffId =
   String(
-    params.get('staff') || ''
+    params.get('staff') ||
+    ''
   )
     .toLowerCase()
     .trim();
 
 
-let dataLoaded = false;
-let loadTimeoutId = null;
+let dataLoaded =
+  false;
+
+
+let loadTimeoutId =
+  null;
 
 
 
 window.processCardData =
   function(data) {
 
-    dataLoaded = true;
+    dataLoaded =
+      true;
 
-    if (loadTimeoutId) {
-      clearTimeout(loadTimeoutId);
+
+    if (
+      loadTimeoutId
+    ) {
+
+      clearTimeout(
+        loadTimeoutId
+      );
+
     }
 
-    handleResponse(data);
+
+    handleResponse(
+      data
+    );
 
   };
 
@@ -2177,14 +2264,51 @@ window.processCardData =
 
 function loadData() {
 
+  dataLoaded =
+    false;
+
+
+  if (
+    loadTimeoutId
+  ) {
+
+    clearTimeout(
+      loadTimeoutId
+    );
+
+
+    loadTimeoutId =
+      null;
+
+  }
+
+
+  document
+    .querySelectorAll(
+      'script[data-card-api="true"]'
+    )
+    .forEach(
+      script =>
+        script.remove()
+    );
+
+
   const script =
-    document.createElement('script');
+    document.createElement(
+      'script'
+    );
+
+
+  script.dataset.cardApi =
+    'true';
 
 
   script.src =
     API_URL +
     '?staff=' +
-    encodeURIComponent(staffId) +
+    encodeURIComponent(
+      staffId
+    ) +
     '&callback=processCardData' +
     '&t=' +
     Date.now();
@@ -2212,63 +2336,148 @@ loadData();
 
 
 
-function handleResponse(data) {
+function retryLoad() {
 
-  if (!data || !data.ok) {
-
-    renderState({
-      title: 'Something Went Wrong',
-      message: "We couldn't load this card. Please refresh, or visit our website directly.",
-      actionLabel: 'Visit Website',
-      actionHref: FALLBACK_WEBSITE
-    });
-
-    return;
-
-  }
+  const app =
+    document.getElementById(
+      'app'
+    );
 
 
-  if (!data.requestedStaffId) {
-
-    renderState({
-      title: 'Welcome',
-      message: "This link isn't tied to a specific team member yet. Visit our site to learn more or get in touch.",
-      actionLabel: 'Visit Website',
-      actionHref:
-        (data.settings && data.settings.main_website) ||
-        FALLBACK_WEBSITE
-    });
-
-    return;
-
-  }
+  resetCardToTop();
 
 
-  if (!data.staffFound) {
+  app.innerHTML = `
 
-    renderState({
-      title: 'Card Not Found',
-      message: "We couldn't find this team member's card. It may have been updated — please visit our website.",
-      actionLabel: 'Visit Website',
-      actionHref:
-        (data.settings && data.settings.main_website) ||
-        FALLBACK_WEBSITE
-    });
+    <div class="loading">
 
-    return;
+      <div>
 
-  }
+        <div class="spinner"></div>
+
+        Loading...
+
+      </div>
+
+    </div>
+
+  `;
 
 
-  renderPage(data);
+  loadData();
 
 }
 
 
 
+function handleResponse(
+  data
+) {
+
+  if (
+    !data ||
+    !data.ok
+  ) {
+
+    renderState({
+
+      title:
+        'Something Went Wrong',
+
+      message:
+        "We couldn't load this card. Please refresh, or visit our website directly.",
+
+      actionLabel:
+        'Visit Website',
+
+      actionHref:
+        FALLBACK_WEBSITE
+
+    });
+
+
+    return;
+
+  }
+
+
+  if (
+    !data.requestedStaffId
+  ) {
+
+    renderState({
+
+      title:
+        'Welcome',
+
+      message:
+        "This link isn't tied to a specific team member yet. Visit our site to learn more or get in touch.",
+
+      actionLabel:
+        'Visit Website',
+
+      actionHref:
+        (
+          data.settings &&
+          data.settings.main_website
+        ) ||
+        FALLBACK_WEBSITE
+
+    });
+
+
+    return;
+
+  }
+
+
+  if (
+    !data.staffFound
+  ) {
+
+    renderState({
+
+      title:
+        'Card Not Found',
+
+      message:
+        "We couldn't find this team member's card. It may have been updated — please visit our website.",
+
+      actionLabel:
+        'Visit Website',
+
+      actionHref:
+        (
+          data.settings &&
+          data.settings.main_website
+        ) ||
+        FALLBACK_WEBSITE
+
+    });
+
+
+    return;
+
+  }
+
+
+  renderPage(
+    data
+  );
+
+}
+
+
+
+/* =====================================================
+   ICONS
+===================================================== */
+
+
 function iconPhone() {
 
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2278,8 +2487,14 @@ function iconPhone() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"></path>
+
+      <path
+        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92z"
+      >
+      </path>
+
     </svg>
+
   `;
 
 }
@@ -2288,6 +2503,7 @@ function iconPhone() {
 function iconMail() {
 
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2297,9 +2513,23 @@ function iconMail() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-      <path d="m3 7 9 6 9-6"></path>
+
+      <rect
+        x="3"
+        y="5"
+        width="18"
+        height="14"
+        rx="2"
+      >
+      </rect>
+
+      <path
+        d="m3 7 9 6 9-6"
+      >
+      </path>
+
     </svg>
+
   `;
 
 }
@@ -2308,6 +2538,7 @@ function iconMail() {
 function iconContact() {
 
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2317,11 +2548,31 @@ function iconContact() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-      <circle cx="9" cy="7" r="4"></circle>
-      <path d="M19 8v6"></path>
-      <path d="M22 11h-6"></path>
+
+      <path
+        d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+      >
+      </path>
+
+      <circle
+        cx="9"
+        cy="7"
+        r="4"
+      >
+      </circle>
+
+      <path
+        d="M19 8v6"
+      >
+      </path>
+
+      <path
+        d="M22 11h-6"
+      >
+      </path>
+
     </svg>
+
   `;
 
 }
@@ -2330,6 +2581,7 @@ function iconContact() {
 function iconGlobe() {
 
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2339,11 +2591,31 @@ function iconGlobe() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <circle cx="12" cy="12" r="9"></circle>
-      <path d="M3 12h18"></path>
-      <path d="M12 3a14 14 0 0 1 0 18"></path>
-      <path d="M12 3a14 14 0 0 0 0 18"></path>
+
+      <circle
+        cx="12"
+        cy="12"
+        r="9"
+      >
+      </circle>
+
+      <path
+        d="M3 12h18"
+      >
+      </path>
+
+      <path
+        d="M12 3a14 14 0 0 1 0 18"
+      >
+      </path>
+
+      <path
+        d="M12 3a14 14 0 0 0 0 18"
+      >
+      </path>
+
     </svg>
+
   `;
 
 }
@@ -2352,6 +2624,7 @@ function iconGlobe() {
 function iconPin() {
 
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2361,9 +2634,21 @@ function iconPin() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"></path>
-      <circle cx="12" cy="10" r="2.5"></circle>
+
+      <path
+        d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"
+      >
+      </path>
+
+      <circle
+        cx="12"
+        cy="10"
+        r="2.5"
+      >
+      </circle>
+
     </svg>
+
   `;
 
 }
@@ -2372,6 +2657,7 @@ function iconPin() {
 function iconHome() {
 
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2381,10 +2667,24 @@ function iconHome() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <path d="M3 11 12 3l9 8"></path>
-      <path d="M5 10v10h14V10"></path>
-      <path d="M9 20v-6h6v6"></path>
+
+      <path
+        d="M3 11 12 3l9 8"
+      >
+      </path>
+
+      <path
+        d="M5 10v10h14V10"
+      >
+      </path>
+
+      <path
+        d="M9 20v-6h6v6"
+      >
+      </path>
+
     </svg>
+
   `;
 
 }
@@ -2393,6 +2693,7 @@ function iconHome() {
 function iconDoor() {
 
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2402,10 +2703,28 @@ function iconDoor() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <path d="M5 21h14"></path>
-      <path d="M7 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17"></path>
-      <circle cx="14" cy="12" r=".8" fill="currentColor" stroke="none"></circle>
+
+      <path
+        d="M5 21h14"
+      >
+      </path>
+
+      <path
+        d="M7 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17"
+      >
+      </path>
+
+      <circle
+        cx="14"
+        cy="12"
+        r=".8"
+        fill="currentColor"
+        stroke="none"
+      >
+      </circle>
+
     </svg>
+
   `;
 
 }
@@ -2414,6 +2733,7 @@ function iconDoor() {
 function iconPeople() {
 
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2423,11 +2743,33 @@ function iconPeople() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <circle cx="8" cy="8" r="3"></circle>
-      <circle cx="16" cy="8" r="3"></circle>
-      <path d="M2 20c0-3 2.5-6 6-6s6 3 6 6"></path>
-      <path d="M10 20c0-3 2.5-6 6-6s6 3 6 6"></path>
+
+      <circle
+        cx="8"
+        cy="8"
+        r="3"
+      >
+      </circle>
+
+      <circle
+        cx="16"
+        cy="8"
+        r="3"
+      >
+      </circle>
+
+      <path
+        d="M2 20c0-3 2.5-6 6-6s6 3 6 6"
+      >
+      </path>
+
+      <path
+        d="M10 20c0-3 2.5-6 6-6s6 3 6 6"
+      >
+      </path>
+
     </svg>
+
   `;
 
 }
@@ -2436,6 +2778,7 @@ function iconPeople() {
 function iconWarn() {
 
   return `
+
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -2445,10 +2788,24 @@ function iconWarn() {
       stroke-linejoin="round"
       aria-hidden="true"
     >
-      <path d="M12 9v4"></path>
-      <path d="M12 17h.01"></path>
-      <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"></path>
+
+      <path
+        d="M12 9v4"
+      >
+      </path>
+
+      <path
+        d="M12 17h.01"
+      >
+      </path>
+
+      <path
+        d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"
+      >
+      </path>
+
     </svg>
+
   `;
 
 }
@@ -2456,24 +2813,44 @@ function iconWarn() {
 
 
 const ICON_MAP = {
-  home: iconHome,
-  door: iconDoor,
-  people: iconPeople,
-  phone: iconPhone,
-  mail: iconMail,
-  globe: iconGlobe,
-  pin: iconPin,
-  contact: iconContact
+
+  home:
+    iconHome,
+
+  door:
+    iconDoor,
+
+  people:
+    iconPeople,
+
+  phone:
+    iconPhone,
+
+  mail:
+    iconMail,
+
+  globe:
+    iconGlobe,
+
+  pin:
+    iconPin,
+
+  contact:
+    iconContact
+
 };
 
 
-function resolveResourceIcon(resource, nameLower) {
 
-  // Prefer an explicit "Icon" value from the sheet (home / door /
-  // people / phone / mail / globe / pin / contact) when present.
+function resolveResourceIcon(
+  resource,
+  nameLower
+) {
+
   const explicit =
     String(
-      resource.icon || ''
+      resource.icon ||
+      ''
     )
       .toLowerCase()
       .trim();
@@ -2489,10 +2866,10 @@ function resolveResourceIcon(resource, nameLower) {
   }
 
 
-  // Otherwise fall back to guessing from the resource name, same as before.
-
   if (
-    nameLower.includes('respite')
+    nameLower.includes(
+      'respite'
+    )
   ) {
 
     return iconHome();
@@ -2501,7 +2878,9 @@ function resolveResourceIcon(resource, nameLower) {
 
 
   if (
-    nameLower.includes('door')
+    nameLower.includes(
+      'door'
+    )
   ) {
 
     return iconDoor();
@@ -2515,27 +2894,41 @@ function resolveResourceIcon(resource, nameLower) {
 
 
 
-function renderPage(data) {
+/* =====================================================
+   RENDER PAGE
+===================================================== */
+
+
+function renderPage(
+  data
+) {
 
   const app =
-    document.getElementById('app');
+    document.getElementById(
+      'app'
+    );
 
 
   const staff =
-    data.staff || null;
+    data.staff ||
+    null;
 
 
   const settings =
-    data.settings || {};
+    data.settings ||
+    {};
 
 
   const resources =
-    data.resources || [];
+    data.resources ||
+    [];
 
 
   if (!staff) {
 
-    handleResponse(data);
+    handleResponse(
+      data
+    );
 
     return;
 
@@ -2549,26 +2942,32 @@ function renderPage(data) {
 
   const nameLength =
     String(
-      staff.name || ''
+      staff.name ||
+      ''
     ).length;
 
 
-  let nameClass = '';
+  let nameClass =
+    '';
 
 
   if (
-    nameLength > 24
+    nameLength >
+    24
   ) {
 
-    nameClass = 'xlong';
+    nameClass =
+      'xlong';
 
   }
 
   else if (
-    nameLength > 18
+    nameLength >
+    18
   ) {
 
-    nameClass = 'long';
+    nameClass =
+      'long';
 
   }
 
@@ -2577,7 +2976,8 @@ function renderPage(data) {
     resources.find(
       resource =>
         String(
-          resource.category || ''
+          resource.category ||
+          ''
         )
           .toLowerCase()
           .trim() ===
@@ -2589,7 +2989,8 @@ function renderPage(data) {
     resources.filter(
       resource =>
         String(
-          resource.category || ''
+          resource.category ||
+          ''
         )
           .toLowerCase()
           .trim() !==
@@ -2605,28 +3006,42 @@ function renderPage(data) {
 
       <div class="hero-brand">
 
+
         <img
           class="hero-process-mark"
           src="process-mark.png"
           alt=""
+          decoding="async"
+          fetchpriority="high"
         >
 
 
         <div class="hero-brand-copy">
 
+
           <div class="hero-brand-the">
+
             The
+
           </div>
+
 
           <div class="hero-brand-process">
+
             Process
+
           </div>
+
 
           <div class="hero-brand-sub">
+
             Recovery Center
+
           </div>
 
+
         </div>
+
 
       </div>
 
@@ -2635,17 +3050,29 @@ function renderPage(data) {
       <div class="hero-content">
 
 
-        <h1 class="hero-name ${nameClass}">
-          ${escapeHtml(staff.name)}
+        <h1
+          class="hero-name ${nameClass}"
+        >
+
+          ${escapeHtml(
+            staff.name
+          )}
+
         </h1>
 
 
         ${
           staff.title
             ? `
+
               <div class="hero-title">
-                ${escapeHtml(staff.title)}
+
+                ${escapeHtml(
+                  staff.title
+                )}
+
               </div>
+
             `
             : ''
         }
@@ -2654,9 +3081,15 @@ function renderPage(data) {
         ${
           staff.credentials
             ? `
+
               <div class="credentials">
-                ${escapeHtml(staff.credentials)}
+
+                ${escapeHtml(
+                  staff.credentials
+                )}
+
               </div>
+
             `
             : ''
         }
@@ -2668,19 +3101,36 @@ function renderPage(data) {
 
           <a
             class="contact-action primary"
-            href="${escapeAttribute(staff.phoneHref)}"
+            href="${escapeAttribute(
+              staff.phoneHref
+            )}"
+            aria-label="Call ${escapeAttribute(
+              staff.name
+            )} at ${escapeAttribute(
+              staff.phone
+            )}"
           >
 
             <div class="contact-icon">
+
               ${iconPhone()}
+
             </div>
 
+
             <div class="contact-label">
+
               Call
+
             </div>
 
+
             <div class="contact-sub">
-              ${escapeHtml(staff.phone)}
+
+              ${escapeHtml(
+                staff.phone
+              )}
+
             </div>
 
           </a>
@@ -2689,19 +3139,32 @@ function renderPage(data) {
 
           <a
             class="contact-action"
-            href="mailto:${escapeAttribute(staff.email)}"
+            href="mailto:${escapeAttribute(
+              staff.email
+            )}"
+            aria-label="Email ${escapeAttribute(
+              staff.name
+            )}"
           >
 
             <div class="contact-icon">
+
               ${iconMail()}
+
             </div>
+
 
             <div class="contact-label">
+
               Email
+
             </div>
 
+
             <div class="contact-sub">
+
               Send a Message
+
             </div>
 
           </a>
@@ -2710,19 +3173,32 @@ function renderPage(data) {
 
           <a
             class="contact-action"
-            href="${API_URL}?staff=${encodeURIComponent(staff.id)}&vcard=1"
+            href="${API_URL}?staff=${encodeURIComponent(
+              staff.id
+            )}&vcard=1"
+            aria-label="Save ${escapeAttribute(
+              staff.name
+            )} to contacts"
           >
 
             <div class="contact-icon">
+
               ${iconContact()}
+
             </div>
+
 
             <div class="contact-label">
+
               Save Contact
+
             </div>
 
+
             <div class="contact-sub">
+
               Add to Phone
+
             </div>
 
           </a>
@@ -2743,39 +3219,69 @@ function renderPage(data) {
 
       <a
         class="admissions reveal"
-        href="${escapeAttribute(settings.admissionsHref)}"
+        href="${escapeAttribute(
+          settings.admissionsHref
+        )}"
+        aria-label="Call The Process Recovery Center admissions at ${escapeAttribute(
+          settings.admissions_phone
+        )}"
       >
 
         <div class="admissions-icon">
+
           ${iconPhone()}
+
         </div>
 
 
         <div class="admissions-copy">
 
+
           <div class="admissions-kicker">
+
             Talk With Admissions
+
           </div>
+
 
           <div class="admissions-title">
+
             ADMISSIONS
-            <span>24/7</span>
+
+            <span>
+
+              24/7
+
+            </span>
+
           </div>
+
 
           <div class="admissions-number">
-            ${escapeHtml(settings.admissions_phone)}
+
+            ${escapeHtml(
+              settings.admissions_phone
+            )}
+
           </div>
 
+
           <div class="admissions-sub">
+
             Real people. Real help. Any time.
+
           </div>
+
 
         </div>
 
 
         <div class="admissions-arrow">
+
           ›
+
         </div>
+
 
       </a>
 
@@ -2786,30 +3292,47 @@ function renderPage(data) {
 
         <a
           class="primary-link"
-          href="${escapeAttribute(settings.main_website)}"
+          href="${escapeAttribute(
+            settings.main_website
+          )}"
+          aria-label="Visit The Process Recovery Center website"
           target="_blank"
           rel="noopener"
         >
 
           <div class="link-icon">
+
             ${iconGlobe()}
+
           </div>
+
 
           <div class="link-copy">
 
+
             <div class="link-title">
+
               Visit Process Website
+
             </div>
+
 
             <div class="link-sub">
+
               theprocessrecoverycenter.com
+
             </div>
 
+
           </div>
 
+
           <div class="link-arrow">
+
             ›
+
           </div>
+
 
         </a>
 
@@ -2817,30 +3340,49 @@ function renderPage(data) {
 
         <a
           class="primary-link"
-          href="${escapeAttribute(settings.mapsHref)}"
+          href="${escapeAttribute(
+            settings.mapsHref
+          )}"
+          aria-label="Get directions to The Process Recovery Center"
           target="_blank"
           rel="noopener"
         >
 
           <div class="link-icon">
+
             ${iconPin()}
+
           </div>
+
 
           <div class="link-copy">
 
+
             <div class="link-title">
+
               Get Directions
+
             </div>
+
 
             <div class="link-sub">
-              ${escapeHtml(settings.main_address)}
+
+              ${escapeHtml(
+                settings.main_address
+              )}
+
             </div>
 
+
           </div>
 
+
           <div class="link-arrow">
+
             ›
+
           </div>
+
 
         </a>
 
@@ -2851,21 +3393,31 @@ function renderPage(data) {
 
       <div class="section-heading reveal">
 
+
         <div class="section-title">
+
           Recovery Resources
+
         </div>
 
+
         <div class="section-small">
+
           Community<br>
+
           Support<br>
+
           Long-Term Change
+
         </div>
+
 
       </div>
 
 
 
       <div class="resource-grid">
+
 
         ${
           visibleResources
@@ -2878,15 +3430,18 @@ function renderPage(data) {
             .join('')
         }
 
+
       </div>
 
 
 
       <div class="reveal">
 
+
         ${renderCrisis(
           crisisResource
         )}
+
 
       </div>
 
@@ -2897,25 +3452,38 @@ function renderPage(data) {
 
         <div class="footer-divider">
 
-          <div class="footer-line"></div>
+
+          <div class="footer-line">
+          </div>
+
 
           <div class="footer-symbol">
+
 
             <img
               src="process-mark.png"
               alt=""
+              decoding="async"
             >
+
 
           </div>
 
-          <div class="footer-line"></div>
+
+          <div class="footer-line">
+          </div>
+
 
         </div>
+
 
 
         <div class="footer-process-text">
+
           The Process Recovery Center
+
         </div>
+
 
 
         ${
@@ -2924,11 +3492,16 @@ function renderPage(data) {
 
               <div class="king-wrap">
 
+
                 <img
                   class="king-logo"
-                  src="${escapeAttribute(settings.king_logo)}"
+                  src="${escapeAttribute(
+                    settings.king_logo
+                  )}"
                   alt="King Healthcare Group"
+                  decoding="async"
                 >
+
 
               </div>
 
@@ -2937,17 +3510,25 @@ function renderPage(data) {
         }
 
 
+
         <div class="footer-region">
+
           New England Area and Beyond
+
         </div>
+
 
 
         <div class="footer-tagline">
+
           Recovery Starts Here.
+
         </div>
 
 
-        <div class="footer-accent"></div>
+
+        <div class="footer-accent">
+        </div>
 
 
       </footer>
@@ -2958,17 +3539,39 @@ function renderPage(data) {
   `;
 
 
+  resetCardToTop();
+
+
   setupReveal();
+
+
+  requestAnimationFrame(
+    resetCardToTop
+  );
+
+
+  setTimeout(
+    resetCardToTop,
+    150
+  );
 
 }
 
 
 
-function renderResource(resource) {
+/* =====================================================
+   RESOURCES
+===================================================== */
+
+
+function renderResource(
+  resource
+) {
 
   const name =
     String(
-      resource.name || ''
+      resource.name ||
+      ''
     );
 
 
@@ -2978,14 +3581,17 @@ function renderResource(resource) {
 
   const url =
     String(
-      resource.url || ''
+      resource.url ||
+      ''
     ).trim();
 
 
   const isPhone =
     url
       .toLowerCase()
-      .startsWith('tel:');
+      .startsWith(
+        'tel:'
+      );
 
 
   const icon =
@@ -3010,7 +3616,9 @@ function renderResource(resource) {
   if (!actionLabel) {
 
     if (
-      nameLower.includes('respite')
+      nameLower.includes(
+        'respite'
+      )
     ) {
 
       actionLabel =
@@ -3019,7 +3627,9 @@ function renderResource(resource) {
     }
 
     else if (
-      nameLower.includes('door')
+      nameLower.includes(
+        'door'
+      )
     ) {
 
       actionLabel =
@@ -3028,8 +3638,12 @@ function renderResource(resource) {
     }
 
     else if (
-      nameLower.includes('alcoholics') ||
-      nameLower.includes('narcotics')
+      nameLower.includes(
+        'alcoholics'
+      ) ||
+      nameLower.includes(
+        'narcotics'
+      )
     ) {
 
       actionLabel =
@@ -3058,28 +3672,54 @@ function renderResource(resource) {
 
   return `
 
+
     <a
       class="resource-card reveal ${isPhone ? 'phone-resource' : ''}"
-      href="${escapeAttribute(url || '#')}"
-      ${isPhone ? '' : 'target="_blank" rel="noopener"'}
+      href="${escapeAttribute(
+        url ||
+        '#'
+      )}"
+      aria-label="${escapeAttribute(
+        actionLabel
+      )}: ${escapeAttribute(
+        name
+      )}"
+      ${
+        isPhone
+          ? ''
+          : 'target="_blank" rel="noopener"'
+      }
     >
 
+
       <div class="resource-icon">
+
         ${icon}
+
       </div>
 
 
       <div class="resource-name">
-        ${escapeHtml(name)}
+
+        ${escapeHtml(
+          name
+        )}
+
       </div>
 
 
       ${
         resource.description
           ? `
+
             <div class="resource-description">
-              ${escapeHtml(resource.description)}
+
+              ${escapeHtml(
+                resource.description
+              )}
+
             </div>
+
           `
           : ''
       }
@@ -3087,28 +3727,45 @@ function renderResource(resource) {
 
       <div class="resource-bottom">
 
+
         <div>
+
 
           ${
             displayNumber
               ? `
+
                 <div class="resource-number">
-                  ${escapeHtml(displayNumber)}
+
+                  ${escapeHtml(
+                    displayNumber
+                  )}
+
                 </div>
+
               `
               : ''
           }
 
+
           <div class="resource-action-label">
-            ${escapeHtml(actionLabel)}
+
+            ${escapeHtml(
+              actionLabel
+            )}
+
           </div>
+
 
         </div>
 
 
         <div class="resource-arrow">
+
           ›
+
         </div>
+
 
       </div>
 
@@ -3121,7 +3778,14 @@ function renderResource(resource) {
 
 
 
-function renderCrisis(crisis) {
+/* =====================================================
+   CRISIS
+===================================================== */
+
+
+function renderCrisis(
+  crisis
+) {
 
   const displayNumber =
     crisis &&
@@ -3152,54 +3816,84 @@ function renderCrisis(crisis) {
 
   return `
 
+
     <div class="crisis">
 
 
       <div class="crisis-number-block">
 
+
         <div class="crisis-icon">
+
           ${iconPhone()}
+
         </div>
 
+
         <div class="crisis-number">
-          ${escapeHtml(displayNumber)}
+
+          ${escapeHtml(
+            displayNumber
+          )}
+
         </div>
+
 
       </div>
 
 
-      <div class="crisis-divider"></div>
+      <div class="crisis-divider">
+      </div>
 
 
       <div class="crisis-copy">
 
+
         <div class="crisis-title">
-          ${escapeHtml(crisisName)}
+
+          ${escapeHtml(
+            crisisName
+          )}
+
         </div>
 
 
         <div class="crisis-buttons">
 
+
           <a
             class="crisis-button call"
-            href="${escapeAttribute(callUrl)}"
+            href="${escapeAttribute(
+              callUrl
+            )}"
+            aria-label="Call 988 Mental Health Crisis Lifeline"
           >
+
             Call 988
+
           </a>
+
 
           <a
             class="crisis-button"
             href="sms:988"
+            aria-label="Text 988 Mental Health Crisis Lifeline"
           >
+
             Text 988
+
           </a>
+
 
         </div>
 
 
         <div class="crisis-support">
+
           Support is available 24/7.
+
         </div>
+
 
       </div>
 
@@ -3211,13 +3905,20 @@ function renderCrisis(crisis) {
       class="emergency"
       href="tel:911"
     >
+
       Immediate emergency? Call 911
+
     </a>
 
   `;
 
 }
 
+
+
+/* =====================================================
+   REVEAL ANIMATION
+===================================================== */
 
 
 function setupReveal() {
@@ -3250,6 +3951,7 @@ function setupReveal() {
             'visible'
           )
     );
+
 
     return;
 
@@ -3291,8 +3993,12 @@ function setupReveal() {
       },
 
       {
-        root: page,
-        threshold: .04,
+        root:
+          page,
+
+        threshold:
+          .04,
+
         rootMargin:
           '0px 0px 80px 0px'
       }
@@ -3311,74 +4017,166 @@ function setupReveal() {
 
 
 
-function escapeHtml(value) {
+/* =====================================================
+   ESCAPE
+===================================================== */
 
-  return String(value || '')
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;')
-    .replace(/'/g,'&#39;');
+
+function escapeHtml(
+  value
+) {
+
+  return String(
+    value ||
+    ''
+  )
+    .replace(
+      /&/g,
+      '&amp;'
+    )
+    .replace(
+      /</g,
+      '&lt;'
+    )
+    .replace(
+      />/g,
+      '&gt;'
+    )
+    .replace(
+      /"/g,
+      '&quot;'
+    )
+    .replace(
+      /'/g,
+      '&#39;'
+    );
 
 }
 
 
-function escapeAttribute(value) {
+function escapeAttribute(
+  value
+) {
 
-  return escapeHtml(value);
+  return escapeHtml(
+    value
+  );
 
 }
 
 
 
-// =====================================================
-// STATE SCREENS
-//
-// One on-brand component for every non-happy-path: network
-// failure, load timeout, no ?staff= on the link, and staff
-// not found. Replaces the old plain white error box.
-// =====================================================
+/* =====================================================
+   STATE SCREENS
+===================================================== */
 
-function renderState(options) {
+
+function renderState(
+  options
+) {
 
   const app =
-    document.getElementById('app');
+    document.getElementById(
+      'app'
+    );
 
 
   app.innerHTML = `
 
     <div class="state-wrap">
 
+
       <div class="state-card">
 
+
         <div class="state-icon">
+
           ${iconWarn()}
+
         </div>
+
 
         <div class="state-title">
-          ${escapeHtml(options.title)}
+
+          ${escapeHtml(
+            options.title
+          )}
+
         </div>
 
+
         <p class="state-message">
-          ${escapeHtml(options.message)}
+
+          ${escapeHtml(
+            options.message
+          )}
+
         </p>
 
+
         ${
-          options.actionHref
+          (
+            options.actionHref ||
+            options.retry
+          )
             ? `
-              <a
-                class="state-action"
-                href="${escapeAttribute(options.actionHref)}"
-                target="_blank"
-                rel="noopener"
-              >
-                ${escapeHtml(options.actionLabel || 'Learn More')}
-              </a>
+
+              <div class="state-action-row">
+
+
+                ${
+                  options.retry
+                    ? `
+
+                      <button
+                        class="state-action"
+                        type="button"
+                        onclick="retryLoad()"
+                      >
+
+                        Try Again
+
+                      </button>
+
+                    `
+                    : ''
+                }
+
+
+                ${
+                  options.actionHref
+                    ? `
+
+                      <a
+                        class="state-action secondary"
+                        href="${escapeAttribute(
+                          options.actionHref
+                        )}"
+                        target="_blank"
+                        rel="noopener"
+                      >
+
+                        ${escapeHtml(
+                          options.actionLabel ||
+                          'Learn More'
+                        )}
+
+                      </a>
+
+                    `
+                    : ''
+                }
+
+
+              </div>
+
             `
             : ''
         }
 
+
       </div>
+
 
     </div>
 
@@ -3387,34 +4185,62 @@ function renderState(options) {
 }
 
 
+
+/* =====================================================
+   ERROR HANDLING
+===================================================== */
+
+
 function renderNetworkError() {
 
-  if (dataLoaded) {
+  if (
+    dataLoaded
+  ) {
 
     return;
 
   }
 
-  if (loadTimeoutId) {
 
-    clearTimeout(loadTimeoutId);
+  if (
+    loadTimeoutId
+  ) {
+
+    clearTimeout(
+      loadTimeoutId
+    );
 
   }
 
 
   renderState({
-    title: 'Connection Issue',
-    message: "We couldn't load this card. Check your connection and try refreshing.",
-    actionLabel: 'Visit Website',
-    actionHref: FALLBACK_WEBSITE
+
+    title:
+      'Connection Issue',
+
+    message:
+      "We couldn't load this card. Check your connection and try refreshing.",
+
+    actionLabel:
+      'Visit Website',
+
+    actionHref:
+      FALLBACK_WEBSITE,
+
+    retry:
+      true
+
   });
 
 }
 
 
+
 function renderTimeoutError() {
 
-  if (dataLoaded) {
+  if (
+    dataLoaded
+  ) {
 
     return;
 
@@ -3422,10 +4248,22 @@ function renderTimeoutError() {
 
 
   renderState({
-    title: 'Taking Longer Than Usual',
-    message: "This is taking a while to load. You can keep waiting, or visit our website directly.",
-    actionLabel: 'Visit Website',
-    actionHref: FALLBACK_WEBSITE
+
+    title:
+      'Taking Longer Than Usual',
+
+    message:
+      "This is taking a while to load. You can keep waiting, or visit our website directly.",
+
+    actionLabel:
+      'Visit Website',
+
+    actionHref:
+      FALLBACK_WEBSITE,
+
+    retry:
+      true
+
   });
 
 }
