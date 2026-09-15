@@ -1608,6 +1608,19 @@
     }
 
 
+
+
+    .primary-link.directory-link {
+      grid-column: 1 / -1;
+      min-height: 82px;
+    }
+
+
+    .primary-link.directory-link .link-sub {
+      max-width: none;
+    }
+
+
     .primary-link:active {
       transform:
         scale(.975);
@@ -2520,6 +2533,8 @@
 
         <div class="skeleton loading-link"></div>
 
+        <div class="skeleton loading-link" style="grid-column:1 / -1;height:82px;"></div>
+
       </div>
 
 
@@ -2775,70 +2790,84 @@ if (
 
 
 /* =====================================================
-   JSONP CALLBACK
+   DATA LOADING
+   Primary: same-origin GitHub Pages data.json
+   Fallback: Apps Script JSONP
 ===================================================== */
+
+
+const STATIC_DATA_URL =
+  'data.json';
+
+
+const STATIC_LOAD_TIMEOUT_MS =
+  3500;
 
 
 window.processCardData =
   function(data) {
 
-    dataLoaded =
-      true;
-
-
-    if (
-      loadTimeoutId
-    ) {
-
-      clearTimeout(
-        loadTimeoutId
-      );
-
-
-      loadTimeoutId =
-        null;
-
-    }
-
-
-    saveCachedCard(
-      data
-    );
-
-
-    /*
-      If a cached card is already on screen
-      and the fresh server response is identical,
-      leave the page alone.
-
-      This prevents a second render / visual jump.
-    */
-
-    if (
-      cachedData &&
-      sameData(
-        cachedData,
-        data
-      )
-    ) {
-
-      cachedData =
-        data;
-
-      return;
-
-    }
-
-
-    cachedData =
-      data;
-
-
-    handleResponse(
+    acceptCardData(
       data
     );
 
   };
+
+
+
+function acceptCardData(
+  data
+) {
+
+  dataLoaded =
+    true;
+
+
+  if (
+    loadTimeoutId
+  ) {
+
+    clearTimeout(
+      loadTimeoutId
+    );
+
+
+    loadTimeoutId =
+      null;
+
+  }
+
+
+  saveCachedCard(
+    data
+  );
+
+
+  if (
+    cachedData &&
+    sameData(
+      cachedData,
+      data
+    )
+  ) {
+
+    cachedData =
+      data;
+
+    return;
+
+  }
+
+
+  cachedData =
+    data;
+
+
+  handleResponse(
+    data
+  );
+
+}
 
 
 
@@ -2872,30 +2901,182 @@ function sameData(
 
 
 /* =====================================================
-   LOAD FROM APPS SCRIPT
+   STATIC SNAPSHOT -> CARD PAYLOAD
 ===================================================== */
 
 
-function loadData() {
+function cardPayloadFromSnapshot(
+  snapshot
+) {
 
-  dataLoaded =
-    false;
+  const allStaff =
+    Array.isArray(
+      snapshot &&
+      snapshot.staff
+    )
+      ? snapshot.staff
+      : [];
 
 
-  if (
-    loadTimeoutId
-  ) {
+  const staff =
+    allStaff.find(
+      person =>
+        String(
+          person.id ||
+          ''
+        )
+          .toLowerCase()
+          .trim() ===
+        staffId
+    ) ||
+    null;
 
-    clearTimeout(
-      loadTimeoutId
+
+  return {
+
+    ok:
+      true,
+
+    apiVersion:
+      snapshot.apiVersion ||
+      3,
+
+    requestedStaffId:
+      staffId,
+
+    staffFound:
+      Boolean(
+        staff
+      ),
+
+    staff:
+      staff,
+
+    settings:
+      snapshot.settings ||
+      {},
+
+    resources:
+      Array.isArray(
+        snapshot.resources
+      )
+        ? snapshot.resources
+        : [],
+
+    error:
+      null
+
+  };
+
+}
+
+
+
+/* =====================================================
+   LOAD STATIC DATA FIRST
+===================================================== */
+
+
+async function loadStaticData() {
+
+  const controller =
+    (
+      'AbortController'
+      in
+      window
+    )
+      ? new AbortController()
+      : null;
+
+
+  const timeoutId =
+    setTimeout(
+      () => {
+
+        if (
+          controller
+        ) {
+
+          controller.abort();
+
+        }
+
+      },
+      STATIC_LOAD_TIMEOUT_MS
     );
 
 
-    loadTimeoutId =
-      null;
+  try {
+
+    const response =
+      await fetch(
+
+        STATIC_DATA_URL,
+
+        {
+
+          cache:
+            'no-store',
+
+          signal:
+            controller
+              ? controller.signal
+              : undefined
+
+        }
+
+      );
+
+
+    if (
+      !response.ok
+    ) {
+
+      throw new Error(
+        'Static data unavailable'
+      );
+
+    }
+
+
+    const snapshot =
+      await response.json();
+
+
+    clearTimeout(
+      timeoutId
+    );
+
+
+    acceptCardData(
+      cardPayloadFromSnapshot(
+        snapshot
+      )
+    );
 
   }
 
+  catch (error) {
+
+    clearTimeout(
+      timeoutId
+    );
+
+
+    loadAppsScriptFallback();
+
+  }
+
+}
+
+
+
+/* =====================================================
+   APPS SCRIPT FALLBACK
+===================================================== */
+
+
+function loadAppsScriptFallback() {
 
   document
     .querySelectorAll(
@@ -2917,15 +3098,6 @@ function loadData() {
     'true';
 
 
-  /*
-    IMPORTANT:
-
-    No Date.now() cache-buster here anymore.
-
-    That allows the browser/network layer
-    to reuse the request when appropriate.
-  */
-
   script.src =
     API_URL +
     '?staff=' +
@@ -2944,6 +3116,17 @@ function loadData() {
   );
 
 
+  if (
+    loadTimeoutId
+  ) {
+
+    clearTimeout(
+      loadTimeoutId
+    );
+
+  }
+
+
   loadTimeoutId =
     setTimeout(
       renderTimeoutError,
@@ -2955,18 +3138,14 @@ function loadData() {
 
 
 /*
-  We always check the server.
+  Repeat visits still render instantly from localStorage.
 
-  If cache exists:
-  cached card shows immediately,
-  then fresh data updates silently.
-
-  If no cache exists:
-  branded skeleton stays visible
-  until data arrives.
+  Fresh visits now load same-origin data.json from GitHub Pages.
+  Apps Script is only used as a fallback if the static snapshot
+  is missing or temporarily unavailable.
 */
 
-loadData();
+loadStaticData();
 
 
 
@@ -2987,7 +3166,11 @@ function retryLoad() {
     loadingShellHtml();
 
 
-  loadData();
+  dataLoaded =
+    false;
+
+
+  loadStaticData();
 
 }
 
@@ -3950,6 +4133,51 @@ function renderPage(
         </a>
 
 
+        <a
+          class="primary-link directory-link"
+          href="team.html"
+          aria-label="View The Process Recovery Center staff directory"
+        >
+
+
+          <div class="link-icon">
+
+            ${iconPeople()}
+
+          </div>
+
+
+          <div class="link-copy">
+
+
+            <div class="link-title">
+
+              Staff Directory
+
+            </div>
+
+
+            <div class="link-sub">
+
+              View team credentials and contact options
+
+            </div>
+
+
+          </div>
+
+
+          <div class="link-arrow">
+
+            ›
+
+          </div>
+
+
+        </a>
+
+
+
       </div>
 
 
@@ -4664,6 +4892,12 @@ function loadingShellHtml() {
 
 
           <div class="skeleton loading-link"></div>
+
+
+          <div
+            class="skeleton loading-link"
+            style="grid-column:1 / -1;height:82px;"
+          ></div>
 
 
         </div>
