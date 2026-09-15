@@ -1,0 +1,202 @@
+{
+  "apiVersion": 3,
+  "generatedAt": "2026-09-15T02:29:18.022Z",
+  "staff": [
+    {
+      "id": "giuseppe",
+      "name": "Giuseppe Falzone",
+      "credentials": "",
+      "title": "Chief Financial Officer",
+      "phone": "781-558-7205",
+      "phoneHref": "tel:+17815587205",
+      "email": "giuseppe@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "conor",
+      "name": "Conor Norrell",
+      "credentials": "",
+      "title": "Business Development",
+      "phone": "973-714-5028",
+      "phoneHref": "tel:+19737145028",
+      "email": "conor@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "tyler",
+      "name": "Tyler Amigo",
+      "credentials": "",
+      "title": "Director of Business Development",
+      "phone": "603-345-0488",
+      "phoneHref": "tel:+16033450488",
+      "email": "tylera@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "sammi",
+      "name": "Samantha McDaniel",
+      "credentials": "CRSW",
+      "title": "Admissions Director",
+      "phone": "603-923-1257",
+      "phoneHref": "tel:+16039231257",
+      "email": "samanthamcd@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "michellev",
+      "name": "Michelle Leclerc",
+      "credentials": "CRSW",
+      "title": "Chief Operating Officer",
+      "phone": "603-513-3431",
+      "phoneHref": "tel:+16035133431",
+      "email": "michelle@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "trey",
+      "name": "Trey Rich",
+      "credentials": "",
+      "title": "Chief Administrative Officer",
+      "phone": "781-417-9532",
+      "phoneHref": "tel:+17814179532",
+      "email": "trey@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "maurine",
+      "name": "Maurine Dahlbloom",
+      "credentials": "CRSW",
+      "title": "Director of Human Resources",
+      "phone": "603-793-2969",
+      "phoneHref": "tel:+16037932969",
+      "email": "maurined@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "kevin",
+      "name": "Kevin O'Laughlin",
+      "credentials": "CRSW, RYT-200",
+      "title": "Operations Administrator",
+      "phone": "617-999-7885",
+      "phoneHref": "tel:+16179997885",
+      "email": "kevino@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "chris",
+      "name": "Christopher DiNicola",
+      "credentials": "",
+      "title": "Owner, Chief Executive Officer",
+      "phone": "781-983-4805",
+      "phoneHref": "tel:+17819834805",
+      "email": "chris@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "adama",
+      "name": "Adam Aquizap",
+      "credentials": "",
+      "title": "Director of Detox",
+      "phone": "603-998-4181",
+      "phoneHref": "tel:+16039984181",
+      "email": "adama@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "adamk",
+      "name": "Adam Kelett",
+      "credentials": "CRSW, ADS",
+      "title": "Lead Recovery Support Worker",
+      "phone": "603-921-8556",
+      "phoneHref": "tel:+16039218556",
+      "email": "adamk@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "emily",
+      "name": "Emily Tavanese",
+      "credentials": "PsyD.",
+      "title": "Clinical Psychologist, Program Director",
+      "phone": "978-743-6243",
+      "phoneHref": "tel:+19787436243",
+      "email": "emily@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "traci",
+      "name": "Traci Weaver",
+      "credentials": "MS, MBA, MLADC, LCMHC",
+      "title": "Clinical Director",
+      "phone": "888-649-1149",
+      "phoneHref": "tel:+18886491149",
+      "email": "traciw@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "nicole",
+      "name": "Nicole White",
+      "credentials": "PMHNP-BC",
+      "title": "Medical Director",
+      "phone": "603.402.3810",
+      "phoneHref": "tel:+16034023810",
+      "email": "nicole@Theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    }
+  ],
+  "settings": {
+    "admissions_phone": "888-649-1149",
+    "admissionsHref": "tel:+18886491149",
+    "main_website": "https://www.theprocessrecoverycenter.com",
+    "main_address": "21 Factory Street, Nashua, NH 03060",
+    "mapsHref": "https://www.google.com/maps/dir/?api=1&destination=21%20Factory%20Street%2C%20Nashua%2C%20NH%2003060&travelmode=driving&dir_action=navigate",
+    "process_logo": "https://process603.github.io/process-card-assets/process-logo-web.png",
+    "king_logo": "https://process603.github.io/process-card-assets/king-logo-web.png"
+  },
+  "resources": [
+    {
+      "category": "Resources",
+      "name": "Respite",
+      "description": "After Hours Substance Abuse Resources",
+      "url": "tel:211",
+      "actionLabel": "Call Respite",
+      "displayNumber": "211",
+      "icon": ""
+    },
+    {
+      "category": "Resources",
+      "name": "Doorways",
+      "description": "Substance Abuse Resources",
+      "url": "tel:+16034022056",
+      "actionLabel": "Call Doorways",
+      "displayNumber": "603-402-2056",
+      "icon": ""
+    },
+    {
+      "category": "Recovery",
+      "name": "Alcoholics Anonymous",
+      "description": "Find local meetings and recovery support",
+      "url": "https://www.aa.org",
+      "actionLabel": "Find Meetings",
+      "displayNumber": "",
+      "icon": ""
+    },
+    {
+      "category": "Recovery",
+      "name": "Narcotics Anonymous",
+      "description": "Find local meetings and recovery support",
+      "url": "https://www.na.org",
+      "actionLabel": "Find Meetings",
+      "displayNumber": "",
+      "icon": ""
+    },
+    {
+      "category": "Crisis",
+      "name": "Mental Health Crisis Lifeline",
+      "description": "Emergency",
+      "url": "tel:988",
+      "actionLabel": "Call or Text",
+      "displayNumber": "988",
+      "icon": ""
+    }
+  ]
+}
