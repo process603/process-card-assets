@@ -1434,6 +1434,64 @@
 
 
 
+
+    /* =====================================================
+       SOCIAL LINKS
+    ===================================================== */
+
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+
+      margin-top: 12px;
+    }
+
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 44px;
+      height: 44px;
+
+      border:
+        1px solid rgba(105,188,224,.34);
+
+      border-radius: 50%;
+
+      color: var(--blue-soft);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(17,46,64,.96),
+          rgba(5,20,29,.98)
+        );
+
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04),
+        0 8px 20px rgba(0,0,0,.16);
+
+      transition:
+        transform .18s ease,
+        border-color .18s ease;
+    }
+
+
+    .social-link:active {
+      transform: scale(.94);
+    }
+
+
+    .social-link svg {
+      width: 20px;
+      height: 20px;
+    }
+
+
     /* =====================================================
        SECTION TITLE
     ===================================================== */
@@ -3164,6 +3222,64 @@ function iconPeople() {
 
 
 
+function iconFacebook() {
+
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path
+        d="M13.5 22v-9h3l.45-3.5H13.5V7.26c0-1.01.28-1.7 1.73-1.7H17V2.43c-.31-.04-1.37-.13-2.6-.13-2.57 0-4.33 1.57-4.33 4.45V9.5H7v3.5h3.07v9h3.43Z"
+      ></path>
+    </svg>
+  `;
+
+}
+
+
+
+function iconInstagram() {
+
+  return `
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="5"
+      ></rect>
+
+      <circle
+        cx="12"
+        cy="12"
+        r="4"
+      ></circle>
+
+      <circle
+        cx="17.5"
+        cy="6.5"
+        r="1"
+        fill="currentColor"
+        stroke="none"
+      ></circle>
+    </svg>
+  `;
+
+}
+
+
+
 function iconWarn() {
 
   return `
@@ -3799,6 +3915,32 @@ function renderPage(
         </a>
 
 
+
+      </div>
+
+
+      <div class="social-links">
+
+        <a
+          class="social-link"
+          href="https://www.facebook.com/theprocessrecoveryctr/"
+          aria-label="The Process Recovery Center on Facebook"
+          target="_blank"
+          rel="noopener"
+        >
+          ${iconFacebook()}
+        </a>
+
+
+        <a
+          class="social-link"
+          href="https://www.instagram.com/theprocessrecoverycenter/"
+          aria-label="The Process Recovery Center on Instagram"
+          target="_blank"
+          rel="noopener"
+        >
+          ${iconInstagram()}
+        </a>
 
       </div>
 
