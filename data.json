@@ -1,55 +1,15 @@
 {
   "apiVersion": 3,
-  "generatedAt": "2026-09-15T02:49:09.187Z",
+  "generatedAt": "2026-09-15T02:59:09.062Z",
   "staff": [
     {
-      "id": "giuseppe",
-      "name": "Giuseppe Falzone",
+      "id": "chris",
+      "name": "Christopher DiNicola",
       "credentials": "",
-      "title": "Chief Financial Officer",
-      "phone": "781-558-7205",
-      "phoneHref": "tel:+17815587205",
-      "email": "giuseppe@theprocessrecoverycenter.com",
-      "location": "21 Factory Street, Nashua NH 03060"
-    },
-    {
-      "id": "conor",
-      "name": "Conor Norrell",
-      "credentials": "",
-      "title": "Business Development",
-      "phone": "973-714-5028",
-      "phoneHref": "tel:+19737145028",
-      "email": "conor@theprocessrecoverycenter.com",
-      "location": "21 Factory Street, Nashua NH 03060"
-    },
-    {
-      "id": "tyler",
-      "name": "Tyler Amigo",
-      "credentials": "",
-      "title": "Director of Business Development",
-      "phone": "603-345-0488",
-      "phoneHref": "tel:+16033450488",
-      "email": "tylera@theprocessrecoverycenter.com",
-      "location": "21 Factory Street, Nashua NH 03060"
-    },
-    {
-      "id": "sammi",
-      "name": "Samantha McDaniel",
-      "credentials": "CRSW",
-      "title": "Admissions Director",
-      "phone": "603-923-1257",
-      "phoneHref": "tel:+16039231257",
-      "email": "samanthamcd@theprocessrecoverycenter.com",
-      "location": "21 Factory Street, Nashua NH 03060"
-    },
-    {
-      "id": "michellev",
-      "name": "Michelle Leclerc",
-      "credentials": "CRSW",
-      "title": "Chief Operating Officer",
-      "phone": "603-513-3431",
-      "phoneHref": "tel:+16035133431",
-      "email": "michelle@theprocessrecoverycenter.com",
+      "title": "Owner, Chief Executive Officer",
+      "phone": "781-983-4805",
+      "phoneHref": "tel:+17819834805",
+      "email": "chris@theprocessrecoverycenter.com",
       "location": "21 Factory Street, Nashua NH 03060"
     },
     {
@@ -63,33 +23,53 @@
       "location": "21 Factory Street, Nashua NH 03060"
     },
     {
-      "id": "maurine",
-      "name": "Maurine Dahlbloom",
+      "id": "michellev",
+      "name": "Michelle Leclerc",
       "credentials": "CRSW",
-      "title": "Director of Human Resources",
-      "phone": "603-793-2969",
-      "phoneHref": "tel:+16037932969",
-      "email": "maurined@theprocessrecoverycenter.com",
+      "title": "Chief Operating Officer",
+      "phone": "603-513-3431",
+      "phoneHref": "tel:+16035133431",
+      "email": "michelle@theprocessrecoverycenter.com",
       "location": "21 Factory Street, Nashua NH 03060"
     },
     {
-      "id": "kevin",
-      "name": "Kevin O'Laughlin",
-      "credentials": "CRSW, RYT-200",
-      "title": "Operations Administrator",
-      "phone": "617-999-7885",
-      "phoneHref": "tel:+16179997885",
-      "email": "kevino@theprocessrecoverycenter.com",
-      "location": "21 Factory Street, Nashua NH 03060"
-    },
-    {
-      "id": "chris",
-      "name": "Christopher DiNicola",
+      "id": "giuseppe",
+      "name": "Giuseppe Falzone",
       "credentials": "",
-      "title": "Owner, Chief Executive Officer",
-      "phone": "781-983-4805",
-      "phoneHref": "tel:+17819834805",
-      "email": "chris@theprocessrecoverycenter.com",
+      "title": "Chief Financial Officer",
+      "phone": "781-558-7205",
+      "phoneHref": "tel:+17815587205",
+      "email": "giuseppe@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "tyler",
+      "name": "Tyler Amigo",
+      "credentials": "",
+      "title": "Director of Business Development",
+      "phone": "603-345-0488",
+      "phoneHref": "tel:+16033450488",
+      "email": "tylera@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "conor",
+      "name": "Conor Norrell",
+      "credentials": "",
+      "title": "Business Development",
+      "phone": "973-714-5028",
+      "phoneHref": "tel:+19737145028",
+      "email": "conor@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "sammi",
+      "name": "Samantha McDaniel",
+      "credentials": "CRSW",
+      "title": "Admissions Director",
+      "phone": "603-923-1257",
+      "phoneHref": "tel:+16039231257",
+      "email": "samanthamcd@theprocessrecoverycenter.com",
       "location": "21 Factory Street, Nashua NH 03060"
     },
     {
@@ -103,23 +83,13 @@
       "location": "21 Factory Street, Nashua NH 03060"
     },
     {
-      "id": "adamk",
-      "name": "Adam Kelett",
-      "credentials": "CRSW, ADS",
-      "title": "Lead Recovery Support Worker",
-      "phone": "603-921-8556",
-      "phoneHref": "tel:+16039218556",
-      "email": "adamk@theprocessrecoverycenter.com",
-      "location": "21 Factory Street, Nashua NH 03060"
-    },
-    {
-      "id": "emily",
-      "name": "Emily Tavanese",
-      "credentials": "PsyD.",
-      "title": "Clinical Psychologist, Program Director",
-      "phone": "978-743-6243",
-      "phoneHref": "tel:+19787436243",
-      "email": "emily@theprocessrecoverycenter.com",
+      "id": "nicole",
+      "name": "Nicole White",
+      "credentials": "PMHNP-BC",
+      "title": "Medical Director",
+      "phone": "603.402.3810",
+      "phoneHref": "tel:+16034023810",
+      "email": "nicole@Theprocessrecoverycenter.com",
       "location": "21 Factory Street, Nashua NH 03060"
     },
     {
@@ -133,13 +103,13 @@
       "location": "21 Factory Street, Nashua NH 03060"
     },
     {
-      "id": "nicole",
-      "name": "Nicole White",
-      "credentials": "PMHNP-BC",
-      "title": "Medical Director",
-      "phone": "603.402.3810",
-      "phoneHref": "tel:+16034023810",
-      "email": "nicole@Theprocessrecoverycenter.com",
+      "id": "emily",
+      "name": "Emily Tavanese",
+      "credentials": "PsyD.",
+      "title": "Clinical Psychologist, Program Director",
+      "phone": "978-743-6243",
+      "phoneHref": "tel:+19787436243",
+      "email": "emily@theprocessrecoverycenter.com",
       "location": "21 Factory Street, Nashua NH 03060"
     }
   ],
