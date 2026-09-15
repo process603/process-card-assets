@@ -244,7 +244,7 @@
 <body>
   <main class="page">
     <div class="topbar">
-      <a class="back" href="./" aria-label="Back to digital business card">‹</a>
+      <a class="back" href="./" aria-label="Back to digital business card" id="backLink">‹</a>
 
       <div class="brand">
         <img src="process-mark.png" alt="">
@@ -345,5 +345,20 @@ fetch(DATA_URL, { cache:'no-store' })
       '<div class="state">The staff directory could not be loaded. Please try again shortly.</div>';
   });
 </script>
+
+<script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const fromStaff = String(params.get('from') || '').toLowerCase().trim();
+    const backLink = document.getElementById('backLink');
+
+    if (!backLink) return;
+
+    backLink.href = fromStaff
+      ? './?staff=' + encodeURIComponent(fromStaff)
+      : './';
+  })();
+</script>
+
 </body>
 </html>
