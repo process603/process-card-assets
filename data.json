@@ -1,6 +1,6 @@
 {
   "apiVersion": 3,
-  "generatedAt": "2026-09-15T02:29:18.022Z",
+  "generatedAt": "2026-09-15T02:34:10.240Z",
   "staff": [
     {
       "id": "giuseppe",
@@ -45,7 +45,7 @@
     {
       "id": "michellev",
       "name": "Michelle Leclerc",
-      "credentials": "CRSW",
+      "credentials": "Head Bitch In Charge",
       "title": "Chief Operating Officer",
       "phone": "603-513-3431",
       "phoneHref": "tel:+16035133431",
