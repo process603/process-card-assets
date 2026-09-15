@@ -1,6 +1,6 @@
 {
   "apiVersion": 3,
-  "generatedAt": "2026-09-15T03:04:08.993Z",
+  "generatedAt": "2026-09-15T17:24:08.870Z",
   "staff": [
     {
       "id": "chris",
@@ -65,8 +65,8 @@
     {
       "id": "sammi",
       "name": "Samantha McDaniel",
-      "credentials": "CRSW",
-      "title": "Admissions Director",
+      "credentials": "AS, CRSW",
+      "title": "Admissions Director & Business Development",
       "phone": "603-923-1257",
       "phoneHref": "tel:+16039231257",
       "email": "samanthamcd@theprocessrecoverycenter.com",
