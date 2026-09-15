@@ -1,6 +1,6 @@
 {
   "apiVersion": 3,
-  "generatedAt": "2026-09-15T02:59:09.062Z",
+  "generatedAt": "2026-09-15T03:04:08.993Z",
   "staff": [
     {
       "id": "chris",
@@ -73,6 +73,16 @@
       "location": "21 Factory Street, Nashua NH 03060"
     },
     {
+      "id": "adamk",
+      "name": "Adam Kelett",
+      "credentials": "CRSW, ADS",
+      "title": "Lead Recovery Support Worker",
+      "phone": "603-921-8556",
+      "phoneHref": "tel:+16039218556",
+      "email": "adamk@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
       "id": "adama",
       "name": "Adam Aquizap",
       "credentials": "",
@@ -110,6 +120,26 @@
       "phone": "978-743-6243",
       "phoneHref": "tel:+19787436243",
       "email": "emily@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "maurine",
+      "name": "Maurine Dahlbloom",
+      "credentials": "CRSW",
+      "title": "Director of Human Resources",
+      "phone": "603-793-2969",
+      "phoneHref": "tel:+16037932969",
+      "email": "maurined@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "kevin",
+      "name": "Kevin O'Laughlin",
+      "credentials": "CRSW, RYT-200",
+      "title": "Operations & Technology Coordinator",
+      "phone": "617-999-7885",
+      "phoneHref": "tel:+16179997885",
+      "email": "kevino@theprocessrecoverycenter.com",
       "location": "21 Factory Street, Nashua NH 03060"
     }
   ],
