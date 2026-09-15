@@ -203,385 +203,140 @@
 
 
     /* =====================================================
-       FIRST-LOAD FULL PAGE SKELETON
+       LIGHTWEIGHT FIRST LOAD
+       Small branded placeholder only — no full-page skeleton.
+       Native document scrolling remains untouched.
     ===================================================== */
 
 
     .loading-shell {
       width: 100%;
-
-      background:
-        linear-gradient(
-          180deg,
-          var(--navy) 0%,
-          var(--navy-2) 55%,
-          #01080c 100%
-        );
-    }
-
-
-    .loading-hero {
-      position: relative;
-
-      min-height: 495px;
-
-      overflow: hidden;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-
-      padding:
-        max(
-          18px,
-          env(safe-area-inset-top)
-        )
-        20px
-        25px;
-
-      background-image:
-        linear-gradient(
-          180deg,
-          rgba(2,9,14,.07) 0%,
-          rgba(2,9,14,.11) 24%,
-          rgba(2,10,16,.25) 46%,
-          rgba(3,15,23,.72) 71%,
-          var(--navy) 100%
-        ),
-        url("bridge-hero.webp");
-
-      background-size: cover;
-      background-position: center 44%;
-    }
-
-
-    .loading-shell-brand {
-      position: absolute;
-
-      top:
-        max(
-          19px,
-          env(safe-area-inset-top)
-        );
-
-      left: 20px;
+      min-height: 290px;
 
       display: flex;
       align-items: center;
+      justify-content: center;
 
-      gap: 11px;
+      padding:
+        max(28px, env(safe-area-inset-top))
+        24px
+        32px;
+
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at 50% 18%,
+          rgba(0,184,244,.12),
+          transparent 42%
+        ),
+        linear-gradient(
+          180deg,
+          var(--navy) 0%,
+          var(--navy-2) 100%
+        );
+    }
+
+
+    .loading-compact {
+      width: 100%;
+      max-width: 300px;
+    }
+
+
+    .loading-compact-mark {
+      display: block;
+
+      width: 72px;
+      height: 72px;
+
+      margin:
+        0 auto 14px;
+
+      object-fit: contain;
 
       filter:
         drop-shadow(
-          0 3px 7px rgba(0,0,0,.65)
+          0 0 14px rgba(73,200,246,.18)
         );
     }
 
 
-    .loading-shell-brand img {
-      width: 67px;
-      height: 67px;
+    .loading-compact-title {
+      color: var(--white);
 
-      object-fit: contain;
+      font-size: 20px;
+      font-weight: 800;
+
+      letter-spacing: 1.4px;
+
+      text-transform: uppercase;
     }
 
 
-    .loading-brand-copy {
-      color: white;
+    .loading-compact-sub {
+      margin-top: 7px;
 
-      text-shadow:
-        0 2px 7px rgba(0,0,0,.88),
-        0 5px 15px rgba(0,0,0,.48);
-    }
+      color: var(--muted);
 
-
-    .loading-brand-the {
-      margin-bottom: 2px;
-
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 600;
 
-      line-height: 1;
-
-      letter-spacing: 5px;
-
-      text-transform: uppercase;
+      letter-spacing: .55px;
     }
 
 
-    .loading-brand-process {
-      font-size: 29px;
-      font-weight: 700;
-
-      line-height: .96;
-
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
-    }
-
-
-    .loading-brand-sub {
-      margin-top: 6px;
-
-      color: #d9eff8;
-
-      font-size: 8px;
-      font-weight: 600;
-
-      line-height: 1;
-
-      letter-spacing: 3px;
-
-      text-transform: uppercase;
-    }
-
-
-    .loading-identity {
-      width: 100%;
-    }
-
-
-    .skeleton {
-      position: relative;
-
-      overflow: hidden;
-
-      background:
-        rgba(255,255,255,.10);
-    }
-
-
-    /* Static skeletons reduce first-load rendering work. */
-    .skeleton::after {
-      content: none;
-    }
-
-
-    .skeleton-name {
-      width: 74%;
-      height: 48px;
-
-      margin-bottom: 11px;
-
-      border-radius: 10px;
-    }
-
-
-    .skeleton-credentials {
-      width: 34%;
-      height: 12px;
-
-      margin-bottom: 14px;
-
-      border-radius: 999px;
-    }
-
-
-    .skeleton-title {
-      width: 53%;
-      height: 17px;
-
-      margin-bottom: 18px;
-
-      border-radius: 999px;
-    }
-
-
-    .skeleton-actions {
-      display: grid;
-
-      grid-template-columns:
-        repeat(
-          3,
-          minmax(0,1fr)
-        );
-
-      gap: 9px;
-    }
-
-
-    .skeleton-button {
-      height: 102px;
-
-      border-radius: 18px;
-    }
-
-
-    .loading-body {
-      width: 100%;
-
-      padding:
-        0
-        17px
-        24px;
-    }
-
-
-    .loading-admissions {
-      height: 132px;
-
-      margin-bottom: 11px;
-
-      border-radius: 20px;
-
-      border:
-        1px solid rgba(18,199,255,.40);
-
-      background:
-        rgba(8,39,57,.78);
-    }
-
-
-    .loading-primary-links {
-      display: grid;
-
-      grid-template-columns:
-        repeat(
-          2,
-          minmax(0,1fr)
-        );
-
-      gap: 9px;
-    }
-
-
-    .loading-link {
-      height: 108px;
-
-      border-radius: 17px;
-
-      border:
-        1px solid rgba(105,188,224,.22);
-
-      background:
-        rgba(10,34,48,.70);
-    }
-
-
-    .loading-heading-row {
+    .loading-dots {
       display: flex;
+      align-items: center;
+      justify-content: center;
 
-      justify-content: space-between;
-      align-items: flex-end;
+      gap: 6px;
 
-      margin:
-        30px
-        3px
-        14px;
-
-      padding-bottom: 9px;
-
-      border-bottom:
-        1px solid rgba(91,209,255,.26);
+      margin-top: 18px;
     }
 
 
-    .loading-heading-main {
-      width: 48%;
-      height: 14px;
-
-      border-radius: 999px;
-    }
-
-
-    .loading-heading-side {
-      width: 23%;
-      height: 22px;
-
-      border-radius: 6px;
-    }
-
-
-    .loading-resource-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(
-          2,
-          minmax(0,1fr)
-        );
-
-      gap: 9px;
-    }
-
-
-    .loading-resource {
-      height: 178px;
-
-      border-radius: 18px;
-
-      border:
-        1px solid rgba(95,190,230,.20);
-
-      background:
-        rgba(12,42,58,.62);
-    }
-
-
-    .loading-crisis {
-      height: 145px;
-
-      margin-top: 16px;
-
-      border-radius: 20px;
-
-      border:
-        1px solid rgba(22,199,255,.28);
-
-      background:
-        rgba(7,38,58,.68);
-    }
-
-
-    .loading-footer {
-      padding:
-        30px
-        12px
-        26px;
-
-      text-align: center;
-    }
-
-
-    .loading-footer-mark {
-      width: 52px;
-      height: 52px;
-
-      margin:
-        0 auto 12px;
+    .loading-dots span {
+      width: 5px;
+      height: 5px;
 
       border-radius: 50%;
+
+      background: var(--blue);
+
+      opacity: .45;
+
+      animation:
+        loadingDot
+        1.15s
+        ease-in-out
+        infinite;
     }
 
 
-    .loading-footer-line {
-      width: 150px;
-      height: 9px;
-
-      margin:
-        8px auto;
-
-      border-radius: 999px;
+    .loading-dots span:nth-child(2) {
+      animation-delay: .14s;
     }
 
 
-    .loading-footer-line.short {
-      width: 100px;
+    .loading-dots span:nth-child(3) {
+      animation-delay: .28s;
     }
 
 
-    .loading-footer-logo {
-      width: 132px;
-      height: 70px;
+    @keyframes loadingDot {
+      0%,
+      70%,
+      100% {
+        opacity: .28;
+        transform: translateY(0);
+      }
 
-      margin:
-        14px auto;
-
-      border-radius: 19px;
-
-      background:
-        rgba(255,255,255,.10);
+      35% {
+        opacity: 1;
+        transform: translateY(-3px);
+      }
     }
 
 
@@ -2274,61 +2029,16 @@
 
 
     /* =====================================================
-       REVEAL ANIMATIONS
+       CONTENT VISIBILITY
+       Content is immediately visible. No IntersectionObserver,
+       delayed reveal, or scroll-dependent rendering.
     ===================================================== */
 
 
     .reveal {
-      opacity: 0;
-
-      transform:
-        translateY(22px)
-        scale(.985);
-
-      transition:
-        opacity .72s ease,
-        transform .72s cubic-bezier(.22,.8,.24,1);
-    }
-
-
-    .reveal.visible {
       opacity: 1;
-
-      transform:
-        translateY(0)
-        scale(1);
+      transform: none;
     }
-
-
-    .resource-card.reveal:nth-child(1) {
-      transition-delay: .03s;
-    }
-
-
-    .resource-card.reveal:nth-child(2) {
-      transition-delay: .10s;
-    }
-
-
-    .resource-card.reveal:nth-child(3) {
-      transition-delay: .17s;
-    }
-
-
-    .resource-card.reveal:nth-child(4) {
-      transition-delay: .24s;
-    }
-
-
-    .resource-card.reveal:nth-child(5) {
-      transition-delay: .31s;
-    }
-
-
-    .resource-card.reveal:nth-child(6) {
-      transition-delay: .38s;
-    }
-
 
 
     /* =====================================================
@@ -2441,15 +2151,6 @@
           .001ms !important;
       }
 
-
-      .reveal {
-        opacity: 1;
-
-        transform: none;
-
-        filter: none;
-      }
-
     }
 
   </style>
@@ -2466,115 +2167,36 @@
 >
 
 
-  <!-- IMMEDIATE FIRST-LOAD FULL PAGE SKELETON -->
+  <section
+    class="loading-shell"
+    aria-live="polite"
+    aria-label="Loading staff card"
+  >
 
-  <section class="loading-shell">
+    <div class="loading-compact">
 
-    <div class="loading-hero">
+      <img
+        class="loading-compact-mark"
+        src="process-mark.png"
+        alt=""
+        fetchpriority="high"
+      >
 
-      <div class="loading-shell-brand">
-
-        <img
-          src="process-mark.png"
-          alt=""
-          fetchpriority="high"
-        >
-
-        <div class="loading-brand-copy">
-
-          <div class="loading-brand-the">
-            The
-          </div>
-
-          <div class="loading-brand-process">
-            Process
-          </div>
-
-          <div class="loading-brand-sub">
-            Recovery Center
-          </div>
-
-        </div>
-
+      <div class="loading-compact-title">
+        The Process
       </div>
 
-
-      <div class="loading-identity">
-
-        <div class="skeleton skeleton-name"></div>
-
-        <div class="skeleton skeleton-credentials"></div>
-
-        <div class="skeleton skeleton-title"></div>
-
-        <div class="skeleton-actions">
-
-          <div class="skeleton skeleton-button"></div>
-
-          <div class="skeleton skeleton-button"></div>
-
-          <div class="skeleton skeleton-button"></div>
-
-        </div>
-
+      <div class="loading-compact-sub">
+        Loading staff card…
       </div>
 
-    </div>
-
-
-    <div class="loading-body">
-
-      <div class="skeleton loading-admissions"></div>
-
-
-      <div class="loading-primary-links">
-
-        <div class="skeleton loading-link"></div>
-
-        <div class="skeleton loading-link"></div>
-
-        <div class="skeleton loading-link" style="grid-column:1 / -1;height:82px;"></div>
-
-      </div>
-
-
-      <div class="loading-heading-row">
-
-        <div class="skeleton loading-heading-main"></div>
-
-        <div class="skeleton loading-heading-side"></div>
-
-      </div>
-
-
-      <div class="loading-resource-grid">
-
-        <div class="skeleton loading-resource"></div>
-
-        <div class="skeleton loading-resource"></div>
-
-        <div class="skeleton loading-resource"></div>
-
-        <div class="skeleton loading-resource"></div>
-
-      </div>
-
-
-      <div class="skeleton loading-crisis"></div>
-
-
-      <div class="loading-footer">
-
-        <div class="skeleton loading-footer-mark"></div>
-
-        <div class="skeleton loading-footer-line"></div>
-
-        <div class="skeleton loading-footer-logo"></div>
-
-        <div class="skeleton loading-footer-line short"></div>
-
-        <div class="skeleton loading-footer-line"></div>
-
+      <div
+        class="loading-dots"
+        aria-hidden="true"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
 
     </div>
@@ -4328,8 +3950,6 @@ function renderPage(
   `;
 
 
-  setupReveal();
-
 }
 
 
@@ -4693,103 +4313,7 @@ function renderCrisis(
 
 
 /* =====================================================
-   REVEAL ANIMATION
-===================================================== */
-
-
-function setupReveal() {
-
-  const elements =
-    document.querySelectorAll(
-      '.reveal'
-    );
-
-
-  if (
-    !(
-      'IntersectionObserver'
-      in
-      window
-    )
-  ) {
-
-    elements.forEach(
-      element =>
-        element
-          .classList
-          .add(
-            'visible'
-          )
-    );
-
-
-    return;
-
-  }
-
-
-  const observer =
-    new IntersectionObserver(
-
-      entries => {
-
-        entries.forEach(
-
-          entry => {
-
-            if (
-              entry.isIntersecting
-            ) {
-
-              entry
-                .target
-                .classList
-                .add(
-                  'visible'
-                );
-
-
-              observer.unobserve(
-                entry.target
-              );
-
-            }
-
-          }
-
-        );
-
-      },
-
-      {
-
-        root:
-          null,
-
-        threshold:
-          .04,
-
-        rootMargin:
-          '0px 0px 80px 0px'
-
-      }
-
-    );
-
-
-  elements.forEach(
-    element =>
-      observer.observe(
-        element
-      )
-  );
-
-}
-
-
-
-/* =====================================================
-   LOADING SHELL HTML
+   LIGHTWEIGHT LOADING STATE
 ===================================================== */
 
 
@@ -4797,172 +4321,38 @@ function loadingShellHtml() {
 
   return `
 
-    <section class="loading-shell">
+    <section
+      class="loading-shell"
+      aria-live="polite"
+      aria-label="Loading staff card"
+    >
 
+      <div class="loading-compact">
 
-      <div class="loading-hero">
+        <img
+          class="loading-compact-mark"
+          src="process-mark.png"
+          alt=""
+        >
 
-
-        <div class="loading-shell-brand">
-
-
-          <img
-            src="process-mark.png"
-            alt=""
-          >
-
-
-          <div class="loading-brand-copy">
-
-
-            <div class="loading-brand-the">
-
-              The
-
-            </div>
-
-
-            <div class="loading-brand-process">
-
-              Process
-
-            </div>
-
-
-            <div class="loading-brand-sub">
-
-              Recovery Center
-
-            </div>
-
-
-          </div>
-
-
+        <div class="loading-compact-title">
+          The Process
         </div>
 
-
-
-        <div class="loading-identity">
-
-
-          <div class="skeleton skeleton-name"></div>
-
-
-          <div class="skeleton skeleton-credentials"></div>
-
-
-          <div class="skeleton skeleton-title"></div>
-
-
-
-          <div class="skeleton-actions">
-
-
-            <div class="skeleton skeleton-button"></div>
-
-
-            <div class="skeleton skeleton-button"></div>
-
-
-            <div class="skeleton skeleton-button"></div>
-
-
-          </div>
-
-
+        <div class="loading-compact-sub">
+          Loading staff card…
         </div>
 
+        <div
+          class="loading-dots"
+          aria-hidden="true"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
 
       </div>
-
-
-
-      <div class="loading-body">
-
-
-        <div class="skeleton loading-admissions"></div>
-
-
-
-        <div class="loading-primary-links">
-
-
-          <div class="skeleton loading-link"></div>
-
-
-          <div class="skeleton loading-link"></div>
-
-
-          <div
-            class="skeleton loading-link"
-            style="grid-column:1 / -1;height:82px;"
-          ></div>
-
-
-        </div>
-
-
-
-        <div class="loading-heading-row">
-
-
-          <div class="skeleton loading-heading-main"></div>
-
-
-          <div class="skeleton loading-heading-side"></div>
-
-
-        </div>
-
-
-
-        <div class="loading-resource-grid">
-
-
-          <div class="skeleton loading-resource"></div>
-
-
-          <div class="skeleton loading-resource"></div>
-
-
-          <div class="skeleton loading-resource"></div>
-
-
-          <div class="skeleton loading-resource"></div>
-
-
-        </div>
-
-
-
-        <div class="skeleton loading-crisis"></div>
-
-
-
-        <div class="loading-footer">
-
-
-          <div class="skeleton loading-footer-mark"></div>
-
-
-          <div class="skeleton loading-footer-line"></div>
-
-
-          <div class="skeleton loading-footer-logo"></div>
-
-
-          <div class="skeleton loading-footer-line short"></div>
-
-
-          <div class="skeleton loading-footer-line"></div>
-
-
-        </div>
-
-
-      </div>
-
 
     </section>
 
