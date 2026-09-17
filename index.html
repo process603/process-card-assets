@@ -1325,7 +1325,7 @@
 
       grid-template-columns:
         repeat(
-          2,
+          3,
           minmax(0,1fr)
         );
 
@@ -1363,6 +1363,78 @@
     }
 
 
+
+
+    .primary-links > .primary-link:not(.directory-link) {
+      min-height: 112px;
+
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      gap: 7px;
+
+      padding: 12px 10px;
+    }
+
+
+    .primary-links > .primary-link:not(.directory-link)
+    .link-icon {
+      width: 30px;
+      height: 30px;
+
+      min-width: 30px;
+    }
+
+
+    .primary-links > .primary-link:not(.directory-link)
+    .link-title {
+      font-size: 11px;
+    }
+
+
+    .primary-links > .primary-link:not(.directory-link)
+    .link-sub {
+      max-width: 100%;
+
+      font-size: 7.8px;
+
+      white-space: normal;
+    }
+
+
+    .primary-links > .primary-link:not(.directory-link)
+    .link-arrow {
+      display: none;
+    }
+
+
+    .primary-link.admissions-link {
+      border-color: rgba(18,199,255,.82);
+
+      background:
+        radial-gradient(
+          circle at 18% 0%,
+          rgba(96,222,255,.16),
+          transparent 46%
+        ),
+        linear-gradient(
+          145deg,
+          rgba(13,104,145,.94),
+          rgba(4,42,61,.98)
+        );
+    }
+
+
+    .primary-link.admissions-link .link-title {
+      color: #ffffff;
+    }
+
+
+    .primary-link.admissions-link .link-sub {
+      color: #d4f3ff;
+      font-weight: 700;
+    }
 
 
     .primary-link.directory-link {
@@ -3432,6 +3504,16 @@ function renderPage(
     ).length;
 
 
+  const firstName =
+    String(
+      staff.name ||
+      ''
+    )
+      .trim()
+      .split(/\s+/)[0] ||
+    'Staff';
+
+
   let nameClass =
     '';
 
@@ -3598,7 +3680,9 @@ function renderPage(
 
             <div class="contact-label">
 
-              Call
+              Call ${escapeHtml(
+                firstName
+              )}
 
             </div>
 
@@ -3700,75 +3784,6 @@ function renderPage(
     <section class="content">
 
 
-      <a
-        class="admissions reveal"
-        href="${escapeAttribute(
-          settings.admissionsHref
-        )}"
-        aria-label="Call The Process Recovery Center admissions at ${escapeAttribute(
-          settings.admissions_phone
-        )}"
-      >
-
-
-        <div class="admissions-icon">
-
-          ${iconPhone()}
-
-        </div>
-
-
-        <div class="admissions-copy">
-
-
-          <div class="admissions-kicker">
-
-            Talk With Admissions
-
-          </div>
-
-
-          <div class="admissions-title">
-
-            ADMISSIONS
-
-            <span>
-              24/7
-            </span>
-
-          </div>
-
-
-          <div class="admissions-number">
-
-            ${escapeHtml(
-              settings.admissions_phone
-            )}
-
-          </div>
-
-
-          <div class="admissions-sub">
-
-            Real people. Real help. Any time.
-
-          </div>
-
-
-        </div>
-
-
-        <div class="admissions-arrow">
-
-          ›
-
-        </div>
-
-
-      </a>
-
-
-
       <div class="primary-links reveal">
 
 
@@ -3782,43 +3797,50 @@ function renderPage(
           rel="noopener"
         >
 
-
           <div class="link-icon">
-
             ${iconGlobe()}
-
           </div>
-
 
           <div class="link-copy">
-
-
             <div class="link-title">
-
-              Visit Process Website
-
+              Website
             </div>
-
 
             <div class="link-sub">
-
-              theprocessrecoverycenter.com
-
+              Programs & services
             </div>
-
-
           </div>
-
-
-          <div class="link-arrow">
-
-            ›
-
-          </div>
-
 
         </a>
 
+
+        <a
+          class="primary-link admissions-link"
+          href="${escapeAttribute(
+            settings.admissionsHref
+          )}"
+          aria-label="Call The Process Recovery Center admissions at ${escapeAttribute(
+            settings.admissions_phone
+          )}"
+        >
+
+          <div class="link-icon">
+            ${iconPhone()}
+          </div>
+
+          <div class="link-copy">
+            <div class="link-title">
+              Admissions 24/7
+            </div>
+
+            <div class="link-sub">
+              ${escapeHtml(
+                settings.admissions_phone
+              )}
+            </div>
+          </div>
+
+        </a>
 
 
         <a
@@ -3831,42 +3853,19 @@ function renderPage(
           rel="noopener"
         >
 
-
           <div class="link-icon">
-
             ${iconPin()}
-
           </div>
-
 
           <div class="link-copy">
-
-
             <div class="link-title">
-
-              Get Directions
-
+              Directions
             </div>
-
 
             <div class="link-sub">
-
-              ${escapeHtml(
-                settings.main_address
-              )}
-
+              21 Factory Street
             </div>
-
-
           </div>
-
-
-          <div class="link-arrow">
-
-            ›
-
-          </div>
-
 
         </a>
 
@@ -3877,43 +3876,25 @@ function renderPage(
           aria-label="View The Process Recovery Center staff directory"
         >
 
-
           <div class="link-icon">
-
             ${iconPeople()}
-
           </div>
-
 
           <div class="link-copy">
-
-
             <div class="link-title">
-
               Staff Directory
-
             </div>
-
 
             <div class="link-sub">
-
               View team credentials and contact options
-
             </div>
-
-
           </div>
-
 
           <div class="link-arrow">
-
             ›
-
           </div>
 
-
         </a>
-
 
 
       </div>
@@ -4123,12 +4104,37 @@ function renderResource(
     ).trim();
 
 
+  const isDoorways =
+    nameLower.includes(
+      'door'
+    );
+
+
   const isPhone =
+    !isDoorways &&
     url
       .toLowerCase()
       .startsWith(
         'tel:'
       );
+
+
+  const isInternal =
+    isDoorways;
+
+
+  const resourceHref =
+    isDoorways
+      ? (
+          'doorways.html?from=' +
+          encodeURIComponent(
+            staffId
+          )
+        )
+      : (
+          url ||
+          '#'
+        );
 
 
   const icon =
@@ -4139,9 +4145,13 @@ function renderResource(
 
 
   const displayNumber =
-    resource.displayNumber ||
-    resource.display_number ||
-    '';
+    isDoorways
+      ? ''
+      : (
+          resource.displayNumber ||
+          resource.display_number ||
+          ''
+        );
 
 
   let actionLabel =
@@ -4150,7 +4160,16 @@ function renderResource(
     '';
 
 
-  if (!actionLabel) {
+  if (
+    isDoorways
+  ) {
+
+    actionLabel =
+      'View NH Locations';
+
+  }
+
+  else if (!actionLabel) {
 
     if (
       nameLower.includes(
@@ -4160,17 +4179,6 @@ function renderResource(
 
       actionLabel =
         'Call Respite';
-
-    }
-
-    else if (
-      nameLower.includes(
-        'door'
-      )
-    ) {
-
-      actionLabel =
-        'Call Doorways';
 
     }
 
@@ -4212,18 +4220,19 @@ function renderResource(
 
     <a
       class="resource-card reveal ${isPhone ? 'phone-resource' : ''}"
-      href="${
-        isPhone
-          ? escapeAttribute(url)
-          : escapeAttribute(url || '#')
-      }"
+      href="${escapeAttribute(
+        resourceHref
+      )}"
       aria-label="${escapeAttribute(
         actionLabel
       )}: ${escapeAttribute(
         name
       )}"
       ${
-        isPhone
+        (
+          isPhone ||
+          isInternal
+        )
           ? ''
           : 'target="_blank" rel="noopener"'
       }
