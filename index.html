@@ -1526,8 +1526,8 @@
       align-items: center;
       justify-content: center;
 
-      width: 44px;
-      height: 44px;
+      width: 58px;
+      height: 58px;
 
       border:
         1px solid rgba(105,188,224,.34);
@@ -1559,8 +1559,19 @@
 
 
     .social-link svg {
-      width: 23px;
-      height: 23px;
+      width: 29px;
+      height: 29px;
+    }
+
+
+    .social-link.facebook {
+      color: #1877F2;
+      border-color: rgba(24,119,242,.55);
+    }
+
+
+    .social-link.instagram {
+      border-color: rgba(225,48,108,.55);
     }
 
 
@@ -3318,32 +3329,48 @@ function iconInstagram() {
     <svg
       viewBox="0 0 24 24"
       fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
       aria-hidden="true"
     >
+      <defs>
+        <linearGradient
+          id="instagramGradient"
+          x1="3"
+          y1="21"
+          x2="21"
+          y2="3"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0%" stop-color="#FEDA75"></stop>
+          <stop offset="25%" stop-color="#FA7E1E"></stop>
+          <stop offset="50%" stop-color="#D62976"></stop>
+          <stop offset="75%" stop-color="#962FBF"></stop>
+          <stop offset="100%" stop-color="#4F5BD5"></stop>
+        </linearGradient>
+      </defs>
+
       <rect
         x="3"
         y="3"
         width="18"
         height="18"
         rx="5"
+        stroke="url(#instagramGradient)"
+        stroke-width="2.2"
       ></rect>
 
       <circle
         cx="12"
         cy="12"
         r="4"
+        stroke="url(#instagramGradient)"
+        stroke-width="2.2"
       ></circle>
 
       <circle
         cx="17.5"
         cy="6.5"
         r="1"
-        fill="currentColor"
-        stroke="none"
+        fill="#D62976"
       ></circle>
     </svg>
   `;
@@ -3803,7 +3830,7 @@ function renderPage(
 
           <div class="link-copy">
             <div class="link-title">
-              Website
+              Process Website
             </div>
 
             <div class="link-sub">
@@ -3859,7 +3886,7 @@ function renderPage(
 
           <div class="link-copy">
             <div class="link-title">
-              Directions
+              Directions to Process
             </div>
 
             <div class="link-sub">
@@ -3903,7 +3930,7 @@ function renderPage(
       <div class="social-links">
 
         <a
-          class="social-link"
+          class="social-link facebook"
           href="https://www.facebook.com/theprocessrecoveryctr/"
           aria-label="The Process Recovery Center on Facebook"
           target="_blank"
@@ -3914,7 +3941,7 @@ function renderPage(
 
 
         <a
-          class="social-link"
+          class="social-link instagram"
           href="https://www.instagram.com/theprocessrecoverycenter/"
           aria-label="The Process Recovery Center on Instagram"
           target="_blank"
