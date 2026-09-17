@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#031019">
+  <meta name="description" content="New Hampshire Doorway locations and contact information.">
+  <title>NH Doorway Locations | The Process Recovery Center</title>
+
+  <link rel="icon" type="image/png" href="process-mark.png">
+  <link rel="preload" as="image" href="process-mark.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --blue:#5bd1ff;
+      --blue-bright:#00b8f4;
+      --blue-soft:#b6eaff;
+      --navy:#061722;
+      --navy-2:#031018;
+      --black:#01070b;
+      --white:#fff;
+      --muted:#9eb4bf;
+    }
+
+    * { box-sizing:border-box; }
+
+    html, body {
+      width:100%;
+      min-height:100%;
+      margin:0;
+      padding:0;
+      background:#01070b;
+      color:#fff;
+      font-family:"Manrope",Arial,Helvetica,sans-serif;
+      -webkit-text-size-adjust:100%;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 15% 10%, rgba(0,184,244,.11), transparent 30%),
+        linear-gradient(180deg,var(--navy) 0%,var(--black) 100%);
+    }
+
+    a {
+      color:inherit;
+      text-decoration:none;
+      -webkit-tap-highlight-color:transparent;
+      touch-action:manipulation;
+    }
+
+    .page {
+      width:100%;
+      max-width:520px;
+      min-height:100vh;
+      margin:0 auto;
+      padding:
+        max(22px,env(safe-area-inset-top))
+        17px
+        max(28px,env(safe-area-inset-bottom));
+      background:
+        radial-gradient(circle at 92% 35%,rgba(0,184,244,.06),transparent 25%),
+        linear-gradient(180deg,var(--navy) 0%,var(--navy-2) 55%,#01080c 100%);
+      box-shadow:0 0 80px rgba(0,0,0,.58);
+    }
+
+    .topbar {
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .back {
+      width:42px;
+      height:42px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      border:1px solid rgba(91,209,255,.28);
+      border-radius:50%;
+      color:var(--blue-soft);
+      background:rgba(255,255,255,.04);
+      font-size:25px;
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:9px;
+      min-width:0;
+    }
+
+    .brand img {
+      width:45px;
+      height:45px;
+      object-fit:contain;
+    }
+
+    .brand-name {
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:1.8px;
+      text-transform:uppercase;
+    }
+
+    .brand-sub {
+      margin-top:3px;
+      color:var(--muted);
+      font-size:8px;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+    }
+
+    .hero {
+      margin-top:27px;
+      padding-bottom:18px;
+      border-bottom:1px solid rgba(91,209,255,.28);
+    }
+
+    h1 {
+      margin:0;
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:44px;
+      line-height:.95;
+      letter-spacing:-.6px;
+    }
+
+    .intro {
+      max-width:410px;
+      margin-top:10px;
+      color:#b2c7d0;
+      font-size:12px;
+      line-height:1.55;
+    }
+
+    .statewide {
+      margin-top:18px;
+      padding:16px;
+      border:1px solid rgba(18,199,255,.72);
+      border-radius:17px;
+      background:
+        radial-gradient(circle at 100% 0%,rgba(91,209,255,.10),transparent 45%),
+        linear-gradient(145deg,#0d4664,#08293b);
+    }
+
+    .statewide-kicker {
+      color:var(--blue-soft);
+      font-size:8px;
+      font-weight:800;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+    }
+
+    .statewide-row {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-top:6px;
+    }
+
+    .statewide-title {
+      font-size:18px;
+      font-weight:800;
+    }
+
+    .statewide-call {
+      flex-shrink:0;
+      padding:10px 14px;
+      border-radius:999px;
+      background:linear-gradient(145deg,#0da8df,#056798);
+      color:white;
+      font-size:11px;
+      font-weight:800;
+    }
+
+    .directory {
+      display:grid;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .doorway-card {
+      padding:16px;
+      border:1px solid rgba(95,190,230,.30);
+      border-radius:18px;
+      background:
+        radial-gradient(circle at 100% 0%,rgba(91,209,255,.07),transparent 45%),
+        linear-gradient(145deg,#102d3e,#061620);
+      box-shadow:0 10px 25px rgba(0,0,0,.18);
+    }
+
+    .city {
+      color:var(--blue);
+      font-size:8px;
+      font-weight:800;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+    }
+
+    .doorway-name {
+      margin-top:5px;
+      font-family:"Cormorant Garamond",Georgia,serif;
+      font-size:25px;
+      font-weight:700;
+      line-height:1.05;
+    }
+
+    .address {
+      margin-top:8px;
+      color:#c7d6dc;
+      font-size:10.5px;
+      line-height:1.45;
+    }
+
+    .phone-number {
+      margin-top:9px;
+      color:var(--blue-soft);
+      font-size:14px;
+      font-weight:800;
+      font-variant-numeric:tabular-nums;
+    }
+
+    .actions {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:7px;
+      margin-top:14px;
+    }
+
+    .action {
+      min-height:43px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 6px;
+      border:1px solid rgba(91,209,255,.28);
+      border-radius:11px;
+      color:#d7f3ff;
+      background:rgba(255,255,255,.035);
+      font-size:9px;
+      font-weight:800;
+      letter-spacing:.3px;
+      text-align:center;
+    }
+
+    .action.primary {
+      border-color:#38d0ff;
+      color:#fff;
+      background:linear-gradient(145deg,#0da8df,#056798);
+    }
+
+    .official-link {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      margin-top:16px;
+      padding:10px 14px;
+      border:1px solid rgba(91,209,255,.24);
+      border-radius:13px;
+      color:var(--blue-soft);
+      background:rgba(255,255,255,.035);
+      font-size:10px;
+      font-weight:800;
+      text-align:center;
+    }
+
+    .note {
+      margin-top:10px;
+      color:#6f8792;
+      font-size:8px;
+      line-height:1.5;
+      text-align:center;
+    }
+
+    .footer {
+      padding:30px 0 6px;
+      text-align:center;
+      color:#78909b;
+      font-size:8px;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+    }
+
+    @media (max-width:370px) {
+      h1 { font-size:39px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <div class="topbar">
+      <a class="back" href="./" aria-label="Back to digital business card" id="backLink">‹</a>
+
+      <div class="brand">
+        <img src="process-mark.png" alt="">
+        <div>
+          <div class="brand-name">The Process Recovery Center</div>
+          <div class="brand-sub">NH Doorway Locations</div>
+        </div>
+      </div>
+    </div>
+
+
+    <section class="hero">
+      <h1>Find a Doorway</h1>
+
+      <div class="intro">
+        New Hampshire's Doorway locations provide access to substance use treatment, recovery support and care coordination across the state.
+      </div>
+    </section>
+
+
+    <section class="statewide">
+      <div class="statewide-kicker">Available Statewide 24/7</div>
+
+      <div class="statewide-row">
+        <div class="statewide-title">Call 2-1-1 for help</div>
+
+        <a class="statewide-call" href="tel:211">
+          Call 211
+        </a>
+      </div>
+    </section>
+
+
+    <section class="directory">
+      
+      <article class="doorway-card">
+        <div class="city">Berlin</div>
+        <div class="doorway-name">The Doorway at AVH</div>
+        <div class="address">7 Page Hill Road, Berlin, NH 03570</div>
+        <div class="phone-number">603-342-5000</div>
+
+        <div class="actions">
+          <a class="action primary" href="tel:+16033425000" aria-label="Call The Doorway at AVH">
+            Call
+          </a>
+
+          <a class="action" href="https://www.google.com/maps/dir/?api=1&destination=7%20Page%20Hill%20Road%2C%20Berlin%2C%20NH%2003570" target="_blank" rel="noopener" aria-label="Get directions to The Doorway at AVH">
+            Directions
+          </a>
+        </div>
+      </article>
+
+      <article class="doorway-card">
+        <div class="city">Concord</div>
+        <div class="doorway-name">The Doorway at Concord</div>
+        <div class="address">246 Pleasant Street, Suite 104, Concord, NH 03301</div>
+        <div class="phone-number">2-1-1</div>
+
+        <div class="actions">
+          <a class="action primary" href="tel:211" aria-label="Call The Doorway at Concord">
+            Call
+          </a>
+
+          <a class="action" href="https://www.google.com/maps/dir/?api=1&destination=246%20Pleasant%20Street%2C%20Suite%20104%2C%20Concord%2C%20NH%2003301" target="_blank" rel="noopener" aria-label="Get directions to The Doorway at Concord">
+            Directions
+          </a>
+        </div>
+      </article>
+
+      <article class="doorway-card">
+        <div class="city">Dover</div>
+        <div class="doorway-name">The Doorway at Wentworth-Douglass Hospital</div>
+        <div class="address">798 Central Avenue, Dover, NH 03820</div>
+        <div class="phone-number">603-609-6690</div>
+
+        <div class="actions">
+          <a class="action primary" href="tel:+16036096690" aria-label="Call The Doorway at Wentworth-Douglass Hospital">
+            Call
+          </a>
+
+          <a class="action" href="https://www.google.com/maps/dir/?api=1&destination=798%20Central%20Avenue%2C%20Dover%2C%20NH%2003820" target="_blank" rel="noopener" aria-label="Get directions to The Doorway at Wentworth-Douglass Hospital">
+            Directions
+          </a>
+        </div>
+      </article>
+
+      <article class="doorway-card">
+        <div class="city">Keene</div>
+        <div class="doorway-name">The Doorway at Cheshire Medical Center</div>
+        <div class="address">24 Railroad Street, Keene, NH 03431</div>
+        <div class="phone-number">603-354-5454</div>
+
+        <div class="actions">
+          <a class="action primary" href="tel:+16033545454" aria-label="Call The Doorway at Cheshire Medical Center">
+            Call
+          </a>
+
+          <a class="action" href="https://www.google.com/maps/dir/?api=1&destination=24%20Railroad%20Street%2C%20Keene%2C%20NH%2003431" target="_blank" rel="noopener" aria-label="Get directions to The Doorway at Cheshire Medical Center">
+            Directions
+          </a>
+        </div>
+      </article>
+
+      <article class="doorway-card">
+        <div class="city">Laconia</div>
+        <div class="doorway-name">The Doorway at Concord Hospital-Laconia</div>
+        <div class="address">80 Highland Street, Laconia, NH 03246</div>
+        <div class="phone-number">603-934-8905</div>
+
+        <div class="actions">
+          <a class="action primary" href="tel:+16039348905" aria-label="Call The Doorway at Concord Hospital-Laconia">
+            Call
+          </a>
+
+          <a class="action" href="https://www.google.com/maps/dir/?api=1&destination=80%20Highland%20Street%2C%20Laconia%2C%20NH%2003246" target="_blank" rel="noopener" aria-label="Get directions to The Doorway at Concord Hospital-Laconia">
+            Directions
+          </a>
+        </div>
+      </article>
+
+      <article class="doorway-card">
+        <div class="city">Lebanon</div>
+        <div class="doorway-name">The Doorway at Dartmouth Hitchcock</div>
+        <div class="address">85 Mechanic Street, Suite 3-B1, Lebanon, NH 03766</div>
+        <div class="phone-number">603-653-1860</div>
+
+        <div class="actions">
+          <a class="action primary" href="tel:+16036531860" aria-label="Call The Doorway at Dartmouth Hitchcock">
+            Call
+          </a>
+
+          <a class="action" href="https://www.google.com/maps/dir/?api=1&destination=85%20Mechanic%20Street%2C%20Suite%203-B1%2C%20Lebanon%2C%20NH%2003766" target="_blank" rel="noopener" aria-label="Get directions to The Doorway at Dartmouth Hitchcock">
+            Directions
+          </a>
+        </div>
+      </article>
+
+      <article class="doorway-card">
+        <div class="city">Littleton</div>
+        <div class="doorway-name">The Doorway at Littleton Regional Healthcare</div>
+        <div class="address">11 Riverglen Lane, Suite 100, Littleton, NH 03561</div>
+        <div class="phone-number">603-259-1659</div>
+
+        <div class="actions">
+          <a class="action primary" href="tel:+16032591659" aria-label="Call The Doorway at Littleton Regional Healthcare">
+            Call
+          </a>
+
+          <a class="action" href="https://www.google.com/maps/dir/?api=1&destination=11%20Riverglen%20Lane%2C%20Suite%20100%2C%20Littleton%2C%20NH%2003561" target="_blank" rel="noopener" aria-label="Get directions to The Doorway at Littleton Regional Healthcare">
+            Directions
+          </a>
+        </div>
+      </article>
+
+      <article class="doorway-card">
+        <div class="city">Manchester</div>
+        <div class="doorway-name">The Greater Manchester Doorway Program</div>
+        <div class="address">300 Hanover Street, Manchester, NH 03104</div>
+        <div class="phone-number">603-663-4430</div>
+
+        <div class="actions">
+          <a class="action primary" href="tel:+16036634430" aria-label="Call The Greater Manchester Doorway Program">
+            Call
+          </a>
+
+          <a class="action" href="https://www.google.com/maps/dir/?api=1&destination=300%20Hanover%20Street%2C%20Manchester%2C%20NH%2003104" target="_blank" rel="noopener" aria-label="Get directions to The Greater Manchester Doorway Program">
+            Directions
+          </a>
+        </div>
+      </article>
+
+      <article class="doorway-card">
+        <div class="city">Nashua</div>
+        <div class="doorway-name">The Doorway of Greater Nashua</div>
+        <div class="address">268 Main Street, Nashua, NH 03064</div>
+        <div class="phone-number">603-402-2056</div>
+
+        <div class="actions">
+          <a class="action primary" href="tel:+16034022056" aria-label="Call The Doorway of Greater Nashua">
+            Call
+          </a>
+
+          <a class="action" href="https://www.google.com/maps/dir/?api=1&destination=268%20Main%20Street%2C%20Nashua%2C%20NH%2003064" target="_blank" rel="noopener" aria-label="Get directions to The Doorway of Greater Nashua">
+            Directions
+          </a>
+        </div>
+      </article>
+
+    </section>
+
+
+    <a
+      class="official-link"
+      href="https://www.thedoorway.nh.gov/doorway-locations"
+      target="_blank"
+      rel="noopener"
+    >
+      View Official NH Doorway Locator
+    </a>
+
+    <div class="note">
+      Doorway locations and contact information can change. The official NH Doorway locator and 2-1-1 remain the best sources for current statewide access.
+    </div>
+
+
+    <footer class="footer">
+      The Process Recovery Center
+    </footer>
+
+  </main>
+
+
+<script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const fromStaff = String(params.get('from') || '').toLowerCase().trim();
+    const backLink = document.getElementById('backLink');
+
+    if (!backLink) return;
+
+    backLink.href = fromStaff
+      ? './?staff=' + encodeURIComponent(fromStaff)
+      : './';
+  })();
+</script>
+
+</body>
+</html>
