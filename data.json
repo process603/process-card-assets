@@ -1,6 +1,6 @@
 {
   "apiVersion": 3,
-  "generatedAt": "2026-11-11T17:04:08.509Z",
+  "generatedAt": "2026-11-11T17:09:09.107Z",
   "staff": [
     {
       "id": "chris",
@@ -131,6 +131,16 @@
       "phoneHref": "tel:+18573341640",
       "email": "Bridget@theprocessrecoverycenter.com",
       "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "joey",
+      "name": "Joseph Hayes",
+      "credentials": "",
+      "title": "Director of Client Services",
+      "phone": "",
+      "phoneHref": "",
+      "email": "",
+      "location": ""
     }
   ],
   "settings": {
