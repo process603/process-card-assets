@@ -1,6 +1,6 @@
 {
   "apiVersion": 3,
-  "generatedAt": "2026-09-15T17:24:08.870Z",
+  "generatedAt": "2026-11-11T17:04:08.509Z",
   "staff": [
     {
       "id": "chris",
@@ -40,26 +40,6 @@
       "phone": "781-558-7205",
       "phoneHref": "tel:+17815587205",
       "email": "giuseppe@theprocessrecoverycenter.com",
-      "location": "21 Factory Street, Nashua NH 03060"
-    },
-    {
-      "id": "tyler",
-      "name": "Tyler Amigo",
-      "credentials": "",
-      "title": "Director of Business Development",
-      "phone": "603-345-0488",
-      "phoneHref": "tel:+16033450488",
-      "email": "tylera@theprocessrecoverycenter.com",
-      "location": "21 Factory Street, Nashua NH 03060"
-    },
-    {
-      "id": "conor",
-      "name": "Conor Norrell",
-      "credentials": "",
-      "title": "Business Development",
-      "phone": "973-714-5028",
-      "phoneHref": "tel:+19737145028",
-      "email": "conor@theprocessrecoverycenter.com",
       "location": "21 Factory Street, Nashua NH 03060"
     },
     {
@@ -140,6 +120,16 @@
       "phone": "617-999-7885",
       "phoneHref": "tel:+16179997885",
       "email": "kevino@theprocessrecoverycenter.com",
+      "location": "21 Factory Street, Nashua NH 03060"
+    },
+    {
+      "id": "bridget",
+      "name": "Bridget Martin",
+      "credentials": "",
+      "title": "Administrative Coordinator",
+      "phone": "857-334-1640",
+      "phoneHref": "tel:+18573341640",
+      "email": "Bridget@theprocessrecoverycenter.com",
       "location": "21 Factory Street, Nashua NH 03060"
     }
   ],
